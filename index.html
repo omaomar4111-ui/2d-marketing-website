@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<title>2D Marketing — نظام تسويق بيبيع مش بس بينشر</title>
+<meta name="description" content="وكالة نمو وأداء تسويقي. بنبني أنظمة تجيب عملاء حقيقيين للعيادات والجيمات والعقارات والمتاجر. Leads حقيقية · ROI موثق · ضمان 90 يوم."/>
+<meta name="theme-color" content="#c00000"/>
+<meta property="og:title" content="2D Marketing — نظام بيبيع مش بس بينشر"/>
+<meta property="og:description" content="أنظمة تجيب عملاء للعيادات والجيمات والعقارات. Leads حقيقية · ROI موثق."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://2dmarketing.agency/"/>
+<meta property="og:image" content="https://2dmarketing.agency/og.jpg"/>
+<meta property="og:site_name" content="2D Marketing Agency"/>
+<meta property="og:locale" content="ar_EG"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://2dmarketing.agency/"/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MarketingAgency","name":"2D Marketing Agency","url":"https://2dmarketing.agency","telephone":"+201554024284","priceRange":"$$$$","description":"Growth & Performance Marketing Agency"}
+</script>
+
+<script>
+window.TRACKING={GTM:{enabled:false,id:'GTM-XXXXXXX'},GA4:{enabled:false,id:'G-XXXXXXXXXX'},META:{enabled:false,id:'PIXEL_ID'},TIKTOK:{enabled:false,id:'TIKTOK_PIXEL_ID'}};
+window.dataLayer = window.dataLayer || [];
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/main.css"/>
+<link rel="stylesheet" href="css/pages.css"/>
+
+<style>
+/* صفحة الهوم — الأنماط المخصصة */
+#s-ignition{display:flex;align-items:center;justify-content:center;text-align:center;padding:120px var(--section-x) 80px;overflow:hidden;min-height:100svh;position:relative}
+.ignition-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% -10%,rgba(192,0,0,0.18) 0%,transparent 70%);pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+.orb-1{width:520px;height:520px;top:-120px;right:-80px;background:radial-gradient(circle,rgba(192,0,0,0.22) 0%,transparent 70%);animation:orbFloat 9s ease-in-out infinite}
+.orb-2{width:360px;height:360px;bottom:-60px;left:-60px;background:radial-gradient(circle,rgba(139,0,0,0.16) 0%,transparent 70%);animation:orbFloat 12s ease-in-out infinite reverse}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(18px,-24px) scale(1.05)}66%{transform:translate(-14px,16px) scale(0.97)}}
+.ignition-content{position:relative;z-index:2;max-width:780px}
+#awaken-dot{width:8px;height:8px;border-radius:50%;background:var(--c-red-h);margin:0 auto var(--sp-8);animation:pulseDot 1.8s ease-in-out infinite}
+#awaken-text{font-size:var(--t-hero);font-weight:900;line-height:1.05;opacity:0;min-height:2.2em;background:linear-gradient(135deg,#fff 15%,#ffaaaa 55%,#fff 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#awaken-rotating{display:block;font-size:var(--t-md);font-weight:700;color:var(--c-red-h);margin:var(--sp-4) 0 var(--sp-6);min-height:1.4em;opacity:0}
+#awaken-ctas{display:flex;align-items:center;justify-content:center;gap:var(--sp-4);flex-wrap:wrap;opacity:0}
+#awaken-stats{display:flex;gap:clamp(20px,5vw,60px);justify-content:center;margin-top:var(--sp-10);opacity:0;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-size:var(--t-3xl);font-weight:900;font-family:var(--font-mono);color:var(--c-w100);display:block}
+.stat-l{font-size:var(--t-xs);color:var(--c-w40);font-weight:700}
+#scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(192,0,0,0.7),transparent);animation:scrollPulse 2s ease-in-out infinite}
+.scroll-label{font-size:10px;letter-spacing:3px;color:rgba(192,0,0,0.5);text-transform:uppercase}
+@keyframes scrollPulse{0%,100%{transform:scaleY(1);opacity:0.7}50%{transform:scaleY(1.2);opacity:1}}
+
+#s-diagnosis{overflow:hidden;padding:var(--section-y) 0;display:flex;flex-direction:column;align-items:center;gap:var(--sp-10)}
+.diagnosis-header{text-align:center;padding:0 var(--section-x)}
+.problem-marquee-row{width:100%;overflow:hidden}
+.problem-track{display:flex;gap:0;white-space:nowrap;animation:marqueeScroll 28s linear infinite}
+.problem-track:hover{animation-play-state:paused}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.problem-item{font-size:clamp(36px,8vw,100px);font-weight:900;padding:0 clamp(30px,5vw,60px);color:rgba(255,255,255,0.06);cursor:pointer;flex-shrink:0;transition:color 0.3s,transform 0.2s}
+.problem-item:hover{color:rgba(192,0,0,0.4);transform:scale(1.03)}
+.problem-item.lit{color:rgba(192,0,0,0.9)}
+.anchor-statement{text-align:center;padding:0 var(--section-x);max-width:var(--narrow-w);margin:0 auto}
+.anchor-line1{font-size:var(--t-xl);font-weight:900;color:var(--c-w100)}
+.anchor-line2{font-size:var(--t-xl);font-weight:900;color:var(--c-red-h)}
+#problem-detail{max-width:var(--narrow-w);margin:0 auto;padding:var(--sp-6) var(--sp-8);background:rgba(192,0,0,0.08);border:1px solid rgba(192,0,0,0.20);border-radius:var(--r-xl);display:none;text-align:right;width:100%}
+
+#s-engine{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:40px;padding:var(--section-y) var(--section-x)}
+.orbit-container{position:relative;width:440px;height:440px;flex-shrink:0}
+.orbit-ring-svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(192,0,0,0.12)}
+.orbit-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(192,0,0,0.8) 0%,rgba(139,0,0,0.4) 60%,transparent 100%);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;text-align:center;z-index:5;box-shadow:0 0 40px rgba(192,0,0,0.4)}
+.orbit-step{position:absolute;width:56px;height:56px;border-radius:50%;background:rgba(10,0,0,0.8);border:1px solid rgba(192,0,0,0.30);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;backdrop-filter:blur(8px);transition:all 250ms var(--e-spring)}
+.orbit-step:hover,.orbit-step.active{border-color:var(--c-red-h);box-shadow:0 0 0 4px rgba(192,0,0,0.12),0 0 20px rgba(192,0,0,0.4);transform:scale(1.15)}
+.orbit-step-num{position:absolute;top:2px;right:6px;font-size:9px;font-weight:800;color:var(--c-red-h)}
+.orbit-info{flex:1;min-width:280px;max-width:420px}
+#orbit-detail{padding:var(--sp-6);background:rgba(192,0,0,0.08);border:1px solid rgba(192,0,0,0.18);border-radius:var(--r-lg);margin-top:var(--sp-6);display:none}
+.orbit-detail-num{font-size:var(--t-xs);font-weight:700;color:rgba(192,0,0,0.7);letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--sp-2)}
+.orbit-detail-title{font-size:var(--t-lg);font-weight:900;margin-bottom:var(--sp-2);color:#fff}
+.orbit-detail-desc{font-size:var(--t-sm);color:var(--c-w60);line-height:1.75}
+.orbit-detail-output{font-size:var(--t-xs);color:var(--c-red-h);margin-top:var(--sp-3);font-weight:700}
+@media(max-width:768px){.orbit-container{width:280px;height:280px}.orbit-step{width:44px;height:44px;font-size:14px}#s-engine{flex-direction:column;gap:var(--sp-8)}}
+
+.counters-row{display:flex;gap:clamp(20px,5vw,60px);justify-content:center;flex-wrap:wrap;margin:var(--sp-12) 0}
+.counter{text-align:center}
+.counter-n{font-size:var(--t-3xl);font-weight:900;font-family:var(--font-mono);color:var(--c-w100);display:block}
+.counter-l{font-size:var(--t-xs);color:var(--c-w40);font-weight:700;margin-top:var(--sp-1)}
+.methodology-note{font-size:var(--t-xs);color:var(--c-w40);margin-bottom:var(--sp-12);font-style:italic}
+.bench-strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:var(--sp-4);padding:var(--sp-4) var(--section-x) var(--sp-6)}
+.bench-card{flex-shrink:0;scroll-snap-align:start;width:min(340px,85vw);border-radius:var(--r-xl);padding:var(--sp-6);text-align:right;background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border)}
+.bench-tag{font-size:var(--t-xs);font-weight:700;color:var(--c-red-h);letter-spacing:1px;margin-bottom:var(--sp-3)}
+.bench-h{font-size:var(--t-xl);font-weight:900;margin-bottom:var(--sp-2);color:#fff}
+.bench-meta{font-size:var(--t-sm);color:var(--c-w60)}
+.bench-note{font-size:var(--t-xs);color:var(--c-w40);margin-top:var(--sp-3);font-style:italic}
+
+.calc-card{max-width:700px;margin:var(--sp-10) auto 0;background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid rgba(192,0,0,0.20);border-radius:var(--r-2xl);padding:var(--sp-8);position:relative;overflow:hidden}
+.calc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c-red-d),var(--c-red-h))}
+.calc-inputs{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin-bottom:var(--sp-6)}
+.calc-field label{display:block;font-size:var(--t-xs);font-weight:700;color:var(--c-w60);margin-bottom:var(--sp-2)}
+.calc-field .helper{font-size:10px;color:var(--c-w40);margin-top:4px}
+.calc-results{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);margin-bottom:var(--sp-6)}
+.result-card{background:rgba(0,0,0,0.3);border-radius:var(--r-md);padding:var(--sp-4);text-align:center}
+.result-val{font-size:var(--t-xl);font-weight:900;font-family:var(--font-mono);display:block}
+.result-val.negative{color:var(--c-error)}
+.result-val.gold{color:var(--c-gold)}
+.result-val.positive{color:var(--c-success)}
+.result-label{font-size:var(--t-xs);color:var(--c-w40);margin-top:var(--sp-1)}
+@media(max-width:600px){.calc-inputs,.calc-results{grid-template-columns:1fr}.calc-card{padding:var(--sp-6) var(--sp-4)}}
+
+#s-exit{display:flex;align-items:center;justify-content:center;text-align:center;padding:120px var(--section-x) 100px;min-height:60vh;background:var(--c-s1);position:relative;overflow:hidden}
+.exit-content{position:relative;z-index:2}
+#exit-text{font-size:var(--t-4xl);font-weight:900;opacity:0;background:linear-gradient(135deg,#fff 15%,#ffaaaa 55%,#fff 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:var(--sp-10)}
+#exit-cta{opacity:0}
+
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--sp-6);margin-top:var(--sp-10)}
+.pkg{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);border-radius:var(--r-xl);padding:var(--sp-6);position:relative;overflow:hidden;transition:all 300ms var(--e-float)}
+.pkg:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(192,0,0,0.22)}
+.pkg.featured{border-color:rgba(192,0,0,0.45);background:rgba(30,0,0,0.60)}
+.pkg.featured::before{content:'⭐ الأكثر اختياراً';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--c-red-h);color:#fff;font-size:10px;font-weight:800;padding:4px 16px;border-radius:0 0 var(--r-md) var(--r-md);white-space:nowrap}
+.pkg-tier{font-size:var(--t-xs);font-weight:800;color:var(--c-red-h);letter-spacing:3px;text-transform:uppercase;margin-bottom:var(--sp-2)}
+.pkg-name{font-size:var(--t-lg);font-weight:900;margin-bottom:var(--sp-2);color:#fff}
+.pkg-tag{font-size:var(--t-xs);color:var(--c-w40);margin-bottom:var(--sp-4)}
+.pkg-price-box{background:rgba(0,0,0,0.3);border-radius:var(--r-md);padding:var(--sp-4);text-align:center;margin-bottom:var(--sp-4)}
+.pkg-price-label{font-size:var(--t-xs);color:var(--c-w40)}
+.pkg-price{font-size:var(--t-3xl);font-weight:900;font-family:var(--font-mono)}
+.pkg-price span{font-size:var(--t-sm);font-weight:400}
+.pkg-features{list-style:none;display:flex;flex-direction:column;gap:var(--sp-2);margin-bottom:var(--sp-5)}
+.pkg-features li{display:flex;align-items:flex-start;gap:var(--sp-2);font-size:var(--t-sm);color:var(--c-w60)}
+.pkg-features li::before{content:'✓';color:var(--c-success);font-weight:900;flex-shrink:0}
+
+.faq-list{display:flex;flex-direction:column;gap:var(--sp-3);margin-top:var(--sp-8);max-width:var(--narrow-w);margin-left:auto;margin-right:auto}
+.fq{background:rgba(10,0,0,0.6);border:1px solid rgba(192,0,0,0.12);border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-6);cursor:pointer;font-size:var(--t-sm);font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;transition:all 200ms}
+.fq:hover{border-color:rgba(192,0,0,0.30)}
+.fq[aria-expanded="true"]{border-color:rgba(192,0,0,0.35);color:var(--c-red-h)}
+.fq-icon{font-size:12px;transition:transform 300ms;flex-shrink:0}
+.fq[aria-expanded="true"] .fq-icon{transform:rotate(180deg)}
+.fa-body{max-height:0;overflow:hidden;opacity:0;transition:all 400ms cubic-bezier(0.4,0,0.2,1);padding:0 var(--sp-6)}
+.fa-body.open{max-height:400px;opacity:1;padding:0 var(--sp-6) var(--sp-4)}
+.fa-body p{font-size:var(--t-sm);color:var(--c-w60);line-height:1.75;padding-top:var(--sp-3)}
+</style>
+</head>
+
+<body>
+<div id="loader"><div class="loader-bar"></div><div class="loader-text">2D Marketing</div></div>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="fa-search" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208z"/></symbol>
+<symbol id="fa-bars" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></symbol>
+<symbol id="fa-phone" viewBox="0 0 512 512"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/></symbol>
+<symbol id="fa-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/></symbol>
+<symbol id="fa-arrow-left" viewBox="0 0 512 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 105.4-105.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></symbol>
+<symbol id="fa-comment-dots" viewBox="0 0 512 512"><path d="M256 480c141.4 0 256-107.5 256-240S397.4 0 256 0 0 107.5 0 240c0 54.3 19.2 104.3 51.6 144.5L2.8 476.8c-4.8 9-3.3 20 3.6 27.5s17.8 9.8 27.1 5.8l118.4-50.7C183.7 472.6 218.9 480 256 480z"/></symbol>
+<symbol id="fa-rocket" viewBox="0 0 512 512"><path d="M128 320L24.5 320c-24.9 0-40.2-27.1-27.4-48.5L50 183.3C58.7 168.8 74.3 160 91.2 160l95 0c76.1-128.9 189.6-135.4 265.5-124.3 12.8 1.9 22.8 11.9 24.6 24.6 11.1 75.9 4.6 189.4-124.3 265.5l0 95c0 16.9-8.8 32.5-23.3 41.2l-88.2 52.9c-21.3 12.8-48.5-2.6-48.5-27.4L192 384c0-35.3-28.7-64-64-64z"/></symbol>
+<symbol id="fa-triangle-exclamation" viewBox="0 0 512 512"><path d="M256 0c14.7 0 28.2 8.1 35.2 21l216 400c6.7 12.4 6.4 27.4-.8 39.5S486.1 480 472 480L40 480c-14.1 0-27.2-7.4-34.4-19.5s-7.5-27.1-.8-39.5l216-400c7-12.9 20.5-21 35.2-21z"/></symbol>
+<symbol id="fa-gears" viewBox="0 0 640 512"><path d="M415.9 210.5c12.2-3.3 25 2.5 30.5 13.8L465 261.9c10.3 1.4 20.4 4.2 29.9 8.1l35-23.3c10.5-7 24.4-5.6 33.3 3.3l19.2 19.2c8.9 8.9 10.3 22.9 3.3 33.3l-23.3 34.9c1.9 4.7 3.6 9.6 5 14.7 1.4 5.1 2.3 10.1 3 15.2l37.7 18.6c11.3 5.6 17.1 18.4 13.8 30.5l-7 26.2c-3.3 12.1-14.6 20.3-27.2 19.5l-42-2.7c-6.3 8.1-13.6 15.6-21.9 22l2.7 41.9c.8 12.6-7.4 24-19.5 27.2l-26.2 7c-12.2 3.3-24.9-2.5-30.5-13.8l-18.6-37.6c-10.3-1.4-20.4-4.2-29.9-8.1l-35 23.3c-10.5 7-24.4 5.6-33.3-3.3l-19.2-19.2c-8.9-8.9-10.3-22.8-3.3-33.3l23.3-35c-1.9-4.7-3.6-9.6-5-14.7s-2.3-10.2-3-15.2l-37.7-18.6c-11.3-5.6-17-18.4-13.8-30.5l7-26.2c3.3-12.1 14.6-20.3 27.2-19.5l41.9 2.7c6.3-8.1 13.6-15.6 21.9-22l-2.7-41.8c-.8-12.6 7.4-24 19.5-27.2l26.2-7z"/></symbol>
+<symbol id="fa-magnifying-glass-chart" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208z"/></symbol>
+<symbol id="fa-chess" viewBox="0 0 512 512"><path d="M168 56l0 40-78.1 0c-14.3 0-25.9 11.6-25.9 25.9 0 4 .9 8 2.7 11.6l33.4 66.8c-11.4 1.8-20.2 11.7-20.2 23.7 0 13.3 10.7 24 24 24l5.6 0-13.6 136-56.2 70.3c-5 6.3-7.8 14.1-7.8 22.2 0 19.6 15.9 35.5 35.5 35.5l248.9 0c19.6 0 35.5-15.9 35.5-35.5 0-8.1-2.7-15.9-7.8-22.2L288 384 274.4 248 280 248c13.3 0 24-10.7 24-24 0-11.9-8.7-21.9-20.2-23.7l33.4-66.8c1.8-3.6 2.7-7.6 2.7-11.6 0-14.3-11.6-25.9-25.9-25.9l-78.1 0 0-40 16 0c13.3 0 24-10.7 24-24S245.3 8 232 8l-16 0 0-16c0-13.3-10.7-24-24-24S168-21.3 168-8l0 16-16 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l16 0z"/></symbol>
+<symbol id="fa-camera" viewBox="0 0 512 512"><path d="M149.1 64.8L138.7 96 64 96C28.7 96 0 124.7 0 160L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64l-74.7 0-10.4-31.2C356.4 45.2 338.1 32 317.4 32L194.6 32c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></symbol>
+<symbol id="fa-sliders" viewBox="0 0 512 512"><path d="M32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 224zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384z"/></symbol>
+<symbol id="fa-arrow-trend-up" viewBox="0 0 576 512"><path d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32l160 0c17.7 0 32 14.3 32 32l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-82.7-169.4 169.4c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160 384 160z"/></symbol>
+<symbol id="fa-chart-bar" viewBox="0 0 512 512"><path d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32z"/></symbol>
+<symbol id="fa-calculator" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L64 0z"/></symbol>
+<symbol id="fa-layer-group" viewBox="0 0 512 512"><path d="M232.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 149.8C5.4 145.8 0 137.3 0 128s5.4-17.9 13.9-21.8L232.5 5.2z"/></symbol>
+<symbol id="fa-circle-question" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-336c-17.7 0-32 14.3-32 32 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-44.2 35.8-80 80-80s80 35.8 80 80c0 47.2-36 67.2-56 74.5l0 3.8c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-8.1c0-20.5 14.8-35.2 30.1-40.2 6.4-2.1 13.2-5.5 18.2-10.3 4.3-4.2 7.7-10 7.7-19.6 0-17.7-14.3-32-32-32zM224 368a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></symbol>
+<symbol id="fa-chevron-down" viewBox="0 0 448 512"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></symbol>
+<symbol id="fa-check" viewBox="0 0 448 512"><path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z"/></symbol>
+</svg>
+
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+<div id="progress-bar" aria-hidden="true"></div>
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+<nav id="hdr" role="navigation">
+  <a href="./" aria-label="2D Marketing">
+    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23c00000'/><text x='100' y='130' font-size='120' font-weight='900' fill='white' text-anchor='middle' font-family='Arial'>2D</text></svg>" alt="2D Marketing" class="hdr-logo" width="40" height="40"/>
+  </a>
+  <div class="hdr-nav">
+    <a href="#s-engine">النظام</a>
+    <a href="#s-proof">النتايج</a>
+    <a href="services/">الخدمات</a>
+    <a href="about.html">إحنا مين</a>
+    <a href="blog/">المدونة</a>
+    <a href="contact.html">تواصل</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="hdr-search-btn" id="search-btn" aria-label="بحث"><svg class="svgi" style="font-size:16px"><use href="#fa-search"></use></svg></button>
+    <button class="hdr-burger" id="hdr-burger" aria-label="فتح القائمة"><svg class="svgi" style="font-size:18px"><use href="#fa-bars"></use></svg></button>
+    <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 22px">ابدأ الآن</a>
+  </div>
+</nav>
+
+<div id="mmenu" aria-hidden="true"><div class="mmenu-panel">
+  <div class="mmenu-head"><span style="font-weight:900;color:#fff">القائمة</span><button class="mmenu-close" aria-label="إغلاق">✕</button></div>
+  <div class="mmenu-links">
+    <a href="./">الرئيسية</a><a href="#s-engine">النظام</a><a href="services/">الخدمات</a>
+    <a href="about.html">إحنا مين</a><a href="blog/">المدونة</a><a href="contact.html">تواصل معانا</a>
+  </div>
+  <a href="contact.html" class="btn btn-primary" style="justify-content:center">ابدأ المحادثة</a>
+</div></div>
+
+<section id="s-ignition" class="scene">
+  <div class="ignition-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="ignition-content">
+    <div id="awaken-dot"></div>
+    <h1 id="awaken-text" class="text-gradient">بنحوّل التسويق<br/>لنظام بيبيع</h1>
+    <span id="awaken-rotating">عيادات وعقارات وجيمات</span>
+    <div id="awaken-ctas">
+      <button class="btn btn-primary ripple-host" onclick="openConv()"><svg class="svgi" style="font-size:16px"><use href="#fa-rocket"></use></svg> ابدأ المحادثة دلوقتي</button>
+      <a class="btn btn-ghost" href="#s-proof">شوف النتائج <svg class="svgi" style="font-size:13px"><use href="#fa-arrow-left"></use></svg></a>
+    </div>
+    <div id="awaken-stats">
+      <div class="stat"><span class="stat-n" data-target="50" data-suffix="+">50+</span><span class="stat-l">عميل نشط</span></div>
+      <div class="stat"><span class="stat-n" data-target="3.8" data-suffix="×" data-decimal="1">3.8×</span><span class="stat-l">متوسط ROAS</span></div>
+      <div class="stat"><span class="stat-n" data-target="94" data-suffix="%">94%</span><span class="stat-l">معدل الاحتفاظ</span></div>
+      <div class="stat"><span class="stat-n">&lt;4h</span><span class="stat-l">وقت الرد</span></div>
+    </div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span class="scroll-label">اكتشف النظام</span></div>
+</section>
+
+<section id="s-diagnosis" class="scene">
+  <div class="diagnosis-header rv">
+    <div class="section-eyebrow"><svg class="svgi"><use href="#fa-triangle-exclamation"></use></svg>المشكلة الحقيقية</div>
+    <h2 class="section-h2">مألوف؟</h2>
+    <p class="section-sub">دوس على أي مشكلة بتواجهها</p>
+  </div>
+  <div class="problem-marquee-row">
+    <div class="problem-track" id="problemTrack">
+      <span class="problem-item" data-idx="0" onclick="litProblem(0)">12 ريلز · صفر عملاء</span>
+      <span class="problem-item" data-idx="1" onclick="litProblem(1)">ميزانية محروقة</span>
+      <span class="problem-item" data-idx="2" onclick="litProblem(2)">لايكات ≠ مبيعات</span>
+      <span class="problem-item" data-idx="3" onclick="litProblem(3)">وكالات بدون نتايج</span>
+      <span class="problem-item" data-idx="4" onclick="litProblem(4)">CAC مجهول</span>
+      <span class="problem-item" data-idx="5" onclick="litProblem(5)">تقارير بلا قرارات</span>
+      <span class="problem-item" aria-hidden="true">12 ريلز · صفر عملاء</span>
+      <span class="problem-item" aria-hidden="true">ميزانية محروقة</span>
+      <span class="problem-item" aria-hidden="true">لايكات ≠ مبيعات</span>
+      <span class="problem-item" aria-hidden="true">وكالات بدون نتايج</span>
+      <span class="problem-item" aria-hidden="true">CAC مجهول</span>
+      <span class="problem-item" aria-hidden="true">تقارير بلا قرارات</span>
+    </div>
+  </div>
+  <div id="problem-detail">
+    <div style="font-size:var(--t-xs);font-weight:700;color:rgba(192,0,0,0.6);letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--sp-2)" id="prob-label">المشكلة</div>
+    <div style="font-size:var(--t-lg);font-weight:900;margin-bottom:var(--sp-2);color:#fff" id="prob-title"></div>
+    <div style="font-size:var(--t-sm);color:var(--c-w60);line-height:1.75;margin-bottom:var(--sp-4)" id="prob-desc"></div>
+    <div style="font-size:var(--t-sm);font-weight:700;color:var(--c-success)" id="prob-sol"></div>
+  </div>
+  <div class="anchor-statement rv">
+    <p class="anchor-line1">المشكلة مش في التسويق.</p>
+    <p class="anchor-line2">المشكلة إنك بتشتري خدمة بدل نظام.</p>
+  </div>
+</section>
+
+<div data-ad-slot="homepage_top" style="max-width:1140px;margin:0 auto;padding:0 var(--section-x)"></div>
+
+<section id="s-engine" class="scene">
+  <div class="orbit-container rv">
+    <div class="orbit-ring-svg" style="width:240px;height:240px"></div>
+    <div class="orbit-ring-svg" style="width:380px;height:380px"></div>
+    <div class="orbit-center">نظام<br/>النمو</div>
+    <div class="orbit-step" data-step="0" style="left:192px;top:37px" onclick="orbitSelect(0)"><span class="orbit-step-num">1</span><svg class="svgi"><use href="#fa-magnifying-glass-chart"></use></svg></div>
+    <div class="orbit-step" data-step="1" style="left:364px;top:143px" onclick="orbitSelect(1)"><span class="orbit-step-num">2</span><svg class="svgi"><use href="#fa-chess"></use></svg></div>
+    <div class="orbit-step" data-step="2" style="left:364px;top:299px" onclick="orbitSelect(2)"><span class="orbit-step-num">3</span><svg class="svgi"><use href="#fa-camera"></use></svg></div>
+    <div class="orbit-step" data-step="3" style="left:192px;top:405px" onclick="orbitSelect(3)"><span class="orbit-step-num">4</span><svg class="svgi"><use href="#fa-rocket"></use></svg></div>
+    <div class="orbit-step" data-step="4" style="left:20px;top:299px" onclick="orbitSelect(4)"><span class="orbit-step-num">5</span><svg class="svgi"><use href="#fa-sliders"></use></svg></div>
+    <div class="orbit-step" data-step="5" style="left:20px;top:143px" onclick="orbitSelect(5)"><span class="orbit-step-num">6</span><svg class="svgi"><use href="#fa-arrow-trend-up"></use></svg></div>
+  </div>
+  <div class="orbit-info rv">
+    <div class="section-eyebrow"><svg class="svgi"><use href="#fa-gears"></use></svg>النظام الكامل</div>
+    <h2 class="section-h2">6 مراحل · مفيش واحدة تتخطى</h2>
+    <p class="section-sub">كل مرحلة بتبني على اللي قبلها. ده الفرق بين نظام ونتيجة عشوائية.</p>
+    <div id="orbit-detail">
+      <div class="orbit-detail-num" id="orbit-num">المرحلة 1 من 6</div>
+      <div class="orbit-detail-title" id="orbit-title">Research</div>
+      <div class="orbit-detail-desc" id="orbit-desc"></div>
+      <div class="orbit-detail-output" id="orbit-output"></div>
+    </div>
+  </div>
+</section>
+
+<section id="s-proof" class="scene" style="text-align:center">
+  <div class="container">
+    <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-chart-bar"></use></svg>الأرقام بتتكلم</div>
+    <h2 class="section-h2 rv">نتايج بتتقاس — مش بتتوعد</h2>
+    <p class="section-sub rv" style="margin:0 auto var(--sp-8)">دي أرقام بنشتغل بيها كل يوم. مش أحسن نتيجة حققناها — دي المتوسط اللي بنتحاسب عليه.</p>
+    <div class="counters-row">
+      <div class="counter rv"><span class="counter-n" data-target="50" data-suffix="+">50+</span><span class="counter-l">عميل نشط حالياً</span></div>
+      <div class="counter rv"><span class="counter-n" data-target="3.8" data-suffix="×" data-decimal="1">3.8×</span><span class="counter-l">متوسط ROAS</span></div>
+      <div class="counter rv"><span class="counter-n" data-target="5" data-suffix="K+">5K+</span><span class="counter-l">Lead/شهر</span></div>
+      <div class="counter rv"><span class="counter-n" data-target="94" data-suffix="%">94%</span><span class="counter-l">معدل الاحتفاظ</span></div>
+    </div>
+    <p class="methodology-note rv">أرقام مبنية على benchmarks حقيقية — مش وعود فردية.</p>
+  </div>
+  <div class="bench-strip">
+    <div class="bench-card rv"><div class="bench-tag">💪 Fitness</div><h3 class="bench-h">من 120 لـ 300+ Lead شهرياً</h3><p class="bench-meta">في 90 يوم · Meta + Retargeting</p><p class="bench-note">مدى واقعي للقطاع</p></div>
+    <div class="bench-card rv"><div class="bench-tag">🏥 Medical</div><h3 class="bench-h">من 45 لـ 120+ حجز شهرياً</h3><p class="bench-meta">في 120 يوم · Google + YouTube</p><p class="bench-note">متوسط للعيادات</p></div>
+    <div class="bench-card rv"><div class="bench-tag">🏠 Real Estate</div><h3 class="bench-h">ROAS 3.5× لـ 5×</h3><p class="bench-meta">في 60 يوم · Full-Funnel</p><p class="bench-note">للوحدات السكنية</p></div>
+  </div>
+  <div class="container" style="padding-top:0">
+    <button class="btn btn-primary rv ripple-host" onclick="openConv()" style="margin:var(--sp-8) auto;display:inline-flex"><svg class="svgi" style="font-size:16px"><use href="#fa-rocket"></use></svg> شغلك قادر على ده؟</button>
+  </div>
+</section>
+
+<div data-ad-slot="homepage_middle" style="max-width:1140px;margin:0 auto;padding:0 var(--section-x)"></div>
+
+<section id="calc-section" class="scene" style="text-align:center">
+  <div class="container">
+    <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-calculator"></use></svg>حاسبة النمو</div>
+    <h2 class="section-h2 rv">بتخسر كام كل شهر بدون نظام؟</h2>
+    <p class="section-sub rv" style="margin:0 auto var(--sp-6)">دخّل أرقامك الحقيقية — الحاسبة بتتحدث فوراً.</p>
+    <div class="calc-card rv">
+      <div class="calc-inputs">
+        <div class="calc-field"><label for="c-leads">Leads ضايعة كل شهر</label><input class="input" type="number" id="c-leads" value="30" oninput="calcROI()"/><span class="helper">العملاء المحتملين اللي مش بتوصلهم</span></div>
+        <div class="calc-field"><label for="c-val">قيمة العميل (EGP)</label><input class="input" type="number" id="c-val" value="5000" oninput="calcROI()"/><span class="helper">متوسط اللي بيدفعه في أول 3 شهور</span></div>
+        <div class="calc-field"><label for="c-conv">معدل التحويل (%)</label><input class="input" type="number" id="c-conv" value="20" oninput="calcROI()"/><span class="helper">من كل 100 lead — كام بيتحول؟</span></div>
+        <div class="calc-field"><label for="c-pkg">الباقة</label><select class="select" id="c-pkg" onchange="calcROI()"><option value="12000">Growth — 12,000 EGP</option><option value="18000" selected>Scale — 18,000 EGP</option><option value="30000">Authority — 30,000 EGP</option></select></div>
+      </div>
+      <div class="calc-results">
+        <div class="result-card"><span class="result-val negative" id="r-rev">0 EGP</span><span class="result-label">الإيراد الشهري الضايع</span></div>
+        <div class="result-card"><span class="result-val" id="r-annual">0 EGP</span><span class="result-label">الإيراد السنوي المحتمل</span></div>
+        <div class="result-card"><span class="result-val" id="r-roas">×0.00</span><span class="result-label">ROAS المتوقع</span></div>
+      </div>
+      <a id="calc-wa" href="https://wa.me/201554024284" target="_blank" rel="noopener" class="btn btn-primary ripple-host" style="width:100%;justify-content:center"><svg class="svgi"><use href="#fa-whatsapp"></use></svg> ناقش الأرقام دي مع فريقنا</a>
+      <p style="font-size:var(--t-xs);color:var(--c-w40);margin-top:var(--sp-3)">الأرقام تقديرية. النتايج الفعلية بتختلف.</p>
+    </div>
+  </div>
+</section>
+
+<section id="packages" style="padding:var(--section-y) var(--section-x)">
+  <div style="max-width:1140px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:var(--sp-10)">
+      <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-layer-group"></use></svg>مستويات النمو</div>
+      <h2 class="section-h2 rv">اختار مستوى النظام — مش عدد البوستات</h2>
+      <p class="section-sub rv" style="margin:0 auto">كل باقة = نظام اكتساب متكامل.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg rv">
+        <div class="pkg-tier">GROWTH</div>
+        <div class="pkg-name">Acquisition Engine</div>
+        <div class="pkg-tag">لمن يريد نظام توليد Leads مستمر</div>
+        <div class="pkg-price-box"><div class="pkg-price-label">استثمار شهري</div><div class="pkg-price">12,000<span> EGP</span></div></div>
+        <ul class="pkg-features"><li>استراتيجية محتوى شهرية</li><li>حملات Meta Ads مُدارة</li><li>تقرير KPIs شهري</li><li>مدير حساب مخصص</li><li>مراجعة أسبوعية</li></ul>
+        <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="openConv()">ابدأ بـ Growth</button>
+      </div>
+      <div class="pkg featured rv">
+        <div class="pkg-tier" style="color:var(--c-gold)">SCALE</div>
+        <div class="pkg-name">Full Growth System</div>
+        <div class="pkg-tag">فريق تسويق كامل بتكلفة واحدة</div>
+        <div class="pkg-price-box"><div class="pkg-price-label">استثمار شهري</div><div class="pkg-price">18,000<span> EGP</span></div></div>
+        <ul class="pkg-features"><li>كل مميزات Growth +</li><li>Google Ads + Meta Ads</li><li>Landing Page محسّنة</li><li>Lead Tracking & Attribution</li><li>تقرير ROAS أسبوعي</li><li>مدير حساب استراتيجي</li></ul>
+        <button class="btn btn-primary ripple-host" style="width:100%;justify-content:center" onclick="openConv()">احجز مكالمة Scale</button>
+      </div>
+      <div class="pkg rv">
+        <div class="pkg-tier" style="color:var(--c-gold)">AUTHORITY</div>
+        <div class="pkg-name">Market Domination</div>
+        <div class="pkg-tag">للشركات الطموحة</div>
+        <div class="pkg-price-box"><div class="pkg-price-label">استثمار شهري</div><div class="pkg-price" style="color:var(--c-gold)">30,000<span> EGP</span></div></div>
+        <ul class="pkg-features"><li>كل مميزات Scale +</li><li>Multi-channel</li><li>Advanced Analytics</li><li>A/B Testing</li><li>Competitor Intelligence</li><li>جلسات استراتيجية</li></ul>
+        <button class="btn btn-gold ripple-host" style="width:100%;justify-content:center" onclick="openConv()">اتكلم عن Authority</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding:var(--section-y) var(--section-x);background:var(--c-s1)">
+  <div style="max-width:1140px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:var(--sp-8)">
+      <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-circle-question"></use></svg>الأسئلة</div>
+      <h2 class="section-h2 rv">أسئلة قبل القرار</h2>
+    </div>
+    <div class="faq-list">
+      <div class="rv"><div class="fq" tabindex="0"><span>النتايج بتظهر إمتى؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>أول 30 يوم: بناء النظام. 45-60 يوم: أول نتايج. 90 يوم: النظام في كامل طاقته. مش بنوعد بمعجزات في أسبوع.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>الإعلانات المدفوعة جوه الباقة؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>باقة Scale وفوقها بتشمل إدارة الإعلانات كامل. ميزانية الإعلانات بتدفعها مباشرة للمنصة.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>ولو النتايج مش زي ما توقعنا؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>لو موصلناش للـ KPIs بعد 90 يوم — بنعيد الخطة كامل بدون رسوم. الـ KPIs بتتكتب في العقد.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>الفرق بينكم وبين الوكالات؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>بنبيع نظام — مش محتوى. بنقيس بـ Leads — مش لايكات. KPIs في العقد — مش وعود.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>بتشتغلوا مع كل القطاعات؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>بنتخصص في: العيادات، الجيمات، العقارات، والمتاجر.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>مدة العقد؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>3 شهور كحد أدنى. بعدها شهر بشهر.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>أبدأ إزاي؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>مكالمة تشخيص مجانية 20 دقيقة. مفيش التزام.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>سؤالك مش موجود؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p><a href="https://wa.me/201554024284" target="_blank" rel="noopener" style="color:var(--c-success);font-weight:700">اسألنا على الواتساب ←</a></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="s-exit" class="scene">
+  <div class="orb orb-1" style="opacity:0.5"></div>
+  <div class="exit-content">
+    <h2 id="exit-text" style="font-size:var(--t-4xl)">رحلتك بدأت.</h2>
+    <div id="exit-cta" style="opacity:0;transform:translateY(24px) scale(0.9)">
+      <button class="btn btn-primary ripple-host" onclick="openConv()" style="font-size:var(--t-md);padding:18px 44px"><svg class="svgi" style="font-size:18px"><use href="#fa-rocket"></use></svg> احجز مكالمة التشخيص المجانية</button>
+      <p style="margin-top:var(--sp-4);font-size:var(--t-sm);color:var(--c-w40)">20 دقيقة · بدون التزام · بنرد خلال 4 ساعات</p>
+    </div>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23c00000'/><text x='100' y='130' font-size='120' font-weight='900' fill='white' text-anchor='middle' font-family='Arial'>2D</text></svg>" alt="2D" width="44" height="44"/>
+        <p class="footer-tagline">بنبني أنظمة نمو — مش بنبيع محتوى.</p>
+      </div>
+      <div><div class="footer-col-title">الموقع</div><div class="footer-links">
+        <a class="footer-link" href="./">الرئيسية</a>
+        <a class="footer-link" href="services/">الخدمات</a>
+        <a class="footer-link" href="about.html">إحنا مين</a>
+        <a class="footer-link" href="blog/">المدونة</a>
+      </div></div>
+      <div><div class="footer-col-title">القطاعات</div><div class="footer-links">
+        <a class="footer-link" href="services/clinics.html">العيادات</a>
+        <a class="footer-link" href="services/gyms.html">الجيمات</a>
+        <a class="footer-link" href="services/real-estate.html">العقارات</a>
+        <a class="footer-link" href="services/ecommerce.html">المتاجر</a>
+      </div></div>
+      <div><div class="footer-col-title">تواصل</div><div class="footer-links">
+        <a class="footer-link" href="tel:+201554024284"><svg class="svgi"><use href="#fa-phone"></use></svg> 01554024284</a>
+        <a class="footer-link" href="https://wa.me/201554024284" target="_blank" rel="noopener" style="color:#25d366"><svg class="svgi"><use href="#fa-whatsapp"></use></svg> واتساب</a>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footer-year">2026</span> 2D Marketing Agency. كل الحقوق محفوظة.</span>
+      <span style="font-style:italic">مش بنضمن نتايج — بنضمن نظام.</span>
+    </div>
+  </div>
+</footer>
+
+<div id="mbar">
+  <a class="mbar-btn mbar-call" href="tel:+201554024284"><svg class="svgi"><use href="#fa-phone"></use></svg>اتصل</a>
+  <button class="mbar-btn mbar-cta" onclick="openConv()"><svg class="svgi"><use href="#fa-comment-dots"></use></svg>ابدأ المحادثة</button>
+</div>
+
+<div id="conv-overlay" onclick="closeConv()" aria-hidden="true"></div>
+<div id="conv-modal" role="dialog" aria-modal="true">
+  <div class="conv-window">
+    <div class="conv-titlebar">
+      <div class="conv-dots"><div class="conv-dot"></div><div class="conv-dot"></div><div class="conv-dot"></div></div>
+      <div class="conv-title">2D Marketing — مساعد النمو</div>
+      <button onclick="closeConv()" style="margin-right:auto;background:none;border:none;color:var(--c-w40);cursor:pointer;font-size:16px" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="conv-body" id="convBody" aria-live="polite"></div>
+    <div class="conv-progress"><div class="prog-dot active"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+    <div class="conv-choices" id="convChoices"></div>
+    <div class="conv-input-row" id="convInputRow" style="display:none">
+      <input type="tel" class="conv-input-field" id="convInput" placeholder="01xxxxxxxxx" dir="ltr"/>
+      <button class="conv-send" onclick="convSend()" aria-label="إرسال"><svg class="svgi" style="font-size:14px;color:#fff"><use href="#fa-arrow-left"></use></svg></button>
+    </div>
+  </div>
+</div>
+
+<div id="smart-cta">
+  <div class="smart-cta-inner">
+    <div class="smart-cta-msg" id="smartCtaMsg">جاهز تبني نظام نمو حقيقي؟</div>
+    <button class="smart-cta-btn" onclick="openConv()">ابدأ المحادثة</button>
+    <button class="smart-cta-close" onclick="dismissSmartCta()" aria-label="إغلاق">✕</button>
+  </div>
+</div>
+
+<div id="search-overlay"><div class="search-box">
+  <input type="text" class="search-input" id="search-input" placeholder="ابحث في الموقع..." aria-label="بحث"/>
+  <div class="search-hint">اضغط Ctrl + K في أي وقت</div>
+  <div class="search-results" id="search-results"></div>
+</div></div>
+
+<button id="back-to-top" aria-label="ارجع لأعلى"><svg class="svgi" style="font-size:18px;transform:rotate(90deg)"><use href="#fa-arrow-left"></use></svg></button>
+
+<script>
+(function(){
+'use strict';
+var CFG={ownerPhone:'201554024284'};
+function $(s,c){return(c||document).querySelector(s);}
+function $$(s,c){return(c||document).querySelectorAll(s);}
+function on(el,ev,fn,opt){if(el)el.addEventListener(ev,fn,opt||false);}
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function clamp(v,a,b){return Math.min(Math.max(v,a),b);}
+function debounce(fn,ms){var t;return function(){clearTimeout(t);t=setTimeout(fn,ms);};}
+function validatePhone(p){var c=p.replace(/[\s\-+]/g,'');return /^(01[0125]\d{8}|201[0125]\d{8})$/.test(c);}
+function normalizePhone(p){var c=p.replace(/[\s\-+]/g,'');return c.startsWith('201')?c:c.startsWith('01')?'2'+c:c;}
+function formatNum(n){try{return Math.round(n).toLocaleString('ar-EG');}catch(e){return Math.round(n).toString();}}
+
+window.track=function(l,a){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'2d_cta',cta_location:l,cta_action:a,ts:Date.now()});};
+
+/* LOADER */
+(function(){var l=$('#loader');if(!l)return;document.body.classList.add('loading');
+var r=function(){l.classList.add('hidden');document.body.classList.remove('loading');};
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){setTimeout(r,700);});}
+setTimeout(r,2500);})();
+
+/* PROGRESS */
+(function(){var b=$('#progress-bar');if(!b)return;
+on(window,'scroll',function(){var p=window.scrollY/(document.body.scrollHeight-window.innerHeight);b.style.transform='scaleX('+clamp(p,0,1)+')';},{passive:true});})();
+
+/* HEADER */
+(function(){var h=$('#hdr');if(!h)return;on(window,'scroll',function(){h.classList.toggle('scrolled',window.scrollY>60);},{passive:true});})();
+
+/* MENU */
+(function(){var b=$('#hdr-burger'),m=$('#mmenu');if(!b||!m)return;var c=$('.mmenu-close',m);
+on(b,'click',function(){m.classList.add('open');document.body.style.overflow='hidden';});
+on(c,'click',close);on(m,'click',function(e){if(e.target===m)close();});
+on(document,'keydown',function(e){if(e.key==='Escape')close();});
+function close(){m.classList.remove('open');document.body.style.overflow='';}})();
+
+/* PARTICLES */
+(function(){var c=$('#particle-canvas');if(!c)return;
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var ctx=c.getContext('2d'),W,H,ps=[],mx=-999,my=-999;
+var mob=window.innerWidth<768,count=mob?30:60;
+function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+resize();on(window,'resize',debounce(resize,250));
+on(document,'mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
+for(var i=0;i<count;i++)ps.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.4+0.3,vx:(Math.random()-0.5)*0.25,vy:(Math.random()-0.5)*0.25,alpha:Math.random()*0.4+0.1});
+function loop(){ctx.clearRect(0,0,W,H);
+ps.forEach(function(p){var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);
+if(d<120){p.vx+=dx/d*0.04;p.vy+=dy/d*0.04;}
+p.vx*=0.995;p.vy*=0.995;p.x+=p.vx;p.y+=p.vy;
+if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(192,0,0,'+p.alpha+')';ctx.fill();});
+requestAnimationFrame(loop);}
+loop();setTimeout(function(){c.classList.add('visible');},400);})();
+
+/* CURSOR */
+(function(){var d=$('#cursor'),r=$('#cursor-ring');if(!d||!r)return;
+if(window.matchMedia('(hover:none)').matches)return;
+var rx=0,ry=0,mx=0,my=0;
+on(document,'mousemove',function(e){mx=e.clientX;my=e.clientY;d.style.left=mx+'px';d.style.top=my+'px';});
+function a(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(a);}
+a();$$('a,button,.pkg,.orbit-step,.bench-card,.fq,.conv-choice').forEach(function(el){
+on(el,'mouseenter',function(){r.classList.add('hover');});on(el,'mouseleave',function(){r.classList.remove('hover');});});
+on(document,'mousedown',function(){r.classList.add('click');});on(document,'mouseup',function(){r.classList.remove('click');});})();
+
+/* RIPPLE */
+(function(){$$('.btn-primary,.btn-gold,.mbar-cta,.conv-send').forEach(function(b){
+on(b,'click',function(e){b.classList.add('ripple-host');
+var rec=b.getBoundingClientRect(),sz=Math.max(rec.width,rec.height)*1.5;
+var x=(e.clientX||rec.left+rec.width/2)-rec.left-sz/2,y=(e.clientY||rec.top+rec.height/2)-rec.top-sz/2;
+var w=document.createElement('span');w.className='ripple-wave';
+w.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px';
+b.appendChild(w);setTimeout(function(){w.remove();},600);});});})();
+
+/* FAQ */
+(function(){$$('.fq').forEach(function(fq){fq.setAttribute('aria-expanded','false');
+var ans=fq.nextElementSibling;if(ans&&!ans.classList.contains('fa-body'))ans.classList.add('fa-body');
+on(fq,'click',function(){var open=fq.getAttribute('aria-expanded')==='true';
+$$('.fq').forEach(function(f){f.setAttribute('aria-expanded','false');var a=f.nextElementSibling;if(a&&a.classList.contains('fa-body'))a.classList.remove('open');});
+if(!open){fq.setAttribute('aria-expanded','true');if(ans)ans.classList.add('open');}});});})();
+
+/* REVEAL */
+(function(){var els=$$('.rv');if(!els.length)return;
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('v');});return;}
+var o=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');o.unobserve(e.target);}});},{threshold:0.01,rootMargin:'0px 0px 200px 0px'});
+els.forEach(function(e){o.observe(e);});})();
+
+/* COUNTERS */
+function animCount(el){var t=parseFloat(el.dataset.target||0),s=el.dataset.suffix||'',p=el.dataset.prefix||'',d=parseInt(el.dataset.decimal||'0');
+var dur=1800,st=null;function step(ts){if(!st)st=ts;var pr=Math.min((ts-st)/dur,1);var e=1-Math.pow(1-pr,3);var v=t*e;
+el.textContent=p+(d?v.toFixed(d):Math.floor(v))+s;
+if(pr<1)requestAnimationFrame(step);else el.textContent=p+(d?t.toFixed(d):t)+s;}
+requestAnimationFrame(step);}
+(function(){var t=$$('.counters-row,#awaken-stats');if(!t.length)return;
+if(!('IntersectionObserver' in window)){$$('[data-target]').forEach(animCount);return;}
+var o=new IntersectionObserver(function(en){if(!en[0].isIntersecting)return;o.disconnect();$$('[data-target]').forEach(animCount);},{threshold:0.3});
+t.forEach(function(e){o.observe(e);});})();
+
+/* ORBIT */
+var orbitData=[
+{t:'Research',n:'المرحلة 1 من 6',d:'بنبدأ بتحليل عميق لسوقك: المنافسين، العملاء المثاليين، فرص النمو المخفية — قبل أي إعلان.',o:'تقرير السوق + Persona Map'},
+{t:'Strategy',n:'المرحلة 2 من 6',d:'بنبني خطة نمو بـ KPIs قابلة للقياس وROAS مستهدف واضح.',o:'Growth Plan + Budget Map'},
+{t:'Creative',n:'المرحلة 3 من 6',d:'المحتوى أداة تحويل مش مجرد إبداع.',o:'Content Calendar + Assets'},
+{t:'Launch',n:'المرحلة 4 من 6',d:'حملات Full-Funnel على Meta & Google تعمل بالتوازي.',o:'Live Campaigns + Dashboard'},
+{t:'Optimize',n:'المرحلة 5 من 6',d:'كل أسبوع: بنحذف اللي مش بيشتغل، بنضاعف اللي بينجح، بنخفض CAC.',o:'Weekly Report + Action Items'},
+{t:'Scale',n:'المرحلة 6 من 6',d:'النظام شغال → دلوقتي بنوسّعه.',o:'Scaling Roadmap'}];
+var orbitTimer,currentOrbit=0;
+window.orbitSelect=function(idx){$$('.orbit-step').forEach(function(s,i){s.classList.toggle('active',i===idx);});
+var d=orbitData[idx];if(!d)return;var det=$('#orbit-detail');
+var num=$('#orbit-num'),tit=$('#orbit-title'),des=$('#orbit-desc'),out=$('#orbit-output');
+if(!det)return;if(num)num.textContent=d.n;if(tit)tit.textContent=d.t;if(des)des.textContent=d.d;if(out)out.textContent='📦 Output: '+d.o;
+det.style.display='block';track('orbit','step-'+idx);};
+(function(){function next(){orbitSelect(currentOrbit);currentOrbit=(currentOrbit+1)%6;}
+setTimeout(function(){next();orbitTimer=setInterval(next,3200);},2000);
+var oc=$('.orbit-container');
+if(oc){on(oc,'mouseenter',function(){clearInterval(orbitTimer);});
+on(oc,'mouseleave',function(){orbitTimer=setInterval(function(){orbitSelect(currentOrbit);currentOrbit=(currentOrbit+1)%6;},3200);});}
+$$('.orbit-step').forEach(function(b,i){on(b,'click',function(){clearInterval(orbitTimer);orbitSelect(i);currentOrbit=(i+1)%6;});});})();
+
+/* PROBLEM */
+var problemData=[
+{t:'12 ريلز وصفر عملاء جدد',d:'المحتوى جميل والتفاعل كويس — بس في آخر الشهر: فين العملاء؟',s:'✓ الحل: نظام lead-gen كامل.'},
+{t:'ميزانية إعلانية محروقة',d:'بتصرف آلاف الجنيهات بدون بيانات. CAC مجهول.',s:'✓ الحل: Pixel + CAPI + Attribution.'},
+{t:'لايكات ≠ مبيعات',d:'مؤشرات Vanity بتطمّن — بينما دفتر المواعيد فاضي.',s:'✓ الحل: بنقيس Leads وBookings بس.'},
+{t:'وكالات بدون نتايج موثقة',d:'تجارب سابقة مع وعود كتير — بدون ROI حقيقي.',s:'✓ الحل: KPIs مكتوبة. ضمان 90 يوم.'},
+{t:'تكلفة اكتساب مرتفعة',d:'كل عميل بيكلف أضعاف. CAC بيلتهم الهامش.',s:'✓ الحل: تحسين أسبوعي + Retargeting.'},
+{t:'تقارير بلا قرارات',d:'داشبورد جميل — بس مفيش قرار واضح.',s:'✓ الحل: تقرير أسبوعي بلغة بزنس.'}];
+window.litProblem=function(idx){$$('.problem-item[data-idx]').forEach(function(el){el.classList.remove('lit');if(parseInt(el.dataset.idx)===idx)el.classList.add('lit');});
+var d=problemData[idx];if(!d)return;var det=$('#problem-detail');
+var tit=$('#prob-title'),des=$('#prob-desc'),sol=$('#prob-sol'),lab=$('#prob-label');
+if(!det)return;if(lab)lab.textContent='المشكلة '+(idx+1)+' من 6';
+if(tit)tit.textContent=d.t;if(des)des.textContent=d.d;if(sol)sol.textContent=d.s;
+det.style.display='block';track('problem','clicked-'+idx);};
+(function(){var ps=$('#s-diagnosis');if(!ps)return;
+if(!('IntersectionObserver' in window))return;
+var o=new IntersectionObserver(function(en){if(!en[0].isIntersecting)return;o.disconnect();
+var i=0,timer=setInterval(function(){litProblem(i);i++;if(i>=6)clearInterval(timer);},700);},{threshold:0.3});
+o.observe(ps);})();
+
+/* CALCULATOR */
+window.calcROI=function(){
+var l=parseFloat($('#c-leads')&&$('#c-leads').value)||30;
+var v=parseFloat($('#c-val')&&$('#c-val').value)||5000;
+var c=parseFloat($('#c-conv')&&$('#c-conv').value)||20;
+var p=parseFloat($('#c-pkg')&&$('#c-pkg').value)||18000;
+var m=l*v*(c/100),a=m*12,r=p>0?m/p:0;
+var rv=$('#r-rev'),ra=$('#r-annual'),rr=$('#r-roas');
+if(rv){rv.textContent=formatNum(m)+' EGP';rv.className='result-val '+(m<p?'negative':m<p*1.5?'':'gold');}
+if(ra)ra.textContent=formatNum(a)+' EGP';
+if(rr){rr.textContent='×'+r.toFixed(2);rr.className='result-val '+(r<1?'negative':r<1.5?'':'gold');}
+var wa=$('#calc-wa');if(wa){var sel=$('#c-pkg'),pkgTxt=sel&&sel.options[sel.selectedIndex]?sel.options[sel.selectedIndex].text:'SCALE';
+var lines=['مرحباً فريق 2D Marketing','','استخدمت الحاسبة:','Leads: '+l,'قيمة العميل: '+formatNum(v)+' EGP','الباقة: '+pkgTxt,'','عايز أناقش الأرقام دي.'];
+wa.href='https://wa.me/'+CFG.ownerPhone+'?text='+encodeURIComponent(lines.join('\n'));}};
+
+/* CONVERSATION */
+var convState={step:0,data:{},done:false};
+var convSteps=[
+{q:'مرحباً! 👋\n\nشغلك في أي مجال؟',type:'choices',key:'business',
+choices:['🏥 عيادة / صحة','🏋️ جيم / فيتنس','🏠 عقارات','🛒 متجر / تجارة','📦 غير ذلك'],
+responses:{'🏥 عيادة / صحة':'ممتاز! العيادات من أكتر القطاعات اللي بنحقق فيها نتايج قوية.','🏋️ جيم / فيتنس':'رائع! الـ Fitness قطاع تنافسي — بنعرف نفرز الـ leads الجاهزين.','🏠 عقارات':'العقارات محتاجة استراتيجية مختلفة.','🛒 متجر / تجارة':'نظام الـ ROAS بيختلف حسب نوع التجارة.','📦 غير ذلك':'أغلب الأنشطة تناسبها استراتيجية النظام الكاملة.'}},
+{q:'ميزانية التسويق الشهرية المتاحة؟',type:'choices',key:'budget',
+choices:['12,000 – 18,000 EGP','18,000 – 40,000 EGP','+40,000 EGP','أقل من 12,000 EGP'],
+responses:{'12,000 – 18,000 EGP':'ده بيغطي Growth System كامل.','18,000 – 40,000 EGP':'ده بيفتح Full-Funnel System.','+40,000 EGP':'أنتم في نطاق Authority.','أقل من 12,000 EGP':'شكراً على الصراحة! عندنا موارد مجانية.'}},
+{q:'أكبر تحدي بيواجهك في التسويق دلوقتي؟',type:'choices',key:'challenge',
+choices:['قلة الـ Leads','جودة Leads ضعيفة','CAC مرتفع','مش عارف من فين أبدأ'],
+responses:{'قلة الـ Leads':'المشكلة دي 90% بتكون في الـ Targeting.','جودة Leads ضعيفة':'دي مشكلة Qualification.','CAC مرتفع':'بتنخفض لما الـ Attribution صح.','مش عارف من فين أبدأ':'ده السبب الرئيسي اللي بنوجد عشانه.'}},
+{q:'آخر خطوة 🎯\n\nرقم واتساب عشان فريقنا يتواصل معاك خلال 4 ساعات:',type:'input',key:'phone',placeholder:'01xxxxxxxxx'}];
+function cAdd(text,isUser){var b=$('#convBody');if(!b)return;
+var div=document.createElement('div');div.className='msg'+(isUser?' user':'');
+if(!isUser){div.innerHTML='<div class="msg-avatar">2D</div><div class="msg-bubble">'+text.replace(/\n/g,'<br>')+'</div>';}
+else{div.innerHTML='<div class="msg-bubble">'+text+'</div>';}
+b.appendChild(div);b.scrollTop=b.scrollHeight;}
+function cType(){var b=$('#convBody');if(!b)return;var t=document.createElement('div');t.className='msg';t.id='conv-typing';t.innerHTML='<div class="msg-avatar">2D</div><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';b.appendChild(t);b.scrollTop=b.scrollHeight;}
+function cUnType(){var t=$('#conv-typing');if(t)t.remove();}
+function cProgress(){$$('.prog-dot').forEach(function(d,i){d.classList.remove('active','done');if(i<convState.step)d.classList.add('done');else if(i===convState.step)d.classList.add('active');});}
+function cStep(idx){if(idx>=convSteps.length){cFinish();return;}
+var s=convSteps[idx],ch=$('#convChoices'),ir=$('#convInputRow');
+if(ch)ch.innerHTML='';if(ir)ir.style.display='none';cType();
+setTimeout(function(){cUnType();cAdd(s.q,false);
+if(s.type==='choices'&&ch){s.choices.forEach(function(c){
+var btn=document.createElement('button');btn.className='conv-choice';btn.type='button';btn.textContent=c;
+btn.onclick=function(){$$('.conv-choice').forEach(function(b){b.classList.remove('sel');});btn.classList.add('sel');
+convState.data[s.key]=c;setTimeout(function(){cAdd(c,true);if(ch)ch.innerHTML='';
+var resp=s.responses&&s.responses[c];
+if(resp){cType();setTimeout(function(){cUnType();cAdd(resp,false);
+convState.step++;cProgress();setTimeout(function(){cStep(convState.step);},600);},700);}
+else{convState.step++;cProgress();setTimeout(function(){cStep(convState.step);},600);}},300);};
+ch.appendChild(btn);});}
+else if(s.type==='input'&&ir){ir.style.display='flex';
+var inp=$('#convInput');if(inp){inp.type='tel';inp.placeholder=s.placeholder||'';inp.value='';inp.focus();}}},700);}
+window.convSend=function(){var inp=$('#convInput');if(!inp||!inp.value.trim())return;
+var s=convSteps[convState.step],v=inp.value.trim();
+if(s&&s.key==='phone'&&!validatePhone(v)){inp.classList.add('error');setTimeout(function(){inp.classList.remove('error');},1000);return;}
+if(s)convState.data[s.key]=v;cAdd(v,true);inp.value='';
+var ir=$('#convInputRow');if(ir)ir.style.display='none';
+convState.step++;cProgress();setTimeout(function(){cStep(convState.step);},400);};
+function cFinish(){if(convState.done)return;convState.done=true;cType();
+var lead=Object.assign({},convState.data,{source:'conversation-v14',ts:new Date().toISOString()});
+if(lead.phone)lead.phone=normalizePhone(lead.phone);
+try{var list=JSON.parse(lsGet('leads_2d')||'[]');list.push(lead);lsSet('leads_2d',JSON.stringify(list));}catch(e){}
+track('conv','completed');
+setTimeout(function(){cUnType();cAdd('✅ تم! استلمنا بياناتك.',false);
+setTimeout(function(){cAdd('فريقنا هيتواصل معاك خلال 4 ساعات على الواتساب.',false);
+var waLines=['مرحباً فريق 2D Marketing','','نوع النشاط: '+(lead.business||'—'),'الميزانية: '+(lead.budget||'—'),'التحدي: '+(lead.challenge||'—')];
+var waBtn=document.createElement('a');
+waBtn.href='https://wa.me/'+CFG.ownerPhone+'?text='+encodeURIComponent(waLines.join('\n'));
+waBtn.target='_blank';waBtn.rel='noopener';waBtn.className='btn btn-primary ripple-host';
+waBtn.style.cssText='display:inline-flex;margin-top:12px;font-size:13px;padding:12px 24px';
+waBtn.innerHTML='تحدث معنا الآن';
+var b=$('#convBody');if(b){b.appendChild(waBtn);b.scrollTop=b.scrollHeight;}},800);},900);}
+window.openConv=function(){var o=$('#conv-overlay'),m=$('#conv-modal');if(!o||!m)return;
+o.style.display='block';m.style.display='block';document.body.style.overflow='hidden';
+if(convState.step===0&&!convState.done)cStep(0);track('conv','opened');};
+window.closeConv=function(){var o=$('#conv-overlay'),m=$('#conv-modal');
+if(o)o.style.display='none';if(m)m.style.display='none';document.body.style.overflow='';};
+on(document,'keydown',function(e){if(e.key==='Escape')closeConv();if(e.key==='Enter'&&document.activeElement===$('#convInput'))convSend();});
+
+/* SMART CTA */
+var smartDismissed=false;
+var smartMsgs={default:{m:'جاهز تبني نظام نمو حقيقي؟',b:'ابدأ المحادثة'},packages:{m:'شوفت الباقات؟ <strong>احجز مكالمة مجانية</strong>',b:'احجز الآن'},proof:{m:'شوفت النتايج؟ <strong>ابدأ رحلتك النهاردة</strong>',b:'ابدأ الآن'},faq:{m:'سؤالك مش موجود؟ <strong>اسألنا مباشرة</strong>',b:'اسأل الآن'}};
+window.dismissSmartCta=function(){smartDismissed=true;var b=$('#smart-cta');if(b)b.classList.remove('visible');};
+(function(){var b=$('#smart-cta');if(!b)return;var shown=false,last='default';
+on(window,'scroll',function(){if(smartDismissed)return;
+if(window.scrollY>600&&!shown){shown=true;b.classList.add('visible');}
+var f='default';['packages','proof','faq'].forEach(function(id){var el=document.getElementById(id);if(!el)return;var r=el.getBoundingClientRect();if(r.top<window.innerHeight*0.6&&r.bottom>0)f=id;});
+if(f!==last){last=f;var d=smartMsgs[f]||smartMsgs.default;var m=$('#smartCtaMsg'),bt=$('.smart-cta-btn');if(m)m.innerHTML=d.m;if(bt)bt.textContent=d.b;}},{passive:true});})();
+
+/* GSAP */
+function initGSAP(){if(typeof gsap==='undefined'){setTimeout(initGSAP,300);return;}
+gsap.registerPlugin(ScrollTrigger,TextPlugin);
+var tl=gsap.timeline({delay:1.2});
+tl.to('#awaken-text',{opacity:1,duration:0.01}).from('#awaken-text',{y:40,duration:0.9,ease:'power3.out'},'<')
+.to('#awaken-rotating',{opacity:1,y:0,duration:0.7,ease:'power2.out'},'-=0.4')
+.to('#awaken-ctas',{opacity:1,y:0,duration:0.6,ease:'power2.out'},'-=0.4')
+.to('#awaken-stats',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.3')
+.to('#scroll-hint',{opacity:1,duration:0.6},'-=0.1');
+gsap.to('.orb-1',{y:-80,scale:1.2,ease:'none',scrollTrigger:{trigger:'#s-ignition',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('.orb-2',{y:60,scale:0.85,ease:'none',scrollTrigger:{trigger:'#s-ignition',start:'top top',end:'bottom top',scrub:true}});
+$$('.section-h2').forEach(function(el){gsap.from(el,{opacity:0,y:36,duration:0.85,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});});
+ScrollTrigger.batch('.pkg',{onEnter:function(b){gsap.fromTo(b,{opacity:0,scale:0.92,y:24},{opacity:1,scale:1,y:0,stagger:0.1,duration:0.65,ease:'back.out(1.4)'});},start:'top 90%'});
+ScrollTrigger.batch('.bench-card',{onEnter:function(b){gsap.from(b,{opacity:0,x:40,rotation:6,stagger:0.15,duration:0.55});},start:'top 90%'});
+ScrollTrigger.create({trigger:'#s-exit',start:'top 80%',once:true,onEnter:function(){
+gsap.to('#exit-text',{opacity:1,letterSpacing:'0.05em',duration:0.8});
+gsap.to('#exit-cta',{opacity:1,y:0,scale:1,duration:0.5,delay:0.8,ease:'back.out(1.4)'});}});
+var words=['عيادات وعقارات وجيمات','نظام Leads مش مجرد محتوى','CAC أقل · ROAS أعلى','نتيجة مقاسة — مش وعود'];
+var rotEl=$('#awaken-rotating'),wi=0;
+if(rotEl){setInterval(function(){wi=(wi+1)%words.length;
+gsap.to(rotEl,{opacity:0,y:-8,duration:0.25,onComplete:function(){
+rotEl.textContent=words[wi];gsap.fromTo(rotEl,{opacity:0,y:8},{opacity:1,y:0,duration:0.35});}});},2400);}}
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initGSAP);}else{setTimeout(initGSAP,500);}
+
+(function(){var y=$('#footer-year');if(y)y.textContent=new Date().getFullYear();})();
+on(window,'error',function(){$$('.rv').forEach(function(e){e.classList.add('v');});});
+})();
+</script>
+<script src="js/main.js" defer></script>
+<script src="js/search.js" defer></script>
+<script src="js/ads.js" defer></script>
+</body>
+</html>
