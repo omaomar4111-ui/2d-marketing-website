@@ -8,7 +8,7 @@ var CFG = {
   supabaseUrl:     'https://YOUR_PROJECT.supabase.co',
   supabaseKey:     'YOUR_ANON_KEY',
   supabaseEnabled: false,
-  ownerPhone:      '201554024284'
+  ownerPhone:      '201144826641'
 };
 
 var TRACKING = window.TRACKING || {GTM:{enabled:false},GA4:{enabled:false},META:{enabled:false},TIKTOK:{enabled:false}};
