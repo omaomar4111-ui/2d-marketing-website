@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════
-   2D MARKETING — Team Section (6 Roles · 3x2 Grid)
+   2D MARKETING — Team Section (7 Roles · 4-Column Layout)
    ══════════════════════════════════════════════════════════════ */
 (function() {
   'use strict';
@@ -46,6 +46,13 @@
     "roleAr": "مونتاج الفيديو",
     "descAr": "بيحوّل الأفكار لفيديوهات تشد الانتباه — إيقاع وإبداع وتفاصيل.",
     "image": "role-06-video-editor.webp"
+  },
+  {
+    "id": 7,
+    "roleEn": "Graphic Designer",
+    "roleAr": "تصميم الجرافيك",
+    "descAr": "بيحوّل الأفكار لهوية بصرية متسقة — كل حاجة بتطلع بنفس الشكل.",
+    "image": "role-07-graphic-designer.webp"
   }
 ];
   
@@ -78,7 +85,6 @@
              '</article>';
     }).join('');
 
-    // Smooth scroll for #team hash
     function checkHash() {
       if (window.location.hash === '#team') {
         var t = document.getElementById('team');
