@@ -369,45 +369,25 @@ function initGSAP() {
   
   gsap.registerPlugin(ScrollTrigger);
   
-  // ═══ Hero Animation ═══
   var tl = gsap.timeline({ delay: 0.2 });
   
-  tl.from('.hero-vr-title', {
-    y: 60,
-    opacity: 0,
-    duration: 1.1,
-    ease: 'power4.out'
+  tl.from('.hero-vr-style-title', {
+    y: 60, opacity: 0, duration: 1.1, ease: 'power4.out'
   })
-  .from('.hero-vr-subtitle', {
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.out'
+  .from('.hero-vr-style-sub', {
+    y: 30, opacity: 0, duration: 0.8, ease: 'power2.out'
   }, '-=0.7')
-  .from('.hero-vr-cta', {
-    y: 24,
-    opacity: 0,
-    duration: 0.7,
-    ease: 'back.out(1.4)'
+  .from('.hero-vr-style-cta', {
+    y: 24, opacity: 0, duration: 0.7, ease: 'back.out(1.4)'
   }, '-=0.6')
-  .from('.hero-vr-logo-img', {
-    scale: 0.7,
-    opacity: 0,
-    duration: 1.3,
-    ease: 'power3.out'
+  .from('.hero-vr-style-logo-img', {
+    scale: 0.7, opacity: 0, duration: 1.3, ease: 'power3.out'
   }, 0);
   
-  // ═══ Section Headings ═══
   gsap.utils.toArray('.section-h2').forEach(function(el) {
     gsap.from(el, {
-      opacity: 0,
-      y: 40,
-      duration: 0.9,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%'
-      }
+      opacity: 0, y: 40, duration: 0.9, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 85%' }
     });
   });
 }

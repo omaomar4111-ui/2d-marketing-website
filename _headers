@@ -6,7 +6,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
-# Cache Static Assets (Images, Fonts, Media) for 1 Year with Immutable
+# Cache Static Assets (Images, Fonts, Media)
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -27,16 +27,16 @@
 /android-chrome*.png
   Cache-Control: public, max-age=604800
 
-# Cache CSS and JS for 7 Days with revalidation
+# CSS and JS
 /*.css
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Cache-Control: public, max-age=86400, must-revalidate
 
 /*.js
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Cache-Control: public, max-age=86400, must-revalidate
 
-# HTML pages - fast freshness
+# HTML pages - Zero cache to ensure instant updates
 /*.html
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate
 
 /
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate
