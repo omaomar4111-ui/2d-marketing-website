@@ -1,509 +1,4 @@
 /* ══════════════════════════════════════════════════════════════
-   HERO — مطابق VR Agency بالحرف
-══════════════════════════════════════════════════════════════ */
-.hero-vr {
-  position: relative;
-  background: var(--c-black);
-  min-height: auto;
-  padding: clamp(90px, 10vh, 130px) var(--section-x) 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-/* خلفية خفيفة — زي VR */
-.hero-vr::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(ellipse 60% 50% at 30% 30%, rgba(192,0,0,0.10) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 60% at 70% 70%, rgba(192,0,0,0.06) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ═══ الـ Inner — نص + لوجو ═══ */
-.hero-vr-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: clamp(32px, 4vw, 60px);
-  align-items: center;
-  padding-bottom: clamp(40px, 8vh, 80px);
-}
-
-/* ═══ النص ═══ */
-.hero-vr-text {
-  max-width: 100%;
-}
-
-.hero-vr-title {
-  font-family: var(--font);
-  font-size: clamp(40px, 5.5vw, 86px);
-  font-weight: 900;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
-  color: #fff;
-  margin: 0 0 clamp(16px, 2vh, 24px) 0;
-}
-
-.hero-vr-title-accent {
-  color: var(--c-red-h);
-  display: inline-block;
-}
-
-.hero-vr-sub {
-  font-family: var(--font);
-  font-size: clamp(14px, 1.4vw, 18px);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
-  font-weight: 400;
-  margin: 0 0 clamp(24px, 3vh, 40px) 0;
-  max-width: 560px;
-}
-
-.hero-vr-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 32px;
-  background: var(--c-red-h);
-  color: #fff;
-  font-family: var(--font);
-  font-size: 16px;
-  font-weight: 800;
-  text-decoration: none;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  box-shadow: 0 8px 24px rgba(192, 0, 0, 0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.hero-vr-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(192, 0, 0, 0.6);
-}
-
-.hero-vr-cta svg {
-  transition: transform 0.3s;
-}
-
-.hero-vr-cta:hover svg {
-  transform: translateX(-4px);
-}
-
-/* ═══ اللوجو الضخم — زي VR (40% الشاشة) ═══ */
-.hero-vr-logo-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  min-height: 380px;
-}
-
-.hero-vr-logo-img {
-  width: 100%;
-  max-width: 560px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 30px 60px rgba(192, 0, 0, 0.35))
-          drop-shadow(0 10px 20px rgba(192, 0, 0, 0.15));
-  animation: heroLogoFloat 7s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes heroLogoFloat {
-  0%, 100% { 
-    transform: translateY(0) rotateY(0deg) rotateX(0deg);
-  }
-  50% { 
-    transform: translateY(-16px) rotateY(6deg) rotateX(-3deg);
-  }
-}
-
-/* ═══ شريط الخدمات — تحت الهيرو ═══ */
-.hero-vr-services {
-  position: relative;
-  z-index: 2;
-  width: 100vw;
-  margin-right: calc(-50vw + 50%);
-  margin-left: calc(-50vw + 50%);
-  padding: 32px 0;
-  background: rgba(10, 0, 0, 0.6);
-  border-top: 1px solid rgba(192, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(192, 0, 0, 0.15);
-  overflow: hidden;
-  direction: ltr;
-}
-
-.hero-vr-services::before,
-.hero-vr-services::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 140px;
-  z-index: 2;
-  pointer-events: none;
-}
-.hero-vr-services::before {
-  right: 0;
-  background: linear-gradient(270deg, rgba(10,0,0,0.9), transparent);
-}
-.hero-vr-services::after {
-  left: 0;
-  background: linear-gradient(90deg, rgba(10,0,0,0.9), transparent);
-}
-
-.hero-vr-services-track {
-  display: inline-flex;
-  gap: clamp(24px, 3vw, 48px);
-  align-items: center;
-  white-space: nowrap;
-  animation: servicesScrollVR 30s linear infinite;
-  will-change: transform;
-}
-
-.hero-vr-services-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes servicesScrollVR {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-50%, 0, 0); }
-}
-
-.hero-vr-services-track > span {
-  font-family: var(--font);
-  font-size: clamp(18px, 2.2vw, 26px);
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
-
-.hero-vr-services-track > .dot {
-  color: var(--c-red-h);
-}
-
-/* ═══ Responsive ═══ */
-@media (max-width: 1024px) {
-  .hero-vr {
-    padding: 100px var(--sp-5) 0;
-  }
-  .hero-vr-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 24px;
-    padding-bottom: 40px;
-  }
-  .hero-vr-text { order: 2; max-width: 100%; }
-  .hero-vr-sub { margin-left: auto; margin-right: auto; }
-  .hero-vr-logo-wrap { 
-    order: 1; 
-    max-width: 100%;
-    min-height: auto;
-    margin: 0 auto;
-  }
-  .hero-vr-logo-img { max-width: 320px; }
-}
-
-@media (max-width: 640px) {
-  .hero-vr { padding: 90px var(--sp-5) 0; }
-  .hero-vr-title { font-size: 38px; }
-  .hero-vr-logo-img { max-width: 240px; }
-  .hero-vr-services { padding: 20px 0; }
-}
-
-/* ═══ Light theme ═══ */
-[data-theme="light"] .hero-vr { background: #fff5f5; }
-[data-theme="light"] .hero-vr-title { color: #1a0000; }
-[data-theme="light"] .hero-vr-sub { color: rgba(26, 0, 0, 0.7); }
-[data-theme="light"] .hero-vr-services { background: rgba(255, 232, 232, 0.8); }
-[data-theme="light"] .hero-vr-services-track > span { color: #1a0000; }
-
-
-/* ══════════════════════════════════════════════════════════════
-   ABOUT — نمط VR
-══════════════════════════════════════════════════════════════ */
-.section-about-vr {
-  padding: var(--section-y) 0;
-  background: var(--c-black);
-  border-top: 1px solid rgba(192, 0, 0, 0.10);
-}
-
-.section-about-vr-inner {
-  width: var(--content-w);
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 var(--section-x);
-}
-
-.section-about-vr-title {
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 900;
-  color: #fff;
-  margin: 0 0 var(--sp-8) 0;
-  line-height: 1.15;
-}
-
-.section-about-vr-title .accent {
-  color: var(--c-red-h);
-}
-
-.section-about-vr-lead {
-  font-size: clamp(18px, 2.2vw, 26px);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.5;
-  margin: 0 0 var(--sp-5) 0;
-  max-width: 900px;
-}
-
-.section-about-vr-lead .accent {
-  color: var(--c-red-h);
-  font-weight: 800;
-}
-
-.section-about-vr-body {
-  font-size: clamp(16px, 1.8vw, 20px);
-  font-weight: 400;
-  color: var(--c-w80);
-  line-height: 1.75;
-  margin: 0;
-  max-width: 850px;
-}
-
-[data-theme="light"] .section-about-vr { background: #fafafa; }
-[data-theme="light"] .section-about-vr-title,
-[data-theme="light"] .section-about-vr-lead { color: #1a0000; }
-[data-theme="light"] .section-about-vr-body { color: rgba(26, 0, 0, 0.7); }
-
-/* ══════════════════════════════════════════════════════════════
-   VALUE PROPOSITIONS — نمط VR
-══════════════════════════════════════════════════════════════ */
-.section-values-vr {
-  padding: clamp(50px, 6vw, 90px) 0;
-  background: var(--c-s1);
-  border-top: 1px solid rgba(192, 0, 0, 0.08);
-}
-
-.section-values-vr-title {
-  font-size: clamp(28px, 4vw, 42px);
-  font-weight: 900;
-  color: #fff;
-  margin: 0 0 var(--sp-10) 0;
-  line-height: 1.15;
-}
-
-.values-vr-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--sp-6);
-}
-
-.value-vr-card {
-  position: relative;
-  padding: var(--sp-8) var(--sp-6);
-  background: rgba(10, 0, 0, 0.6);
-  border: 1px solid rgba(192, 0, 0, 0.12);
-  border-radius: var(--r-xl);
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: hidden;
-}
-
-.value-vr-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--c-red), var(--c-red-h));
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.value-vr-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(192, 0, 0, 0.45);
-  box-shadow: 0 24px 60px rgba(192, 0, 0, 0.22);
-  background: rgba(20, 0, 0, 0.7);
-}
-
-.value-vr-card:hover::before {
-  transform: scaleX(1);
-}
-
-.value-vr-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 14px;
-  background: rgba(192, 0, 0, 0.12);
-  border: 1px solid rgba(192, 0, 0, 0.30);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c-red-h);
-  margin-bottom: var(--sp-5);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.value-vr-card:hover .value-vr-icon {
-  background: rgba(192, 0, 0, 0.25);
-  transform: scale(1.08);
-  box-shadow: 0 0 30px rgba(192, 0, 0, 0.4);
-}
-
-.value-vr-title {
-  font-size: var(--t-lg);
-  font-weight: 900;
-  color: #fff;
-  margin: 0 0 var(--sp-3) 0;
-  line-height: 1.3;
-}
-
-.value-vr-desc {
-  font-size: var(--t-sm);
-  color: var(--c-w60);
-  line-height: 1.7;
-  margin: 0;
-}
-
-[data-theme="light"] .section-values-vr { background: #f5f5f5; }
-[data-theme="light"] .section-values-vr-title { color: #1a0000; }
-[data-theme="light"] .value-vr-card { background: #fff; }
-[data-theme="light"] .value-vr-title { color: #1a0000; }
-[data-theme="light"] .value-vr-desc { color: rgba(26, 0, 0, 0.65); }
-
-@media (max-width: 640px) {
-  .values-vr-grid { grid-template-columns: 1fr; }
-}
-
-.section-clients {
-  padding: clamp(50px, 6vw, 90px) 0;
-  background: var(--c-s1);
-  overflow: hidden;
-  border-top: 1px solid rgba(192,0,0,0.10);
-  border-bottom: 1px solid rgba(192,0,0,0.10);
-}
-
-/* كل صف — بيمتد بعرض الشاشة */
-.clients-row {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  direction: ltr;
-  padding: clamp(24px, 4vw, 40px) 0;
-}
-
-/* Fade من الجناب */
-.clients-row::before,
-.clients-row::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: clamp(40px, 10vw, 140px);
-  z-index: 2;
-  pointer-events: none;
-}
-.clients-row::before {
-  right: 0;
-  background: linear-gradient(270deg, var(--c-s1) 0%, transparent 100%);
-}
-.clients-row::after {
-  left: 0;
-  background: linear-gradient(90deg, var(--c-s1) 0%, transparent 100%);
-}
-
-/* المسار — بيلف */
-.clients-track {
-  display: flex;
-  gap: clamp(40px, 6vw, 90px);
-  width: max-content;
-  align-items: center;
-  will-change: transform;
-}
-
-/* الصف العلوي — من اليمين لليسار */
-.clients-row-top .clients-track {
-  animation: marqueeRightToLeft 90s linear infinite;
-}
-
-/* الصف السفلي — من اليسار لليمين */
-.clients-row-bottom .clients-track {
-  animation: marqueeLeftToRight 90s linear infinite;
-}
-
-@keyframes marqueeRightToLeft {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
-}
-
-@keyframes marqueeLeftToRight {
-  from { transform: translate3d(-50%, 0, 0); }
-  to   { transform: translate3d(0, 0, 0); }
-}
-
-/* إيقاف عند التمرير */
-.clients-track:hover { animation-play-state: paused; }
-
-/* اللوجو الواحد */
-.client-logo {
-  flex-shrink: 0;
-  width: clamp(140px, 14vw, 200px);
-  height: clamp(70px, 8vw, 110px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.75;
-  transition: opacity 350ms var(--e-float),
-              transform 350ms var(--e-float),
-              filter 350ms var(--e-float);
-  cursor: pointer;
-}
-
-.client-logo:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 20px rgba(192,0,0,0.4));
-}
-
-.client-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  display: block;
-  filter: brightness(1.1) contrast(1.05);
-}
-
-/* الوضع الفاتح */
-[data-theme="light"] .section-clients { background: #fff5f5; }
-[data-theme="light"] .clients-row::before { background: linear-gradient(270deg, #fff5f5 0%, transparent 100%); }
-[data-theme="light"] .clients-row::after  { background: linear-gradient(90deg, #fff5f5 0%, transparent 100%); }
-[data-theme="light"] .client-logo img { filter: brightness(0.3) contrast(1.2); }
-[data-theme="light"] .client-logo:hover img { filter: brightness(1) contrast(1); }
-
-/* موبايل */
-@media (max-width: 768px) {
-  .clients-row { padding: var(--sp-5) 0; }
-  .client-logo { width: 120px; height: 60px; }
-  .clients-track { gap: 40px; }
-  .clients-row-top .clients-track { animation-duration: 45s; }
-  .clients-row-bottom .clients-track { animation-duration: 45s; }
-}
-
-/* ══════════════════════════════════════════════════════════════
    TEAM SECTION — 2D Marketing (10 Roles Responsive Grid)
 ══════════════════════════════════════════════════════════════ */
 .section-team {
@@ -525,32 +20,24 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: clamp(16px, 2vw, 24px);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+  max-width: 1280px;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   padding: 0 var(--section-x);
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .team-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -575,22 +62,6 @@
   box-shadow: 0 16px 36px rgba(192, 0, 0, 0.22);
 }
 
-.role-badge {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 3px 8px;
-  border-radius: 20px;
-  background: rgba(192, 0, 0, 0.15);
-  color: var(--c-red-h);
-  border: 1px solid rgba(192, 0, 0, 0.35);
-  z-index: 3;
-}
-
 .role-image-wrap {
   width: 100%;
   display: flex;
@@ -600,16 +71,22 @@
 }
 
 .role-image {
-  width: 160px;
-  height: 160px;
-  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 200px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #000;
+  border: 2px solid rgba(192, 0, 0, 0.30);
   position: relative;
+  transition: border-color 0.4s;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 50% 60%, rgba(192, 0, 0, 0.18) 0%, rgba(10, 0, 0, 0.5) 65%, transparent 85%);
-  border-radius: 50%;
-  transition: all 450ms var(--e-float);
+}
+
+.role-card:hover .role-image {
+  border-color: rgba(192, 0, 0, 0.7);
 }
 
 .role-image img {
@@ -617,9 +94,12 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  border-radius: 50%;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
-  transition: transform 450ms var(--e-float), filter 450ms var(--e-float);
+  transition: transform 450ms var(--e-float);
+}
+
+.role-card:hover .role-image img {
+  transform: scale(1.05);
 }
 
 .role-info {
@@ -628,11 +108,11 @@
 }
 
 .role-name-en {
-  font-size: clamp(14px, 1.3vw, 16px);
+  font-size: 16px;
   font-weight: 900;
-  letter-spacing: 1px;
-  color: var(--c-red-h);
-  margin-bottom: 4px;
+  color: #fff;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
 }
 
 .role-name-ar {
@@ -646,17 +126,8 @@
   font-size: 13px;
   color: var(--c-w60);
   line-height: 1.6;
-  max-width: 250px;
   margin: 0 auto;
-}
-
-.role-border-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 2px solid transparent;
-  pointer-events: none;
-  transition: border-color 400ms, box-shadow 400ms;
+  max-width: 260px;
 }
 
 /* ══════════════════════════════════════════════════════════════
