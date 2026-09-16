@@ -1,30 +1,30 @@
 /* ══════════════════════════════════════════════════════════════
-   HERO — نسخة VR Agency بالظبط
-   - نص على اليمين (لأن عربي)
-   - لوجو ضخم على اليسار
-   - شريط خدمات تحت
+   HERO — مطابق VR Agency بالحرف
 ══════════════════════════════════════════════════════════════ */
-.hero-vr-style {
+.hero-vr {
   position: relative;
-  min-height: 100vh;
-  padding: 140px var(--section-x) 0;
   background: var(--c-black);
+  min-height: 100vh;
+  padding: clamp(100px, 15vh, 160px) var(--section-x) 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-.hero-vr-style::before {
+/* خلفية خفيفة — زي VR */
+.hero-vr::before {
   content: '';
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse 70% 50% at 25% 40%, rgba(192,0,0,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 75% 60%, rgba(192,0,0,0.08) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 50% at 30% 30%, rgba(192,0,0,0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 70% 70%, rgba(192,0,0,0.06) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
 }
 
-.hero-vr-style-inner {
+/* ═══ الـ Inner — نص + لوجو ═══ */
+.hero-vr-inner {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -32,62 +32,43 @@
   margin: 0 auto;
   flex: 1;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: clamp(40px, 5vw, 80px);
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(32px, 4vw, 60px);
   align-items: center;
-  padding-bottom: 80px;
+  padding-bottom: clamp(40px, 8vh, 80px);
 }
 
 /* ═══ النص ═══ */
-.hero-vr-style-text {
-  max-width: 720px;
+.hero-vr-text {
+  max-width: 100%;
 }
 
-.hero-vr-style-title {
+.hero-vr-title {
   font-family: var(--font);
-  font-size: clamp(42px, 6.5vw, 88px);
+  font-size: clamp(40px, 5.5vw, 86px);
   font-weight: 900;
   line-height: 1.02;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
   color: #fff;
-  margin: 0 0 var(--sp-6) 0;
+  margin: 0 0 clamp(16px, 2vh, 24px) 0;
 }
 
-.hero-vr-style-accent {
+.hero-vr-title-accent {
   color: var(--c-red-h);
   display: inline-block;
-  position: relative;
 }
 
-.hero-vr-style-accent::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  right: 0;
-  left: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--c-red), var(--c-red-h));
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: right;
-  animation: heroAccentLine 1s 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-
-@keyframes heroAccentLine {
-  to { transform: scaleX(1); }
-}
-
-.hero-vr-style-sub {
+.hero-vr-sub {
   font-family: var(--font);
-  font-size: clamp(15px, 1.6vw, 19px);
-  line-height: 1.7;
-  color: var(--c-w60);
-  font-weight: 500;
-  margin: 0 0 var(--sp-8) 0;
-  max-width: 540px;
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+  margin: 0 0 clamp(24px, 3vh, 40px) 0;
+  max-width: 560px;
 }
 
-.hero-vr-style-cta {
+.hero-vr-cta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -102,67 +83,71 @@
   border-radius: 9999px;
   cursor: pointer;
   box-shadow: 0 8px 24px rgba(192, 0, 0, 0.4);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.hero-vr-style-cta:hover {
+.hero-vr-cta:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 40px rgba(192, 0, 0, 0.6);
 }
 
-.hero-vr-style-cta svg {
+.hero-vr-cta svg {
   transition: transform 0.3s;
 }
 
-.hero-vr-style-cta:hover svg {
+.hero-vr-cta:hover svg {
   transform: translateX(-4px);
 }
 
-/* ═══ اللوجو 2D الضخم ═══ */
-.hero-vr-style-logo {
+/* ═══ اللوجو الضخم — زي VR (40% الشاشة) ═══ */
+.hero-vr-logo-wrap {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1200px;
-}
-
-.hero-vr-style-logo-img {
   width: 100%;
-  max-width: 600px;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 30px 80px rgba(192, 0, 0, 0.35))
-          drop-shadow(0 10px 30px rgba(192, 0, 0, 0.2));
-  animation: logoFloatVR 7s ease-in-out infinite;
+  height: 100%;
+  min-height: 380px;
 }
 
-@keyframes logoFloatVR {
+.hero-vr-logo-img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 30px 60px rgba(192, 0, 0, 0.35))
+          drop-shadow(0 10px 20px rgba(192, 0, 0, 0.15));
+  animation: heroLogoFloat 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes heroLogoFloat {
   0%, 100% { 
     transform: translateY(0) rotateY(0deg) rotateX(0deg);
   }
   50% { 
-    transform: translateY(-20px) rotateY(8deg) rotateX(-3deg);
+    transform: translateY(-16px) rotateY(6deg) rotateX(-3deg);
   }
 }
 
-/* ═══ شريط الخدمات ═══ */
-.hero-vr-style-services {
+/* ═══ شريط الخدمات — تحت الهيرو ═══ */
+.hero-vr-services {
   position: relative;
   z-index: 2;
   width: 100vw;
   margin-right: calc(-50vw + 50%);
   margin-left: calc(-50vw + 50%);
   padding: 32px 0;
-  background: rgba(10, 0, 0, 0.5);
+  background: rgba(10, 0, 0, 0.6);
   border-top: 1px solid rgba(192, 0, 0, 0.15);
   border-bottom: 1px solid rgba(192, 0, 0, 0.15);
   overflow: hidden;
   direction: ltr;
 }
 
-.hero-vr-style-services::before,
-.hero-vr-style-services::after {
+.hero-vr-services::before,
+.hero-vr-services::after {
   content: '';
   position: absolute;
   top: 0; bottom: 0;
@@ -170,16 +155,16 @@
   z-index: 2;
   pointer-events: none;
 }
-.hero-vr-style-services::before {
+.hero-vr-services::before {
   right: 0;
   background: linear-gradient(270deg, rgba(10,0,0,0.9), transparent);
 }
-.hero-vr-style-services::after {
+.hero-vr-services::after {
   left: 0;
   background: linear-gradient(90deg, rgba(10,0,0,0.9), transparent);
 }
 
-.hero-vr-style-services-track {
+.hero-vr-services-track {
   display: inline-flex;
   gap: clamp(24px, 3vw, 48px);
   align-items: center;
@@ -188,7 +173,7 @@
   will-change: transform;
 }
 
-.hero-vr-style-services-track:hover {
+.hero-vr-services-track:hover {
   animation-play-state: paused;
 }
 
@@ -197,37 +182,54 @@
   to { transform: translate3d(-50%, 0, 0); }
 }
 
-.hero-vr-style-services-track > span {
+.hero-vr-services-track > span {
   font-family: var(--font);
-  font-size: clamp(18px, 2.5vw, 28px);
+  font-size: clamp(18px, 2.2vw, 26px);
   font-weight: 900;
   color: #fff;
   letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
-.hero-vr-style-services-track > .dot {
+.hero-vr-services-track > .dot {
   color: var(--c-red-h);
 }
 
 /* ═══ Responsive ═══ */
 @media (max-width: 1024px) {
-  .hero-vr-style-inner {
+  .hero-vr {
+    padding: 100px var(--sp-5) 0;
+  }
+  .hero-vr-inner {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 32px;
+    gap: 24px;
+    padding-bottom: 40px;
   }
-  .hero-vr-style-text { max-width: 100%; order: 2; }
-  .hero-vr-style-sub { margin-left: auto; margin-right: auto; }
-  .hero-vr-style-logo { order: 1; max-width: 320px; margin: 0 auto; }
+  .hero-vr-text { order: 2; max-width: 100%; }
+  .hero-vr-sub { margin-left: auto; margin-right: auto; }
+  .hero-vr-logo-wrap { 
+    order: 1; 
+    max-width: 100%;
+    min-height: auto;
+    margin: 0 auto;
+  }
+  .hero-vr-logo-img { max-width: 320px; }
 }
 
 @media (max-width: 640px) {
-  .hero-vr-style { padding: 110px var(--sp-5) 0; }
-  .hero-vr-style-title { font-size: 42px; }
-  .hero-vr-style-logo-img { max-width: 240px; }
-  .hero-vr-style-services { padding: 20px 0; }
+  .hero-vr { padding: 90px var(--sp-5) 0; }
+  .hero-vr-title { font-size: 38px; }
+  .hero-vr-logo-img { max-width: 240px; }
+  .hero-vr-services { padding: 20px 0; }
 }
+
+/* ═══ Light theme ═══ */
+[data-theme="light"] .hero-vr { background: #fff5f5; }
+[data-theme="light"] .hero-vr-title { color: #1a0000; }
+[data-theme="light"] .hero-vr-sub { color: rgba(26, 0, 0, 0.7); }
+[data-theme="light"] .hero-vr-services { background: rgba(255, 232, 232, 0.8); }
+[data-theme="light"] .hero-vr-services-track > span { color: #1a0000; }
 
 
 /* ══════════════════════════════════════════════════════════════

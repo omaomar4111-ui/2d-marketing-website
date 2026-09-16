@@ -371,16 +371,16 @@ function initGSAP() {
   
   var tl = gsap.timeline({ delay: 0.2 });
   
-  tl.from('.hero-vr-style-title', {
+  tl.from('.hero-vr-title', {
     y: 60, opacity: 0, duration: 1.1, ease: 'power4.out'
   })
-  .from('.hero-vr-style-sub', {
+  .from('.hero-vr-sub', {
     y: 30, opacity: 0, duration: 0.8, ease: 'power2.out'
   }, '-=0.7')
-  .from('.hero-vr-style-cta', {
+  .from('.hero-vr-cta', {
     y: 24, opacity: 0, duration: 0.7, ease: 'back.out(1.4)'
   }, '-=0.6')
-  .from('.hero-vr-style-logo-img', {
+  .from('.hero-vr-logo-img', {
     scale: 0.7, opacity: 0, duration: 1.3, ease: 'power3.out'
   }, 0);
   

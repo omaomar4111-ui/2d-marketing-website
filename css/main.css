@@ -321,25 +321,211 @@ h3{font-size:var(--t-xl);font-weight:800}
 .mbar-cta{background:linear-gradient(135deg,var(--c-red),var(--c-red-h));color:#fff}
 .mbar-btn:active{transform:scale(0.96)}
 
-footer{background:var(--c-s1);border-top:1px solid rgba(192,0,0,0.10);
-  padding:var(--sp-12) var(--section-x) var(--sp-16);margin-top:var(--section-y)}
-.footer-inner{max-width:1140px;margin:0 auto}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;
-  flex-wrap:wrap;gap:var(--sp-8);margin-bottom:var(--sp-10)}
-.footer-brand{max-width:320px}
-.footer-tagline{font-size:var(--t-sm);color:var(--c-w40);
-  margin-top:var(--sp-3);line-height:1.7}
-.footer-col-title{font-size:var(--t-xs);font-weight:800;
-  color:var(--c-red-h);letter-spacing:2px;text-transform:uppercase;
-  margin-bottom:var(--sp-4)}
-.footer-links{display:flex;flex-direction:column;gap:var(--sp-3)}
-.footer-link{font-size:var(--t-sm);color:var(--c-w40);
-  transition:color 200ms;display:flex;align-items:center;gap:6px}
-.footer-link:hover{color:var(--c-w80)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:var(--sp-4);padding-top:var(--sp-6);
-  border-top:1px solid rgba(255,255,255,0.06);
-  font-size:var(--t-xs);color:var(--c-w40)}
+/* ══════════════════════════════════════════════════════════════
+   FOOTER — مطابق VR Agency
+══════════════════════════════════════════════════════════════ */
+.site-footer {
+  background: var(--c-s1);
+  border-top: 1px solid rgba(192, 0, 0, 0.10);
+  padding: clamp(48px, 8vh, 80px) var(--section-x) clamp(24px, 4vh, 40px);
+  margin-top: 0;
+}
+
+.site-footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1.2fr;
+  gap: clamp(32px, 5vw, 80px);
+  margin-bottom: clamp(32px, 5vh, 56px);
+}
+
+/* ═══ العمود 1: البراند ═══ */
+.site-footer-brand {
+  max-width: 380px;
+}
+
+.site-footer-logo {
+  height: 48px;
+  width: auto;
+  margin-bottom: var(--sp-5);
+  display: block;
+}
+
+.site-footer-tagline {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 var(--sp-5) 0;
+}
+
+.site-footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.site-footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.site-footer-social a:hover {
+  background: var(--c-red-h);
+  border-color: var(--c-red-h);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ═══ العمود 2 و 3: أعمدة ═══ */
+.site-footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer-heading {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 var(--sp-5) 0;
+  line-height: 1.3;
+}
+
+.site-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-footer-links a {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: all 0.25s;
+  display: inline-block;
+}
+
+.site-footer-links a:hover {
+  color: var(--c-red-h);
+  transform: translateX(-4px);
+}
+
+.site-footer-cta-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 var(--sp-5) 0;
+}
+
+/* ═══ قايمة التواصل ═══ */
+.site-footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.site-footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-footer-contact-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(192, 0, 0, 0.12);
+  border: 1px solid rgba(192, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-red-h);
+  flex-shrink: 0;
+}
+
+.site-footer-contact-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 2px;
+}
+
+.site-footer-contact-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.site-footer-contact-value:hover {
+  color: var(--c-red-h);
+}
+
+/* ═══ الحقوق ═══ */
+.site-footer-bottom {
+  padding-top: clamp(20px, 3vh, 32px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.site-footer-bottom p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 900px) {
+  .site-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .site-footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ═══ Light theme ═══ */
+[data-theme="light"] .site-footer {
+  background: #f5f5f5;
+  border-top-color: rgba(192, 0, 0, 0.15);
+}
+[data-theme="light"] .site-footer-heading,
+[data-theme="light"] .site-footer-contact-value { color: #1a0000; }
+[data-theme="light"] .site-footer-tagline,
+[data-theme="light"] .site-footer-links a,
+[data-theme="light"] .site-footer-cta-text { color: rgba(26, 0, 0, 0.55); }
+[data-theme="light"] .site-footer-social a {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: rgba(26, 0, 0, 0.7);
+}
+[data-theme="light"] .site-footer-bottom p { color: rgba(26, 0, 0, 0.4); }
+[data-theme="light"] .site-footer-bottom { border-top-color: rgba(0, 0, 0, 0.06); }
+
 
 #conv-overlay{display:none;position:fixed;inset:0;
   background:rgba(0,0,0,0.7);z-index:var(--z-overlay);backdrop-filter:blur(4px)}

@@ -26,8 +26,8 @@ window.dataLayer = window.dataLayer || [];
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/main.css?v=5"/>
-<link rel="stylesheet" href="css/pages.css?v=5"/>
+<link rel="stylesheet" href="css/main.css?v=6"/>
+<link rel="stylesheet" href="css/pages.css?v=6"/>
 
 <style>
 /* صفحة الهوم — الأنماط المخصصة */
@@ -228,24 +228,28 @@ window.dataLayer = window.dataLayer || [];
 <!-- ═══════════════════════════════════════════════════════
      HERO — بالظبط زي VR Agency بهوية 2D
 ═══════════════════════════════════════════════════════ -->
-<section id="hero" class="hero-vr-style">
+<!-- ═══════════════════════════════════════════════════════
+     HERO — مطابق VR Agency بالحرف
+═══════════════════════════════════════════════════════ -->
+<section id="hero" class="hero-vr">
   
-  <div class="hero-vr-style-inner">
+  <!-- نص + لوجو جنب بعض -->
+  <div class="hero-vr-inner">
     
-    <!-- النص -->
-    <div class="hero-vr-style-text">
-      <h1 class="hero-vr-style-title">
-        بنعمل تسويق<br/>
-        <span class="hero-vr-style-accent">بيبيع</span> بسرعة<br/>
+    <!-- عمود النص (يمين في العربي، يسار في الإنجليزي) -->
+    <div class="hero-vr-text">
+      <h1 class="hero-vr-title">
+        نحرّك براندك<br/>
+        للأمام <span class="hero-vr-title-accent">بسرعة</span><br/>
         وذكاء استراتيجي.
       </h1>
       
-      <p class="hero-vr-style-sub">
-        استراتيجية واضحة + تنفيذ احترافي: Leads، إعلانات مدفوعة، 
-        محتوى، هوية بصرية، وتقارير أسبوعية.
+      <p class="hero-vr-sub">
+        استراتيجية واضحة + تنفيذ احترافي:
+        إدارة سوشيال، إعلانات مدفوعة، هوية بصرية، تصميم، ومواقع.
       </p>
       
-      <a href="#" class="hero-vr-style-cta" onclick="openConv(); return false;">
+      <a href="#" class="hero-vr-cta" onclick="openConv(); return false;">
         اطلب عرض سعر
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
           <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -253,28 +257,31 @@ window.dataLayer = window.dataLayer || [];
       </a>
     </div>
     
-    <!-- اللوجو 2D الضخم -->
-    <div class="hero-vr-style-logo">
-      <img src="assets/logos/2d-main.webp" alt="2D Marketing" class="hero-vr-style-logo-img" />
+    <!-- عمود اللوجو الضخم -->
+    <div class="hero-vr-logo-wrap">
+      <img src="assets/logos/2d-main.webp" 
+           alt="2D Marketing" 
+           class="hero-vr-logo-img"
+           onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color:#c00000;font-size:120px;font-weight:900;font-family:Arial;\'>2D</div>';" />
     </div>
     
   </div>
   
-  <!-- شريط الخدمات -->
-  <div class="hero-vr-style-services">
-    <div class="hero-vr-style-services-track">
-      <span>نظام Leads</span><span class="dot">•</span>
-      <span>الإعلانات المدفوعة</span><span class="dot">•</span>
-      <span>المحتوى والسوشيال</span><span class="dot">•</span>
-      <span>الهوية البصرية</span><span class="dot">•</span>
-      <span>التقارير والتحليل</span><span class="dot">•</span>
-      <span>الاستراتيجية</span><span class="dot">•</span>
-      <span>نظام Leads</span><span class="dot">•</span>
-      <span>الإعلانات المدفوعة</span><span class="dot">•</span>
-      <span>المحتوى والسوشيال</span><span class="dot">•</span>
-      <span>الهوية البصرية</span><span class="dot">•</span>
-      <span>التقارير والتحليل</span><span class="dot">•</span>
-      <span>الاستراتيجية</span><span class="dot">•</span>
+  <!-- شريط الخدمات (اختياري — تحت الهيرو) -->
+  <div class="hero-vr-services">
+    <div class="hero-vr-services-track">
+      <span>إعلانات مدفوعة</span><span class="dot">•</span>
+      <span>هوية بصرية</span><span class="dot">•</span>
+      <span>سوشيال ميديا</span><span class="dot">•</span>
+      <span>إدارة حملات</span><span class="dot">•</span>
+      <span>تصميم</span><span class="dot">•</span>
+      <span>مواقع</span><span class="dot">•</span>
+      <span>إعلانات مدفوعة</span><span class="dot">•</span>
+      <span>هوية بصرية</span><span class="dot">•</span>
+      <span>سوشيال ميديا</span><span class="dot">•</span>
+      <span>إدارة حملات</span><span class="dot">•</span>
+      <span>تصميم</span><span class="dot">•</span>
+      <span>مواقع</span><span class="dot">•</span>
     </div>
   </div>
   
@@ -541,40 +548,117 @@ window.dataLayer = window.dataLayer || [];
 
 
 
-<footer role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23c00000'/><text x='100' y='130' font-size='120' font-weight='900' fill='white' text-anchor='middle' font-family='Arial'>2D</text></svg>" alt="2D" width="44" height="44"/>
-        <p class="footer-tagline">بنعمل تسويق بيبيع — مش بنبيع محتوى.</p>
-      </div>
-      <div><div class="footer-col-title">الموقع</div><div class="footer-links">
-        <a class="footer-link" href="./">الرئيسية</a>
-        <a class="footer-link" href="services/">الخدمات</a>
-        <a class="footer-link" href="about.html">إحنا مين</a>
-        <a class="footer-link" href="blog/">المدونة</a>
-      </div></div>
-      <div><div class="footer-col-title">القطاعات</div><div class="footer-links">
-        <a class="footer-link" href="services/clinics.html">العيادات</a>
-        <a class="footer-link" href="services/gyms.html">الجيمات</a>
-        <a class="footer-link" href="services/real-estate.html">العقارات</a>
-        <a class="footer-link" href="services/ecommerce.html">المتاجر</a>
-      </div></div>
-      <div><div class="footer-col-title">تواصل</div><div class="footer-links">
-        <a class="footer-link" href="tel:+201144826641"><svg class="svgi"><use href="#fa-phone"></use></svg> 01144826641</a>
-        <a class="footer-link" href="https://wa.me/201144826641" target="_blank" rel="noopener" style="color:#25d366"><svg class="svgi"><use href="#fa-whatsapp"></use></svg> واتساب</a>
-        <div style="display:flex;gap:12px;margin-top:8px;font-size:16px;">
-          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:var(--c-w60)"><svg class="svgi"><use href="#fa-linkedin"></use></svg></a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" style="color:var(--c-w60)"><svg class="svgi"><use href="#fa-tiktok"></use></svg></a>
-          <a href="https://behance.net" target="_blank" rel="noopener" aria-label="Behance" style="color:var(--c-w60)"><svg class="svgi"><use href="#fa-behance"></use></svg></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" style="color:var(--c-w60)"><svg class="svgi"><use href="#fa-youtube"></use></svg></a>
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER — مطابق VR Agency
+═══════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer-inner">
+    
+    <!-- 3 أعمدة -->
+    <div class="site-footer-grid">
+      
+      <!-- العمود 1: اللوجو + الوصف + السوشيال -->
+      <div class="site-footer-brand">
+        <img src="assets/logos/2d-main.webp" 
+             alt="2D Marketing" 
+             class="site-footer-logo"
+             onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('afterbegin','<div style=\'color:#c00000;font-size:36px;font-weight:900;font-family:Arial;margin-bottom:16px;\'>2D</div>');" />
+        
+        <p class="site-footer-tagline">
+          نحرّك براندك للأمام بسرعة وذكاء استراتيجي.
+        </p>
+        
+        <div class="site-footer-social">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 320 512" width="16" height="16" fill="currentColor">
+              <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 576 512" width="16" height="16" fill="currentColor">
+              <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
+              <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/>
+            </svg>
+          </a>
         </div>
-      </div></div>
+      </div>
+      
+      <!-- العمود 2: روابط سريعة -->
+      <div class="site-footer-col">
+        <h4 class="site-footer-heading">روابط سريعة</h4>
+        <ul class="site-footer-links">
+          <li><a href="#hero">الرئيسية</a></li>
+          <li><a href="#about">عن الوكالة</a></li>
+          <li><a href="#values">المزايا</a></li>
+          <li><a href="#team">الفريق</a></li>
+          <li><a href="#packages">الباقات</a></li>
+          <li><a href="#faq">الأسئلة</a></li>
+          <li><a href="contact.html">تواصل معانا</a></li>
+        </ul>
+      </div>
+      
+      <!-- العمود 3: تواصل -->
+      <div class="site-footer-col">
+        <h4 class="site-footer-heading">عندك مشروع؟ يلا نبدأ</h4>
+        <p class="site-footer-cta-text">
+          ابعتلنا هدفك وميزانيتك، وهنرد عليك بخطة جاهزة للتنفيذ.
+        </p>
+        
+        <ul class="site-footer-contact">
+          <li>
+            <span class="site-footer-contact-icon">
+              <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                <path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/>
+              </svg>
+            </span>
+            <div>
+              <div class="site-footer-contact-label">راسلنا على</div>
+              <a href="mailto:hello@2dmarketing.agency" class="site-footer-contact-value" dir="ltr">hello@2dmarketing.agency</a>
+            </div>
+          </li>
+          
+          <li>
+            <span class="site-footer-contact-icon">
+              <svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
+                <path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/>
+              </svg>
+            </span>
+            <div>
+              <div class="site-footer-contact-label">واتساب</div>
+              <a href="https://wa.me/201144826641" target="_blank" rel="noopener" class="site-footer-contact-value" dir="ltr">+20 11 4482 6641</a>
+            </div>
+          </li>
+          
+          <li>
+            <span class="site-footer-contact-icon">
+              <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                <path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/>
+              </svg>
+            </span>
+            <div>
+              <div class="site-footer-contact-label">اتصل بينا</div>
+              <a href="tel:+201144826641" class="site-footer-contact-value" dir="ltr">+20 11 4482 6641</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="footer-year">2026</span> 2D Marketing Agency. كل الحقوق محفوظة.</span>
-      <span style="font-style:italic">مش بنضمن نتايج — بنضمن نظام.</span>
+    
+    <!-- خط فاصل + حقوق -->
+    <div class="site-footer-bottom">
+      <p>© <span id="footer-year">2026</span> 2D Marketing Agency — كل الحقوق محفوظة.</p>
     </div>
+    
   </div>
 </footer>
 
@@ -854,9 +938,9 @@ on(window,'error',function(){$('.rv').forEach(function(e){e.classList.add('v');}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/team.js" defer></script>
-<script src="js/main.js?v=5" defer></script>
-<script src="js/search.js?v=5" defer></script>
-<script src="js/ads.js?v=5" defer></script>
+<script src="js/main.js?v=6" defer></script>
+<script src="js/search.js?v=6" defer></script>
+<script src="js/ads.js?v=6" defer></script>
 
 </body>
 </html>
