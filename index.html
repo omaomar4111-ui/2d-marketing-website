@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
 <title>2D Marketing — نظام تسويق بيبيع مش بس بينشر</title>
 <meta name="description" content="وكالة نمو وأداء تسويقي. ببنعمل تسويق بيبيع تجيب عملاء حقيقيين للعيادات والجيمات والعقارات والمتاجر. Leads حقيقية · ROI موثق · ضمان 90 يوم."/>
-<meta name="theme-color" content="#c00000"/>
 <meta property="og:title" content="2D Marketing — نظام بيبيع مش بس بينشر"/>
 <meta property="og:description" content="أنظمة تجيب عملاء للعيادات والجيمات والعقارات. Leads حقيقية · ROI موثق."/>
 <meta property="og:type" content="website"/>
@@ -15,11 +14,6 @@
 <meta property="og:locale" content="ar_EG"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="canonical" href="https://2dmarketing.agency/"/>
-<link rel="icon" href="favicon.ico" sizes="any"/>
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
-<link rel="manifest" href="manifest.webmanifest"/>
-
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MarketingAgency","name":"2D Marketing Agency","url":"https://2dmarketing.agency","telephone":"+20 114 482 6641","priceRange":"$$$$","description":"Growth & Performance Marketing Agency"}
 </script>
@@ -143,6 +137,14 @@ window.dataLayer = window.dataLayer || [];
 .fa-body.open{max-height:400px;opacity:1;padding:0 var(--sp-6) var(--sp-4)}
 .fa-body p{font-size:var(--t-sm);color:var(--c-w60);line-height:1.75;padding-top:var(--sp-3)}
 </style>
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#c00000" />
 </head>
 
 <body>
@@ -617,11 +619,11 @@ on(c,'click',close);on(m,'click',function(e){if(e.target===m)close();});
 on(document,'keydown',function(e){if(e.key==='Escape')close();});
 function close(){m.classList.remove('open');document.body.style.overflow='';}})();
 
-/* PARTICLES */
-(function(){var c=$('#particle-canvas');if(!c)return;
+
+if(window.innerWidth<1024){c.style.display='none';return;}
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var ctx=c.getContext('2d'),W,H,ps=[],mx=-999,my=-999;
-var mob=window.innerWidth<768,count=mob?30:60;
+var count=30;
 function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
 resize();on(window,'resize',debounce(resize,250));
 on(document,'mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
@@ -635,8 +637,8 @@ ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(192,0,0,'+p
 requestAnimationFrame(loop);}
 loop();setTimeout(function(){c.classList.add('visible');},400);})();
 
-/* CURSOR */
-(function(){var d=$('#cursor'),r=$('#cursor-ring');if(!d||!r)return;
+
+if(window.innerWidth<1024)return;
 if(window.matchMedia('(hover:none)').matches)return;
 var rx=0,ry=0,mx=0,my=0;
 on(document,'mousemove',function(e){mx=e.clientX;my=e.clientY;d.style.left=mx+'px';d.style.top=my+'px';});
@@ -808,7 +810,8 @@ var f='default';['packages','proof','faq'].forEach(function(id){var el=document.
 if(f!==last){last=f;var d=smartMsgs[f]||smartMsgs.default;var m=$('#smartCtaMsg'),bt=$('.smart-cta-btn');if(m)m.innerHTML=d.m;if(bt)bt.textContent=d.b;}},{passive:true});})();
 
 /* GSAP */
-function initGSAP(){if(typeof gsap==='undefined'){setTimeout(initGSAP,300);return;}
+
+if(window.innerWidth<768){document.body.classList.add('no-gsap');return;}if(typeof gsap==='undefined'){setTimeout(initGSAP,300);return;}
 gsap.registerPlugin(ScrollTrigger,TextPlugin);
 var tl=gsap.timeline({delay:0.8});
 tl.to('#awaken-text',{opacity:1,duration:0.01}).from('#awaken-text',{y:40,duration:0.9,ease:'power3.out'},'<')

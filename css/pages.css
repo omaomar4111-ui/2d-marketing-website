@@ -255,12 +255,12 @@
 
 /* الصف العلوي — من اليمين لليسار */
 .clients-row-top .clients-track {
-  animation: marqueeRightToLeft 55s linear infinite;
+  animation: marqueeRightToLeft 90s linear infinite;
 }
 
 /* الصف السفلي — من اليسار لليمين */
 .clients-row-bottom .clients-track {
-  animation: marqueeLeftToRight 55s linear infinite;
+  animation: marqueeLeftToRight 90s linear infinite;
 }
 
 @keyframes marqueeRightToLeft {
@@ -854,3 +854,40 @@
 [data-theme="light"] .role-desc { color: rgba(26, 0, 0, 0.7); }
 [data-theme="light"] .team-title { color: #1a0000; }
 [data-theme="light"] .team-lead { color: rgba(26, 0, 0, 0.7); }
+
+
+/* NO-GSAP Fallback for mobile */
+.no-gsap .rv, 
+.no-gsap #awaken-text, 
+.no-gsap #awaken-rotating,
+.no-gsap #awaken-ctas, 
+.no-gsap #awaken-stats, 
+.no-gsap #scroll-hint {
+  opacity: 1 !important; 
+  transform: none !important;
+}
+
+/* CONTENT-VISIBILITY & PERFORMANCE BOOST */
+#s-engine,
+#s-proof,
+#clients,
+#team,
+#calc-section,
+#packages,
+#faq,
+#s-exit {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1s !important;
+  }
+  .clients-track,
+  .problem-track {
+    animation-duration: 120s !important;
+  }
+}

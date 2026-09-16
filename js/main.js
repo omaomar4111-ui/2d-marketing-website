@@ -89,9 +89,10 @@ function initMobileMenu(){
 
 function initParticles(){
   var c=$('#particle-canvas');if(!c)return;
+  if(window.innerWidth<1024){c.style.display='none';return;}
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var ctx=c.getContext('2d'),W,H,ps=[],mx=-999,my=-999;
-  var mob=window.innerWidth<768,count=mob?30:60;
+  var count=30;
   function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
   resize();on(window,'resize',debounce(resize,250));
   on(document,'mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
@@ -121,6 +122,7 @@ function initParticles(){
 
 function initCursor(){
   var d=$('#cursor'),r=$('#cursor-ring');if(!d||!r)return;
+  if(window.innerWidth<1024)return;
   if(window.matchMedia('(hover:none)').matches)return;
   var rx=0,ry=0,mx=0,my=0;
   on(document,'mousemove',function(e){

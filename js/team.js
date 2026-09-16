@@ -30,7 +30,7 @@
       roleAr: 'استراتيجية وتخطيط المحتوى',
       descAr: 'بيبني مسار المحتوى المبني على الأرقام وتحليل السوق والمنافسين لتحقيق أعلى تفاعل ومبيعات.',
       image: 'role-03-content-strategist.png',
-      animation: 'anim-tilt3d',
+      animation: 'anim-aperture',
       badge: 'Growth Engine'
     },
     {
@@ -39,7 +39,7 @@
       roleAr: 'إدارة الحملات الإعلانية',
       descAr: 'بيستهدف العميل الصح بأقل تكلفة للـ Lead وأعلى عائد على الإنفاق الإعلاني (ROAS موثق).',
       image: 'role-04-media-buyer.png',
-      animation: 'anim-focuspull',
+      animation: 'anim-filmstrip',
       badge: 'Ad Performance'
     },
     {
@@ -57,7 +57,7 @@
       roleAr: 'المونتاج وصناعة الفيديو',
       descAr: 'بيحوّل اللقطات العادية لتحفة بصرية سريعة الإيقاع وتخطف الأنظار وتخدم هدف البيع المباشر.',
       image: 'role-06-video-editor.png',
-      animation: 'anim-liftglow',
+      animation: 'anim-shutter',
       badge: 'Cinema Edit'
     }
   ];
@@ -93,26 +93,12 @@
              '</article>';
     }).join('');
     
-    // Add interactive 3D tilt tracking for cards with anim-tilt3d
-    var tiltCards = grid.querySelectorAll('.anim-tilt3d');
-    tiltCards.forEach(function(card) {
-      card.addEventListener('mousemove', function(e) {
-        var rect = card.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = 'perspective(800px) rotateY(' + (x * 16).toFixed(2) + 'deg) rotateX(' + (-y * 16).toFixed(2) + 'deg) translateY(-6px)';
-      });
-      card.addEventListener('mouseleave', function() {
-        card.style.transform = '';
-      });
-    });
-
     // Shutter blink click / hover actuation
     var shutterCards = grid.querySelectorAll('.anim-shutter');
     shutterCards.forEach(function(card) {
       card.addEventListener('mouseenter', function() {
         card.classList.remove('shutter-actuated');
-        void card.offsetWidth; // trigger reflow
+        void card.offsetWidth;
         card.classList.add('shutter-actuated');
       });
     });
