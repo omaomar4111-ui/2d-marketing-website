@@ -1,10 +1,12 @@
-{
+﻿{
   "team": [
-    {
-      "name": "فريق العمل",
-      "role": "فريق الإنتاج والتسويق الرقمي",
-      "photo": "",
-      "linkedin": ""
-    }
+    { "id": 1, "roleEn": "Account Manager", "roleAr": "مدير حسابك", "descAr": "مسؤول التواصل معاك — بيتابع كل تفصيلة ويوصّل صوتك للفريق.", "image": "role-01-account-manager.jpg" },
+    { "id": 2, "roleEn": "Content Creator", "roleAr": "كتابة المحتوى", "descAr": "بيكتب الكلام اللي يعبّر عن صوت براندك — بالعامية اللي الناس تفهمها.", "image": "role-02-content-creator.jpg" },
+    { "id": 3, "roleEn": "Content Strategist", "roleAr": "استراتيجية المحتوى", "descAr": "بيخطط المحتوى الاستراتيجي — بيشوف الصورة الكبيرة قبل التنفيذ.", "image": "role-03-content-strategist.jpg" },
+    { "id": 4, "roleEn": "Media Buyer", "roleAr": "شراء الإعلانات", "descAr": "بيُدير الحملات المدفوعة على Meta وGoogle — بأعلى ROI ممكن.", "image": "role-04-media-buyer.jpg" },
+    { "id": 5, "roleEn": "Photographer", "roleAr": "التصوير الفوتوغرافي", "descAr": "بيصوّر اللحظات اللي تحكي قصة براندك — بأسلوب سينمائي.", "image": "role-05-photographer.jpg" },
+    { "id": 6, "roleEn": "Video Editor", "roleAr": "مونتاج الفيديو", "descAr": "بيحوّل الأفكار لفيديوهات تشد الانتباه — إيقاع وإبداع وتفاصيل.", "image": "role-06-video-editor.jpg" },
+    { "id": 7, "roleEn": "Videographer", "roleAr": "التصوير السينمائي", "descAr": "بيحوّل الأفكار لمشاهد بتحرك القلوب — صوت وصورة.", "image": "role-07-videographer.jpg" },
+    { "id": 8, "roleEn": "Graphic Designer", "roleAr": "تصميم الجرافيك", "descAr": "بيحوّل الأفكار لهوية بصرية متسقة — كل حاجة بتطلع بنفس الشكل.", "image": "role-08-graphic-designer.jpg" }
   ]
 }

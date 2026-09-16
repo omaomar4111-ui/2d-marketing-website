@@ -414,13 +414,25 @@ window.dataLayer = window.dataLayer || [];
   </div>
 </section>
 
-<section id="team" class="container" style="padding-top:0;margin-bottom:var(--section-y)">
-  <div style="text-align:center;max-width:680px;margin:0 auto var(--sp-10)">
-    <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-users"></use></svg>الفريق</div>
-    <h2 class="section-h2 rv">اللي بيشتغل معاك</h2>
-    <p class="section-sub rv" style="margin:0 auto">مش "فريق" — ناس بيعرفوا شغلهم.</p>
+<!-- TEAM SECTION -->
+<section id="team" class="section-team">
+  <div class="container">
+    <div class="team-intro">
+      <h2 class="team-title">
+        في كل حملة ناجحة...<br/>
+        <span class="team-title-accent">فريق بيشتغل كأنه بتاعك.</span>
+      </h2>
+      <div class="team-divider"></div>
+      <p class="team-lead">
+        في 2D Marketing، إحنا مش بس "بنقدّم خدمة" — إحنا بنشتغل معاك كفريق واحد.
+        كل واحد له دور واضح، عشان العملية تكون أسهل والنتايج أدق.
+      </p>
+    </div>
+    <div class="roles-heading">
+      <h3>الأدوار</h3>
+    </div>
+    <div class="team-grid" id="teamGrid"></div>
   </div>
-  <div class="team-grid" id="teamGrid"></div>
 </section>
 
 <section id="faq" style="padding:var(--section-y) var(--section-x);background:var(--c-s1)">
@@ -775,6 +787,8 @@ if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initGSAP);}el
 on(window,'error',function(){$('.rv').forEach(function(e){e.classList.add('v');});});
 })();</script>
 <script src="js/clients.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/team.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/search.js" defer></script>
