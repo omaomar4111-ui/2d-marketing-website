@@ -331,7 +331,7 @@ window.dataLayer = window.dataLayer || [];
   <div style="width:var(--content-w);margin:0 auto;padding:0 var(--section-x)">
     <div style="text-align:center;max-width:680px;margin:0 auto var(--sp-10)">
       <div class="section-eyebrow rv">
-        <svg class="svgi"><use href="#fa-handshake"></use></svg>
+        <svg class="svgi" aria-hidden="true"><use href="#fa-handshake"></use></svg>
         عملاؤنا
       </div>
       <h2 class="section-h2 rv">علامات بتشتغل معانا</h2>
@@ -339,17 +339,14 @@ window.dataLayer = window.dataLayer || [];
         شغلنا اتوسع في مجالات مختلفة — كل واحدة بنظام مخصوص.
       </p>
     </div>
-    
-    <!-- شريطين Marquee -->
-    <div class="clients-marquee">
-      <div class="clients-track clients-track-top" id="clientsTrack1"></div>
-    </div>
-    <div class="clients-marquee">
-      <div class="clients-track clients-track-bottom" id="clientsTrack2"></div>
-    </div>
-    
-    <!-- Grid للابتوب -->
-    <div class="clients-grid" id="clientsGrid"></div>
+  </div>
+
+  <!-- الشريطين — يمتدوا بعرض الشاشة كامل -->
+  <div class="clients-row clients-row-top">
+    <div class="clients-track" id="clientsTrackTop"></div>
+  </div>
+  <div class="clients-row clients-row-bottom">
+    <div class="clients-track" id="clientsTrackBottom"></div>
   </div>
 </section>
 
