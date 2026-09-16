@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B · Explosión radial</title>
+<style>
+  body { margin: 0; background: #0e1017; color: #cdd; font: 14px system-ui, sans-serif; }
+  #stage { height: 320vh; position: relative; }
+  #canvas { position: sticky; top: 0; width: 100vw; height: 100vh; display: block; }
+  .hint { position: fixed; left: 12px; bottom: 12px; background: #0009; padding: .5rem .7rem; border-radius: 8px; max-width: 340px; z-index: 2; }
+  code { color: #9ad; }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://unpkg.com/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://unpkg.com/three@0.169.0/examples/jsm/"
+}}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<section id="stage"><canvas id="canvas"></canvas></section>
+<div class="hint"><b>Familia B — explosión radial.</b> Haz <b>scroll</b>: las piezas se separan
+radialmente y el conjunto gira. Driver: GSAP ScrollTrigger <code>scrub</code>.
+Ver <code>references/threejs-exploded.md</code>.</div>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const canvas = document.getElementById('canvas');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#0e1017');
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+camera.position.set(0, 1.2, 6);
+camera.lookAt(0, 0, 0);
+
+// SUSTITUYE: aquí cargarías tu .glb (cada malla hija = una pieza).
+// Demo: un "chasis" procedural de piezas en rejilla 3x3x3.
+const model = new THREE.Group();
+scene.add(model);
+const geo = new THREE.BoxGeometry(0.7, 0.7, 0.7);
+for (let x = -1; x <= 1; x++)
+  for (let y = -1; y <= 1; y++)
+    for (let z = -1; z <= 1; z++) {
+      const mat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color().setHSL(0.55 + 0.12 * ((x + y + z) / 6), 0.5, 0.55),
+        metalness: 0.6, roughness: 0.35
+      });
+      const m = new THREE.Mesh(geo, mat);
+      m.position.set(x, y, z);
+      model.add(m);
+    }
+
+// --- vectores de explosión por pieza (radial desde el centro) ---
+const center = new THREE.Vector3(0, 0, 0);
+const parts = [];
+model.traverse((o) => {
+  if (!o.isMesh) return;
+  const home = o.position.clone();
+  const dir = o.position.clone().sub(center);
+  if (dir.lengthSq() < 1e-6) dir.set(0, 1, 0);
+  dir.normalize();
+  parts.push({ mesh: o, home, dir });
+});
+
+const SPREAD = 2.2;
+function setExplosion(t) {
+  for (const p of parts) p.mesh.position.copy(p.home).addScaledVector(p.dir, SPREAD * t);
+  model.rotation.y = t * Math.PI * 2;   // reensambla girando
+}
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduce) {
+  setExplosion(0);
+} else {
+  gsap.registerPlugin(ScrollTrigger);
+  const s = { t: 0 };
+  gsap.to(s, {
+    t: 1, ease: 'none',
+    scrollTrigger: { trigger: '#stage', start: 'top top', end: 'bottom bottom', scrub: true },
+    onUpdate: () => setExplosion(s.t)
+  });
+}
+
+function resize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+renderer.setAnimationLoop(() => renderer.render(scene, camera));
+</script>
+</body>
+</html>

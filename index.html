@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
 <title>2D Marketing — نظام تسويق بيبيع مش بس بينشر</title>
-<meta name="description" content="وكالة نمو وأداء تسويقي. بنبني أنظمة تجيب عملاء حقيقيين للعيادات والجيمات والعقارات والمتاجر. Leads حقيقية · ROI موثق · ضمان 90 يوم."/>
+<meta name="description" content="وكالة نمو وأداء تسويقي. ببنعمل تسويق بيبيع تجيب عملاء حقيقيين للعيادات والجيمات والعقارات والمتاجر. Leads حقيقية · ROI موثق · ضمان 90 يوم."/>
 <meta name="theme-color" content="#c00000"/>
 <meta property="og:title" content="2D Marketing — نظام بيبيع مش بس بينشر"/>
 <meta property="og:description" content="أنظمة تجيب عملاء للعيادات والجيمات والعقارات. Leads حقيقية · ROI موثق."/>
@@ -204,26 +204,43 @@ window.dataLayer = window.dataLayer || [];
   <a href="contact.html" class="btn btn-primary" style="justify-content:center">ابدأ المحادثة</a>
 </div></div>
 
-<section id="s-ignition" class="scene">
-  <div class="ignition-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="ignition-content">
-    <div id="awaken-dot"></div>
-    <h1 id="awaken-text" class="text-gradient">بنحوّل التسويق<br/>لنظام بيبيع</h1>
-    <span id="awaken-rotating">عيادات وعقارات وجيمات</span>
-    <div id="awaken-ctas">
-      <button class="btn btn-primary ripple-host" onclick="openConv()"><svg class="svgi" style="font-size:16px"><use href="#fa-rocket"></use></svg> ابدأ المحادثة دلوقتي</button>
-      <a class="btn btn-ghost" href="#s-proof">شوف النتائج <svg class="svgi" style="font-size:13px"><use href="#fa-arrow-left"></use></svg></a>
+<!-- ═══════════════════════════════════════════════════════
+     HERO 3D SECTION — Sony FX5 Camera
+═══════════════════════════════════════════════════════ -->
+<section id="hero-3d-section" style="position:relative;height:300vh;background:var(--c-black);">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;">
+    
+    <!-- Canvas 3D -->
+    <canvas id="hero-canvas" style="position:absolute;inset:0;z-index:1;"></canvas>
+    
+    <!-- Content فوق الـ Canvas -->
+    <div style="position:relative;z-index:2;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none;padding:0 var(--section-x);">
+      <div style="max-width:780px;">
+        <div id="awaken-dot" style="pointer-events:auto;"></div>
+        <h1 id="awaken-text" class="text-gradient" style="pointer-events:auto;">
+          التسويق<br/>اللي بيبيع
+        </h1>
+        <span id="awaken-rotating" style="pointer-events:auto;">كاميرا · بيانات · نتايج</span>
+        <div id="awaken-ctas" style="pointer-events:auto;margin-top:var(--sp-8);">
+          <button class="btn btn-primary ripple-host" onclick="openConv()">
+            <svg class="svgi" style="font-size:16px"><use href="#fa-rocket"></use></svg>
+            كلمنا دلوقتي
+          </button>
+          <a class="btn btn-ghost" href="#s-proof">
+            شوف شغلنا
+            <svg class="svgi" style="font-size:13px"><use href="#fa-arrow-left"></use></svg>
+          </a>
+        </div>
+      </div>
     </div>
-    <div id="awaken-stats">
-      <div class="stat"><span class="stat-n" data-target="50" data-suffix="+">50+</span><span class="stat-l">عميل نشط</span></div>
-      <div class="stat"><span class="stat-n" data-target="3.8" data-suffix="×" data-decimal="1">3.8×</span><span class="stat-l">متوسط ROAS</span></div>
-      <div class="stat"><span class="stat-n" data-target="94" data-suffix="%">94%</span><span class="stat-l">معدل الاحتفاظ</span></div>
-      <div class="stat"><span class="stat-n">&lt;4h</span><span class="stat-l">وقت الرد</span></div>
+    
+    <!-- Scroll Hint -->
+    <div id="scroll-hint" style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;opacity:0;">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">اكتشف النظام</span>
     </div>
+    
   </div>
-  <div id="scroll-hint"><div class="scroll-line"></div><span class="scroll-label">اكتشف النظام</span></div>
 </section>
 
 <section id="s-diagnosis" class="scene">
@@ -310,6 +327,32 @@ window.dataLayer = window.dataLayer || [];
   </div>
 </section>
 
+<section id="clients" class="section-clients">
+  <div style="width:var(--content-w);margin:0 auto;padding:0 var(--section-x)">
+    <div style="text-align:center;max-width:680px;margin:0 auto var(--sp-10)">
+      <div class="section-eyebrow rv">
+        <svg class="svgi"><use href="#fa-handshake"></use></svg>
+        عملاؤنا
+      </div>
+      <h2 class="section-h2 rv">علامات بتشتغل معانا</h2>
+      <p class="section-sub rv" style="margin:0 auto">
+        شغلنا اتوسع في مجالات مختلفة — كل واحدة بنظام مخصوص.
+      </p>
+    </div>
+    
+    <!-- شريطين Marquee -->
+    <div class="clients-marquee">
+      <div class="clients-track clients-track-top" id="clientsTrack1"></div>
+    </div>
+    <div class="clients-marquee">
+      <div class="clients-track clients-track-bottom" id="clientsTrack2"></div>
+    </div>
+    
+    <!-- Grid للابتوب -->
+    <div class="clients-grid" id="clientsGrid"></div>
+  </div>
+</section>
+
 <div data-ad-slot="homepage_middle" style="max-width:1140px;margin:0 auto;padding:0 var(--section-x)"></div>
 
 <section id="calc-section" class="scene" style="text-align:center">
@@ -371,6 +414,15 @@ window.dataLayer = window.dataLayer || [];
   </div>
 </section>
 
+<section id="team" class="container" style="padding-top:0;margin-bottom:var(--section-y)">
+  <div style="text-align:center;max-width:680px;margin:0 auto var(--sp-10)">
+    <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-users"></use></svg>الفريق</div>
+    <h2 class="section-h2 rv">اللي بيشتغل معاك</h2>
+    <p class="section-sub rv" style="margin:0 auto">مش "فريق" — ناس بيعرفوا شغلهم.</p>
+  </div>
+  <div class="team-grid" id="teamGrid"></div>
+</section>
+
 <section id="faq" style="padding:var(--section-y) var(--section-x);background:var(--c-s1)">
   <div style="max-width:1140px;margin:0 auto">
     <div style="text-align:center;margin-bottom:var(--sp-8)">
@@ -406,7 +458,7 @@ window.dataLayer = window.dataLayer || [];
     <div class="footer-top">
       <div class="footer-brand">
         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23c00000'/><text x='100' y='130' font-size='120' font-weight='900' fill='white' text-anchor='middle' font-family='Arial'>2D</text></svg>" alt="2D" width="44" height="44"/>
-        <p class="footer-tagline">بنبني أنظمة نمو — مش بنبيع محتوى.</p>
+        <p class="footer-tagline">بنعمل تسويق بيبيع — مش بنبيع محتوى.</p>
       </div>
       <div><div class="footer-col-title">الموقع</div><div class="footer-links">
         <a class="footer-link" href="./">الرئيسية</a>
@@ -457,7 +509,7 @@ window.dataLayer = window.dataLayer || [];
 
 <div id="smart-cta">
   <div class="smart-cta-inner">
-    <div class="smart-cta-msg" id="smartCtaMsg">جاهز تبني نظام نمو حقيقي؟</div>
+    <div class="smart-cta-msg" id="smartCtaMsg">مستني إيه؟</div>
     <button class="smart-cta-btn" onclick="openConv()">ابدأ المحادثة</button>
     <button class="smart-cta-close" onclick="dismissSmartCta()" aria-label="إغلاق">✕</button>
   </div>
@@ -690,7 +742,7 @@ on(document,'keydown',function(e){if(e.key==='Escape')closeConv();if(e.key==='En
 
 /* SMART CTA */
 var smartDismissed=false;
-var smartMsgs={default:{m:'جاهز تبني نظام نمو حقيقي؟',b:'ابدأ المحادثة'},packages:{m:'شوفت الباقات؟ <strong>احجز مكالمة مجانية</strong>',b:'احجز الآن'},proof:{m:'شوفت النتايج؟ <strong>ابدأ رحلتك النهاردة</strong>',b:'ابدأ الآن'},faq:{m:'سؤالك مش موجود؟ <strong>اسألنا مباشرة</strong>',b:'اسأل الآن'}};
+var smartMsgs={default:{m:'مستني إيه؟',b:'ابدأ المحادثة'},packages:{m:'شوفت الباقات؟ <strong>احجز مكالمة مجانية</strong>',b:'احجز الآن'},proof:{m:'شوفت النتايج؟ <strong>ابدأ رحلتك النهاردة</strong>',b:'ابدأ الآن'},faq:{m:'سؤالك مش موجود؟ <strong>اسألنا مباشرة</strong>',b:'اسأل الآن'}};
 window.dismissSmartCta=function(){smartDismissed=true;var b=$('#smart-cta');if(b)b.classList.remove('visible');};
 (function(){var b=$('#smart-cta');if(!b)return;var shown=false,last='default';
 on(window,'scroll',function(){if(smartDismissed)return;
@@ -701,21 +753,18 @@ if(f!==last){last=f;var d=smartMsgs[f]||smartMsgs.default;var m=$('#smartCtaMsg'
 /* GSAP */
 function initGSAP(){if(typeof gsap==='undefined'){setTimeout(initGSAP,300);return;}
 gsap.registerPlugin(ScrollTrigger,TextPlugin);
-var tl=gsap.timeline({delay:1.2});
+var tl=gsap.timeline({delay:0.8});
 tl.to('#awaken-text',{opacity:1,duration:0.01}).from('#awaken-text',{y:40,duration:0.9,ease:'power3.out'},'<')
 .to('#awaken-rotating',{opacity:1,y:0,duration:0.7,ease:'power2.out'},'-=0.4')
 .to('#awaken-ctas',{opacity:1,y:0,duration:0.6,ease:'power2.out'},'-=0.4')
-.to('#awaken-stats',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.3')
 .to('#scroll-hint',{opacity:1,duration:0.6},'-=0.1');
-gsap.to('.orb-1',{y:-80,scale:1.2,ease:'none',scrollTrigger:{trigger:'#s-ignition',start:'top top',end:'bottom top',scrub:true}});
-gsap.to('.orb-2',{y:60,scale:0.85,ease:'none',scrollTrigger:{trigger:'#s-ignition',start:'top top',end:'bottom top',scrub:true}});
-$$('.section-h2').forEach(function(el){gsap.from(el,{opacity:0,y:36,duration:0.85,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});});
+$('.section-h2').forEach(function(el){gsap.from(el,{opacity:0,y:36,duration:0.85,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});});
 ScrollTrigger.batch('.pkg',{onEnter:function(b){gsap.fromTo(b,{opacity:0,scale:0.92,y:24},{opacity:1,scale:1,y:0,stagger:0.1,duration:0.65,ease:'back.out(1.4)'});},start:'top 90%'});
 ScrollTrigger.batch('.bench-card',{onEnter:function(b){gsap.from(b,{opacity:0,x:40,rotation:6,stagger:0.15,duration:0.55});},start:'top 90%'});
 ScrollTrigger.create({trigger:'#s-exit',start:'top 80%',once:true,onEnter:function(){
 gsap.to('#exit-text',{opacity:1,letterSpacing:'0.05em',duration:0.8});
 gsap.to('#exit-cta',{opacity:1,y:0,scale:1,duration:0.5,delay:0.8,ease:'back.out(1.4)'});}});
-var words=['عيادات وعقارات وجيمات','نظام Leads مش مجرد محتوى','CAC أقل · ROAS أعلى','نتيجة مقاسة — مش وعود'];
+var words=['عيادات وعقارات وجيمات','كاميرا · بيانات · نتايج','صوّر شغلك صح','تسويق بيبيع بجد'];
 var rotEl=$('#awaken-rotating'),wi=0;
 if(rotEl){setInterval(function(){wi=(wi+1)%words.length;
 gsap.to(rotEl,{opacity:0,y:-8,duration:0.25,onComplete:function(){
@@ -723,11 +772,13 @@ rotEl.textContent=words[wi];gsap.fromTo(rotEl,{opacity:0,y:8},{opacity:1,y:0,dur
 if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initGSAP);}else{setTimeout(initGSAP,500);}
 
 (function(){var y=$('#footer-year');if(y)y.textContent=new Date().getFullYear();})();
-on(window,'error',function(){$$('.rv').forEach(function(e){e.classList.add('v');});});
-})();
-</script>
+on(window,'error',function(){$('.rv').forEach(function(e){e.classList.add('v');});});
+})();</script>
+<script src="js/clients.js" defer></script>
+<script src="js/team.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/search.js" defer></script>
 <script src="js/ads.js" defer></script>
+<script type="module" src="js/hero-3d.js"></script>
 </body>
 </html>

@@ -204,3 +204,184 @@
 .ad-cta{font-size:var(--t-sm);font-weight:800;color:var(--c-red-h);
   transition:gap 250ms;display:inline-flex;align-items:center;gap:6px}
 .ad-card:hover .ad-cta{gap:12px}
+
+/* ══════════════════════════════════════════════════════════════
+   CLIENTS SECTION STYLES (MARQUEE + GRID)
+   ══════════════════════════════════════════════════════════════ */
+.section-clients {
+  position: relative;
+  padding: var(--section-y) 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(192, 0, 0, 0.05) 0%, transparent 80%);
+}
+
+.clients-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: var(--sp-6) 0;
+  margin-bottom: var(--sp-10);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.clients-track {
+  display: flex;
+  gap: clamp(40px, 6vw, 80px);
+  animation: clientsScroll 50s linear infinite;
+  width: max-content;
+  align-items: center;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes clientsScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: clamp(14px, 2.5vw, 24px);
+  align-items: center;
+  justify-items: center;
+}
+
+.client-logo {
+  flex-shrink: 0;
+  width: clamp(120px, 14vw, 170px);
+  height: clamp(65px, 8vw, 95px);
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.client-logo:hover {
+  background: rgba(192, 0, 0, 0.08);
+  border-color: rgba(192, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(192, 0, 0, 0.18);
+  transform: translateY(-3px) scale(1.03);
+}
+
+.client-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(0.92) contrast(1.1);
+  transition: filter 300ms ease, opacity 300ms ease, transform 300ms ease;
+}
+
+.client-logo:hover img {
+  filter: brightness(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+  transform: scale(1.05);
+}
+
+.client-fallback-badge {
+  font-size: var(--t-xs);
+  font-weight: 800;
+  color: var(--c-w80);
+  font-family: var(--font-mono, sans-serif);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .clients-grid {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .clients-marquee {
+    margin-bottom: var(--sp-12);
+  }
+}
+
+/* ============================================================
+   2-TRACK OPPOSING CLIENTS MARQUEE & TEAM SECTION
+   ============================================================ */
+.clients-track-top {
+  animation: clientsScrollTop 45s linear infinite;
+}
+
+.clients-track-bottom {
+  animation: clientsScrollBottom 45s linear infinite;
+}
+
+@keyframes clientsScrollTop {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes clientsScrollBottom {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-6);
+}
+
+.team-member {
+  text-align: center;
+  padding: var(--sp-5);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-xl);
+  transition: all 300ms var(--e-float);
+}
+
+.team-member:hover {
+  transform: translateY(-6px);
+  border-color: rgba(192, 0, 0, 0.40);
+  box-shadow: 0 12px 30px rgba(192, 0, 0, 0.15);
+}
+
+.team-photo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--sp-4);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(192, 0, 0, 0.20), rgba(10, 0, 0, 0.5));
+  border: 2px solid rgba(192, 0, 0, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 48px;
+  color: rgba(192, 0, 0, 0.5);
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-name {
+  font-size: var(--t-md);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.team-role {
+  font-size: var(--t-sm);
+  color: var(--c-w60);
+}

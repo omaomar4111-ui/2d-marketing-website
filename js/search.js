@@ -9,13 +9,13 @@ var basePath = (window.location.pathname.indexOf('/services/')>-1 ||
                ? '../' : '';
 
 var PAGES = [
-  {url:basePath+'index.html',title:'الرئيسية',desc:'نظام نمو يبيع — Leads حقيقية وROI موثق'},
-  {url:basePath+'services/index.html',title:'الخدمات',desc:'أنظمة نمو لكل قطاع — عيادات، جيمات، عقارات، متاجر'},
+  {url:basePath+'index.html',title:'الرئيسية',desc:'تسويق بيجيب عملاء يبيع — Leads حقيقية وROI موثق'},
+  {url:basePath+'services/index.html',title:'الخدمات',desc:'تسويق بيبيع لكل قطاع — عيادات، جيمات، عقارات، متاجر'},
   {url:basePath+'services/clinics.html',title:'تسويق العيادات',desc:'نظام حجوزات طبي — Google + YouTube + Meta'},
   {url:basePath+'services/gyms.html',title:'تسويق الجيمات',desc:'نظام اشتراكات — حملات موسمية + Free Trials'},
   {url:basePath+'services/real-estate.html',title:'تسويق العقارات',desc:'Lead Scoring + Video Tours + Full-Funnel'},
   {url:basePath+'services/ecommerce.html',title:'تسويق المتاجر',desc:'Catalog Ads + CAPI + AOV Optimization'},
-  {url:basePath+'about.html',title:'إحنا مين',desc:'بنبني أنظمة نمو — لا نبيع محتوى'},
+  {url:basePath+'about.html',title:'إحنا مين',desc:'بنعمل تسويق بيبيع — لا نبيع محتوى'},
   {url:basePath+'contact.html',title:'تواصل معانا',desc:'مكالمة تشخيص مجانية 20 دقيقة'},
   {url:basePath+'blog/index.html',title:'المدونة',desc:'مقالات عن التسويق والنظام والنتائج'},
   {url:basePath+'services/index.html',title:'الباقات',desc:'Growth, Scale, Authority — 12K to 30K EGP'}

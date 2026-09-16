@@ -1,0 +1,164 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "بيلتنا",
+      "nameEn": "BLILTNA",
+      "sector": "agriculture",
+      "sectorAr": "زراعة وأغذية",
+      "file": "client-01-bliltna.png"
+    },
+    {
+      "id": 2,
+      "name": "Home IX",
+      "nameEn": "HOME IX",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-02-home-ix.png"
+    },
+    {
+      "id": 3,
+      "name": "Kangaroo",
+      "nameEn": "KANGAROO",
+      "sector": "retail",
+      "sectorAr": "متاجر",
+      "file": "client-03-kangaroo.png"
+    },
+    {
+      "id": 4,
+      "name": "دار",
+      "nameEn": "DAR",
+      "sector": "restaurant",
+      "sectorAr": "مطاعم",
+      "file": "client-04-dar.png"
+    },
+    {
+      "id": 5,
+      "name": "عيادات النيرة",
+      "nameEn": "NH CLINICS",
+      "sector": "medical",
+      "sectorAr": "عيادات طبية",
+      "file": "client-05-nh-clinics.png"
+    },
+    {
+      "id": 6,
+      "name": "Unit X Real Estate",
+      "nameEn": "UNIT X",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-06-unit-x.png"
+    },
+    {
+      "id": 7,
+      "name": "Mountain View",
+      "nameEn": "MOUNTAIN VIEW",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-07-mountain-view.png"
+    },
+    {
+      "id": 8,
+      "name": "Merath Developments",
+      "nameEn": "MERATH",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-08-merath.png"
+    },
+    {
+      "id": 9,
+      "name": "Memaar Almorshe",
+      "nameEn": "MEMAAR ALMORSHE",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-09-memaar.png"
+    },
+    {
+      "id": 10,
+      "name": "SAK Developments",
+      "nameEn": "SAK",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-10-sak.png"
+    },
+    {
+      "id": 11,
+      "name": "The Address Investments",
+      "nameEn": "THE ADDRESS",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-11-address.png"
+    },
+    {
+      "id": 12,
+      "name": "Evergreen",
+      "nameEn": "EVERGREEN",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-12-evergreen.png"
+    },
+    {
+      "id": 13,
+      "name": "JG للاستثمار والتسويق العقاري",
+      "nameEn": "JG",
+      "sector": "real-estate",
+      "sectorAr": "عقارات",
+      "file": "client-13-jg.png"
+    },
+    {
+      "id": 14,
+      "name": "Island Gym",
+      "nameEn": "ISLAND GYM",
+      "sector": "fitness",
+      "sectorAr": "جيمات ورياضة",
+      "file": "client-14-island-gym.png"
+    },
+    {
+      "id": 15,
+      "name": "iSkin",
+      "nameEn": "ISKIN",
+      "sector": "beauty",
+      "sectorAr": "تجميل وعناية",
+      "file": "client-15-iskin.png"
+    },
+    {
+      "id": 16,
+      "name": "Paws Stylist",
+      "nameEn": "PAWS STYLIST",
+      "sector": "services",
+      "sectorAr": "خدمات",
+      "file": "client-16-paws.png"
+    },
+    {
+      "id": 17,
+      "name": "XGarage",
+      "nameEn": "XGARAGE",
+      "sector": "services",
+      "sectorAr": "خدمات السيارات",
+      "file": "client-17-xgarage.png"
+    },
+    {
+      "id": 18,
+      "name": "OVO Beyond The Surface",
+      "nameEn": "OVO",
+      "sector": "services",
+      "sectorAr": "خدمات",
+      "file": "client-18-ovo.png"
+    },
+    {
+      "id": 19,
+      "name": "SWAN Medical Center",
+      "nameEn": "SWAN MEDICAL",
+      "sector": "medical",
+      "sectorAr": "عيادات طبية",
+      "file": "client-19-swan.png"
+    },
+    {
+      "id": 20,
+      "name": "Godzilla Fitness Club",
+      "nameEn": "GODZILLA",
+      "sector": "fitness",
+      "sectorAr": "جيمات ورياضة",
+      "file": "client-20-godzilla.png"
+    }
+  ]
+}
