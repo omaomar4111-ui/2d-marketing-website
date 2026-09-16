@@ -26,105 +26,10 @@ window.dataLayer = window.dataLayer || [];
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/main.css?v=7"/>
-<link rel="stylesheet" href="css/pages.css?v=7"/>
-
-<style>
-/* صفحة الهوم — الأنماط المخصصة */
-#s-ignition{display:flex;align-items:center;justify-content:center;text-align:center;padding:120px var(--section-x) 80px;overflow:hidden;min-height:100svh;position:relative}
-.ignition-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% -10%,rgba(192,0,0,0.18) 0%,transparent 70%);pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
-.orb-1{width:520px;height:520px;top:-120px;right:-80px;background:radial-gradient(circle,rgba(192,0,0,0.22) 0%,transparent 70%);animation:orbFloat 9s ease-in-out infinite}
-.orb-2{width:360px;height:360px;bottom:-60px;left:-60px;background:radial-gradient(circle,rgba(139,0,0,0.16) 0%,transparent 70%);animation:orbFloat 12s ease-in-out infinite reverse}
-@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(18px,-24px) scale(1.05)}66%{transform:translate(-14px,16px) scale(0.97)}}
-.ignition-content{position:relative;z-index:2;max-width:780px}
-#awaken-dot{width:8px;height:8px;border-radius:50%;background:var(--c-red-h);margin:0 auto var(--sp-8);animation:pulseDot 1.8s ease-in-out infinite}
-#awaken-text{font-size:var(--t-hero);font-weight:900;line-height:1.05;opacity:0;min-height:2.2em;background:linear-gradient(135deg,#fff 15%,#ffaaaa 55%,#fff 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-#awaken-rotating{display:block;font-size:var(--t-md);font-weight:700;color:var(--c-red-h);margin:var(--sp-4) 0 var(--sp-6);min-height:1.4em;opacity:0}
-#awaken-ctas{display:flex;align-items:center;justify-content:center;gap:var(--sp-4);flex-wrap:wrap;opacity:0}
-#awaken-stats{display:flex;gap:clamp(20px,5vw,60px);justify-content:center;margin-top:var(--sp-10);opacity:0;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-n{font-size:var(--t-3xl);font-weight:900;font-family:var(--font-mono);color:var(--c-w100);display:block}
-.stat-l{font-size:var(--t-xs);color:var(--c-w40);font-weight:700}
-#scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0}
-.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(192,0,0,0.7),transparent);animation:scrollPulse 2s ease-in-out infinite}
-.scroll-label{font-size:10px;letter-spacing:3px;color:rgba(192,0,0,0.5);text-transform:uppercase}
-@keyframes scrollPulse{0%,100%{transform:scaleY(1);opacity:0.7}50%{transform:scaleY(1.2);opacity:1}}
-
-#s-diagnosis{overflow:hidden;padding:var(--section-y) 0;display:flex;flex-direction:column;align-items:center;gap:var(--sp-10)}
-.diagnosis-header{text-align:center;padding:0 var(--section-x)}
-.problem-marquee-row{width:100%;overflow:hidden}
-.problem-track{display:flex;gap:0;white-space:nowrap;animation:marqueeScroll 28s linear infinite}
-.problem-track:hover{animation-play-state:paused}
-@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.problem-item{font-size:clamp(36px,8vw,100px);font-weight:900;padding:0 clamp(30px,5vw,60px);color:rgba(255,255,255,0.06);cursor:pointer;flex-shrink:0;transition:color 0.3s,transform 0.2s}
-.problem-item:hover{color:rgba(192,0,0,0.4);transform:scale(1.03)}
-.problem-item.lit{color:rgba(192,0,0,0.9)}
-.anchor-statement{text-align:center;padding:0 var(--section-x);max-width:var(--narrow-w);margin:0 auto}
-.anchor-line1{font-size:var(--t-xl);font-weight:900;color:var(--c-w100)}
-.anchor-line2{font-size:var(--t-xl);font-weight:900;color:var(--c-red-h)}
-#problem-detail{max-width:var(--narrow-w);margin:0 auto;padding:var(--sp-6) var(--sp-8);background:rgba(192,0,0,0.08);border:1px solid rgba(192,0,0,0.20);border-radius:var(--r-xl);display:none;text-align:right;width:100%}
+<link rel="stylesheet" href="css/main.css?v=9"/>
+<link rel="stylesheet" href="css/pages.css?v=9"/>
 
 
-
-
-.counters-row{display:flex;gap:clamp(20px,5vw,60px);justify-content:center;flex-wrap:wrap;margin:var(--sp-12) 0}
-.counter{text-align:center}
-.counter-n{font-size:var(--t-3xl);font-weight:900;font-family:var(--font-mono);color:var(--c-w100);display:block}
-.counter-l{font-size:var(--t-xs);color:var(--c-w40);font-weight:700;margin-top:var(--sp-1)}
-.methodology-note{font-size:var(--t-xs);color:var(--c-w40);margin-bottom:var(--sp-12);font-style:italic}
-.bench-strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:var(--sp-4);padding:var(--sp-4) var(--section-x) var(--sp-6)}
-.bench-card{flex-shrink:0;scroll-snap-align:start;width:min(340px,85vw);border-radius:var(--r-xl);padding:var(--sp-6);text-align:right;background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border)}
-.bench-tag{font-size:var(--t-xs);font-weight:700;color:var(--c-red-h);letter-spacing:1px;margin-bottom:var(--sp-3)}
-.bench-h{font-size:var(--t-xl);font-weight:900;margin-bottom:var(--sp-2);color:#fff}
-.bench-meta{font-size:var(--t-sm);color:var(--c-w60)}
-.bench-note{font-size:var(--t-xs);color:var(--c-w40);margin-top:var(--sp-3);font-style:italic}
-
-.calc-card{max-width:700px;margin:var(--sp-10) auto 0;background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid rgba(192,0,0,0.20);border-radius:var(--r-2xl);padding:var(--sp-8);position:relative;overflow:hidden}
-.calc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c-red-d),var(--c-red-h))}
-.calc-inputs{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin-bottom:var(--sp-6)}
-.calc-field label{display:block;font-size:var(--t-xs);font-weight:700;color:var(--c-w60);margin-bottom:var(--sp-2)}
-.calc-field .helper{font-size:10px;color:var(--c-w40);margin-top:4px}
-.calc-results{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);margin-bottom:var(--sp-6)}
-.result-card{background:rgba(0,0,0,0.3);border-radius:var(--r-md);padding:var(--sp-4);text-align:center}
-.result-val{font-size:var(--t-xl);font-weight:900;font-family:var(--font-mono);display:block}
-.result-val.negative{color:var(--c-error)}
-.result-val.gold{color:var(--c-gold)}
-.result-val.positive{color:var(--c-success)}
-.result-label{font-size:var(--t-xs);color:var(--c-w40);margin-top:var(--sp-1)}
-@media(max-width:600px){.calc-inputs,.calc-results{grid-template-columns:1fr}.calc-card{padding:var(--sp-6) var(--sp-4)}}
-
-#s-exit{display:flex;align-items:center;justify-content:center;text-align:center;padding:120px var(--section-x) 100px;min-height:60vh;background:var(--c-s1);position:relative;overflow:hidden}
-.exit-content{position:relative;z-index:2}
-#exit-text{font-size:var(--t-4xl);font-weight:900;opacity:0;background:linear-gradient(135deg,#fff 15%,#ffaaaa 55%,#fff 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:var(--sp-10)}
-#exit-cta{opacity:0}
-
-.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--sp-6);margin-top:var(--sp-10)}
-.pkg{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);border-radius:var(--r-xl);padding:var(--sp-6);position:relative;overflow:hidden;transition:all 300ms var(--e-float)}
-.pkg:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(192,0,0,0.22)}
-.pkg.featured{border-color:rgba(192,0,0,0.45);background:rgba(30,0,0,0.60)}
-.pkg.featured::before{content:'⭐ الأكثر اختياراً';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--c-red-h);color:#fff;font-size:10px;font-weight:800;padding:4px 16px;border-radius:0 0 var(--r-md) var(--r-md);white-space:nowrap}
-.pkg-tier{font-size:var(--t-xs);font-weight:800;color:var(--c-red-h);letter-spacing:3px;text-transform:uppercase;margin-bottom:var(--sp-2)}
-.pkg-name{font-size:var(--t-lg);font-weight:900;margin-bottom:var(--sp-2);color:#fff}
-.pkg-tag{font-size:var(--t-xs);color:var(--c-w40);margin-bottom:var(--sp-4)}
-.pkg-price-box{background:rgba(0,0,0,0.3);border-radius:var(--r-md);padding:var(--sp-4);text-align:center;margin-bottom:var(--sp-4)}
-.pkg-price-label{font-size:var(--t-xs);color:var(--c-w40)}
-.pkg-price{font-size:var(--t-3xl);font-weight:900;font-family:var(--font-mono)}
-.pkg-price span{font-size:var(--t-sm);font-weight:400}
-.pkg-features{list-style:none;display:flex;flex-direction:column;gap:var(--sp-2);margin-bottom:var(--sp-5)}
-.pkg-features li{display:flex;align-items:flex-start;gap:var(--sp-2);font-size:var(--t-sm);color:var(--c-w60)}
-.pkg-features li::before{content:'✓';color:var(--c-success);font-weight:900;flex-shrink:0}
-
-.faq-list{display:flex;flex-direction:column;gap:var(--sp-3);margin-top:var(--sp-8);max-width:var(--narrow-w);margin-left:auto;margin-right:auto}
-.fq{background:rgba(10,0,0,0.6);border:1px solid rgba(192,0,0,0.12);border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-6);cursor:pointer;font-size:var(--t-sm);font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;transition:all 200ms}
-.fq:hover{border-color:rgba(192,0,0,0.30)}
-.fq[aria-expanded="true"]{border-color:rgba(192,0,0,0.35);color:var(--c-red-h)}
-.fq-icon{font-size:12px;transition:transform 300ms;flex-shrink:0}
-.fq[aria-expanded="true"] .fq-icon{transform:rotate(180deg)}
-.fa-body{max-height:0;overflow:hidden;opacity:0;transition:all 400ms cubic-bezier(0.4,0,0.2,1);padding:0 var(--sp-6)}
-.fa-body.open{max-height:400px;opacity:1;padding:0 var(--sp-6) var(--sp-4)}
-.fa-body p{font-size:var(--t-sm);color:var(--c-w60);line-height:1.75;padding-top:var(--sp-3)}
-</style>
 <!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -501,101 +406,6 @@ window.dataLayer = window.dataLayer || [];
   </div>
 </section>
 
-
-
-<section id="s-diagnosis" class="scene">
-  <div class="diagnosis-header rv">
-    <div class="section-eyebrow"><svg class="svgi"><use href="#fa-triangle-exclamation"></use></svg>المشكلة الحقيقية</div>
-    <h2 class="section-h2">مألوف؟</h2>
-    <p class="section-sub">دوس على أي مشكلة بتواجهها</p>
-  </div>
-  <div class="problem-marquee-row">
-    <div class="problem-track" id="problemTrack">
-      <span class="problem-item" data-idx="0" onclick="litProblem(0)">12 ريلز · صفر عملاء</span>
-      <span class="problem-item" data-idx="1" onclick="litProblem(1)">ميزانية محروقة</span>
-      <span class="problem-item" data-idx="2" onclick="litProblem(2)">لايكات ≠ مبيعات</span>
-      <span class="problem-item" data-idx="3" onclick="litProblem(3)">وكالات بدون نتايج</span>
-      <span class="problem-item" data-idx="4" onclick="litProblem(4)">CAC مجهول</span>
-      <span class="problem-item" data-idx="5" onclick="litProblem(5)">تقارير بلا قرارات</span>
-      <span class="problem-item" aria-hidden="true">12 ريلز · صفر عملاء</span>
-      <span class="problem-item" aria-hidden="true">ميزانية محروقة</span>
-      <span class="problem-item" aria-hidden="true">لايكات ≠ مبيعات</span>
-      <span class="problem-item" aria-hidden="true">وكالات بدون نتايج</span>
-      <span class="problem-item" aria-hidden="true">CAC مجهول</span>
-      <span class="problem-item" aria-hidden="true">تقارير بلا قرارات</span>
-    </div>
-  </div>
-  <div id="problem-detail">
-    <div style="font-size:var(--t-xs);font-weight:700;color:rgba(192,0,0,0.6);letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--sp-2)" id="prob-label">المشكلة</div>
-    <div style="font-size:var(--t-lg);font-weight:900;margin-bottom:var(--sp-2);color:#fff" id="prob-title"></div>
-    <div style="font-size:var(--t-sm);color:var(--c-w60);line-height:1.75;margin-bottom:var(--sp-4)" id="prob-desc"></div>
-    <div style="font-size:var(--t-sm);font-weight:700;color:var(--c-success)" id="prob-sol"></div>
-  </div>
-  <div class="anchor-statement rv">
-    <p class="anchor-line1">المشكلة مش في التسويق.</p>
-    <p class="anchor-line2">المشكلة إنك بتشتري خدمة بدل نظام.</p>
-  </div>
-</section>
-
-<section id="calc-section" class="scene" style="text-align:center">
-  <div class="container">
-    <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-calculator"></use></svg>حاسبة النمو</div>
-    <h2 class="section-h2 rv">بتخسر كام كل شهر بدون نظام؟</h2>
-    <p class="section-sub rv" style="margin:0 auto var(--sp-6)">دخّل أرقامك الحقيقية — الحاسبة بتتحدث فوراً.</p>
-    <div class="calc-card rv">
-      <div class="calc-inputs">
-        <div class="calc-field"><label for="c-leads">Leads ضايعة كل شهر</label><input class="input" type="number" id="c-leads" value="30" oninput="calcROI()"/><span class="helper">العملاء المحتملين اللي مش بتوصلهم</span></div>
-        <div class="calc-field"><label for="c-val">قيمة العميل (EGP)</label><input class="input" type="number" id="c-val" value="5000" oninput="calcROI()"/><span class="helper">متوسط اللي بيدفعه في أول 3 شهور</span></div>
-        <div class="calc-field"><label for="c-conv">معدل التحويل (%)</label><input class="input" type="number" id="c-conv" value="20" oninput="calcROI()"/><span class="helper">من كل 100 lead — كام بيتحول؟</span></div>
-        <div class="calc-field"><label for="c-pkg">الباقة</label><select class="select" id="c-pkg" onchange="calcROI()"><option value="12000">Growth — 12,000 EGP</option><option value="18000" selected>Scale — 18,000 EGP</option><option value="30000">Authority — 30,000 EGP</option></select></div>
-      </div>
-      <div class="calc-results">
-        <div class="result-card"><span class="result-val negative" id="r-rev">0 EGP</span><span class="result-label">الإيراد الشهري الضايع</span></div>
-        <div class="result-card"><span class="result-val" id="r-annual">0 EGP</span><span class="result-label">الإيراد السنوي المحتمل</span></div>
-        <div class="result-card"><span class="result-val" id="r-roas">×0.00</span><span class="result-label">ROAS المتوقع</span></div>
-      </div>
-      <a id="calc-wa" href="https://wa.me/201144826641" target="_blank" rel="noopener" class="btn btn-primary ripple-host" style="width:100%;justify-content:center"><svg class="svgi"><use href="#fa-whatsapp"></use></svg> ناقش الأرقام دي مع فريقنا</a>
-      <p style="font-size:var(--t-xs);color:var(--c-w40);margin-top:var(--sp-3)">الأرقام تقديرية. النتايج الفعلية بتختلف.</p>
-    </div>
-  </div>
-</section>
-
-<section id="packages" style="padding:var(--section-y) var(--section-x)">
-  <div style="max-width:1140px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:var(--sp-10)">
-      <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-layer-group"></use></svg>مستويات النمو</div>
-      <h2 class="section-h2 rv">اختار مستوى النظام — مش عدد البوستات</h2>
-      <p class="section-sub rv" style="margin:0 auto">كل باقة = نظام اكتساب متكامل.</p>
-    </div>
-    <div class="pkg-grid">
-      <div class="pkg rv">
-        <div class="pkg-tier">GROWTH</div>
-        <div class="pkg-name">Acquisition Engine</div>
-        <div class="pkg-tag">لمن يريد نظام توليد Leads مستمر</div>
-        <div class="pkg-price-box"><div class="pkg-price-label">استثمار شهري</div><div class="pkg-price">12,000<span> EGP</span></div></div>
-        <ul class="pkg-features"><li>استراتيجية محتوى شهرية</li><li>حملات Meta Ads مُدارة</li><li>تقرير KPIs شهري</li><li>مدير حساب مخصص</li><li>مراجعة أسبوعية</li></ul>
-        <button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="openConv()">ابدأ بـ Growth</button>
-      </div>
-      <div class="pkg featured rv">
-        <div class="pkg-tier" style="color:var(--c-gold)">SCALE</div>
-        <div class="pkg-name">Full Growth System</div>
-        <div class="pkg-tag">فريق تسويق كامل بتكلفة واحدة</div>
-        <div class="pkg-price-box"><div class="pkg-price-label">استثمار شهري</div><div class="pkg-price">18,000<span> EGP</span></div></div>
-        <ul class="pkg-features"><li>كل مميزات Growth +</li><li>Google Ads + Meta Ads</li><li>Landing Page محسّنة</li><li>Lead Tracking & Attribution</li><li>تقرير ROAS أسبوعي</li><li>مدير حساب استراتيجي</li></ul>
-        <button class="btn btn-primary ripple-host" style="width:100%;justify-content:center" onclick="openConv()">احجز مكالمة Scale</button>
-      </div>
-      <div class="pkg rv">
-        <div class="pkg-tier" style="color:var(--c-gold)">AUTHORITY</div>
-        <div class="pkg-name">Market Domination</div>
-        <div class="pkg-tag">للشركات الطموحة</div>
-        <div class="pkg-price-box"><div class="pkg-price-label">استثمار شهري</div><div class="pkg-price" style="color:var(--c-gold)">30,000<span> EGP</span></div></div>
-        <ul class="pkg-features"><li>كل مميزات Scale +</li><li>Multi-channel</li><li>Advanced Analytics</li><li>A/B Testing</li><li>Competitor Intelligence</li><li>جلسات استراتيجية</li></ul>
-        <button class="btn btn-gold ripple-host" style="width:100%;justify-content:center" onclick="openConv()">اتكلم عن Authority</button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="faq" style="padding:var(--section-y) var(--section-x);background:var(--c-s1)">
   <div style="max-width:1140px;margin:0 auto">
     <div style="text-align:center;margin-bottom:var(--sp-8)">
@@ -674,15 +484,6 @@ window.dataLayer = window.dataLayer || [];
             </span>
             <a href="mailto:hello@2dmarketing.agency" dir="ltr">hello@2dmarketing.agency</a>
           </li>
-          
-          <li>
-            <span class="register-info-icon">
-              <svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
-                <path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/>
-              </svg>
-            </span>
-            <a href="https://wa.me/201144826641" target="_blank" rel="noopener" dir="ltr">+20 11 4482 6641</a>
-          </li>
         </ul>
         
       </div>
@@ -739,23 +540,6 @@ window.dataLayer = window.dataLayer || [];
   </div>
 </section>
 
-
-<section id="s-exit" class="scene">
-  <div class="orb orb-1" style="opacity:0.5"></div>
-  <div class="exit-content">
-    <h2 id="exit-text" style="font-size:var(--t-4xl)">رحلتك بدأت.</h2>
-    <div id="exit-cta" style="opacity:0;transform:translateY(24px) scale(0.9)">
-      <button class="btn btn-primary ripple-host" onclick="openConv()" style="font-size:var(--t-md);padding:18px 44px"><svg class="svgi" style="font-size:18px"><use href="#fa-rocket"></use></svg> احجز مكالمة التشخيص المجانية</button>
-      <p style="margin-top:var(--sp-4);font-size:var(--t-sm);color:var(--c-w40)">20 دقيقة · بدون التزام · بنرد خلال 4 ساعات</p>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- ═══════════════════════════════════════════════════════
-     FOOTER — مطابق VR Agency
-═══════════════════════════════════════════════════════ -->
 <footer class="site-footer" role="contentinfo">
   <div class="site-footer-inner">
     
@@ -819,25 +603,13 @@ window.dataLayer = window.dataLayer || [];
         <ul class="site-footer-contact">
           <li>
             <span class="site-footer-contact-icon">
-              <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
-                <path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/>
+              <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor">
+                <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
               </svg>
             </span>
             <div>
-              <div class="site-footer-contact-label">راسلنا على</div>
-              <a href="mailto:hello@2dmarketing.agency" class="site-footer-contact-value" dir="ltr">hello@2dmarketing.agency</a>
-            </div>
-          </li>
-          
-          <li>
-            <span class="site-footer-contact-icon">
-              <svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
-                <path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/>
-              </svg>
-            </span>
-            <div>
-              <div class="site-footer-contact-label">واتساب</div>
-              <a href="https://wa.me/201144826641" target="_blank" rel="noopener" class="site-footer-contact-value" dir="ltr">+20 11 4482 6641</a>
+              <div class="site-footer-contact-label">المقر</div>
+              <span class="site-footer-contact-value">القاهرة — مصر</span>
             </div>
           </li>
           
@@ -848,8 +620,20 @@ window.dataLayer = window.dataLayer || [];
               </svg>
             </span>
             <div>
-              <div class="site-footer-contact-label">اتصل بينا</div>
+              <div class="site-footer-contact-label">اتصل بنا</div>
               <a href="tel:+201144826641" class="site-footer-contact-value" dir="ltr">+20 11 4482 6641</a>
+            </div>
+          </li>
+          
+          <li>
+            <span class="site-footer-contact-icon">
+              <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                <path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/>
+              </svg>
+            </span>
+            <div>
+              <div class="site-footer-contact-label">راسلنا على</div>
+              <a href="mailto:hello@2dmarketing.agency" class="site-footer-contact-value" dir="ltr">hello@2dmarketing.agency</a>
             </div>
           </li>
         </ul>
@@ -904,246 +688,14 @@ window.dataLayer = window.dataLayer || [];
 
 <button id="back-to-top" aria-label="ارجع لأعلى"><svg class="svgi" style="font-size:18px;transform:rotate(90deg)"><use href="#fa-arrow-left"></use></svg></button>
 
-<script>
-(function(){
-'use strict';
-var CFG={ownerPhone:'201144826641'};
-function $(s,c){return(c||document).querySelector(s);}
-function $$(s,c){return(c||document).querySelectorAll(s);}
-function on(el,ev,fn,opt){if(el)el.addEventListener(ev,fn,opt||false);}
-function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
-function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
-function clamp(v,a,b){return Math.min(Math.max(v,a),b);}
-function debounce(fn,ms){var t;return function(){clearTimeout(t);t=setTimeout(fn,ms);};}
-function validatePhone(p){var c=p.replace(/[\s\-+]/g,'');return /^(01[0125]\d{8}|201[0125]\d{8})$/.test(c);}
-function normalizePhone(p){var c=p.replace(/[\s\-+]/g,'');return c.startsWith('201')?c:c.startsWith('01')?'2'+c:c;}
-function formatNum(n){try{return Math.round(n).toLocaleString('ar-EG');}catch(e){return Math.round(n).toString();}}
 
-window.track=function(l,a){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'2d_cta',cta_location:l,cta_action:a,ts:Date.now()});};
-
-/* LOADER */
-(function(){var l=$('#loader');if(!l)return;document.body.classList.add('loading');
-var r=function(){l.classList.add('hidden');document.body.classList.remove('loading');};
-if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){setTimeout(r,700);});}
-setTimeout(r,2500);})();
-
-/* PROGRESS */
-(function(){var b=$('#progress-bar');if(!b)return;
-on(window,'scroll',function(){var p=window.scrollY/(document.body.scrollHeight-window.innerHeight);b.style.transform='scaleX('+clamp(p,0,1)+')';},{passive:true});})();
-
-/* HEADER */
-(function(){var h=$('#hdr');if(!h)return;on(window,'scroll',function(){h.classList.toggle('scrolled',window.scrollY>60);},{passive:true});})();
-
-/* MENU */
-(function(){var b=$('#hdr-burger'),m=$('#mmenu');if(!b||!m)return;var c=$('.mmenu-close',m);
-on(b,'click',function(){m.classList.add('open');document.body.style.overflow='hidden';});
-on(c,'click',close);on(m,'click',function(e){if(e.target===m)close();});
-on(document,'keydown',function(e){if(e.key==='Escape')close();});
-function close(){m.classList.remove('open');document.body.style.overflow='';}})();
-
-
-if(window.innerWidth<1024){c.style.display='none';return;}
-if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var ctx=c.getContext('2d'),W,H,ps=[],mx=-999,my=-999;
-var count=30;
-function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
-resize();on(window,'resize',debounce(resize,250));
-on(document,'mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
-for(var i=0;i<count;i++)ps.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.4+0.3,vx:(Math.random()-0.5)*0.25,vy:(Math.random()-0.5)*0.25,alpha:Math.random()*0.4+0.1});
-function loop(){ctx.clearRect(0,0,W,H);
-ps.forEach(function(p){var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);
-if(d<120){p.vx+=dx/d*0.04;p.vy+=dy/d*0.04;}
-p.vx*=0.995;p.vy*=0.995;p.x+=p.vx;p.y+=p.vy;
-if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(192,0,0,'+p.alpha+')';ctx.fill();});
-requestAnimationFrame(loop);}
-loop();setTimeout(function(){c.classList.add('visible');},400);})();
-
-
-if(window.innerWidth<1024)return;
-if(window.matchMedia('(hover:none)').matches)return;
-var rx=0,ry=0,mx=0,my=0;
-on(document,'mousemove',function(e){mx=e.clientX;my=e.clientY;d.style.left=mx+'px';d.style.top=my+'px';});
-function a(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(a);}
-a();$$('a,button,.pkg,.orbit-step,.bench-card,.fq,.conv-choice').forEach(function(el){
-on(el,'mouseenter',function(){r.classList.add('hover');});on(el,'mouseleave',function(){r.classList.remove('hover');});});
-on(document,'mousedown',function(){r.classList.add('click');});on(document,'mouseup',function(){r.classList.remove('click');});})();
-
-/* RIPPLE */
-(function(){$$('.btn-primary,.btn-gold,.mbar-cta,.conv-send').forEach(function(b){
-on(b,'click',function(e){b.classList.add('ripple-host');
-var rec=b.getBoundingClientRect(),sz=Math.max(rec.width,rec.height)*1.5;
-var x=(e.clientX||rec.left+rec.width/2)-rec.left-sz/2,y=(e.clientY||rec.top+rec.height/2)-rec.top-sz/2;
-var w=document.createElement('span');w.className='ripple-wave';
-w.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px';
-b.appendChild(w);setTimeout(function(){w.remove();},600);});});})();
-
-/* FAQ */
-(function(){$$('.fq').forEach(function(fq){fq.setAttribute('aria-expanded','false');
-var ans=fq.nextElementSibling;if(ans&&!ans.classList.contains('fa-body'))ans.classList.add('fa-body');
-on(fq,'click',function(){var open=fq.getAttribute('aria-expanded')==='true';
-$$('.fq').forEach(function(f){f.setAttribute('aria-expanded','false');var a=f.nextElementSibling;if(a&&a.classList.contains('fa-body'))a.classList.remove('open');});
-if(!open){fq.setAttribute('aria-expanded','true');if(ans)ans.classList.add('open');}});});})();
-
-/* REVEAL */
-(function(){var els=$$('.rv');if(!els.length)return;
-if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('v');});return;}
-var o=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');o.unobserve(e.target);}});},{threshold:0.01,rootMargin:'0px 0px 200px 0px'});
-els.forEach(function(e){o.observe(e);});})();
-
-/* COUNTERS */
-function animCount(el){var t=parseFloat(el.dataset.target||0),s=el.dataset.suffix||'',p=el.dataset.prefix||'',d=parseInt(el.dataset.decimal||'0');
-var dur=1800,st=null;function step(ts){if(!st)st=ts;var pr=Math.min((ts-st)/dur,1);var e=1-Math.pow(1-pr,3);var v=t*e;
-el.textContent=p+(d?v.toFixed(d):Math.floor(v))+s;
-if(pr<1)requestAnimationFrame(step);else el.textContent=p+(d?t.toFixed(d):t)+s;}
-requestAnimationFrame(step);}
-(function(){var t=$$('.counters-row,#awaken-stats');if(!t.length)return;
-if(!('IntersectionObserver' in window)){$$('[data-target]').forEach(animCount);return;}
-var o=new IntersectionObserver(function(en){if(!en[0].isIntersecting)return;o.disconnect();$$('[data-target]').forEach(animCount);},{threshold:0.3});
-t.forEach(function(e){o.observe(e);});})();
-
-
-
-/* PROBLEM */
-var problemData=[
-{t:'12 ريلز وصفر عملاء جدد',d:'المحتوى جميل والتفاعل كويس — بس في آخر الشهر: فين العملاء؟',s:'✓ الحل: نظام lead-gen كامل.'},
-{t:'ميزانية إعلانية محروقة',d:'بتصرف آلاف الجنيهات بدون بيانات. CAC مجهول.',s:'✓ الحل: Pixel + CAPI + Attribution.'},
-{t:'لايكات ≠ مبيعات',d:'مؤشرات Vanity بتطمّن — بينما دفتر المواعيد فاضي.',s:'✓ الحل: بنقيس Leads وBookings بس.'},
-{t:'وكالات بدون نتايج موثقة',d:'تجارب سابقة مع وعود كتير — بدون ROI حقيقي.',s:'✓ الحل: KPIs مكتوبة. ضمان 90 يوم.'},
-{t:'تكلفة اكتساب مرتفعة',d:'كل عميل بيكلف أضعاف. CAC بيلتهم الهامش.',s:'✓ الحل: تحسين أسبوعي + Retargeting.'},
-{t:'تقارير بلا قرارات',d:'داشبورد جميل — بس مفيش قرار واضح.',s:'✓ الحل: تقرير أسبوعي بلغة بزنس.'}];
-window.litProblem=function(idx){$$('.problem-item[data-idx]').forEach(function(el){el.classList.remove('lit');if(parseInt(el.dataset.idx)===idx)el.classList.add('lit');});
-var d=problemData[idx];if(!d)return;var det=$('#problem-detail');
-var tit=$('#prob-title'),des=$('#prob-desc'),sol=$('#prob-sol'),lab=$('#prob-label');
-if(!det)return;if(lab)lab.textContent='المشكلة '+(idx+1)+' من 6';
-if(tit)tit.textContent=d.t;if(des)des.textContent=d.d;if(sol)sol.textContent=d.s;
-det.style.display='block';track('problem','clicked-'+idx);};
-(function(){var ps=$('#s-diagnosis');if(!ps)return;
-if(!('IntersectionObserver' in window))return;
-var o=new IntersectionObserver(function(en){if(!en[0].isIntersecting)return;o.disconnect();
-var i=0,timer=setInterval(function(){litProblem(i);i++;if(i>=6)clearInterval(timer);},700);},{threshold:0.3});
-o.observe(ps);})();
-
-/* CALCULATOR */
-window.calcROI=function(){
-var l=parseFloat($('#c-leads')&&$('#c-leads').value)||30;
-var v=parseFloat($('#c-val')&&$('#c-val').value)||5000;
-var c=parseFloat($('#c-conv')&&$('#c-conv').value)||20;
-var p=parseFloat($('#c-pkg')&&$('#c-pkg').value)||18000;
-var m=l*v*(c/100),a=m*12,r=p>0?m/p:0;
-var rv=$('#r-rev'),ra=$('#r-annual'),rr=$('#r-roas');
-if(rv){rv.textContent=formatNum(m)+' EGP';rv.className='result-val '+(m<p?'negative':m<p*1.5?'':'gold');}
-if(ra)ra.textContent=formatNum(a)+' EGP';
-if(rr){rr.textContent='×'+r.toFixed(2);rr.className='result-val '+(r<1?'negative':r<1.5?'':'gold');}
-var wa=$('#calc-wa');if(wa){var sel=$('#c-pkg'),pkgTxt=sel&&sel.options[sel.selectedIndex]?sel.options[sel.selectedIndex].text:'SCALE';
-var lines=['مرحباً فريق 2D Marketing','','استخدمت الحاسبة:','Leads: '+l,'قيمة العميل: '+formatNum(v)+' EGP','الباقة: '+pkgTxt,'','عايز أناقش الأرقام دي.'];
-wa.href='https://wa.me/'+CFG.ownerPhone+'?text='+encodeURIComponent(lines.join('\n'));}};
-
-/* CONVERSATION */
-var convState={step:0,data:{},done:false};
-var convSteps=[
-{q:'مرحباً! 👋\n\nشغلك في أي مجال؟',type:'choices',key:'business',
-choices:['🏥 عيادة / صحة','🏋️ جيم / فيتنس','🏠 عقارات','🛒 متجر / تجارة','📦 غير ذلك'],
-responses:{'🏥 عيادة / صحة':'ممتاز! العيادات من أكتر القطاعات اللي بنحقق فيها نتايج قوية.','🏋️ جيم / فيتنس':'رائع! الـ Fitness قطاع تنافسي — بنعرف نفرز الـ leads الجاهزين.','🏠 عقارات':'العقارات محتاجة استراتيجية مختلفة.','🛒 متجر / تجارة':'نظام الـ ROAS بيختلف حسب نوع التجارة.','📦 غير ذلك':'أغلب الأنشطة تناسبها استراتيجية التسويق اللي بيجيب نتايجة.'}},
-{q:'ميزانية التسويق الشهرية المتاحة؟',type:'choices',key:'budget',
-choices:['12,000 – 18,000 EGP','18,000 – 40,000 EGP','+40,000 EGP','أقل من 12,000 EGP'],
-responses:{'12,000 – 18,000 EGP':'ده بيغطي Growth System كامل.','18,000 – 40,000 EGP':'ده بيفتح Full-Funnel System.','+40,000 EGP':'أنتم في نطاق Authority.','أقل من 12,000 EGP':'شكراً على الصراحة! عندنا موارد مجانية.'}},
-{q:'أكبر تحدي بيواجهك في التسويق دلوقتي؟',type:'choices',key:'challenge',
-choices:['قلة الـ Leads','جودة Leads ضعيفة','CAC مرتفع','مش عارف من فين أبدأ'],
-responses:{'قلة الـ Leads':'المشكلة دي 90% بتكون في الـ Targeting.','جودة Leads ضعيفة':'دي مشكلة Qualification.','CAC مرتفع':'بتنخفض لما الـ Attribution صح.','مش عارف من فين أبدأ':'ده السبب الرئيسي اللي بنوجد عشانه.'}},
-{q:'آخر خطوة 🎯\n\nرقم واتساب عشان فريقنا يتواصل معاك خلال 4 ساعات:',type:'input',key:'phone',placeholder:'01xxxxxxxxx'}];
-function cAdd(text,isUser){var b=$('#convBody');if(!b)return;
-var div=document.createElement('div');div.className='msg'+(isUser?' user':'');
-if(!isUser){div.innerHTML='<div class="msg-avatar">2D</div><div class="msg-bubble">'+text.replace(/\n/g,'<br>')+'</div>';}
-else{div.innerHTML='<div class="msg-bubble">'+text+'</div>';}
-b.appendChild(div);b.scrollTop=b.scrollHeight;}
-function cType(){var b=$('#convBody');if(!b)return;var t=document.createElement('div');t.className='msg';t.id='conv-typing';t.innerHTML='<div class="msg-avatar">2D</div><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';b.appendChild(t);b.scrollTop=b.scrollHeight;}
-function cUnType(){var t=$('#conv-typing');if(t)t.remove();}
-function cProgress(){$$('.prog-dot').forEach(function(d,i){d.classList.remove('active','done');if(i<convState.step)d.classList.add('done');else if(i===convState.step)d.classList.add('active');});}
-function cStep(idx){if(idx>=convSteps.length){cFinish();return;}
-var s=convSteps[idx],ch=$('#convChoices'),ir=$('#convInputRow');
-if(ch)ch.innerHTML='';if(ir)ir.style.display='none';cType();
-setTimeout(function(){cUnType();cAdd(s.q,false);
-if(s.type==='choices'&&ch){s.choices.forEach(function(c){
-var btn=document.createElement('button');btn.className='conv-choice';btn.type='button';btn.textContent=c;
-btn.onclick=function(){$$('.conv-choice').forEach(function(b){b.classList.remove('sel');});btn.classList.add('sel');
-convState.data[s.key]=c;setTimeout(function(){cAdd(c,true);if(ch)ch.innerHTML='';
-var resp=s.responses&&s.responses[c];
-if(resp){cType();setTimeout(function(){cUnType();cAdd(resp,false);
-convState.step++;cProgress();setTimeout(function(){cStep(convState.step);},600);},700);}
-else{convState.step++;cProgress();setTimeout(function(){cStep(convState.step);},600);}},300);};
-ch.appendChild(btn);});}
-else if(s.type==='input'&&ir){ir.style.display='flex';
-var inp=$('#convInput');if(inp){inp.type='tel';inp.placeholder=s.placeholder||'';inp.value='';inp.focus();}}},700);}
-window.convSend=function(){var inp=$('#convInput');if(!inp||!inp.value.trim())return;
-var s=convSteps[convState.step],v=inp.value.trim();
-if(s&&s.key==='phone'&&!validatePhone(v)){inp.classList.add('error');setTimeout(function(){inp.classList.remove('error');},1000);return;}
-if(s)convState.data[s.key]=v;cAdd(v,true);inp.value='';
-var ir=$('#convInputRow');if(ir)ir.style.display='none';
-convState.step++;cProgress();setTimeout(function(){cStep(convState.step);},400);};
-function cFinish(){if(convState.done)return;convState.done=true;cType();
-var lead=Object.assign({},convState.data,{source:'conversation-v14',ts:new Date().toISOString()});
-if(lead.phone)lead.phone=normalizePhone(lead.phone);
-try{var list=JSON.parse(lsGet('leads_2d')||'[]');list.push(lead);lsSet('leads_2d',JSON.stringify(list));}catch(e){}
-track('conv','completed');
-setTimeout(function(){cUnType();cAdd('✅ تم! استلمنا بياناتك.',false);
-setTimeout(function(){cAdd('فريقنا هيتواصل معاك خلال 4 ساعات على الواتساب.',false);
-var waLines=['مرحباً فريق 2D Marketing','','نوع النشاط: '+(lead.business||'—'),'الميزانية: '+(lead.budget||'—'),'التحدي: '+(lead.challenge||'—')];
-var waBtn=document.createElement('a');
-waBtn.href='https://wa.me/'+CFG.ownerPhone+'?text='+encodeURIComponent(waLines.join('\n'));
-waBtn.target='_blank';waBtn.rel='noopener';waBtn.className='btn btn-primary ripple-host';
-waBtn.style.cssText='display:inline-flex;margin-top:12px;font-size:13px;padding:12px 24px';
-waBtn.innerHTML='تحدث معنا الآن';
-var b=$('#convBody');if(b){b.appendChild(waBtn);b.scrollTop=b.scrollHeight;}},800);},900);}
-window.openConv=function(){var o=$('#conv-overlay'),m=$('#conv-modal');if(!o||!m)return;
-o.style.display='block';m.style.display='block';document.body.style.overflow='hidden';
-if(convState.step===0&&!convState.done)cStep(0);track('conv','opened');};
-window.closeConv=function(){var o=$('#conv-overlay'),m=$('#conv-modal');
-if(o)o.style.display='none';if(m)m.style.display='none';document.body.style.overflow='';};
-on(document,'keydown',function(e){if(e.key==='Escape')closeConv();if(e.key==='Enter'&&document.activeElement===$('#convInput'))convSend();});
-
-/* SMART CTA */
-var smartDismissed=false;
-var smartMsgs={default:{m:'مستني إيه؟',b:'ابدأ المحادثة'},packages:{m:'شوفت الباقات؟ <strong>احجز مكالمة مجانية</strong>',b:'احجز الآن'},proof:{m:'شوفت النتايج؟ <strong>ابدأ رحلتك النهاردة</strong>',b:'ابدأ الآن'},faq:{m:'سؤالك مش موجود؟ <strong>اسألنا مباشرة</strong>',b:'اسأل الآن'}};
-window.dismissSmartCta=function(){smartDismissed=true;var b=$('#smart-cta');if(b)b.classList.remove('visible');};
-(function(){var b=$('#smart-cta');if(!b)return;var shown=false,last='default';
-on(window,'scroll',function(){if(smartDismissed)return;
-if(window.scrollY>600&&!shown){shown=true;b.classList.add('visible');}
-var f='default';['packages','proof','faq'].forEach(function(id){var el=document.getElementById(id);if(!el)return;var r=el.getBoundingClientRect();if(r.top<window.innerHeight*0.6&&r.bottom>0)f=id;});
-if(f!==last){last=f;var d=smartMsgs[f]||smartMsgs.default;var m=$('#smartCtaMsg'),bt=$('.smart-cta-btn');if(m)m.innerHTML=d.m;if(bt)bt.textContent=d.b;}},{passive:true});})();
-
-/* GSAP */
-
-if(window.innerWidth<768){document.body.classList.add('no-gsap');return;}if(typeof gsap==='undefined'){setTimeout(initGSAP,300);return;}
-gsap.registerPlugin(ScrollTrigger,TextPlugin);
-var tl=gsap.timeline({delay:0.8});
-tl.to('#awaken-text',{opacity:1,duration:0.01}).from('#awaken-text',{y:40,duration:0.9,ease:'power3.out'},'<')
-.to('#awaken-rotating',{opacity:1,y:0,duration:0.7,ease:'power2.out'},'-=0.4')
-.to('#awaken-ctas',{opacity:1,y:0,duration:0.6,ease:'power2.out'},'-=0.4')
-.to('#scroll-hint',{opacity:1,duration:0.6},'-=0.1');
-$('.section-h2').forEach(function(el){gsap.from(el,{opacity:0,y:36,duration:0.85,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});});
-ScrollTrigger.batch('.pkg',{onEnter:function(b){gsap.fromTo(b,{opacity:0,scale:0.92,y:24},{opacity:1,scale:1,y:0,stagger:0.1,duration:0.65,ease:'back.out(1.4)'});},start:'top 90%'});
-ScrollTrigger.batch('.bench-card',{onEnter:function(b){gsap.from(b,{opacity:0,x:40,rotation:6,stagger:0.15,duration:0.55});},start:'top 90%'});
-ScrollTrigger.create({trigger:'#s-exit',start:'top 80%',once:true,onEnter:function(){
-gsap.to('#exit-text',{opacity:1,letterSpacing:'0.05em',duration:0.8});
-gsap.to('#exit-cta',{opacity:1,y:0,scale:1,duration:0.5,delay:0.8,ease:'back.out(1.4)'});}});
-var words=['عيادات وعقارات وجيمات','كاميرا · بيانات · نتايج','صوّر شغلك صح','تسويق بيبيع بجد'];
-var rotEl=$('#awaken-rotating'),wi=0;
-if(rotEl){setInterval(function(){wi=(wi+1)%words.length;
-gsap.to(rotEl,{opacity:0,y:-8,duration:0.25,onComplete:function(){
-rotEl.textContent=words[wi];gsap.fromTo(rotEl,{opacity:0,y:8},{opacity:1,y:0,duration:0.35});}});},2400);}}
-if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initGSAP);}else{setTimeout(initGSAP,500);}
-
-(function(){var y=$('#footer-year');if(y)y.textContent=new Date().getFullYear();})();
-on(window,'error',function(){$('.rv').forEach(function(e){e.classList.add('v');});});
-})();</script>
 <script src="js/clients.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/team.js" defer></script>
-<script src="js/main.js?v=7" defer></script>
-<script src="js/search.js?v=7" defer></script>
-<script src="js/ads.js?v=7" defer></script>
+<script src="js/main.js?v=9" defer></script>
+<script src="js/search.js?v=9" defer></script>
+<script src="js/ads.js?v=9" defer></script>
 
 </body>
 </html>
