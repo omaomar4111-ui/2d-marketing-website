@@ -1,6 +1,398 @@
+/* ══════════════════════════════════════════════════════════════
+   HERO — مطابق VR Agency بالحرف
+══════════════════════════════════════════════════════════════ */
+.hero-vr {
+  position: relative;
+  background: var(--c-black);
+  min-height: auto;
+  padding: clamp(90px, 10vh, 130px) var(--section-x) 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* خلفية خفيفة — زي VR */
+.hero-vr::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 50% at 30% 30%, rgba(192,0,0,0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 70% 70%, rgba(192,0,0,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══ الـ Inner — نص + لوجو ═══ */
+.hero-vr-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(32px, 4vw, 60px);
+  align-items: center;
+  padding-bottom: clamp(40px, 8vh, 80px);
+}
+
+/* ═══ النص ═══ */
+.hero-vr-text {
+  max-width: 100%;
+}
+
+.hero-vr-title {
+  font-family: var(--font);
+  font-size: clamp(40px, 5.5vw, 86px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0 0 clamp(16px, 2vh, 24px) 0;
+}
+
+.hero-vr-title-accent {
+  color: var(--c-red-h);
+  display: inline-block;
+}
+
+.hero-vr-sub {
+  font-family: var(--font);
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+  margin: 0 0 clamp(24px, 3vh, 40px) 0;
+  max-width: 560px;
+}
+
+.hero-vr-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: var(--c-red-h);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(192, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-vr-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(192, 0, 0, 0.6);
+}
+
+.hero-vr-cta svg {
+  transition: transform 0.3s;
+}
+
+.hero-vr-cta:hover svg {
+  transform: translateX(-4px);
+}
+
+/* ═══ اللوجو الضخم — زي VR (40% الشاشة) ═══ */
+.hero-vr-logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+}
+
+.hero-vr-logo-img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 30px 60px rgba(192, 0, 0, 0.35))
+          drop-shadow(0 10px 20px rgba(192, 0, 0, 0.15));
+  animation: heroLogoFloat 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes heroLogoFloat {
+  0%, 100% { 
+    transform: translateY(0) rotateY(0deg) rotateX(0deg);
+  }
+  50% { 
+    transform: translateY(-16px) rotateY(6deg) rotateX(-3deg);
+  }
+}
+
+/* ═══ شريط الخدمات — تحت الهيرو ═══ */
+.hero-vr-services {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  margin-right: calc(-50vw + 50%);
+  margin-left: calc(-50vw + 50%);
+  padding: 32px 0;
+  background: rgba(10, 0, 0, 0.6);
+  border-top: 1px solid rgba(192, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(192, 0, 0, 0.15);
+  overflow: hidden;
+  direction: ltr;
+}
+
+.hero-vr-services::before,
+.hero-vr-services::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 140px;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-vr-services::before {
+  right: 0;
+  background: linear-gradient(270deg, rgba(10,0,0,0.9), transparent);
+}
+.hero-vr-services::after {
+  left: 0;
+  background: linear-gradient(90deg, rgba(10,0,0,0.9), transparent);
+}
+
+.hero-vr-services-track {
+  display: inline-flex;
+  gap: clamp(24px, 3vw, 48px);
+  align-items: center;
+  white-space: nowrap;
+  animation: servicesScrollVR 30s linear infinite;
+  will-change: transform;
+}
+
+.hero-vr-services-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes servicesScrollVR {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.hero-vr-services-track > span {
+  font-family: var(--font);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.hero-vr-services-track > .dot {
+  color: var(--c-red-h);
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 1024px) {
+  .hero-vr {
+    padding: 100px var(--sp-5) 0;
+  }
+  .hero-vr-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 24px;
+    padding-bottom: 40px;
+  }
+  .hero-vr-text { order: 2; max-width: 100%; }
+  .hero-vr-sub { margin-left: auto; margin-right: auto; }
+  .hero-vr-logo-wrap { 
+    order: 1; 
+    max-width: 100%;
+    min-height: auto;
+    margin: 0 auto;
+  }
+  .hero-vr-logo-img { max-width: 320px; }
+}
+
+@media (max-width: 640px) {
+  .hero-vr { padding: 90px var(--sp-5) 0; }
+  .hero-vr-title { font-size: 38px; }
+  .hero-vr-logo-img { max-width: 240px; }
+  .hero-vr-services { padding: 20px 0; }
+}
+
+/* ═══ Light theme ═══ */
+[data-theme="light"] .hero-vr { background: #fff5f5; }
+[data-theme="light"] .hero-vr-title { color: #1a0000; }
+[data-theme="light"] .hero-vr-sub { color: rgba(26, 0, 0, 0.7); }
+[data-theme="light"] .hero-vr-services { background: rgba(255, 232, 232, 0.8); }
+[data-theme="light"] .hero-vr-services-track > span { color: #1a0000; }
+
 
 /* ══════════════════════════════════════════════════════════════
-   CLIENTS SECTION — MARQUEE 2 ROWS (مطابق المطلوب)
+   ABOUT — نمط VR
+══════════════════════════════════════════════════════════════ */
+.section-about-vr {
+  padding: var(--section-y) 0;
+  background: var(--c-black);
+  border-top: 1px solid rgba(192, 0, 0, 0.10);
+}
+
+.section-about-vr-inner {
+  width: var(--content-w);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--section-x);
+}
+
+.section-about-vr-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 var(--sp-8) 0;
+  line-height: 1.15;
+}
+
+.section-about-vr-title .accent {
+  color: var(--c-red-h);
+}
+
+.section-about-vr-lead {
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  margin: 0 0 var(--sp-5) 0;
+  max-width: 900px;
+}
+
+.section-about-vr-lead .accent {
+  color: var(--c-red-h);
+  font-weight: 800;
+}
+
+.section-about-vr-body {
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 400;
+  color: var(--c-w80);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 850px;
+}
+
+[data-theme="light"] .section-about-vr { background: #fafafa; }
+[data-theme="light"] .section-about-vr-title,
+[data-theme="light"] .section-about-vr-lead { color: #1a0000; }
+[data-theme="light"] .section-about-vr-body { color: rgba(26, 0, 0, 0.7); }
+
+/* ══════════════════════════════════════════════════════════════
+   VALUE PROPOSITIONS — نمط VR
+══════════════════════════════════════════════════════════════ */
+.section-values-vr {
+  padding: clamp(50px, 6vw, 90px) 0;
+  background: var(--c-s1);
+  border-top: 1px solid rgba(192, 0, 0, 0.08);
+}
+
+.section-values-vr-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 var(--sp-10) 0;
+  line-height: 1.15;
+}
+
+.values-vr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--sp-6);
+}
+
+.value-vr-card {
+  position: relative;
+  padding: var(--sp-8) var(--sp-6);
+  background: rgba(10, 0, 0, 0.6);
+  border: 1px solid rgba(192, 0, 0, 0.12);
+  border-radius: var(--r-xl);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.value-vr-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-red), var(--c-red-h));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.value-vr-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(192, 0, 0, 0.45);
+  box-shadow: 0 24px 60px rgba(192, 0, 0, 0.22);
+  background: rgba(20, 0, 0, 0.7);
+}
+
+.value-vr-card:hover::before {
+  transform: scaleX(1);
+}
+
+.value-vr-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: rgba(192, 0, 0, 0.12);
+  border: 1px solid rgba(192, 0, 0, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-red-h);
+  margin-bottom: var(--sp-5);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.value-vr-card:hover .value-vr-icon {
+  background: rgba(192, 0, 0, 0.25);
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(192, 0, 0, 0.4);
+}
+
+.value-vr-title {
+  font-size: var(--t-lg);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 var(--sp-3) 0;
+  line-height: 1.3;
+}
+
+.value-vr-desc {
+  font-size: var(--t-sm);
+  color: var(--c-w60);
+  line-height: 1.7;
+  margin: 0;
+}
+
+[data-theme="light"] .section-values-vr { background: #f5f5f5; }
+[data-theme="light"] .section-values-vr-title { color: #1a0000; }
+[data-theme="light"] .value-vr-card { background: #fff; }
+[data-theme="light"] .value-vr-title { color: #1a0000; }
+[data-theme="light"] .value-vr-desc { color: rgba(26, 0, 0, 0.65); }
+
+@media (max-width: 640px) {
+  .values-vr-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   CLIENTS SECTION — MARQUEE 2 ROWS
 ══════════════════════════════════════════════════════════════ */
 .section-clients {
   padding: clamp(60px, 8vw, 100px) 0;
@@ -71,131 +463,592 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
-   TEAM SECTION — 6 ROLES (3 أعمدة ديسكتوب، 2 تابلت، 1 موبايل)
+   TEAM SECTION — 3 columns grid (3 x 2)
 ══════════════════════════════════════════════════════════════ */
 .section-team {
   padding: clamp(60px, 8vw, 100px) 0;
   background: var(--c-black);
-  position: relative;
-  overflow: hidden;
-}
-
-.section-team::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 140%; height: 100%;
-  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(192,0,0,0.10) 0%, transparent 70%);
-  pointer-events: none;
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 3vw, 32px);
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 var(--section-x);
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(20px, 3vw, 32px) !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 0 var(--section-x) !important;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (max-width: 1023px) {
+/* تابلت */
+@media (max-width: 1023px) and (min-width: 641px) {
   .team-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 
+/* موبايل */
 @media (max-width: 640px) {
   .team-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
-.role-card {
+/* الكارت */
+.team-grid .role-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: clamp(24px, 3vw, 36px) clamp(18px, 2.5vw, 28px);
-  background: rgba(14, 8, 10, 0.75);
-  border: 1px solid rgba(192, 0, 0, 0.16);
-  border-radius: var(--r-2xl, 24px);
-  backdrop-filter: blur(12px);
-  transition: all 400ms var(--e-float);
-  position: relative;
+  padding: clamp(18px, 2.5vw, 24px) clamp(14px, 2vw, 20px);
+  background: rgba(10, 0, 0, 0.6);
+  border: 1px solid rgba(192, 0, 0, 0.12);
+  border-radius: var(--r-xl);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-width: 0;
   overflow: hidden;
 }
 
-.role-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(192, 0, 0, 0.5);
-  box-shadow: 0 16px 36px rgba(192, 0, 0, 0.22);
+.team-grid .role-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(192, 0, 0, 0.4);
+  box-shadow: 0 20px 50px rgba(192, 0, 0, 0.18);
 }
 
-.role-image-wrap {
+/* الصورة */
+.team-grid .role-image-wrap {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: var(--sp-2) 0 var(--sp-4);
-  position: relative;
+  margin-bottom: var(--sp-4);
 }
 
-.role-image {
+.team-grid .role-image {
   width: 100%;
   aspect-ratio: 1 / 1;
-  max-width: 200px;
+  max-width: 180px;
   border-radius: var(--r-lg);
   overflow: hidden;
   background: #000;
   border: 2px solid rgba(192, 0, 0, 0.30);
   position: relative;
   transition: border-color 0.4s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.role-card:hover .role-image {
-  border-color: rgba(192, 0, 0, 0.7);
+.team-grid .role-card:hover .role-image {
+  border-color: var(--c-red-h);
 }
 
-.role-image img {
+.team-grid .role-image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
-  transition: transform 450ms var(--e-float);
 }
 
-.role-card:hover .role-image img {
-  transform: scale(1.05);
-}
-
-.role-info {
-  margin-top: auto;
-  width: 100%;
-}
-
-.role-name-en {
+/* النصوص */
+.team-grid .role-name-en {
   font-size: 16px;
   font-weight: 900;
   color: #fff;
   margin: 0 0 4px 0;
   line-height: 1.2;
+  word-break: break-word;
 }
 
-.role-name-ar {
-  font-size: clamp(15px, 1.5vw, 17px);
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: var(--sp-2);
+.team-grid .role-name-ar {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-red-h);
+  margin: 0 0 var(--sp-3) 0;
+  letter-spacing: 0.5px;
 }
 
-.role-desc {
+.team-grid .role-desc {
   font-size: 13px;
   color: var(--c-w60);
   line-height: 1.6;
+  margin: 0;
+  max-width: 100%;
+}
+
+.team-grid .role-line {
+  width: 0;
+  height: 2px;
+  background: var(--c-red-h);
+  transition: width 0.5s;
+  margin-top: var(--sp-4);
+}
+
+.team-grid .role-card:hover .role-line {
+  width: 60%;
+}
+
+/* Light theme */
+[data-theme="light"] .section-team {
+  background: #fafafa;
+}
+[data-theme="light"] .team-grid .role-card {
+  background: #fff;
+}
+[data-theme="light"] .team-grid .role-name-en {
+  color: #1a0000;
+}
+[data-theme="light"] .team-grid .role-desc {
+  color: rgba(26, 0, 0, 0.65);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SERVICES SECTION — 5 cards (مطابق VR Agency)
+══════════════════════════════════════════════════════════════ */
+.section-services {
+  padding: clamp(50px, 6vw, 90px) 0;
+  background: var(--c-black);
+}
+
+.services-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-6);
+}
+
+.service-vr-card {
+  position: relative;
+  padding: var(--sp-8) var(--sp-6);
+  background: rgba(10, 0, 0, 0.6);
+  border: 1px solid rgba(192, 0, 0, 0.12);
+  border-radius: var(--r-xl);
+  transition: all 0.4s var(--e-float);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-vr-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-red), var(--c-red-h));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.service-vr-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(192, 0, 0, 0.4);
+  box-shadow: 0 20px 50px rgba(192, 0, 0, 0.2);
+  background: rgba(20, 0, 0, 0.7);
+}
+
+.service-vr-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-vr-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: rgba(192, 0, 0, 0.12);
+  border: 1px solid rgba(192, 0, 0, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-red-h);
+  margin-bottom: var(--sp-5);
+  transition: all 0.4s var(--e-float);
+}
+
+.service-vr-card:hover .service-vr-icon {
+  background: rgba(192, 0, 0, 0.25);
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(192, 0, 0, 0.4);
+}
+
+.service-vr-title {
+  font-size: var(--t-lg);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 var(--sp-3) 0;
+  line-height: 1.3;
+}
+
+.service-vr-desc {
+  font-size: var(--t-sm);
+  color: var(--c-w60);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+[data-theme="light"] .section-services { background: #fafafa; }
+[data-theme="light"] .service-vr-card { background: #fff; }
+[data-theme="light"] .service-vr-title { color: #1a0000; }
+[data-theme="light"] .service-vr-desc { color: rgba(26, 0, 0, 0.65); }
+
+/* ══════════════════════════════════════════════════════════════
+   REGISTRATION SECTION — سجّل معانا (مطابق VR Agency Contact)
+══════════════════════════════════════════════════════════════ */
+.section-register {
+  padding: clamp(50px, 6vw, 90px) var(--section-x);
+  background: var(--c-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-register::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(192,0,0,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 70% 80%, rgba(192,0,0,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.register-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
   margin: 0 auto;
-  max-width: 260px;
+}
+
+/* ═══ الكارت ═══ */
+.register-card {
+  background: linear-gradient(135deg, rgba(15,0,0,0.85), rgba(5,0,0,0.95));
+  border: 1px solid rgba(192,0,0,0.18);
+  border-radius: 28px;
+  padding: clamp(32px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.register-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--c-red-h), transparent);
+}
+
+/* ═══ العمود اليمين (النص) ═══ */
+.register-left {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.register-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--c-red-h);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-5);
+}
+
+.register-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-red-h);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+.register-title {
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 var(--sp-5) 0;
+  letter-spacing: -0.02em;
+}
+
+.register-title-accent {
+  color: var(--c-red-h);
+  display: inline;
+}
+
+.register-lead {
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+  margin: 0 0 var(--sp-8) 0;
+  max-width: 460px;
+}
+
+.register-reach-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--c-red-h);
+  margin: 0 0 var(--sp-5) 0;
+}
+
+/* ═══ معلومات التواصل ═══ */
+.register-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register-info li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+
+.register-info a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.register-info a:hover {
+  color: var(--c-red-h);
+}
+
+.register-info-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(192,0,0,0.12);
+  border: 1px solid rgba(192,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-red-h);
+  flex-shrink: 0;
+}
+
+/* ═══ العمود الشمال (الفورم) ═══ */
+.register-right {
+  display: flex;
+  align-items: flex-start;
+  padding-top: clamp(0px, 2vw, 24px);
+}
+
+.register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.register-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .register-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ═══ حقل الفورم — خط من تحت بس زي VR ═══ */
+.register-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.register-field-full {
+  grid-column: 1 / -1;
+}
+
+.register-field label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.register-field input,
+.register-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 15px;
+  padding: 10px 0;
+  outline: none;
+  transition: border-color 0.3s, padding 0.3s;
+  resize: vertical;
+  direction: rtl;
+}
+
+.register-field textarea {
+  min-height: 80px;
+  padding-top: 8px;
+}
+
+.register-field input::placeholder,
+.register-field textarea::placeholder {
+  color: rgba(255,255,255,0.30);
+  font-size: 14px;
+}
+
+.register-field input:focus,
+.register-field textarea:focus {
+  border-bottom-color: var(--c-red-h);
+  padding-bottom: 12px;
+}
+
+.register-field input.error,
+.register-field textarea.error {
+  border-bottom-color: var(--c-error, #ff4444);
+  animation: errShake 300ms;
+}
+
+.register-field input.valid,
+.register-field textarea.valid {
+  border-bottom-color: var(--c-success, #25d366);
+}
+
+/* ═══ زر الإرسال ═══ */
+.register-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, var(--c-red), var(--c-red-h));
+  color: #fff;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  align-self: flex-start;
+  box-shadow: 0 10px 28px rgba(192, 0, 0, 0.35);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.register-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(192, 0, 0, 0.55);
+}
+
+.register-submit:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.register-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.register-submit svg {
+  transition: transform 0.3s;
+}
+
+.register-submit:hover svg {
+  transform: translateX(-4px);
+}
+
+/* ═══ الحالة ═══ */
+.register-status {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  padding: 12px 0;
+  display: none;
+}
+
+.register-status:not(:empty) {
+  display: block;
+}
+
+.register-status.success {
+  color: var(--c-success, #25d366);
+}
+
+.register-status.error {
+  color: var(--c-error, #ff4444);
+}
+
+.register-status.loading {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 900px) {
+  .register-card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 32px 24px;
+  }
+}
+
+/* ═══ Light theme ═══ */
+[data-theme="light"] .section-register {
+  background: #fafafa;
+}
+
+[data-theme="light"] .register-card {
+  background: #fff;
+  border-color: rgba(192,0,0,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .register-title {
+  color: #1a0000;
+}
+
+[data-theme="light"] .register-lead {
+  color: rgba(26,0,0,0.6);
+}
+
+[data-theme="light"] .register-field label {
+  color: #1a0000;
+}
+
+[data-theme="light"] .register-field input,
+[data-theme="light"] .register-field textarea {
+  color: #1a0000;
+  border-bottom-color: rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .register-field input::placeholder,
+[data-theme="light"] .register-field textarea::placeholder {
+  color: rgba(26,0,0,0.3);
+}
+
+[data-theme="light"] .register-info li,
+[data-theme="light"] .register-info a {
+  color: rgba(26,0,0,0.75);
+}
+
+[data-theme="light"] .register-info a:hover {
+  color: var(--c-red-h);
 }

@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════
-   2D MARKETING — Team Section (6 Roles)
+   2D MARKETING — Team Section (6 Roles · 3x2 Grid)
    ══════════════════════════════════════════════════════════════ */
 (function() {
   'use strict';
@@ -59,28 +59,26 @@
     if (!grid) return;
     var bp = basePath();
     
-    // If not statically rendered, render them
-    if (grid.children.length === 0) {
-      grid.innerHTML = ROLES.map(function(r) {
-        return '<article class="role-card" data-role-id="' + r.id + '">' +
-               '  <div class="role-image-wrap">' +
-               '    <div class="role-image">' +
-               '      <picture>' +
-               '        <source srcset="' + bp + 'assets/team/' + r.image + '" type="image/webp">' +
-               '        <img src="' + bp + 'assets/team/' + r.image.replace('.webp', '.png') + '" alt="' + r.roleEn + '" loading="lazy" width="300" height="300" />' +
-               '      </picture>' +
-               '    </div>' +
-               '  </div>' +
-               '  <div class="role-info">' +
-               '    <h3 class="role-name-en">' + r.roleEn + '</h3>' +
-               '    <p class="role-name-ar">' + r.roleAr + '</p>' +
-               '    <p class="role-desc">' + r.descAr + '</p>' +
-               '  </div>' +
-               '</article>';
-      }).join('');
-    }
+    grid.innerHTML = ROLES.map(function(r) {
+      return '<article class="role-card" data-role-id="' + r.id + '">' +
+             '  <div class="role-image-wrap">' +
+             '    <div class="role-image">' +
+             '      <picture>' +
+             '        <source srcset="' + bp + 'assets/team/' + r.image + '" type="image/webp">' +
+             '        <img src="' + bp + 'assets/team/' + r.image.replace('.webp', '.png') + '" alt="' + r.roleEn + '" loading="lazy" width="300" height="300" />' +
+             '      </picture>' +
+             '    </div>' +
+             '  </div>' +
+             '  <div class="role-info">' +
+             '    <h3 class="role-name-en">' + r.roleEn + '</h3>' +
+             '    <p class="role-name-ar">' + r.roleAr + '</p>' +
+             '    <p class="role-desc">' + r.descAr + '</p>' +
+             '  </div>' +
+             '  <div class="role-line"></div>' +
+             '</article>';
+    }).join('');
 
-    // Hash navigation scroll
+    // Smooth scroll for #team hash
     function checkHash() {
       if (window.location.hash === '#team') {
         var t = document.getElementById('team');
