@@ -1,5 +1,77 @@
+
 /* ══════════════════════════════════════════════════════════════
-   TEAM SECTION — 2D Marketing (10 Roles Responsive Grid)
+   CLIENTS SECTION — MARQUEE 2 ROWS (مطابق المطلوب)
+══════════════════════════════════════════════════════════════ */
+.section-clients {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background: var(--c-s1);
+  border-top: 1px solid rgba(192, 0, 0, 0.10);
+  border-bottom: 1px solid rgba(192, 0, 0, 0.10);
+  overflow: hidden;
+  width: 100%;
+}
+
+.clients-row {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: clamp(16px, 2.5vw, 28px) 0;
+  direction: ltr;
+}
+
+.clients-track {
+  display: inline-flex;
+  gap: clamp(48px, 7vw, 100px);
+  width: max-content;
+  align-items: center;
+  will-change: transform;
+}
+
+.client-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 160px;
+  height: 70px;
+  filter: grayscale(100%) opacity(0.55);
+  transition: all 0.3s ease;
+}
+
+.client-logo:hover {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.08);
+}
+
+.client-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.clients-row-top .clients-track {
+  animation: marqueeLTR 60s linear infinite;
+}
+
+.clients-row-bottom .clients-track {
+  animation: marqueeRTL 60s linear infinite;
+}
+
+@keyframes marqueeLTR {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marqueeRTL {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TEAM SECTION — 6 ROLES (3 أعمدة ديسكتوب، 2 تابلت، 1 موبايل)
 ══════════════════════════════════════════════════════════════ */
 .section-team {
   padding: clamp(60px, 8vw, 100px) 0;
@@ -20,24 +92,22 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(20px, 3vw, 32px);
-  max-width: 1280px;
+  max-width: 1100px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
   padding: 0 var(--section-x);
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
   .team-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (max-width: 640px) {
   .team-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
@@ -46,7 +116,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: clamp(20px, 2.2vw, 28px) clamp(14px, 1.6vw, 20px);
+  padding: clamp(24px, 3vw, 36px) clamp(18px, 2.5vw, 28px);
   background: rgba(14, 8, 10, 0.75);
   border: 1px solid rgba(192, 0, 0, 0.16);
   border-radius: var(--r-2xl, 24px);
@@ -129,638 +199,3 @@
   margin: 0 auto;
   max-width: 260px;
 }
-
-/* ══════════════════════════════════════════════════════════════
-   6 CINEMATIC ANIMATIONS (PER ROLE)
-   ══════════════════════════════════════════════════════════════ */
-
-/* 1. APERTURE (Role 1: Account Manager) */
-.anim-aperture .role-image::before {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 2px dashed rgba(192, 0, 0, 0.4);
-  transition: transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1), border-color 400ms;
-}
-.anim-aperture:hover .role-image::before {
-  transform: rotate(90deg) scale(1.08);
-  border-color: var(--c-red-h);
-  box-shadow: 0 0 25px rgba(192, 0, 0, 0.5);
-}
-.anim-aperture:hover .role-image img {
-  transform: scale(1.06);
-}
-
-/* 2. FILM STRIP (Role 2: Content Creator) */
-.anim-filmstrip {
-  position: relative;
-}
-.anim-filmstrip::before,
-.anim-filmstrip::after {
-  content: '';
-  position: absolute;
-  top: 15px; bottom: 15px;
-  width: 6px;
-  background: repeating-linear-gradient(to bottom, var(--c-red-h) 0px, var(--c-red-h) 8px, transparent 8px, transparent 16px);
-  opacity: 0.3;
-  transition: opacity 400ms, transform 400ms;
-}
-.anim-filmstrip::before { right: 12px; }
-.anim-filmstrip::after { left: 12px; }
-.anim-filmstrip:hover::before,
-.anim-filmstrip:hover::after {
-  opacity: 0.85;
-  transform: translateY(-4px);
-}
-.anim-filmstrip:hover .role-image img {
-  transform: scale(1.05);
-}
-
-/* 3. TILT 3D (Role 3: Content Strategist) */
-.anim-tilt3d {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-.anim-tilt3d:hover {
-  border-color: rgba(192, 0, 0, 0.5);
-  box-shadow: 0 20px 40px rgba(192, 0, 0, 0.25);
-}
-.anim-tilt3d:hover .role-image img {
-  transform: translateZ(30px) scale(1.06);
-}
-
-/* 4. FOCUS PULL (Role 4: Media Buyer) */
-.anim-focuspull .role-image img {
-  filter: blur(2px) contrast(0.95);
-  transition: filter 500ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 500ms var(--e-float);
-}
-.anim-focuspull:hover .role-image img {
-  filter: blur(0px) contrast(1.1);
-  transform: scale(1.07);
-}
-.anim-focuspull .role-image::after {
-  content: '[ + ]';
-  position: absolute;
-  top: 10px; right: 10px;
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  color: var(--c-red-h);
-  opacity: 0;
-  transition: opacity 300ms;
-}
-.anim-focuspull:hover .role-image::after {
-  opacity: 1;
-}
-
-/* 5. SHUTTER BLINK (Role 5: Photographer) */
-.anim-shutter .role-overlay-fx {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: #ffffff;
-  opacity: 0;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-}
-.anim-shutter.shutter-actuated .role-overlay-fx,
-.anim-shutter:hover .role-overlay-fx {
-  animation: shutterFlash 400ms ease-out forwards;
-}
-@keyframes shutterFlash {
-  0% { opacity: 0; }
-  30% { opacity: 0.85; }
-  100% { opacity: 0; }
-}
-.anim-shutter:hover .role-image img {
-  transform: scale(1.06);
-}
-
-/* 6. LIFT & GLOW (Role 6: Video Editor) */
-.anim-liftglow:hover {
-  transform: translateY(-12px) scale(1.02);
-  border-color: var(--c-red-h);
-  box-shadow: 0 25px 50px rgba(192, 0, 0, 0.4), 0 0 30px rgba(255, 40, 40, 0.25);
-}
-.anim-liftglow:hover .role-image {
-  background: radial-gradient(circle at 50% 60%, rgba(224, 0, 0, 0.35) 0%, transparent 80%);
-}
-.anim-liftglow:hover .role-image img {
-  transform: scale(1.08);
-}
-
-/* Light Mode */
-[data-theme="light"] .section-team { background: #fff5f5; }
-[data-theme="light"] .role-card { background: rgba(255, 255, 255, 0.85); border-color: rgba(192, 0, 0, 0.18); }
-[data-theme="light"] .role-card:hover { background: #ffffff; border-color: rgba(192, 0, 0, 0.45); }
-[data-theme="light"] .role-name-ar { color: #1a0000; }
-[data-theme="light"] .role-desc { color: rgba(26, 0, 0, 0.7); }
-[data-theme="light"] .team-title { color: #1a0000; }
-[data-theme="light"] .team-lead { color: rgba(26, 0, 0, 0.7); }
-
-
-/* NO-GSAP Fallback for mobile */
-.no-gsap .rv, 
-.no-gsap #awaken-text, 
-.no-gsap #awaken-rotating,
-.no-gsap #awaken-ctas, 
-.no-gsap #awaken-stats, 
-.no-gsap #scroll-hint {
-  opacity: 1 !important; 
-  transform: none !important;
-}
-
-/* CONTENT-VISIBILITY & PERFORMANCE BOOST */
-#s-engine,
-#s-proof,
-#clients,
-#team,
-#calc-section,
-#packages,
-#faq,
-#s-exit {
-  content-visibility: auto;
-  contain-intrinsic-size: 800px;
-}
-
-@media (max-width: 768px) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.1s !important;
-  }
-  .clients-track,
-  .problem-track {
-    animation-duration: 120s !important;
-  }
-}
-
-
-/* ══════════════════════════════════════════════════════════════
-   SERVICES SECTION — 5 cards (مطابق VR Agency)
-══════════════════════════════════════════════════════════════ */
-.section-services {
-  padding: clamp(50px, 6vw, 90px) 0;
-  background: var(--c-black);
-}
-
-.services-grid-5 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--sp-6);
-}
-
-.service-vr-card {
-  position: relative;
-  padding: var(--sp-8) var(--sp-6);
-  background: rgba(10, 0, 0, 0.6);
-  border: 1px solid rgba(192, 0, 0, 0.12);
-  border-radius: var(--r-xl);
-  transition: all 0.4s var(--e-float);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.service-vr-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--c-red), var(--c-red-h));
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.service-vr-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(192, 0, 0, 0.4);
-  box-shadow: 0 20px 50px rgba(192, 0, 0, 0.2);
-  background: rgba(20, 0, 0, 0.7);
-}
-
-.service-vr-card:hover::before {
-  transform: scaleX(1);
-}
-
-.service-vr-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 14px;
-  background: rgba(192, 0, 0, 0.12);
-  border: 1px solid rgba(192, 0, 0, 0.30);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c-red-h);
-  margin-bottom: var(--sp-5);
-  transition: all 0.4s var(--e-float);
-}
-
-.service-vr-card:hover .service-vr-icon {
-  background: rgba(192, 0, 0, 0.25);
-  transform: scale(1.08);
-  box-shadow: 0 0 30px rgba(192, 0, 0, 0.4);
-}
-
-.service-vr-title {
-  font-size: var(--t-lg);
-  font-weight: 900;
-  color: #fff;
-  margin: 0 0 var(--sp-3) 0;
-  line-height: 1.3;
-}
-
-.service-vr-desc {
-  font-size: var(--t-sm);
-  color: var(--c-w60);
-  line-height: 1.7;
-  margin: 0;
-  flex: 1;
-}
-
-[data-theme="light"] .section-services { background: #fafafa; }
-[data-theme="light"] .service-vr-card { background: #fff; }
-[data-theme="light"] .service-vr-title { color: #1a0000; }
-[data-theme="light"] .service-vr-desc { color: rgba(26, 0, 0, 0.65); }
-
-/* ══════════════════════════════════════════════════════════════
-   REGISTRATION SECTION — سجّل معانا (مطابق VR Agency Contact)
-══════════════════════════════════════════════════════════════ */
-.section-register {
-  padding: clamp(50px, 6vw, 90px) var(--section-x);
-  background: var(--c-black);
-  position: relative;
-  overflow: hidden;
-}
-
-.section-register::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(192,0,0,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 60% at 70% 80%, rgba(192,0,0,0.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.register-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-/* ═══ الكارت ═══ */
-.register-card {
-  background: linear-gradient(135deg, rgba(15,0,0,0.85), rgba(5,0,0,0.95));
-  border: 1px solid rgba(192,0,0,0.18);
-  border-radius: 28px;
-  padding: clamp(32px, 5vw, 64px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 80px);
-  backdrop-filter: blur(12px);
-  position: relative;
-  overflow: hidden;
-}
-
-.register-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--c-red-h), transparent);
-}
-
-/* ═══ العمود اليمين (النص) ═══ */
-.register-left {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-}
-
-.register-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 800;
-  color: var(--c-red-h);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: var(--sp-5);
-}
-
-.register-eyebrow-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--c-red-h);
-  animation: pulseDot 1.8s ease-in-out infinite;
-}
-
-.register-title {
-  font-size: clamp(28px, 4vw, 46px);
-  font-weight: 900;
-  line-height: 1.1;
-  color: #fff;
-  margin: 0 0 var(--sp-5) 0;
-  letter-spacing: -0.02em;
-}
-
-.register-title-accent {
-  color: var(--c-red-h);
-  display: inline;
-}
-
-.register-lead {
-  font-size: clamp(14px, 1.5vw, 16px);
-  line-height: 1.7;
-  color: rgba(255,255,255,0.55);
-  margin: 0 0 var(--sp-8) 0;
-  max-width: 460px;
-}
-
-.register-reach-title {
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--c-red-h);
-  margin: 0 0 var(--sp-5) 0;
-}
-
-/* ═══ معلومات التواصل ═══ */
-.register-info {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.register-info li {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 15px;
-  color: rgba(255,255,255,0.85);
-  font-weight: 600;
-}
-
-.register-info a {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  transition: color 0.25s;
-}
-
-.register-info a:hover {
-  color: var(--c-red-h);
-}
-
-.register-info-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(192,0,0,0.12);
-  border: 1px solid rgba(192,0,0,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c-red-h);
-  flex-shrink: 0;
-}
-
-/* ═══ العمود الشمال (الفورم) ═══ */
-.register-right {
-  display: flex;
-  align-items: flex-start;
-  padding-top: clamp(0px, 2vw, 24px);
-}
-
-.register-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.register-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-@media (max-width: 640px) {
-  .register-row {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-/* ═══ حقل الفورم — خط من تحت بس زي VR ═══ */
-.register-field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.register-field-full {
-  grid-column: 1 / -1;
-}
-
-.register-field label {
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.3px;
-}
-
-.register-field input,
-.register-field textarea {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
-  color: #fff;
-  font-family: var(--font);
-  font-size: 15px;
-  padding: 10px 0;
-  outline: none;
-  transition: border-color 0.3s, padding 0.3s;
-  resize: vertical;
-  direction: rtl;
-}
-
-.register-field textarea {
-  min-height: 80px;
-  padding-top: 8px;
-}
-
-.register-field input::placeholder,
-.register-field textarea::placeholder {
-  color: rgba(255,255,255,0.30);
-  font-size: 14px;
-}
-
-.register-field input:focus,
-.register-field textarea:focus {
-  border-bottom-color: var(--c-red-h);
-  padding-bottom: 12px;
-}
-
-.register-field input.error,
-.register-field textarea.error {
-  border-bottom-color: var(--c-error, #ff4444);
-  animation: errShake 300ms;
-}
-
-.register-field input.valid,
-.register-field textarea.valid {
-  border-bottom-color: var(--c-success, #25d366);
-}
-
-/* ═══ زر الإرسال ═══ */
-.register-submit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 16px 40px;
-  background: linear-gradient(135deg, var(--c-red), var(--c-red-h));
-  color: #fff;
-  font-family: var(--font);
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  align-self: flex-start;
-  box-shadow: 0 10px 28px rgba(192, 0, 0, 0.35);
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-}
-
-.register-submit:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(192, 0, 0, 0.55);
-}
-
-.register-submit:active {
-  transform: translateY(-1px) scale(0.98);
-}
-
-.register-submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.register-submit svg {
-  transition: transform 0.3s;
-}
-
-.register-submit:hover svg {
-  transform: translateX(-4px);
-}
-
-/* ═══ الحالة ═══ */
-.register-status {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.6;
-  padding: 12px 0;
-  display: none;
-}
-
-.register-status:not(:empty) {
-  display: block;
-}
-
-.register-status.success {
-  color: var(--c-success, #25d366);
-}
-
-.register-status.error {
-  color: var(--c-error, #ff4444);
-}
-
-.register-status.loading {
-  color: rgba(255,255,255,0.6);
-}
-
-/* ═══ Responsive ═══ */
-@media (max-width: 900px) {
-  .register-card {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 32px 24px;
-  }
-}
-
-/* ═══ Light theme ═══ */
-[data-theme="light"] .section-register {
-  background: #fafafa;
-}
-
-[data-theme="light"] .register-card {
-  background: #fff;
-  border-color: rgba(192,0,0,0.15);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-}
-
-[data-theme="light"] .register-title {
-  color: #1a0000;
-}
-
-[data-theme="light"] .register-lead {
-  color: rgba(26,0,0,0.6);
-}
-
-[data-theme="light"] .register-field label {
-  color: #1a0000;
-}
-
-[data-theme="light"] .register-field input,
-[data-theme="light"] .register-field textarea {
-  color: #1a0000;
-  border-bottom-color: rgba(0,0,0,0.15);
-}
-
-[data-theme="light"] .register-field input::placeholder,
-[data-theme="light"] .register-field textarea::placeholder {
-  color: rgba(26,0,0,0.3);
-}
-
-[data-theme="light"] .register-info li,
-[data-theme="light"] .register-info a {
-  color: rgba(26,0,0,0.75);
-}
-
-[data-theme="light"] .register-info a:hover {
-  color: var(--c-red-h);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   FAQ SECTION
-══════════════════════════════════════════════════════════════ */
-
-
-
-
-
-
-
-
-
-[data-theme="light"] 
-[data-theme="light"] 

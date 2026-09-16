@@ -1,5 +1,5 @@
 /* ============================================================
-   2D MARKETING — CLIENTS LOGOS MODULE (20 UNIQUE CLIENTS)
+   2D MARKETING — CLIENTS LOGOS MODULE (19-20 UNIQUE CLIENTS)
    Two Marquee Rows (Opposite Directions) — NO GRID
    ============================================================ */
 var CLIENT_LOGOS = [
@@ -33,31 +33,28 @@ function basePath() {
 function renderClients() {
   var trackTop = document.getElementById('clientsTrackTop');
   var trackBottom = document.getElementById('clientsTrackBottom');
-  if (!trackTop && !trackBottom) return;
+  if (!trackTop || !trackBottom) return;
   
   var bp = basePath();
-  
-  // قسّم اللوجوهات نصين
   var half = Math.ceil(CLIENT_LOGOS.length / 2);
   var rowTop = CLIENT_LOGOS.slice(0, half);
   var rowBottom = CLIENT_LOGOS.slice(half);
   
   function renderRow(items) {
-    // تكرار مرتين مع -50% translate3d للـ infinite loop الرياضي الدقيق
     var doubled = items.concat(items);
     return doubled.map(function(logo) {
       var webp = logo.file.replace(/\.(png|jpg)$/i, '.webp');
       return '<div class="client-logo" title="' + logo.name + '">' +
-             '<picture>' +
-             '<source srcset="' + bp + 'assets/logos/clients/' + webp + '" type="image/webp">' +
-             '<img src="' + bp + 'assets/logos/clients/' + logo.file + '" alt="' + logo.name + '" loading="lazy" width="160" height="80" />' +
-             '</picture>' +
+             '  <picture>' +
+             '    <source srcset="' + bp + 'assets/logos/clients/' + webp + '" type="image/webp">' +
+             '    <img src="' + bp + 'assets/logos/clients/' + logo.file + '" alt="' + logo.name + '" loading="lazy" width="160" height="70" />' +
+             '  </picture>' +
              '</div>';
     }).join('');
   }
   
-  if (trackTop) trackTop.innerHTML = renderRow(rowTop);
-  if (trackBottom) trackBottom.innerHTML = renderRow(rowBottom);
+  trackTop.innerHTML = renderRow(rowTop);
+  trackBottom.innerHTML = renderRow(rowBottom);
 }
 
 if (document.readyState === 'loading') {

@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════
-   2D MARKETING — Team Section (10 Roles)
+   2D MARKETING — Team Section (6 Roles)
    ══════════════════════════════════════════════════════════════ */
 (function() {
   'use strict';
@@ -46,34 +46,6 @@
     "roleAr": "مونتاج الفيديو",
     "descAr": "بيحوّل الأفكار لفيديوهات تشد الانتباه — إيقاع وإبداع وتفاصيل.",
     "image": "role-06-video-editor.webp"
-  },
-  {
-    "id": 7,
-    "roleEn": "Marketing Manager",
-    "roleAr": "إدارة التسويق",
-    "descAr": "بيقود الاستراتيجية ويضمن إن الأهداف بتتحقق بأرقام حقيقية.",
-    "image": "role-07-marketing-manager.webp"
-  },
-  {
-    "id": 8,
-    "roleEn": "Web Developer",
-    "roleAr": "تطوير المواقع",
-    "descAr": "بيبني المواقع اللي بتشتغل بسرعة وبتوصل رسالتك للعميل الصح.",
-    "image": "role-08-web-developer.webp"
-  },
-  {
-    "id": 9,
-    "roleEn": "Sales",
-    "roleAr": "المبيعات",
-    "descAr": "بيحوّل Leads لعملاء حقيقيين — بمتابعة دقيقة وفهم لاحتياجاتهم.",
-    "image": "role-09-sales.webp"
-  },
-  {
-    "id": 10,
-    "roleEn": "Graphic Designer",
-    "roleAr": "تصميم الجرافيك",
-    "descAr": "بيحوّل الأفكار لهوية بصرية متسقة — كل حاجة بتطلع بنفس الشكل.",
-    "image": "role-10-graphic-designer.webp"
   }
 ];
   
@@ -87,7 +59,7 @@
     if (!grid) return;
     var bp = basePath();
     
-    // Populate cards if not already present statically
+    // If not statically rendered, render them
     if (grid.children.length === 0) {
       grid.innerHTML = ROLES.map(function(r) {
         return '<article class="role-card" data-role-id="' + r.id + '">' +
@@ -108,7 +80,7 @@
       }).join('');
     }
 
-    // Hash navigation scroll helper
+    // Hash navigation scroll
     function checkHash() {
       if (window.location.hash === '#team') {
         var t = document.getElementById('team');
