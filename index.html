@@ -65,20 +65,8 @@ window.dataLayer = window.dataLayer || [];
 .anchor-line2{font-size:var(--t-xl);font-weight:900;color:var(--c-red-h)}
 #problem-detail{max-width:var(--narrow-w);margin:0 auto;padding:var(--sp-6) var(--sp-8);background:rgba(192,0,0,0.08);border:1px solid rgba(192,0,0,0.20);border-radius:var(--r-xl);display:none;text-align:right;width:100%}
 
-#s-engine{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:40px;padding:var(--section-y) var(--section-x)}
-.orbit-container{position:relative;width:440px;height:440px;flex-shrink:0}
-.orbit-ring-svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(192,0,0,0.12)}
-.orbit-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(192,0,0,0.8) 0%,rgba(139,0,0,0.4) 60%,transparent 100%);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;text-align:center;z-index:5;box-shadow:0 0 40px rgba(192,0,0,0.4)}
-.orbit-step{position:absolute;width:56px;height:56px;border-radius:50%;background:rgba(10,0,0,0.8);border:1px solid rgba(192,0,0,0.30);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;backdrop-filter:blur(8px);transition:all 250ms var(--e-spring)}
-.orbit-step:hover,.orbit-step.active{border-color:var(--c-red-h);box-shadow:0 0 0 4px rgba(192,0,0,0.12),0 0 20px rgba(192,0,0,0.4);transform:scale(1.15)}
-.orbit-step-num{position:absolute;top:2px;right:6px;font-size:9px;font-weight:800;color:var(--c-red-h)}
-.orbit-info{flex:1;min-width:280px;max-width:420px}
-#orbit-detail{padding:var(--sp-6);background:rgba(192,0,0,0.08);border:1px solid rgba(192,0,0,0.18);border-radius:var(--r-lg);margin-top:var(--sp-6);display:none}
-.orbit-detail-num{font-size:var(--t-xs);font-weight:700;color:rgba(192,0,0,0.7);letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--sp-2)}
-.orbit-detail-title{font-size:var(--t-lg);font-weight:900;margin-bottom:var(--sp-2);color:#fff}
-.orbit-detail-desc{font-size:var(--t-sm);color:var(--c-w60);line-height:1.75}
-.orbit-detail-output{font-size:var(--t-xs);color:var(--c-red-h);margin-top:var(--sp-3);font-weight:700}
-@media(max-width:768px){.orbit-container{width:280px;height:280px}.orbit-step{width:44px;height:44px;font-size:14px}#s-engine{flex-direction:column;gap:var(--sp-8)}}
+
+
 
 .counters-row{display:flex;gap:clamp(20px,5vw,60px);justify-content:center;flex-wrap:wrap;margin:var(--sp-12) 0}
 .counter{text-align:center}
@@ -192,22 +180,36 @@ window.dataLayer = window.dataLayer || [];
 <div id="progress-bar" aria-hidden="true"></div>
 <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-<nav id="hdr" role="navigation">
-  <a href="./" aria-label="2D Marketing">
-    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23c00000'/><text x='100' y='130' font-size='120' font-weight='900' fill='white' text-anchor='middle' font-family='Arial'>2D</text></svg>" alt="2D Marketing" class="hdr-logo" width="40" height="40"/>
+<nav id="hdr" role="navigation" aria-label="التنقل الرئيسي">
+  <a href="./" aria-label="2D Marketing — الرئيسية" class="hdr-logo-link">
+    <img src="assets/logos/2d-main.webp" alt="2D Marketing" class="hdr-logo" width="60" height="60"/>
   </a>
+  
   <div class="hdr-nav">
-    <a href="#s-engine">النظام</a>
-    <a href="#s-proof">النتايج</a>
-    <a href="services/">الخدمات</a>
-    <a href="about.html">إحنا مين</a>
-    <a href="blog/">المدونة</a>
-    <a href="contact.html">تواصل</a>
+    <a href="#about">عن الوكالة</a>
+    <a href="#values">المزايا</a>
+    <a href="#team">الفريق</a>
+    <a href="#packages">الباقات</a>
+    <a href="#faq">الأسئلة</a>
   </div>
-  <div style="display:flex;gap:12px;align-items:center">
-    <button class="hdr-search-btn" id="search-btn" aria-label="بحث"><svg class="svgi" style="font-size:16px"><use href="#fa-search"></use></svg></button>
-    <button class="hdr-burger" id="hdr-burger" aria-label="فتح القائمة"><svg class="svgi" style="font-size:18px"><use href="#fa-bars"></use></svg></button>
-    <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 22px">ابدأ الآن</a>
+  
+  <div class="hdr-actions">
+    <a href="tel:+201144826641" class="hdr-phone">
+      <svg class="svgi" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+        <path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/>
+      </svg>
+      <span>
+        <strong>اتصل أي وقت</strong>
+        <small dir="ltr">0114 482 6641</small>
+      </span>
+    </a>
+    
+    <button class="hdr-cta" onclick="openConv()">
+      كلمنا
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </button>
   </div>
 </nav>
 
@@ -223,149 +225,145 @@ window.dataLayer = window.dataLayer || [];
 <!-- ═══════════════════════════════════════════════════════
      HERO — بنسخة VR Agency بروح 2D Marketing
 ═══════════════════════════════════════════════════════ -->
-<section id="hero" class="hero-section">
-  <div class="hero-bg" aria-hidden="true"></div>
-  
-  <div class="hero-container">
-    <div class="hero-content">
-      
-      <h1 class="hero-title">
-        بنعمل تسويق <span class="hero-accent">بيبيع</span>.<br/>
-        مش بيحكي.
+<!-- ═══════════════════════════════════════════════════════
+     HERO — بالظبط زي VR Agency
+═══════════════════════════════════════════════════════ -->
+<section id="hero" class="hero-vr">
+  <div class="hero-vr-inner">
+    
+    <!-- عمود النص -->
+    <div class="hero-vr-text">
+      <h1 class="hero-vr-title">
+        بنعمل تسويق<br/>
+        <span class="hero-vr-title-accent">بيبيع</span> مش بيحكي.<br/>
+        <span class="hero-vr-title-small">بسرعة وذكاء.</span>
       </h1>
       
-      <p class="hero-subtitle">
-        نظام leads + إعلانات مدفوعة + تقارير أسبوعية.<br/>
+      <p class="hero-vr-subtitle">
+        Leads حقيقية + إعلانات مدفوعة + تقارير أسبوعية.<br/>
         كل حاجة بالعامية، وكل جنيه بتشوفه بيرجع كام.
       </p>
       
-      <a href="#contact" class="hero-cta" onclick="openConv()">
-        احجز مكالمة مجانية
-        <svg class="hero-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <a href="#" class="hero-vr-cta" onclick="openConv(); return false;">
+        اطلب عرض سعر
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
       </a>
-      
-      <!-- Stats تحت الـ CTA -->
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-num" data-target="50">50+</span>
-          <span class="hero-stat-label">عميل نشط</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num" data-target="3.8" data-decimal="1">3.8×</span>
-          <span class="hero-stat-label">متوسط ROAS</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num" data-target="19">19</span>
-          <span class="hero-stat-label">براند اشتغلنا معاه</span>
-        </div>
-      </div>
-      
     </div>
     
-    <!-- لوجو 2D كبير على الجنب -->
-    <div class="hero-logo-wrap" aria-hidden="true">
-      <div class="hero-logo-3d">
-        <picture>
-          <source srcset="assets/logos/2d-main.webp" type="image/webp">
-          <img src="assets/logos/2d-main.png" alt="2D Marketing" class="hero-logo-img" width="500" height="500" />
-        </picture>
-      </div>
+    <!-- عمود اللوجو الضخم -->
+    <div class="hero-vr-logo">
+      <img src="assets/logos/2d-main.webp" alt="2D Marketing" class="hero-vr-logo-img" />
     </div>
+    
   </div>
   
-  <!-- Scroll indicator -->
-  <div class="hero-scroll" aria-hidden="true">
-    <span>اكتشف</span>
-    <div class="hero-scroll-line"></div>
+  <!-- شريط الخدمات -->
+  <div class="services-marquee-vr">
+    <div class="services-track-vr">
+      <span>نظام Leads</span><span class="dot">•</span>
+      <span>الإعلانات المدفوعة</span><span class="dot">•</span>
+      <span>المحتوى والسوشيال</span><span class="dot">•</span>
+      <span>التقارير والتحليل</span><span class="dot">•</span>
+      <span>الاستراتيجية</span><span class="dot">•</span>
+      <span>نظام Leads</span><span class="dot">•</span>
+      <span>الإعلانات المدفوعة</span><span class="dot">•</span>
+      <span>المحتوى والسوشيال</span><span class="dot">•</span>
+      <span>التقارير والتحليل</span><span class="dot">•</span>
+      <span>الاستراتيجية</span><span class="dot">•</span>
+    </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
-     SERVICES MARQUEE — شريط الخدمات (VR Agency Style)
+     ABOUT US — نص مباشر زي VR
 ═══════════════════════════════════════════════════════ -->
-<section id="services-strip" class="services-strip" aria-label="خدماتنا">
-  <div class="services-track">
-    <span class="service-item">نظام Leads</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <span class="service-item">الإعلانات المدفوعة</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <span class="service-item">المحتوى والسوشيال ميديا</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <span class="service-item">التقارير والتحليل</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <span class="service-item">الاستراتيجية</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <!-- تكرار للـ Infinite Scroll -->
-    <span class="service-item">نظام Leads</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <span class="service-item">الإعلانات المدفوعة</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <span class="service-item">المحتوى والسوشيال ميديا</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <span class="service-item">التقارير والتحليل</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-    <span class="service-item">الاستراتيجية</span>
-    <span class="service-dot" aria-hidden="true">•</span>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     ABOUT US BRIEF — كلمة عن الوكالة (VR Agency Style)
-═══════════════════════════════════════════════════════ -->
-<section id="about" class="section-about-brief">
-  <div class="about-brief-container">
-    <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-users"></use></svg>إحنا مين</div>
-    <h2 class="about-brief-quote rv">
-      مش بنبيع كلام ومحتوى ملوش لازمة...<br/>
-      إحنا بنبني <strong>تسويق بيبيع</strong> ويضاعف أرقامك.
+<section id="about" class="section-about-vr">
+  <div class="section-about-vr-inner">
+    <h2 class="section-about-vr-title rv">
+      عن <span class="accent">2D Marketing</span>
     </h2>
-    <p class="about-brief-desc rv">
-      2D Marketing وكالة نمو تسويقي مبنية على فكرة واحدة بسيطة: كل جنيه بتصرفه في الإعلانات لازم يرجعلك عملاء حقيقيين وأرباح واضحة على الأرض. بنتحكم في خط الإنتاج كامل من الكاميرا والاستوديو لحد الحملات والـ Leads المقفولة.
+    
+    <p class="section-about-vr-lead rv">
+      في 2D Marketing، إحنا مش بس بنعمل <span class="accent">"محتوى شكله حلو"</span>.
+    </p>
+    
+    <p class="section-about-vr-body rv">
+      بالنسبة لنا، التسويق أداة عملية بتفتح فرص جديدة، 
+      وبتجيب نمو حقيقي في المبيعات والوضوح. كل حاجة بنعملها 
+      مربوطة برقم، وكل رقم ليه مصدر، وكل مصدر بيتقاس.
     </p>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
-     VALUE PROPOSITIONS — ليه تختارنا (VR Agency Style)
+     VALUE PROPOSITIONS — نمط VR (4 كروت)
 ═══════════════════════════════════════════════════════ -->
-<section id="values" class="section-values">
-  <div class="values-container">
-    <div style="text-align:center;max-width:680px;margin:0 auto var(--sp-10)">
-      <div class="section-eyebrow rv">
-        <svg class="svgi"><use href="#fa-check"></use></svg>
-        ليه 2D Marketing؟
-      </div>
-      <h2 class="section-h2 rv">4 حاجات بتفرق معانا</h2>
-    </div>
+<section id="values" class="section-values-vr">
+  <div class="container">
+    <h2 class="section-values-vr-title rv">ليه تختار 2D Marketing؟</h2>
     
-    <div class="values-grid">
-      <div class="value-card rv">
-        <div class="value-icon"><svg class="svgi"><use href="#fa-user-tie"></use></svg></div>
-        <h3 class="value-title">مدير حساب مخصص ليك</h3>
-        <p class="value-desc">حد واحد مسؤول عنك، بترد عليه على طول، وبيفهم طبيعة شغلك وسوقك.</p>
-      </div>
-      <div class="value-card rv">
-        <div class="value-icon"><svg class="svgi"><use href="#fa-chart-line"></use></svg></div>
-        <h3 class="value-title">تقارير واضحة كل أسبوع</h3>
-        <p class="value-desc">أرقام حقيقية، مش كلام. تعرف كل جنيه راح فين ورجع كام lead ومبيعات.</p>
-      </div>
-      <div class="value-card rv">
-        <div class="value-icon"><svg class="svgi"><use href="#fa-bolt"></use></svg></div>
-        <h3 class="value-title">أفكار بتتنفذ فوراً</h3>
-        <p class="value-desc">مش بنحكي بس. بنشتغل بسرعة، وبنظبط الحملات والمحتوى على طول.</p>
-      </div>
-      <div class="value-card rv">
-        <div class="value-icon"><svg class="svgi"><use href="#fa-clock"></use></svg></div>
-        <h3 class="value-title">تسليم في الوقت</h3>
-        <p class="value-desc">كل حاجة بنوعد بيها، بنسلمها في وقتها بأعلى جودة. مفيش أعذار.</p>
-      </div>
+    <div class="values-vr-grid">
+      
+      <article class="value-vr-card rv">
+        <div class="value-vr-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="40" height="40">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <line x1="20" y1="8" x2="20" y2="14"/>
+            <line x1="23" y1="11" x2="17" y2="11"/>
+          </svg>
+        </div>
+        <h3 class="value-vr-title">مدير حساب مخصص</h3>
+        <p class="value-vr-desc">
+          حد واحد مسؤول عنك، بترد عليه على طول، وبيفهم شغلك من الجوّه.
+        </p>
+      </article>
+      
+      <article class="value-vr-card rv">
+        <div class="value-vr-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="40" height="40">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <h3 class="value-vr-title">تقارير واضحة</h3>
+        <p class="value-vr-desc">
+          أرقام حقيقية بدون لف ودوران. تعرف كل جنيه راح فين ورجع كام.
+        </p>
+      </article>
+      
+      <article class="value-vr-card rv">
+        <div class="value-vr-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="40" height="40">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <h3 class="value-vr-title">أفكار بتتنفذ</h3>
+        <p class="value-vr-desc">
+          بنشتغل بسرعة، بننفذ على طول، وبنظبط الأمور بدون تعقيد.
+        </p>
+      </article>
+      
+      <article class="value-vr-card rv">
+        <div class="value-vr-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="40" height="40">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="value-vr-title">تسليم في الوقت</h3>
+        <p class="value-vr-desc">
+          كل حاجة بنوعد بيها بتتسلم في وقتها. مفيش أعذار، مفيش تأخير.
+        </p>
+      </article>
+      
     </div>
   </div>
 </section>
-
-
 
 <section id="clients" class="section-clients">
   <div style="width:var(--content-w);margin:0 auto;padding:0 var(--section-x)">
@@ -410,30 +408,7 @@ window.dataLayer = window.dataLayer || [];
   </div>
 </section>
 
-<section id="s-engine" class="scene">
-  <div class="orbit-container rv">
-    <div class="orbit-ring-svg" style="width:240px;height:240px"></div>
-    <div class="orbit-ring-svg" style="width:380px;height:380px"></div>
-    <div class="orbit-center">نظام<br/>النمو</div>
-    <div class="orbit-step" data-step="0" style="left:192px;top:37px" onclick="orbitSelect(0)"><span class="orbit-step-num">1</span><svg class="svgi"><use href="#fa-magnifying-glass-chart"></use></svg></div>
-    <div class="orbit-step" data-step="1" style="left:364px;top:143px" onclick="orbitSelect(1)"><span class="orbit-step-num">2</span><svg class="svgi"><use href="#fa-chess"></use></svg></div>
-    <div class="orbit-step" data-step="2" style="left:364px;top:299px" onclick="orbitSelect(2)"><span class="orbit-step-num">3</span><svg class="svgi"><use href="#fa-camera"></use></svg></div>
-    <div class="orbit-step" data-step="3" style="left:192px;top:405px" onclick="orbitSelect(3)"><span class="orbit-step-num">4</span><svg class="svgi"><use href="#fa-rocket"></use></svg></div>
-    <div class="orbit-step" data-step="4" style="left:20px;top:299px" onclick="orbitSelect(4)"><span class="orbit-step-num">5</span><svg class="svgi"><use href="#fa-sliders"></use></svg></div>
-    <div class="orbit-step" data-step="5" style="left:20px;top:143px" onclick="orbitSelect(5)"><span class="orbit-step-num">6</span><svg class="svgi"><use href="#fa-arrow-trend-up"></use></svg></div>
-  </div>
-  <div class="orbit-info rv">
-    <div class="section-eyebrow"><svg class="svgi"><use href="#fa-gears"></use></svg>التسويق اللي بيجيب نتايج</div>
-    <h2 class="section-h2">6 مراحل · مفيش واحدة تتخطى</h2>
-    <p class="section-sub">كل مرحلة بتبني على اللي قبلها. ده الفرق بين نظام ونتيجة عشوائية.</p>
-    <div id="orbit-detail">
-      <div class="orbit-detail-num" id="orbit-num">المرحلة 1 من 6</div>
-      <div class="orbit-detail-title" id="orbit-title">Research</div>
-      <div class="orbit-detail-desc" id="orbit-desc"></div>
-      <div class="orbit-detail-output" id="orbit-output"></div>
-    </div>
-  </div>
-</section>
+
 
 <section id="s-diagnosis" class="scene">
   <div class="diagnosis-header rv">
@@ -547,28 +522,7 @@ window.dataLayer = window.dataLayer || [];
   </div>
 </section>
 
-<section id="s-proof" class="scene" style="text-align:center">
-  <div class="container">
-    <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-chart-bar"></use></svg>الأرقام بتتكلم</div>
-    <h2 class="section-h2 rv">نتايج بتتقاس — مش بتتوعد</h2>
-    <p class="section-sub rv" style="margin:0 auto var(--sp-8)">دي أرقام بنشتغل بيها كل يوم. مش أحسن نتيجة حققناها — دي المتوسط اللي بنتحاسب عليه.</p>
-    <div class="counters-row">
-      <div class="counter rv"><span class="counter-n" data-target="50" data-suffix="+">50+</span><span class="counter-l">عميل نشط حالياً</span></div>
-      <div class="counter rv"><span class="counter-n" data-target="3.8" data-suffix="×" data-decimal="1">3.8×</span><span class="counter-l">متوسط ROAS</span></div>
-      <div class="counter rv"><span class="counter-n" data-target="5" data-suffix="K+">5K+</span><span class="counter-l">Lead/شهر</span></div>
-      <div class="counter rv"><span class="counter-n" data-target="94" data-suffix="%">94%</span><span class="counter-l">معدل الاحتفاظ</span></div>
-    </div>
-    <p class="methodology-note rv">أرقام مبنية على benchmarks حقيقية — مش وعود فردية.</p>
-  </div>
-  <div class="bench-strip">
-    <div class="bench-card rv"><div class="bench-tag">💪 Fitness</div><h3 class="bench-h">من 120 لـ 300+ Lead شهرياً</h3><p class="bench-meta">في 90 يوم · Meta + Retargeting</p><p class="bench-note">مدى واقعي للقطاع</p></div>
-    <div class="bench-card rv"><div class="bench-tag">🏥 Medical</div><h3 class="bench-h">من 45 لـ 120+ حجز شهرياً</h3><p class="bench-meta">في 120 يوم · Google + YouTube</p><p class="bench-note">متوسط للعيادات</p></div>
-    <div class="bench-card rv"><div class="bench-tag">🏠 Real Estate</div><h3 class="bench-h">ROAS 3.5× لـ 5×</h3><p class="bench-meta">في 60 يوم · Full-Funnel</p><p class="bench-note">للوحدات السكنية</p></div>
-  </div>
-  <div class="container" style="padding-top:0">
-    <button class="btn btn-primary rv ripple-host" onclick="openConv()" style="margin:var(--sp-8) auto;display:inline-flex"><svg class="svgi" style="font-size:16px"><use href="#fa-rocket"></use></svg> شغلك قادر على ده؟</button>
-  </div>
-</section>
+
 
 <section id="s-exit" class="scene">
   <div class="orb orb-1" style="opacity:0.5"></div>
@@ -757,26 +711,7 @@ if(!('IntersectionObserver' in window)){$$('[data-target]').forEach(animCount);r
 var o=new IntersectionObserver(function(en){if(!en[0].isIntersecting)return;o.disconnect();$$('[data-target]').forEach(animCount);},{threshold:0.3});
 t.forEach(function(e){o.observe(e);});})();
 
-/* ORBIT */
-var orbitData=[
-{t:'Research',n:'المرحلة 1 من 6',d:'بنبدأ بتحليل عميق لسوقك: المنافسين، العملاء المثاليين، فرص النمو المخفية — قبل أي إعلان.',o:'تقرير السوق + Persona Map'},
-{t:'Strategy',n:'المرحلة 2 من 6',d:'بنبني خطة نمو بـ KPIs قابلة للقياس وROAS مستهدف واضح.',o:'Growth Plan + Budget Map'},
-{t:'Creative',n:'المرحلة 3 من 6',d:'المحتوى أداة تحويل مش مجرد إبداع.',o:'Content Calendar + Assets'},
-{t:'Launch',n:'المرحلة 4 من 6',d:'حملات Full-Funnel على Meta & Google تعمل بالتوازي.',o:'Live Campaigns + Dashboard'},
-{t:'Optimize',n:'المرحلة 5 من 6',d:'كل أسبوع: بنحذف اللي مش بيشتغل، بنضاعف اللي بينجح، بنخفض CAC.',o:'Weekly Report + Action Items'},
-{t:'Scale',n:'المرحلة 6 من 6',d:'النظام شغال → دلوقتي بنوسّعه.',o:'Scaling Roadmap'}];
-var orbitTimer,currentOrbit=0;
-window.orbitSelect=function(idx){$$('.orbit-step').forEach(function(s,i){s.classList.toggle('active',i===idx);});
-var d=orbitData[idx];if(!d)return;var det=$('#orbit-detail');
-var num=$('#orbit-num'),tit=$('#orbit-title'),des=$('#orbit-desc'),out=$('#orbit-output');
-if(!det)return;if(num)num.textContent=d.n;if(tit)tit.textContent=d.t;if(des)des.textContent=d.d;if(out)out.textContent='📦 Output: '+d.o;
-det.style.display='block';track('orbit','step-'+idx);};
-(function(){function next(){orbitSelect(currentOrbit);currentOrbit=(currentOrbit+1)%6;}
-setTimeout(function(){next();orbitTimer=setInterval(next,3200);},2000);
-var oc=$('.orbit-container');
-if(oc){on(oc,'mouseenter',function(){clearInterval(orbitTimer);});
-on(oc,'mouseleave',function(){orbitTimer=setInterval(function(){orbitSelect(currentOrbit);currentOrbit=(currentOrbit+1)%6;},3200);});}
-$$('.orbit-step').forEach(function(b,i){on(b,'click',function(){clearInterval(orbitTimer);orbitSelect(i);currentOrbit=(i+1)%6;});});})();
+
 
 /* PROBLEM */
 var problemData=[

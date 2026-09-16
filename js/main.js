@@ -61,14 +61,7 @@ function initLoader() {
     l.classList.add('hidden');
     document.body.classList.remove('loading');
   };
-  if (document.readyState === 'complete') {
-    setTimeout(reveal, 250);
-  } else {
-    window.addEventListener('load', function() {
-      setTimeout(reveal, 250);
-    });
-    setTimeout(reveal, 1000);
-  }
+  setTimeout(reveal, 200);
 }
 
 function initProgressBar(){
@@ -373,67 +366,38 @@ function initGSAP() {
     setTimeout(initGSAP, 300);
     return;
   }
-  if (window.innerWidth < 768) {
-    document.body.classList.add('no-gsap');
-    return;
-  }
   
   gsap.registerPlugin(ScrollTrigger);
   
-  // ═══ Hero Animations ═══
-  var tl = gsap.timeline({ delay: 0.3 });
+  // ═══ Hero Animation ═══
+  var tl = gsap.timeline({ delay: 0.2 });
   
-  tl.from('.hero-title', {
+  tl.from('.hero-vr-title', {
     y: 60,
     opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
+    duration: 1.1,
+    ease: 'power4.out'
   })
-  .from('.hero-subtitle', {
-    y: 40,
+  .from('.hero-vr-subtitle', {
+    y: 30,
     opacity: 0,
     duration: 0.8,
     ease: 'power2.out'
-  }, '-=0.6')
-  .from('.hero-cta', {
-    y: 30,
+  }, '-=0.7')
+  .from('.hero-vr-cta', {
+    y: 24,
     opacity: 0,
     duration: 0.7,
     ease: 'back.out(1.4)'
-  }, '-=0.5')
-  .from('.hero-stats .hero-stat', {
-    y: 30,
-    opacity: 0,
-    stagger: 0.15,
-    duration: 0.6,
-    ease: 'power2.out'
-  }, '-=0.4')
-  .from('.hero-logo-3d', {
+  }, '-=0.6')
+  .from('.hero-vr-logo-img', {
     scale: 0.7,
     opacity: 0,
-    duration: 1.2,
+    duration: 1.3,
     ease: 'power3.out'
   }, 0);
   
-  // ═══ Counters ═══
-  document.querySelectorAll('.hero-stat-num[data-target]').forEach(function(el) {
-    var target = parseFloat(el.dataset.target);
-    var decimal = parseInt(el.dataset.decimal || '0');
-    var obj = { val: 0 };
-    
-    gsap.to(obj, {
-      val: target,
-      duration: 2,
-      delay: 0.8,
-      ease: 'power2.out',
-      onUpdate: function() {
-        el.textContent = (decimal ? obj.val.toFixed(decimal) : Math.floor(obj.val)) + 
-                        (el.dataset.suffix || (target >= 10 ? '+' : ''));
-      }
-    });
-  });
-  
-  // ═══ General Section Reveals ═══
+  // ═══ Section Headings ═══
   gsap.utils.toArray('.section-h2').forEach(function(el) {
     gsap.from(el, {
       opacity: 0,
@@ -442,8 +406,7 @@ function initGSAP() {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: el,
-        start: 'top 85%',
-        toggleActions: 'play none none none'
+        start: 'top 85%'
       }
     });
   });
