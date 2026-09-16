@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
-<title>2D Marketing — نظام تسويق بيبيع مش بس بينشر</title>
-<meta name="description" content="وكالة نمو وأداء تسويقي. ببنعمل تسويق بيبيع تجيب عملاء حقيقيين للعيادات والجيمات والعقارات والمتاجر. Leads حقيقية · ROI موثق · ضمان 90 يوم."/>
-<meta property="og:title" content="2D Marketing — نظام بيبيع مش بس بينشر"/>
-<meta property="og:description" content="أنظمة تجيب عملاء للعيادات والجيمات والعقارات. Leads حقيقية · ROI موثق."/>
+<title>2D Marketing — نحرّك براندك للأمام بسرعة وذكاء استراتيجي</title>
+<meta name="description" content="وكالة تسويق متكاملة نجمع بين الاستراتيجية المبتكرة والإنتاج الإبداعي لتحقيق نمو حقيقي وقابل للقياس لعلامتك التجارية."/>
+<meta property="og:title" content="2D Marketing — نحرّك براندك للأمام بسرعة وذكاء استراتيجي"/>
+<meta property="og:description" content="وكالة تسويق متكاملة نجمع بين الاستراتيجية المبتكرة والإنتاج الإبداعي لتحقيق نمو حقيقي لعلامتك التجارية."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://2dmarketing.agency/"/>
 <meta property="og:image" content="https://2dmarketing.agency/og.jpg"/>
@@ -26,8 +26,8 @@ window.dataLayer = window.dataLayer || [];
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/main.css?v=6"/>
-<link rel="stylesheet" href="css/pages.css?v=6"/>
+<link rel="stylesheet" href="css/main.css?v=7"/>
+<link rel="stylesheet" href="css/pages.css?v=7"/>
 
 <style>
 /* صفحة الهوم — الأنماط المخصصة */
@@ -186,11 +186,11 @@ window.dataLayer = window.dataLayer || [];
   </a>
   
   <div class="hdr-nav">
+    <a href="#hero">الرئيسية</a>
     <a href="#about">عن الوكالة</a>
-    <a href="#values">المزايا</a>
+    <a href="#services">الخدمات</a>
     <a href="#team">الفريق</a>
-    <a href="#packages">الباقات</a>
-    <a href="#faq">الأسئلة</a>
+    <a href="#register">تواصل</a>
   </div>
   
   <div class="hdr-actions">
@@ -216,10 +216,13 @@ window.dataLayer = window.dataLayer || [];
 <div id="mmenu" aria-hidden="true"><div class="mmenu-panel">
   <div class="mmenu-head"><span style="font-weight:900;color:#fff">القائمة</span><button class="mmenu-close" aria-label="إغلاق">✕</button></div>
   <div class="mmenu-links">
-    <a href="./">الرئيسية</a><a href="#s-engine">النظام</a><a href="services/">الخدمات</a>
-    <a href="about.html">إحنا مين</a><a href="blog/">المدونة</a><a href="contact.html">تواصل معانا</a>
+    <a href="#hero">الرئيسية</a>
+    <a href="#about">عن الوكالة</a>
+    <a href="#services">الخدمات</a>
+    <a href="#team">الفريق</a>
+    <a href="#register">تواصل</a>
   </div>
-  <a href="contact.html" class="btn btn-primary" style="justify-content:center">ابدأ المحادثة</a>
+  <a href="#register" class="btn btn-primary" style="justify-content:center">ابدأ الآن</a>
 </div></div>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -240,16 +243,16 @@ window.dataLayer = window.dataLayer || [];
     <div class="hero-vr-text">
       <h1 class="hero-vr-title">
         نحرّك براندك<br/>
-        للأمام <span class="hero-vr-title-accent">بسرعة</span><br/>
-        وذكاء استراتيجي.
+        <span class="hero-vr-title-accent">للأمام</span><br/>
+        <span class="hero-vr-title-small">بسرعة وذكاء استراتيجي.</span>
       </h1>
       
       <p class="hero-vr-sub">
-        استراتيجية واضحة + تنفيذ احترافي:
-        إدارة سوشيال، إعلانات مدفوعة، هوية بصرية، تصميم، ومواقع.
+        استراتيجية واضحة + تنفيذ احترافي:<br/>
+        إدارة السوشيال ميديا، الإعلانات المدفوعة، الهوية البصرية، إنتاج المحتوى، والاستراتيجية.
       </p>
       
-      <a href="#" class="hero-vr-cta" onclick="openConv(); return false;">
+      <a href="#register" class="hero-vr-cta" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'}); return false;">
         اطلب عرض سعر
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
           <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -270,18 +273,16 @@ window.dataLayer = window.dataLayer || [];
   <!-- شريط الخدمات (اختياري — تحت الهيرو) -->
   <div class="hero-vr-services">
     <div class="hero-vr-services-track">
-      <span>إعلانات مدفوعة</span><span class="dot">•</span>
-      <span>هوية بصرية</span><span class="dot">•</span>
-      <span>سوشيال ميديا</span><span class="dot">•</span>
-      <span>إدارة حملات</span><span class="dot">•</span>
-      <span>تصميم</span><span class="dot">•</span>
-      <span>مواقع</span><span class="dot">•</span>
-      <span>إعلانات مدفوعة</span><span class="dot">•</span>
-      <span>هوية بصرية</span><span class="dot">•</span>
-      <span>سوشيال ميديا</span><span class="dot">•</span>
-      <span>إدارة حملات</span><span class="dot">•</span>
-      <span>تصميم</span><span class="dot">•</span>
-      <span>مواقع</span><span class="dot">•</span>
+      <span>إدارة السوشيال ميديا</span><span class="dot">•</span>
+      <span>الإعلانات المدفوعة</span><span class="dot">•</span>
+      <span>العلامة التجارية والهوية</span><span class="dot">•</span>
+      <span>إنتاج المحتوى</span><span class="dot">•</span>
+      <span>استراتيجية التسويق</span><span class="dot">•</span>
+      <span>إدارة السوشيال ميديا</span><span class="dot">•</span>
+      <span>الإعلانات المدفوعة</span><span class="dot">•</span>
+      <span>العلامة التجارية والهوية</span><span class="dot">•</span>
+      <span>إنتاج المحتوى</span><span class="dot">•</span>
+      <span>استراتيجية التسويق</span><span class="dot">•</span>
     </div>
   </div>
   
@@ -293,27 +294,110 @@ window.dataLayer = window.dataLayer || [];
 <section id="about" class="section-about-vr">
   <div class="section-about-vr-inner">
     <h2 class="section-about-vr-title rv">
-      عن <span class="accent">2D Marketing</span>
+      شريكك في النمو
     </h2>
     
     <p class="section-about-vr-lead rv">
-      في 2D Marketing، إحنا مش بس بنعمل <span class="accent">"محتوى شكله حلو"</span>.
+      في 2D Marketing، بنؤمن إن التسويق مش مجرد <span class="accent">"محتوى شكله حلو"</span>.
     </p>
     
     <p class="section-about-vr-body rv">
-      بالنسبة لنا، التسويق أداة عملية بتفتح فرص جديدة، 
-      وبتجيب نمو حقيقي في المبيعات والوضوح. كل حاجة بنعملها 
-      مربوطة برقم، وكل رقم ليه مصدر، وكل مصدر بيتقاس.
+      بالنسبة لنا، التسويق أداة عملية بتفتح فرص جديدة، وبتجيب نمو حقيقي 
+      في المبيعات والوضوح. كل استراتيجية بنبنبها مبنية على بيانات السوق، 
+      وكل قرار بيتاخد مرتبط بهدف واضح.
     </p>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SERVICES — حلول تسويق متكاملة (5 كروت نمط VR)
+═══════════════════════════════════════════════════════ -->
+<section id="services" class="section-services">
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto var(--sp-10)">
+      <div class="section-eyebrow rv">
+        <svg class="svgi" viewBox="0 0 512 512" width="16" height="16" fill="currentColor"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-40 48V56c0-26.5 21.5-48 48-48H328c26.5 0 48 21.5 48 48V96h56c30.9 0 56 25.1 56 56V408c0 30.9-25.1 56-56 56H80c-30.9 0-56-25.1-56-56V152c0-30.9 25.1-56 56-56h64z"/></svg>
+        خدماتنا
+      </div>
+      <h2 class="section-h2 rv">حلول تسويق متكاملة</h2>
+      <p class="section-sub rv" style="margin:0 auto">
+        كل خدمة مصممة تحقق هدف محدد — وبنشتغل فيها باحتراف.
+      </p>
+    </div>
+    
+    <div class="services-grid-5">
+      
+      <article class="service-vr-card rv">
+        <div class="service-vr-icon">
+          <svg viewBox="0 0 512 512" fill="currentColor" width="32" height="32">
+            <path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64L0 400c0 44.2 35.8 80 80 80l400 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 416c-8.8 0-16-7.2-16-16L64 64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7 262.6 153.4c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l73.4-73.4 57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/>
+          </svg>
+        </div>
+        <h3 class="service-vr-title">إدارة السوشيال ميديا</h3>
+        <p class="service-vr-desc">
+          إدارة احترافية لحساباتك على كل المنصات، بمحتوى يبني علاقة حقيقية مع جمهورك.
+        </p>
+      </article>
+      
+      <article class="service-vr-card rv">
+        <div class="service-vr-icon">
+          <svg viewBox="0 0 512 512" fill="currentColor" width="32" height="32">
+            <path d="M448 256a192 192 0 1 0 -384 0 192 192 0 1 0 384 0zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm256 80a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
+          </svg>
+        </div>
+        <h3 class="service-vr-title">الإعلانات المدفوعة</h3>
+        <p class="service-vr-desc">
+          حملات مدفوعة على Meta وGoogle وTikTok — مستهدفة بأعلى دقة وعائد قابل للقياس.
+        </p>
+      </article>
+      
+      <article class="service-vr-card rv">
+        <div class="service-vr-icon">
+          <svg viewBox="0 0 512 512" fill="currentColor" width="32" height="32">
+            <path d="M448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM64 256l0-96 128 0 0 96L64 256zm0 64l128 0 0 96L64 416l0-96zm192 96l0-96 128 0 0 96-128 0zm128-160l-128 0 0-96 128 0 0 96z"/>
+          </svg>
+        </div>
+        <h3 class="service-vr-title">العلامة التجارية والهوية</h3>
+        <p class="service-vr-desc">
+          بناء هوية بصرية متكاملة — من اللوجو للنظام الكامل اللي يميز براندك في السوق.
+        </p>
+      </article>
+      
+      <article class="service-vr-card rv">
+        <div class="service-vr-icon">
+          <svg viewBox="0 0 512 512" fill="currentColor" width="32" height="32">
+            <path d="M149.1 64.8L138.7 96 64 96C28.7 96 0 124.7 0 160L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64l-74.7 0-10.4-31.2C356.4 45.2 338.1 32 317.4 32L194.6 32c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/>
+          </svg>
+        </div>
+        <h3 class="service-vr-title">إنتاج المحتوى</h3>
+        <p class="service-vr-desc">
+          تصوير ومونتاج احترافي — فيديوهات، صور، وإعلانات إبداعية بتشد الجمهور.
+        </p>
+      </article>
+      
+      <article class="service-vr-card rv">
+        <div class="service-vr-icon">
+          <svg viewBox="0 0 512 512" fill="currentColor" width="32" height="32">
+            <path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64L0 400c0 44.2 35.8 80 80 80l400 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 416c-8.8 0-16-7.2-16-16L64 64z"/>
+          </svg>
+        </div>
+        <h3 class="service-vr-title">استراتيجية التسويق</h3>
+        <p class="service-vr-desc">
+          خطة تسويق متكاملة مبنية على بيانات السوق — بـ KPIs واضحة وأهداف قابلة للقياس.
+        </p>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
 
 <!-- ═══════════════════════════════════════════════════════
      VALUE PROPOSITIONS — نمط VR (4 كروت)
 ═══════════════════════════════════════════════════════ -->
 <section id="values" class="section-values-vr">
   <div class="container">
-    <h2 class="section-values-vr-title rv">ليه تختار 2D Marketing؟</h2>
+    <h2 class="section-values-vr-title rv">ليه تتشارك معانا؟</h2>
     
     <div class="values-vr-grid">
       
@@ -328,7 +412,7 @@ window.dataLayer = window.dataLayer || [];
         </div>
         <h3 class="value-vr-title">مدير حساب مخصص</h3>
         <p class="value-vr-desc">
-          حد واحد مسؤول عنك، بترد عليه على طول، وبيفهم شغلك من الجوّه.
+          حد واحد مسؤول عنك، بيتابع كل تفصيلة، وبيفهم شغلك من الجوّه.
         </p>
       </article>
       
@@ -343,14 +427,14 @@ window.dataLayer = window.dataLayer || [];
         </div>
         <h3 class="value-vr-title">تقارير واضحة</h3>
         <p class="value-vr-desc">
-          أرقام حقيقية بدون لف ودوران. تعرف كل جنيه راح فين ورجع كام.
+          أرقام حقيقية بدون لف ودوران. تعرف كل استثمار راح فين ورجع كام.
         </p>
       </article>
       
       <article class="value-vr-card rv">
         <div class="value-vr-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="40" height="40">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
           </svg>
         </div>
         <h3 class="value-vr-title">أفكار بتتنفذ</h3>
@@ -368,7 +452,7 @@ window.dataLayer = window.dataLayer || [];
         </div>
         <h3 class="value-vr-title">تسليم في الوقت</h3>
         <p class="value-vr-desc">
-          كل حاجة بنوعد بيها بتتسلم في وقتها. مفيش أعذار، مفيش تأخير.
+          كل حاجة بنوعد بيها بتتسلم في وقتها. مفيش أعذار.
         </p>
       </article>
       
@@ -381,11 +465,11 @@ window.dataLayer = window.dataLayer || [];
     <div style="text-align:center;max-width:680px;margin:0 auto var(--sp-10)">
       <div class="section-eyebrow rv">
         <svg class="svgi" aria-hidden="true"><use href="#fa-handshake"></use></svg>
-        عملاؤنا
+        شركاء نجاحنا
       </div>
-      <h2 class="section-h2 rv">علامات بتشتغل معانا</h2>
+      <h2 class="section-h2 rv">علامات تثق فينا</h2>
       <p class="section-sub rv" style="margin:0 auto">
-        شغلنا اتوسع في مجالات مختلفة — كل واحدة بنظام مخصوص.
+        +19 براند اشتغلنا معاهم في مجالات مختلفة — كل واحد بناله استراتيجية مخصوصة.
       </p>
     </div>
   </div>
@@ -403,13 +487,11 @@ window.dataLayer = window.dataLayer || [];
   <div class="container">
     <div class="team-intro">
       <h2 class="team-title">
-        في كل حملة ناجحة...<br/>
-        <span class="team-title-accent">فريق بيشتغل كأنه بتاعك.</span>
+        فريق متكامل لكل التفاصيل
       </h2>
       <div class="team-divider"></div>
       <p class="team-lead">
-        في 2D Marketing، إحنا مش بس "بنقدّم خدمة" — إحنا بنشتغل معاك كفريق واحد.
-        كل واحد له دور واضح، عشان العملية تكون أسهل والنتايج أدق.
+        كل واحد له دور محدد — فريق بيعرف شغله من الألف للياء.
       </p>
     </div>
     <div class="roles-heading">
@@ -517,22 +599,145 @@ window.dataLayer = window.dataLayer || [];
 <section id="faq" style="padding:var(--section-y) var(--section-x);background:var(--c-s1)">
   <div style="max-width:1140px;margin:0 auto">
     <div style="text-align:center;margin-bottom:var(--sp-8)">
-      <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-circle-question"></use></svg>الأسئلة</div>
+      <div class="section-eyebrow rv"><svg class="svgi"><use href="#fa-circle-question"></use></svg>الأسئلة الشائعة</div>
       <h2 class="section-h2 rv">أسئلة قبل القرار</h2>
     </div>
     <div class="faq-list">
-      <div class="rv"><div class="fq" tabindex="0"><span>النتايج بتظهر إمتى؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>أول 30 يوم: بناء النظام. 45-60 يوم: أول نتايج. 90 يوم: النظام في كامل طاقته. مش بنوعد بمعجزات في أسبوع.</p></div></div>
-      <div class="rv"><div class="fq" tabindex="0"><span>الإعلانات المدفوعة جوه الباقة؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>باقة Scale وفوقها بتشمل إدارة الإعلانات كامل. ميزانية الإعلانات بتدفعها مباشرة للمنصة.</p></div></div>
-      <div class="rv"><div class="fq" tabindex="0"><span>ولو النتايج مش زي ما توقعنا؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>لو موصلناش للـ KPIs بعد 90 يوم — بنعيد الخطة كامل بدون رسوم. الـ KPIs بتتكتب في العقد.</p></div></div>
-      <div class="rv"><div class="fq" tabindex="0"><span>الفرق بينكم وبين الوكالات؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>بنبيع نظام — مش محتوى. بنقيس بـ Leads — مش لايكات. KPIs في العقد — مش وعود.</p></div></div>
-      <div class="rv"><div class="fq" tabindex="0"><span>بتشتغلوا مع كل القطاعات؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>بنتخصص في: العيادات، الجيمات، العقارات، والمتاجر.</p></div></div>
-      <div class="rv"><div class="fq" tabindex="0"><span>مدة العقد؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>3 شهور كحد أدنى. بعدها شهر بشهر.</p></div></div>
-      <div class="rv"><div class="fq" tabindex="0"><span>أبدأ إزاي؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>مكالمة تشخيص مجانية 20 دقيقة. مفيش التزام.</p></div></div>
-      <div class="rv"><div class="fq" tabindex="0"><span>سؤالك مش موجود؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p><a href="https://wa.me/201144826641" target="_blank" rel="noopener" style="color:var(--c-success);font-weight:700">اسألنا على الواتساب ←</a></p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>امتى بلاقي نتائج ملموسة؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>أول 30 يوم: بناء الاستراتيجية والنظام. 45-60 يوم: أول نتائج قابلة للقياس. 90 يوم: النظام في كامل طاقته. إحنا مش بنوعد بمعجزات في أسبوع.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>الإعلانات المدفوعة جوه الباقة؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>باقة Scale وفوقها بتشمل إدارة الإعلانات كامل. ميزانية الإعلانات بتدفعها مباشرة للمنصة، وده بيضمن الشفافية الكاملة.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>إيه اللي بيحصل لو النتايج مش زي المتوقع؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>بنراجع الأرقام مع بعض كل شهر. لو موصلناش للـ KPIs المتفق عليها بعد 90 يوم، بنعيد الخطة كامل بدون رسوم. الـ KPIs بتتكتب في العقد.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>إيه الفرق بين 2D Marketing والوكالات التانية؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>إحنا بنشتغل بنظام — مش بنبيع خدمات منفصلة. بنقيس بالنتايج — مش باللايكات. وبنكتب الـ KPIs في العقد — مش وعود شفهية.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>بتشتغلوا مع أي قطاعات؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>بنتخصص في: العقارات، العيادات والمراكز الطبية، الجيمات، والمتاجر الإلكترونية. التخصص معناه إحنا عارفين السوق كويس، ومش بنجرب عليك.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>إيه مدة التعاقد؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>3 شهور كحد أدنى، لأن النظام محتاج وقت. بعدها بنكمل شهر بشهر — مش بنقفل عملاء في عقود سنوية.</p></div></div>
+      <div class="rv"><div class="fq" tabindex="0"><span>إزاي نبدأ التعاون؟</span><svg class="svgi fq-icon"><use href="#fa-chevron-down"></use></svg></div><div><p>مكالمة تشخيص مجانية 20 دقيقة. نفهم شغلك، نحدد الفرص، ونقترح الباقة المناسبة. مفيش أي التزام من ناحيتك لحد توقيع العقد.</p></div></div>
     </div>
   </div>
 </section>
 
+
+
+
+
+<!-- ═══════════════════════════════════════════════════════
+     REGISTRATION — سجّل معانا (مطابق VR Agency Contact)
+═══════════════════════════════════════════════════════ -->
+<section id="register" class="section-register">
+  <div class="register-inner">
+    
+    <!-- كارت كبير -->
+    <div class="register-card">
+      
+      <!-- العمود اليمين في العربي (النص + معلومات التواصل) -->
+      <div class="register-left">
+        
+        <div class="register-eyebrow">
+          <span class="register-eyebrow-dot"></span>
+          تواصل معانا النهارده
+        </div>
+        
+        <h2 class="register-title">
+          خلينا ناخد<br/>
+          <span class="register-title-accent">أول خطوة</span><br/>
+          سوا.
+        </h2>
+        
+        <p class="register-lead">
+          ابعتلنا هدفك وميزانيتك الأولية، وهنرجعلك بخطة واضحة وجاهزة للتنفيذ.
+        </p>
+        
+        <h3 class="register-reach-title">تقدر توصلنا من</h3>
+        
+        <ul class="register-info">
+          <li>
+            <span class="register-info-icon">
+              <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor">
+                <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+              </svg>
+            </span>
+            <span>القاهرة — مصر</span>
+          </li>
+          
+          <li>
+            <span class="register-info-icon">
+              <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                <path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/>
+              </svg>
+            </span>
+            <a href="tel:+201144826641" dir="ltr">+20 11 4482 6641</a>
+          </li>
+          
+          <li>
+            <span class="register-info-icon">
+              <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                <path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/>
+              </svg>
+            </span>
+            <a href="mailto:hello@2dmarketing.agency" dir="ltr">hello@2dmarketing.agency</a>
+          </li>
+          
+          <li>
+            <span class="register-info-icon">
+              <svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
+                <path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/>
+              </svg>
+            </span>
+            <a href="https://wa.me/201144826641" target="_blank" rel="noopener" dir="ltr">+20 11 4482 6641</a>
+          </li>
+        </ul>
+        
+      </div>
+      
+      <!-- العمود الشمال في العربي (الفورم) -->
+      <div class="register-right">
+        
+        <form id="registerForm" class="register-form" novalidate>
+          
+          <div class="register-row">
+            <div class="register-field">
+              <label for="reg-name">الاسم *</label>
+              <input type="text" id="reg-name" name="name" required placeholder="اسمك الكامل" autocomplete="name"/>
+            </div>
+            
+            <div class="register-field">
+              <label for="reg-phone">رقم الموبايل *</label>
+              <input type="tel" id="reg-phone" name="phone" required placeholder="01xxxxxxxxx" dir="ltr" autocomplete="tel"/>
+            </div>
+          </div>
+          
+          <div class="register-row">
+            <div class="register-field">
+              <label for="reg-business">نوع النشاط</label>
+              <input type="text" id="reg-business" name="business" placeholder="عيادة / جيم / عقارات / متجر"/>
+            </div>
+            
+            <div class="register-field">
+              <label for="reg-budget">الميزانية الشهرية</label>
+              <input type="text" id="reg-budget" name="budget" placeholder="مثال: 15,000 EGP"/>
+            </div>
+          </div>
+          
+          <div class="register-field register-field-full">
+            <label for="reg-message">رسالتك</label>
+            <textarea id="reg-message" name="message" rows="4" placeholder="عايز تقولنا إيه؟ اكتب هنا..."></textarea>
+          </div>
+          
+          <button type="submit" class="register-submit" id="registerSubmit">
+            <span>ابعت الرسالة</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+          
+          <div class="register-status" id="registerStatus" role="status" aria-live="polite"></div>
+          
+        </form>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
 
 
 <section id="s-exit" class="scene">
@@ -565,7 +770,7 @@ window.dataLayer = window.dataLayer || [];
              onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('afterbegin','<div style=\'color:#c00000;font-size:36px;font-weight:900;font-family:Arial;margin-bottom:16px;\'>2D</div>');" />
         
         <p class="site-footer-tagline">
-          نحرّك براندك للأمام بسرعة وذكاء استراتيجي.
+          شريكك في تحقيق النمو — بسرعة وذكاء استراتيجي.
         </p>
         
         <div class="site-footer-social">
@@ -596,14 +801,12 @@ window.dataLayer = window.dataLayer || [];
       <div class="site-footer-col">
         <h4 class="site-footer-heading">روابط سريعة</h4>
         <ul class="site-footer-links">
-          <li><a href="#hero">الرئيسية</a></li>
-          <li><a href="#about">عن الوكالة</a></li>
-          <li><a href="#values">المزايا</a></li>
-          <li><a href="#team">الفريق</a></li>
-          <li><a href="#packages">الباقات</a></li>
-          <li><a href="#faq">الأسئلة</a></li>
-          <li><a href="contact.html">تواصل معانا</a></li>
-        </ul>
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#about">عن الوكالة</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#team">الفريق</a></li>
+            <li><a href="#register">تواصل معانا</a></li>
+          </ul>
       </div>
       
       <!-- العمود 3: تواصل -->
@@ -938,9 +1141,9 @@ on(window,'error',function(){$('.rv').forEach(function(e){e.classList.add('v');}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/team.js" defer></script>
-<script src="js/main.js?v=6" defer></script>
-<script src="js/search.js?v=6" defer></script>
-<script src="js/ads.js?v=6" defer></script>
+<script src="js/main.js?v=7" defer></script>
+<script src="js/search.js?v=7" defer></script>
+<script src="js/ads.js?v=7" defer></script>
 
 </body>
 </html>

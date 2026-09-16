@@ -327,6 +327,112 @@ function initContactForm(){
   });
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   REGISTER FORM — قسم سجّل معانا (مطابق VR Agency)
+══════════════════════════════════════════════════════════════ */
+function initRegisterForm() {
+  var form = document.getElementById('registerForm');
+  if (!form) return;
+  
+  var nameI  = document.getElementById('reg-name');
+  var phoneI = document.getElementById('reg-phone');
+  var bizI   = document.getElementById('reg-business');
+  var budgI  = document.getElementById('reg-budget');
+  var msgI   = document.getElementById('reg-message');
+  var submit = document.getElementById('registerSubmit');
+  var status = document.getElementById('registerStatus');
+  
+  function setStatus(msg, type) {
+    if (!status) return;
+    status.textContent = msg;
+    status.className = 'register-status ' + (type || '');
+  }
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    setStatus('', '');
+    
+    var name  = nameI && nameI.value.trim();
+    var phone = phoneI && phoneI.value.trim();
+    var biz   = bizI && bizI.value.trim();
+    var budg  = budgI && budgI.value.trim();
+    var msg   = msgI && msgI.value.trim();
+    
+    // التحقق من الاسم
+    if (!name || name.length < 2) {
+      if (nameI) {
+        nameI.classList.add('error');
+        nameI.focus();
+        setTimeout(function() { nameI.classList.remove('error'); }, 1200);
+      }
+      setStatus('الاسم مطلوب', 'error');
+      return;
+    }
+    
+    // التحقق من الموبايل
+    if (!validatePhone(phone)) {
+      if (phoneI) {
+        phoneI.classList.add('error');
+        phoneI.focus();
+        setTimeout(function() { phoneI.classList.remove('error'); }, 1200);
+      }
+      setStatus('رقم الموبايل غير صحيح', 'error');
+      return;
+    }
+    
+    // حفظ في localStorage
+    var lead = {
+      name: name,
+      phone: normalizePhone(phone),
+      business: biz || '—',
+      budget: budg || '—',
+      message: msg || '—',
+      source: 'register-form',
+      page: window.location.pathname,
+      ts: new Date().toISOString()
+    };
+    
+    if (submit) { submit.disabled = true; submit.style.opacity = '0.6'; }
+    setStatus('جاري الإرسال...', 'loading');
+    
+    saveLocal(lead);
+    saveSupabase(lead).then(function() {
+      track('register_form', 'submitted');
+      setStatus('✅ تم استلام رسالتك — هنرد عليك خلال 4 ساعات', 'success');
+      if (phoneI) phoneI.classList.add('valid');
+      
+      // زرار الواتساب
+      var lines = [
+        'مرحباً فريق 2D Marketing', '',
+        'الاسم: ' + name,
+        'الموبايل: ' + lead.phone,
+        'النشاط: ' + lead.business,
+        'الميزانية: ' + lead.budget,
+        'الرسالة: ' + lead.message, '',
+        'Source: register-form'
+      ];
+      var waUrl = 'https://wa.me/' + (window.__2D_CFG ? window.__2D_CFG.ownerPhone : '201144826641') 
+                  + '?text=' + encodeURIComponent(lines.join('\n'));
+      
+      setTimeout(function() {
+        var wa = document.createElement('a');
+        wa.href = waUrl;
+        wa.target = '_blank';
+        wa.rel = 'noopener';
+        wa.className = 'register-submit';
+        wa.style.marginTop = '16px';
+        wa.innerHTML = '<span>تحدث معنا على واتساب</span>';
+        if (status && status.parentNode) {
+          status.parentNode.appendChild(wa);
+        }
+      }, 500);
+    }).catch(function() {
+      setStatus('✅ تم حفظ رسالتك محلياً — سنتواصل معك قريباً', 'success');
+    });
+  });
+}
+
 function init(){
   initLoader();
   initProgressBar();
@@ -344,6 +450,7 @@ function init(){
   initScrollReveal();
   initCounters();
   initContactForm();
+  initRegisterForm();
 }
 
 if(document.readyState==='loading'){
