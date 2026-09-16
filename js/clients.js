@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    2D MARKETING — CLIENTS LOGOS MODULE (20 UNIQUE CLIENTS)
    Two Marquee Rows (Opposite Directions) — NO GRID
    ============================================================ */
@@ -43,11 +43,15 @@ function renderClients() {
   var rowBottom = CLIENT_LOGOS.slice(half);
   
   function renderRow(items) {
-    // تكرار القائمة 3 مرات للـ infinite scroll السلس
-    var tripled = items.concat(items, items);
-    return tripled.map(function(logo) {
+    // تكرار مرتين مع -50% translate3d للـ infinite loop الرياضي الدقيق
+    var doubled = items.concat(items);
+    return doubled.map(function(logo) {
+      var webp = logo.file.replace(/\.(png|jpg)$/i, '.webp');
       return '<div class="client-logo" title="' + logo.name + '">' +
-             '<img src="' + bp + 'assets/logos/clients/' + logo.file + '" alt="' + logo.name + '" loading="lazy" />' +
+             '<picture>' +
+             '<source srcset="' + bp + 'assets/logos/clients/' + webp + '" type="image/webp">' +
+             '<img src="' + bp + 'assets/logos/clients/' + logo.file + '" alt="' + logo.name + '" loading="lazy" width="160" height="80" />' +
+             '</picture>' +
              '</div>';
     }).join('');
   }

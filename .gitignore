@@ -4,3 +4,6 @@
 !.dev.vars.example
 .env*
 !.env.example
+scratch/
+node_modules/
+

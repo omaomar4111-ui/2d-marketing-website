@@ -1,34 +1,65 @@
-﻿/* ══════════════════════════════════════════════════════════════
-   2D MARKETING — Team Section + Per-Role Animations
-══════════════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════
+   2D MARKETING — Team Section (6 Roles · 6 Cinematic Animations)
+   No personal names — Professional Role Titles & Systems Only
+   ══════════════════════════════════════════════════════════════ */
 (function() {
   'use strict';
   
   var ROLES = [
-    { id: 1, roleEn: 'Account Manager', roleAr: 'مدير حسابك',
-      descAr: 'مسؤول التواصل معاك — بيتابع كل تفصيلة ويوصّل صوتك للفريق.',
-      image: 'role-01-account-manager.jpg', animation: 'slide-right' },
-    { id: 2, roleEn: 'Content Creator', roleAr: 'كتابة المحتوى',
-      descAr: 'بيكتب الكلام اللي يعبّر عن صوت براندك — بالعامية اللي الناس تفهمها.',
-      image: 'role-02-content-creator.jpg', animation: 'slide-left' },
-    { id: 3, roleEn: 'Content Strategist', roleAr: 'استراتيجية المحتوى',
-      descAr: 'بيخطط المحتوى الاستراتيجي — بيشوف الصورة الكبيرة قبل التنفيذ.',
-      image: 'role-03-content-strategist.jpg', animation: 'slide-up' },
-    { id: 4, roleEn: 'Media Buyer', roleAr: 'شراء الإعلانات',
-      descAr: 'بيُدير الحملات المدفوعة على Meta وGoogle — بأعلى ROI ممكن.',
-      image: 'role-04-media-buyer.jpg', animation: 'slide-right' },
-    { id: 5, roleEn: 'Photographer', roleAr: 'التصوير الفوتوغرافي',
-      descAr: 'بيصوّر اللحظات اللي تحكي قصة براندك — بأسلوب سينمائي.',
-      image: 'role-05-photographer.jpg', animation: 'slide-left' },
-    { id: 6, roleEn: 'Video Editor', roleAr: 'مونتاج الفيديو',
-      descAr: 'بيحوّل الأفكار لفيديوهات تشد الانتباه — إيقاع وإبداع وتفاصيل.',
-      image: 'role-06-video-editor.jpg', animation: 'slide-up' },
-    { id: 7, roleEn: 'Videographer', roleAr: 'التصوير السينمائي',
-      descAr: 'بيحوّل الأفكار لمشاهد بتحرك القلوب — صوت وصورة.',
-      image: 'role-07-videographer.jpg', animation: 'slide-right' },
-    { id: 8, roleEn: 'Graphic Designer', roleAr: 'تصميم الجرافيك',
-      descAr: 'بيحوّل الأفكار لهوية بصرية متسقة — كل حاجة بتطلع بنفس الشكل.',
-      image: 'role-08-graphic-designer.jpg', animation: 'slide-left' }
+    {
+      id: 1,
+      roleEn: 'ACCOUNT MANAGER',
+      roleAr: 'إدارة الحسابات والعملاء',
+      descAr: 'حلقة الوصل اللي بتضمن أهدافك تتحول لخطة عمل حقيقية وتتنفذ بأعلى دقة وسرعة استجابة.',
+      image: 'role-01-account-manager.png',
+      animation: 'anim-aperture',
+      badge: 'Client Lead'
+    },
+    {
+      id: 2,
+      roleEn: 'CONTENT CREATOR',
+      roleAr: 'صناعة المحتوى الإبداعي',
+      descAr: 'بيصنع أفكار وسيناريوهات بتشد انتباه جمهورك من أول ثانية وتوصل رسالة علامتك التجارية.',
+      image: 'role-02-content-creator.png',
+      animation: 'anim-filmstrip',
+      badge: 'Creative Hooks'
+    },
+    {
+      id: 3,
+      roleEn: 'CONTENT STRATEGIST',
+      roleAr: 'استراتيجية وتخطيط المحتوى',
+      descAr: 'بيبني مسار المحتوى المبني على الأرقام وتحليل السوق والمنافسين لتحقيق أعلى تفاعل ومبيعات.',
+      image: 'role-03-content-strategist.png',
+      animation: 'anim-tilt3d',
+      badge: 'Growth Engine'
+    },
+    {
+      id: 4,
+      roleEn: 'MEDIA BUYER',
+      roleAr: 'إدارة الحملات الإعلانية',
+      descAr: 'بيستهدف العميل الصح بأقل تكلفة للـ Lead وأعلى عائد على الإنفاق الإعلاني (ROAS موثق).',
+      image: 'role-04-media-buyer.png',
+      animation: 'anim-focuspull',
+      badge: 'Ad Performance'
+    },
+    {
+      id: 5,
+      roleEn: 'PHOTOGRAPHER',
+      roleAr: 'التصوير الفوتوغرافي',
+      descAr: 'بيلقط المشهد اللي يوقف السكرول ويبرز جودة علامتك التجارية بطريقة سينمائية لا تُنسى.',
+      image: 'role-05-photographer.png',
+      animation: 'anim-shutter',
+      badge: 'Visual Mastery'
+    },
+    {
+      id: 6,
+      roleEn: 'VIDEO EDITOR',
+      roleAr: 'المونتاج وصناعة الفيديو',
+      descAr: 'بيحوّل اللقطات العادية لتحفة بصرية سريعة الإيقاع وتخطف الأنظار وتخدم هدف البيع المباشر.',
+      image: 'role-06-video-editor.png',
+      animation: 'anim-liftglow',
+      badge: 'Cinema Edit'
+    }
   ];
   
   function basePath() {
@@ -42,128 +73,79 @@
     var bp = basePath();
     
     grid.innerHTML = ROLES.map(function(r) {
-      return '<article class="role-card role-card-' + r.id + ' ' + r.animation + '" data-role-id="' + r.id + '">' +
-             '<div class="role-image-wrap">' +
-             '<div class="role-image">' +
-             '<img src="' + bp + 'assets/team/' + r.image + '" alt="' + r.roleEn + '" loading="lazy" ' +
-             'onerror="this.parentElement.innerHTML=\'<div class=&quot;role-placeholder&quot;>🎬</div>\';" />' +
-             '<div class="role-shutter"></div>' +
-             '<div class="role-glow"></div>' +
-             '</div></div>' +
-             '<h3 class="role-name-en">' + r.roleEn + '</h3>' +
-             '<p class="role-name-ar">' + r.roleAr + '</p>' +
-             '<p class="role-desc">' + r.descAr + '</p>' +
-             '<div class="role-line"></div>' +
+      return '<article class="role-card ' + r.animation + '" data-role-id="' + r.id + '">' +
+             '  <div class="role-badge">' + r.badge + '</div>' +
+             '  <div class="role-image-wrap">' +
+             '    <div class="role-image">' +
+             '      <picture>' +
+             '        <source srcset="' + bp + 'assets/team/' + r.image.replace('.png', '.webp') + '" type="image/webp">' +
+             '        <img src="' + bp + 'assets/team/' + r.image + '" alt="' + r.roleEn + '" loading="lazy" width="300" height="300" />' +
+             '      </picture>' +
+             '      <div class="role-overlay-fx"></div>' +
+             '    </div>' +
+             '  </div>' +
+             '  <div class="role-info">' +
+             '    <h3 class="role-name-en">' + r.roleEn + '</h3>' +
+             '    <p class="role-name-ar">' + r.roleAr + '</p>' +
+             '    <p class="role-desc">' + r.descAr + '</p>' +
+             '  </div>' +
+             '  <div class="role-border-glow"></div>' +
              '</article>';
     }).join('');
     
-    // Fallback لو GSAP مش موجود
-    if (typeof gsap === 'undefined') {
-      initFallbackReveal(grid);
-      setTimeout(function() {
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-          initGSAPTeam();
-        }
-      }, 1500);
-    } else {
-      initGSAPTeam();
-    }
-  }
-  
-  function initFallbackReveal(grid) {
-    if (!('IntersectionObserver' in window)) {
-      grid.querySelectorAll('.role-card').forEach(function(el) { el.classList.add('animated-in'); });
-      return;
-    }
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          var delay = (parseInt(e.target.getAttribute('data-role-id')) || 0) * 80;
-          setTimeout(function() { e.target.classList.add('animated-in'); }, delay);
-          obs.unobserve(e.target);
+    // Add interactive 3D tilt tracking for cards with anim-tilt3d
+    var tiltCards = grid.querySelectorAll('.anim-tilt3d');
+    tiltCards.forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = 'perspective(800px) rotateY(' + (x * 16).toFixed(2) + 'deg) rotateX(' + (-y * 16).toFixed(2) + 'deg) translateY(-6px)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = '';
+      });
+    });
+
+    // Shutter blink click / hover actuation
+    var shutterCards = grid.querySelectorAll('.anim-shutter');
+    shutterCards.forEach(function(card) {
+      card.addEventListener('mouseenter', function() {
+        card.classList.remove('shutter-actuated');
+        void card.offsetWidth; // trigger reflow
+        card.classList.add('shutter-actuated');
+      });
+    });
+    
+    // GSAP or IntersectionObserver reveal
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.batch('.role-card', {
+        start: 'top 88%',
+        onEnter: function(batch) {
+          gsap.fromTo(batch, 
+            { opacity: 0, y: 30, scale: 0.96 },
+            { opacity: 1, y: 0, scale: 1, stagger: 0.12, duration: 0.6, ease: 'power2.out' }
+          );
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -100px 0px' });
-    grid.querySelectorAll('.role-card').forEach(function(el) { obs.observe(el); });
-  }
-  
-  function initGSAPTeam() {
-    if (typeof ScrollTrigger === 'undefined') {
-      initFallbackReveal(document.getElementById('teamGrid'));
-      return;
-    }
-    
-    // 1. ظهور متتالي حسب النوع
-    ScrollTrigger.batch('.role-card', {
-      start: 'top 88%',
-      onEnter: function(batch) {
-        batch.forEach(function(card, i) {
-          var isRight = card.classList.contains('slide-right');
-          var isLeft = card.classList.contains('slide-left');
-          gsap.fromTo(card,
-            { opacity: 0, x: isRight ? 60 : (isLeft ? -60 : 0), y: isRight || isLeft ? 0 : 60 },
-            { opacity: 1, x: 0, y: 0, duration: 0.9, delay: i * 0.12, ease: 'power3.out' }
-          );
+    } else if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('animated-in');
+            obs.unobserve(e.target);
+          }
         });
-      },
-      once: true
-    });
-    
-    // 2. أنيميشن مخصص لكل دور
-    ROLES.forEach(function(r) {
-      var card = document.querySelector('.role-card-' + r.id);
-      if (!card) return;
-      var img = card.querySelector('.role-image img');
-      if (!img) return;
-      
-      var trig = { trigger: card, start: 'top 80%', toggleActions: 'play none none reverse' };
-      
-      switch (r.id) {
-        case 1: // Account Manager — فقاعة كلام
-          gsap.fromTo(card.querySelector('.role-glow'),
-            { scale: 0.5, opacity: 0 },
-            { scale: 1.4, opacity: 0, duration: 2.5, repeat: -1, ease: 'power2.out', scrollTrigger: trig });
-          break;
-        case 2: // Content Creator — كتابة
-          gsap.fromTo(img, { scale: 1 }, { scale: 1.08, duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut', scrollTrigger: trig });
-          break;
-        case 3: // Content Strategist — رسم بياني
-          gsap.fromTo(card.querySelector('.role-glow'),
-            { opacity: 0, scale: 0.8 },
-            { opacity: 0.6, scale: 1.2, duration: 1.5, repeat: -1, yoyo: true, ease: 'sine.inOut', scrollTrigger: trig });
-          break;
-        case 4: // Media Buyer — أشرطة
-          gsap.fromTo(img, { y: 8 }, { y: -8, duration: 2.8, repeat: -1, yoyo: true, ease: 'sine.inOut', scrollTrigger: trig });
-          break;
-        case 5: // Photographer — فلاش
-          gsap.to(card.querySelector('.role-shutter'),
-            { opacity: 1, duration: 0.08, repeat: -1, repeatDelay: 3.5, scrollTrigger: trig });
-          break;
-        case 6: // Video Editor — انزلاق
-          gsap.fromTo(img, { x: -6 }, { x: 6, duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut', scrollTrigger: trig });
-          break;
-        case 7: // Videographer — دوران
-          gsap.to(img, { rotation: 8, duration: 4, repeat: -1, yoyo: true, ease: 'sine.inOut', scrollTrigger: trig });
-          break;
-        case 8: // Graphic Designer — دوران خفيف
-          gsap.to(img, { rotation: -8, duration: 4, repeat: -1, yoyo: true, ease: 'sine.inOut', scrollTrigger: trig });
-          break;
-      }
-    });
-    
-    // 3. العنوان
-    gsap.fromTo('.team-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-      scrollTrigger: { trigger: '.team-intro', start: 'top 85%', once: true } });
-    
-    // 4. Divider
-    gsap.fromTo('.team-divider', { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: 'power2.out',
-      scrollTrigger: { trigger: '.team-intro', start: 'top 75%', once: true } });
-    
-    // 5. Roles heading
-    gsap.fromTo('.roles-heading h3', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: { trigger: '.roles-heading', start: 'top 85%', once: true } });
+      }, { threshold: 0.15 });
+      grid.querySelectorAll('.role-card').forEach(function(el) { obs.observe(el); });
+    } else {
+      grid.querySelectorAll('.role-card').forEach(function(el) { el.classList.add('animated-in'); });
+    }
   }
   
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderTeam);
-  else renderTeam();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderTeam);
+  } else {
+    renderTeam();
+  }
 })();
