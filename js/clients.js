@@ -7,7 +7,6 @@ var CLIENT_LOGOS = [
   { name: 'Home IX', nameEn: 'HOME IX', sector: 'عقارات', file: 'client-02-home-ix.png' },
   { name: 'Kangaroo', nameEn: 'KANGAROO', sector: 'متاجر', file: 'client-03-kangaroo.png' },
   { name: 'دار', nameEn: 'DAR', sector: 'مطاعم', file: 'client-04-dar.png' },
-  { name: 'NH Clinics', nameEn: 'NH CLINICS', sector: 'عيادات', file: 'client-05-nh-clinics.png' },
   { name: 'Unit X', nameEn: 'UNIT X', sector: 'عقارات', file: 'client-06-unit-x.png' },
   { name: 'Mountain View', nameEn: 'MOUNTAIN VIEW', sector: 'عقارات', file: 'client-07-mountain-view.png' },
   { name: 'Merath', nameEn: 'MERATH', sector: 'عقارات', file: 'client-08-merath.png' },
