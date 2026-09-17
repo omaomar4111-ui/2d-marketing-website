@@ -808,7 +808,9 @@ export async function onRequestGet(context) {
     ]);
 
     // UTF-8 BOM so Excel opens Arabic correctly
-    const csvContent = '\uFEFF' + headers.join(',') + '\n' + rows.map(e => e.join(',')).join('\n');
+    const nl = String.fromCharCode(10);
+    const bom = String.fromCharCode(0xFEFF);
+    const csvContent = bom + headers.join(',') + nl + rows.map(e => e.join(',')).join(nl);
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
