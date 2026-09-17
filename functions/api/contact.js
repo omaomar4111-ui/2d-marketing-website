@@ -58,7 +58,11 @@ export async function onRequestPost(context) {
     // Send email notification via Resend (Isolated try/catch)
     // -------------------------------------------------------------
     try {
-      const RESEND_KEY = env.RESEND_API_KEY || (typeof atob !== 'undefined' ? atob('cmVfNFpmVjliZG9fNnR2dGN3TTNLZVN4bTRMTmVOSldkZU5w') : '');
+      const RESEND_KEY = env.RESEND_API_KEY;
+      if (!RESEND_KEY) {
+        console.warn('RESEND_API_KEY not configured, skipping email notification');
+        throw new Error('Email notification skipped');
+      }
 
       function escapeHtml(str) {
         if (!str) return '';
