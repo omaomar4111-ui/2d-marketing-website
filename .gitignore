@@ -6,4 +6,5 @@
 !.env.example
 scratch/
 node_modules/
+deploy_*.cjs
 
