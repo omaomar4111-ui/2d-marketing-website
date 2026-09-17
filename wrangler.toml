@@ -2,8 +2,7 @@ name = "2d-marketing"
 compatibility_date = "2024-11-01"
 pages_build_output_dir = "."
 
-# بعد إنشاء قاعدة البيانات في Cloudflare، شيل علامة # من السطور التالية وضع الـ ID:
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "2d-marketing-db"
-# database_id = "ضع الـ ID هنا بعد إنشاء القاعدة"
+[[d1_databases]]
+binding = "DB"
+database_name = "2d-marketing-db"
+database_id = "7f2ae756-a713-4936-94fb-b8b2b05f6878"
