@@ -724,8 +724,8 @@ export async function onRequestGet(context) {
         '  <td style="text-align:center">',
         '    <div class="actions-cell">',
         '      <a href="' + waLink + '" target="_blank" rel="noopener" class="act-btn act-wa" title="محادثة واتساب">💬</a>',
-        '      <button class="act-btn act-copy" onclick="copyPhone(\'' + escapeHtml(m.phone) + '\')" title="نسخ الرقم">📋</button>',
-        '      <button class="act-btn act-del" onclick="confirmDelete(' + m.id + ', \'' + escapeHtml(m.name) + '\')" title="حذف الرسالة">🗑️</button>',
+        '      <button type="button" class="act-btn act-copy" data-phone="' + escapeHtml(m.phone) + '" title="نسخ الرقم">📋</button>',
+        '      <button type="button" class="act-btn act-del" data-id="' + m.id + '" data-name="' + escapeHtml(m.name || '') + '" title="حذف الرسالة">🗑️</button>',
         '    </div>',
         '  </td>',
         '</tr>'
@@ -824,6 +824,19 @@ export async function onRequestGet(context) {
     fetchStats();
     fetchMessages(document.getElementById('searchInput').value.trim());
   }
+
+  document.getElementById('tableBody').addEventListener('click', (e) => {
+    const copyBtn = e.target.closest('.act-copy');
+    if (copyBtn) {
+      copyPhone(copyBtn.getAttribute('data-phone') || '');
+      return;
+    }
+    const delBtn = e.target.closest('.act-del');
+    if (delBtn) {
+      confirmDelete(delBtn.getAttribute('data-id'), delBtn.getAttribute('data-name') || '');
+      return;
+    }
+  });
 
   // Initial load
   loadAll();
