@@ -712,24 +712,24 @@ export async function onRequestGet(context) {
       const badge = getRelativeBadge(m.created_at);
       const formattedDate = formatDate(m.created_at);
 
-      return `
-        <tr>
-          <td class="cell-id">#${m.id}</td>
-          <td class="cell-date">${badge} ${formattedDate}</td>
-          <td class="cell-name">${escapeHtml(m.name || 'بدون اسم')}</td>
-          <td class="cell-phone"><a href="tel:${escapeHtml(m.phone)}" style="color:inherit;text-decoration:none">${escapeHtml(m.phone)}</a></td>
-          <td><span class="cell-badge">${escapeHtml(m.business || 'غير محدد')}</span></td>
-          <td style="color:#fbbf24;font-weight:700">${escapeHtml(m.budget || '—')}</td>
-          <td class="cell-message" title="${escapeHtml(m.message || '')}">${escapeHtml(m.message || '—')}</td>
-          <td style="text-align:center">
-            <div class="actions-cell">
-              <a href="${waLink}" target="_blank" rel="noopener" class="act-btn act-wa" title="محادثة واتساب">💬</a>
-              <button class="act-btn act-copy" onclick="copyPhone('${escapeHtml(m.phone)}')" title="نسخ الرقم">📋</button>
-              <button class="act-btn act-del" onclick="confirmDelete(${m.id}, '${escapeHtml(m.name)}')" title="حذف الرسالة">🗑️</button>
-            </div>
-          </td>
-        </tr>
-      `;
+      return [
+        '<tr>',
+        '  <td class="cell-id">#' + m.id + '</td>',
+        '  <td class="cell-date">' + badge + ' ' + formattedDate + '</td>',
+        '  <td class="cell-name">' + escapeHtml(m.name || 'بدون اسم') + '</td>',
+        '  <td class="cell-phone"><a href="tel:' + escapeHtml(m.phone) + '" style="color:inherit;text-decoration:none">' + escapeHtml(m.phone) + '</a></td>',
+        '  <td><span class="cell-badge">' + escapeHtml(m.business || 'غير محدد') + '</span></td>',
+        '  <td style="color:#fbbf24;font-weight:700">' + escapeHtml(m.budget || '—') + '</td>',
+        '  <td class="cell-message" title="' + escapeHtml(m.message || '') + '">' + escapeHtml(m.message || '—') + '</td>',
+        '  <td style="text-align:center">',
+        '    <div class="actions-cell">',
+        '      <a href="' + waLink + '" target="_blank" rel="noopener" class="act-btn act-wa" title="محادثة واتساب">💬</a>',
+        '      <button class="act-btn act-copy" onclick="copyPhone(\'' + escapeHtml(m.phone) + '\')" title="نسخ الرقم">📋</button>',
+        '      <button class="act-btn act-del" onclick="confirmDelete(' + m.id + ', \'' + escapeHtml(m.name) + '\')" title="حذف الرسالة">🗑️</button>',
+        '    </div>',
+        '  </td>',
+        '</tr>'
+      ].join('');
     }).join('');
   }
 
