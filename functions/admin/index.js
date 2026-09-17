@@ -66,7 +66,7 @@ export async function onRequestGet(context) {
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
     }
 
@@ -133,6 +133,7 @@ export async function onRequestGet(context) {
     .topbar-actions {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 10px;
     }
 
@@ -141,15 +142,16 @@ export async function onRequestGet(context) {
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 10px 18px;
+      padding: 10px 16px;
       border-radius: 8px;
       font-family: var(--font);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
       border: none;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .btn-primary {
@@ -172,24 +174,39 @@ export async function onRequestGet(context) {
       border-color: rgba(255, 255, 255, 0.2);
     }
 
+    .btn-sound {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: #e5e5e5;
+    }
+    .btn-sound.muted {
+      color: #9ca3af;
+      border-color: rgba(239, 68, 68, 0.3);
+      background: rgba(239, 68, 68, 0.08);
+    }
+
     /* Stats Grid */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-bottom: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
     }
 
     .stat-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
-      padding: 20px;
+      padding: 18px 20px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
       position: relative;
       overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
     }
 
     .stat-card::before {
@@ -217,7 +234,7 @@ export async function onRequestGet(context) {
     }
 
     .stat-value {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 900;
       color: #fff;
       line-height: 1.1;
@@ -228,8 +245,62 @@ export async function onRequestGet(context) {
       color: var(--text-sub);
     }
 
-    /* Controls Bar */
-    .controls-bar {
+    /* Status breakdown pills bar */
+    .status-summary-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+    }
+
+    .summary-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+    .summary-pill:hover {
+      transform: translateY(-1px);
+    }
+    .summary-pill.pill-new {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    .summary-pill.pill-contacted {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+    .summary-pill.pill-closed {
+      background: rgba(156, 163, 175, 0.12);
+      color: #d1d5db;
+      border-color: rgba(156, 163, 175, 0.3);
+    }
+    .summary-pill.pill-starred {
+      background: rgba(234, 179, 8, 0.15);
+      color: #fde047;
+      border-color: rgba(234, 179, 8, 0.4);
+    }
+    .summary-pill-count {
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
@@ -238,12 +309,11 @@ export async function onRequestGet(context) {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
     }
 
     .search-box {
-      flex: 1;
+      flex: 2;
       min-width: 260px;
       position: relative;
     }
@@ -256,7 +326,7 @@ export async function onRequestGet(context) {
       padding: 10px 14px 10px 38px;
       color: #fff;
       font-family: var(--font);
-      font-size: 14px;
+      font-size: 13.5px;
       outline: none;
       transition: all 0.2s;
     }
@@ -276,13 +346,75 @@ export async function onRequestGet(context) {
       pointer-events: none;
     }
 
+    .filter-select {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      font-family: var(--font);
+      font-size: 13.5px;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-select:focus {
+      border-color: var(--red);
+    }
+    .filter-select option {
+      background: #111;
+      color: #fff;
+    }
+
+    .star-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e5e5e5;
+      font-family: var(--font);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .star-toggle-btn.active {
+      background: rgba(234, 179, 8, 0.2);
+      color: #fde047;
+      border-color: rgba(234, 179, 8, 0.5);
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.2);
+    }
+
+    .filter-reset-btn {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-reset-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
     .counter-tag {
       font-size: 13px;
       color: var(--text-muted);
       font-weight: 600;
+      margin-right: auto;
+      white-space: nowrap;
     }
 
-    /* Table */
+    /* Table Wrap */
     .table-wrap {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -301,20 +433,20 @@ export async function onRequestGet(context) {
       border-collapse: collapse;
       text-align: right;
       font-size: 13.5px;
-      min-width: 980px;
+      min-width: 1100px;
     }
 
     thead th {
       background: rgba(255, 255, 255, 0.03);
       color: var(--text-muted);
       font-weight: 700;
-      padding: 14px 16px;
+      padding: 14px 14px;
       border-bottom: 1px solid var(--card-border);
       white-space: nowrap;
     }
 
     tbody td {
-      padding: 14px 16px;
+      padding: 14px 14px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
       vertical-align: middle;
       color: #e5e5e5;
@@ -322,6 +454,28 @@ export async function onRequestGet(context) {
 
     tbody tr:hover {
       background: var(--card-hover);
+    }
+
+    .cell-star {
+      width: 36px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 18px;
+      user-select: none;
+      transition: transform 0.15s ease;
+    }
+    .cell-star:hover {
+      transform: scale(1.25);
+    }
+    .cell-star.starred {
+      color: #facc15;
+      text-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+    }
+    .cell-star.unstarred {
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .cell-star.unstarred:hover {
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .cell-id {
@@ -335,21 +489,44 @@ export async function onRequestGet(context) {
       white-space: nowrap;
     }
 
-    .badge {
+    .badge-time {
       display: inline-block;
-      padding: 2px 8px;
-      border-radius: 6px;
+      padding: 2px 7px;
+      border-radius: 5px;
       font-size: 11px;
       font-weight: 700;
-      margin-left: 6px;
+      margin-left: 5px;
     }
-    .badge-today { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
-    .badge-week  { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-    .badge-old   { background: rgba(107, 114, 128, 0.2); color: #9ca3af; border: 1px solid rgba(107, 114, 128, 0.4); }
+    .badge-today { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .badge-week  { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+    .badge-old   { background: rgba(107, 114, 128, 0.18); color: #9ca3af; border: 1px solid rgba(107, 114, 128, 0.35); }
 
+    .cell-name-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
     .cell-name {
       font-weight: 700;
       color: #fff;
+    }
+    .note-indicator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: rgba(234, 179, 8, 0.18);
+      color: #fbbf24;
+      font-size: 12px;
+      cursor: pointer;
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      transition: all 0.2s;
+    }
+    .note-indicator:hover {
+      transform: scale(1.15);
+      background: rgba(234, 179, 8, 0.3);
     }
 
     .cell-phone {
@@ -358,6 +535,84 @@ export async function onRequestGet(context) {
       text-align: right;
       color: #93c5fd;
       font-weight: 600;
+    }
+
+    /* Status Badge Dropdown */
+    .status-badge-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .status-badge:hover {
+      transform: translateY(-1px);
+    }
+
+    .status-badge.status-new {
+      background: rgba(16, 185, 129, 0.16);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .status-badge.status-contacted {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+    .status-badge.status-closed {
+      background: rgba(156, 163, 175, 0.16);
+      color: #d1d5db;
+      border-color: rgba(156, 163, 175, 0.4);
+    }
+
+    .status-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: #111113;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 6px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.85);
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 140px;
+    }
+    .status-dropdown.open {
+      display: flex;
+    }
+
+    .status-opt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      background: transparent;
+      border: none;
+      color: #e5e5e5;
+      cursor: pointer;
+      text-align: right;
+      font-family: var(--font);
+      transition: background 0.15s;
+    }
+    .status-opt:hover {
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .cell-badge {
@@ -370,18 +625,18 @@ export async function onRequestGet(context) {
     }
 
     .cell-message {
-      max-width: 320px;
+      max-width: 260px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       color: var(--text-muted);
     }
-
     .cell-message:hover {
       white-space: normal;
       word-break: break-word;
     }
 
+    /* Actions cell */
     .actions-cell {
       display: flex;
       align-items: center;
@@ -390,27 +645,105 @@ export async function onRequestGet(context) {
     }
 
     .act-btn {
-      width: 32px;
       height: 32px;
+      padding: 0 10px;
       border-radius: 6px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 5px;
       cursor: pointer;
       border: none;
       transition: all 0.2s;
       text-decoration: none;
-      font-size: 13px;
+      font-family: var(--font);
+      font-size: 12.5px;
+      font-weight: 700;
     }
 
-    .act-wa {
+    .act-btn-icon {
+      width: 32px;
+      padding: 0;
+    }
+
+    .act-wa-btn {
       background: rgba(37, 211, 102, 0.15);
       color: #25d366;
+      position: relative;
     }
-    .act-wa:hover {
+    .act-wa-btn:hover {
       background: #25d366;
       color: #000;
-      transform: scale(1.08);
+    }
+
+    /* WhatsApp Templates Dropdown */
+    .wa-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      background: #111114;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.9);
+      z-index: 120;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      width: 320px;
+      text-align: right;
+    }
+    .wa-dropdown.open {
+      display: flex;
+    }
+
+    .wa-dropdown-header {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--text-sub);
+      padding: 2px 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 4px;
+    }
+
+    .wa-template-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: right;
+      font-family: var(--font);
+    }
+    .wa-template-item:hover {
+      background: rgba(37, 211, 102, 0.12);
+      border-color: rgba(37, 211, 102, 0.3);
+    }
+    .wa-template-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #25d366;
+    }
+    .wa-template-preview {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      white-space: normal;
+    }
+
+    .act-note {
+      background: rgba(234, 179, 8, 0.15);
+      color: #fbbf24;
+    }
+    .act-note:hover {
+      background: #fbbf24;
+      color: #000;
     }
 
     .act-copy {
@@ -419,7 +752,6 @@ export async function onRequestGet(context) {
     }
     .act-copy:hover {
       background: rgba(255, 255, 255, 0.18);
-      transform: scale(1.08);
     }
 
     .act-del {
@@ -429,7 +761,79 @@ export async function onRequestGet(context) {
     .act-del:hover {
       background: #ef4444;
       color: #fff;
-      transform: scale(1.08);
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #0d0d10;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 460px;
+      width: 90%;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.95);
+      text-align: right;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .modal-textarea {
+      width: 100%;
+      min-height: 140px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px;
+      color: #fff;
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.5;
+      outline: none;
+      resize: vertical;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+    .modal-textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(192, 0, 0, 0.2);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
     }
 
     /* Toast */
@@ -443,67 +847,21 @@ export async function onRequestGet(context) {
       border: 1px solid var(--card-border);
       padding: 12px 24px;
       border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
       font-size: 14px;
       font-weight: 700;
       transition: all 0.3s ease;
-      z-index: 9999;
+      z-index: 99999;
       opacity: 0;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
     .toast.show {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
 
-    /* Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.2s;
-    }
-    .modal-overlay.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .modal-card {
-      background: #0f0f11;
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 24px;
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
-    }
-    .modal-title {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    .modal-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    /* Empty state */
     .empty-state {
       padding: 60px 20px;
       text-align: center;
@@ -511,10 +869,14 @@ export async function onRequestGet(context) {
       font-size: 15px;
     }
 
-    @media (max-width: 768px) {
-      body { padding: 16px; }
+    @media (max-width: 860px) {
+      body { padding: 14px; }
       .brand-title { font-size: 18px; }
       .stat-value { font-size: 26px; }
+      .filter-bar { flex-direction: column; align-items: stretch; }
+      .search-box { min-width: 100%; }
+      .filter-select, .star-toggle-btn, .filter-reset-btn { width: 100%; }
+      .wa-dropdown { width: 280px; left: auto; right: 0; }
     }
   </style>
 </head>
@@ -534,6 +896,9 @@ export async function onRequestGet(context) {
       </div>
     </div>
     <div class="topbar-actions">
+      <button class="btn btn-sound" id="soundToggleBtn" onclick="toggleSound()" title="كتم/تفعيل صوت التنبيه">
+        <span id="soundIcon">🔔</span> <span id="soundText">التنبيهات مفعّلة</span>
+      </button>
       <button class="btn btn-secondary" onclick="loadAll()" title="تحديث البيانات">
         <span>🔄</span> تحديث
       </button>
@@ -579,12 +944,59 @@ export async function onRequestGet(context) {
     </div>
   </section>
 
-  <!-- Controls Bar -->
-  <div class="controls-bar">
+  <!-- Status Summary Pills -->
+  <div class="status-summary-bar">
+    <span style="font-size:13px;font-weight:800;color:var(--text-sub);margin-left:6px">توزيع الحالات:</span>
+    <div class="summary-pill pill-new" onclick="quickFilterStatus('new')" title="تصفية حسب: جديد">
+      <span>🟢 جديد:</span>
+      <span class="summary-pill-count" id="countStatusNew">0</span>
+    </div>
+    <div class="summary-pill pill-contacted" onclick="quickFilterStatus('contacted')" title="تصفية حسب: تم التواصل">
+      <span>🟡 تم التواصل:</span>
+      <span class="summary-pill-count" id="countStatusContacted">0</span>
+    </div>
+    <div class="summary-pill pill-closed" onclick="quickFilterStatus('closed')" title="تصفية حسب: مغلق">
+      <span>⚪ مغلق:</span>
+      <span class="summary-pill-count" id="countStatusClosed">0</span>
+    </div>
+    <div class="summary-pill pill-starred" onclick="quickFilterStarred()" title="عرض الرسائل المميزة بنجمة فقط">
+      <span>⭐ مميزة بنجمة:</span>
+      <span class="summary-pill-count" id="countStatusStarred">0</span>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
     <div class="search-box">
-      <input type="text" id="searchInput" class="search-input" placeholder="ابحث بالاسم، رقم الموبايل، أو نوع النشاط..." oninput="handleSearch()"/>
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث بالاسم، رقم الموبايل، نوع النشاط، أو الملاحظات..." oninput="handleSearch()"/>
       <span class="search-icon">🔍</span>
     </div>
+
+    <!-- Status Dropdown -->
+    <select id="statusFilter" class="filter-select" onchange="applyFilters()">
+      <option value="">كل الحالات</option>
+      <option value="new">🟢 جديد</option>
+      <option value="contacted">🟡 تم التواصل</option>
+      <option value="closed">⚪ مغلق</option>
+    </select>
+
+    <!-- Starred Filter Toggle -->
+    <button type="button" id="starredToggleBtn" class="star-toggle-btn" onclick="toggleStarredFilter()">
+      <span>⭐</span> المميزة فقط
+    </button>
+
+    <!-- Sort Dropdown -->
+    <select id="sortFilter" class="filter-select" onchange="applyFilters()">
+      <option value="date_desc">⏱️ الأحدث أولاً</option>
+      <option value="date_asc">⏳ الأقدم أولاً</option>
+      <option value="name">🔤 حسب الاسم</option>
+    </select>
+
+    <!-- Clear Filters Button -->
+    <button type="button" class="filter-reset-btn" onclick="resetFilters()">
+      ✖️ مسح الفلاتر
+    </button>
+
     <div class="counter-tag" id="counterTag">جارٍ تحميل الرسائل...</div>
   </div>
 
@@ -594,10 +1006,12 @@ export async function onRequestGet(context) {
       <table>
         <thead>
           <tr>
+            <th style="width:36px;text-align:center">⭐</th>
             <th style="width:40px">#</th>
             <th>التاريخ والوقت</th>
             <th>الاسم</th>
             <th>رقم الموبايل</th>
+            <th>الحالة</th>
             <th>نوع النشاط</th>
             <th>الميزانية</th>
             <th>نص الرسالة</th>
@@ -605,20 +1019,36 @@ export async function onRequestGet(context) {
           </tr>
         </thead>
         <tbody id="tableBody">
-          <tr><td colspan="8" class="empty-state">جارٍ الاتصال بقاعدة البيانات...</td></tr>
+          <tr><td colspan="10" class="empty-state">جارٍ الاتصال بقاعدة البيانات...</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
 
+<!-- Notes Modal -->
+<div class="modal-overlay" id="notesModal">
+  <div class="modal-card">
+    <h3 class="modal-title">
+      <span>📝</span>
+      <span id="notesModalTitle">ملاحظات العميل</span>
+    </h3>
+    <p class="modal-desc" id="notesModalDesc">سجل ملاحظات فريق المبيعات والمتابعة لهذه المحادثة (تُحفظ داخلياً فقط):</p>
+    <textarea id="notesTextarea" class="modal-textarea" placeholder="مثال: تم الاتفاق على عرض سعر 15,000 ج، العميل يفضل التواصل بعد الساعة 5 مساءً..."></textarea>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeNotesModal()">إلغاء</button>
+      <button class="btn btn-primary" id="saveNotesBtn" onclick="saveNotes()">حفظ الملاحظة</button>
+    </div>
+  </div>
+</div>
+
 <!-- Delete Confirmation Modal -->
 <div class="modal-overlay" id="deleteModal">
-  <div class="modal-card">
-    <h3 class="modal-title">تأكيد حذف الرسالة</h3>
+  <div class="modal-card" style="text-align:center">
+    <h3 class="modal-title" style="justify-content:center">🗑️ تأكيد حذف الرسالة</h3>
     <p class="modal-desc" id="modalDesc">هل أنت متأكد من رغبتك في حذف هذه الرسالة نهائياً من قاعدة البيانات؟</p>
-    <div class="modal-actions">
-      <button class="btn btn-secondary" onclick="closeModal()">إلغاء</button>
+    <div class="modal-actions" style="justify-content:center">
+      <button class="btn btn-secondary" onclick="closeDeleteModal()">إلغاء</button>
       <button class="btn btn-primary" id="confirmDeleteBtn" style="background:#ef4444">تأكيد الحذف</button>
     </div>
   </div>
@@ -630,6 +1060,60 @@ export async function onRequestGet(context) {
 <script>
   let allMessages = [];
   let deleteTargetId = null;
+  let activeNotesId = null;
+  let maxKnownId = 0;
+  let isMuted = localStorage.getItem('admin_sound_muted') === 'true';
+  let onlyStarred = false;
+  let audioCtx = null;
+
+  // Initialize Sound Settings
+  function initSoundUI() {
+    const icon = document.getElementById('soundIcon');
+    const text = document.getElementById('soundText');
+    const btn = document.getElementById('soundToggleBtn');
+    if (isMuted) {
+      icon.innerText = '🔕';
+      text.innerText = 'التنبيهات مكتومة';
+      btn.classList.add('muted');
+    } else {
+      icon.innerText = '🔔';
+      text.innerText = 'التنبيهات مفعّلة';
+      btn.classList.remove('muted');
+    }
+  }
+
+  function toggleSound() {
+    isMuted = !isMuted;
+    localStorage.setItem('admin_sound_muted', isMuted ? 'true' : 'false');
+    initSoundUI();
+    showToast(isMuted ? 'تم كتم صوت التنبيهات 🔕' : 'تم تفعيل صوت التنبيهات 🔔');
+  }
+
+  function playNotificationSound() {
+    if (isMuted) return;
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      if (!audioCtx) audioCtx = new AudioCtx();
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.type = 'sine';
+      // Pleasant two-tone chime (D5 -> A5)
+      osc.frequency.setValueAtTime(587.33, audioCtx.currentTime);
+      osc.frequency.setValueAtTime(880.00, audioCtx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.4);
+    } catch (e) {
+      console.warn('Audio playback error:', e);
+    }
+  }
 
   async function fetchStats() {
     try {
@@ -641,37 +1125,163 @@ export async function onRequestGet(context) {
         document.getElementById('statWeek').innerText = json.stats.week;
         document.getElementById('statMonth').innerText = json.stats.month;
         document.getElementById('statTotal').innerText = json.stats.total;
+
+        if (json.stats.by_status) {
+          document.getElementById('countStatusNew').innerText = json.stats.by_status.new || 0;
+          document.getElementById('countStatusContacted').innerText = json.stats.by_status.contacted || 0;
+          document.getElementById('countStatusClosed').innerText = json.stats.by_status.closed || 0;
+        }
+        document.getElementById('countStatusStarred').innerText = json.stats.starred_count || 0;
       }
     } catch (e) {
       console.error('Failed to load stats:', e);
     }
   }
 
-  async function fetchMessages(search = '') {
+  async function fetchMessages(isAutoRefresh = false) {
     try {
-      const url = search ? ('/api/admin/messages?search=' + encodeURIComponent(search)) : '/api/admin/messages';
+      const search = document.getElementById('searchInput').value.trim();
+      const status = document.getElementById('statusFilter').value;
+      const sort = document.getElementById('sortFilter').value;
+
+      const params = new URLSearchParams();
+      if (search) params.set('search', search);
+      if (status) params.set('status', status);
+      if (onlyStarred) params.set('starred', '1');
+      if (sort) params.set('sort', sort);
+
+      const url = '/api/admin/messages' + (params.toString() ? ('?' + params.toString()) : '');
       const res = await fetch(url);
       if (res.status === 401) return location.reload();
       const json = await res.json();
+
       if (json.success) {
-        allMessages = json.data || [];
+        const newMessages = json.data || [];
+
+        // Check if there are newly arrived messages
+        if (newMessages.length > 0) {
+          const currentMaxId = Math.max(...newMessages.map(m => Number(m.id || 0)));
+          if (maxKnownId > 0 && currentMaxId > maxKnownId) {
+            playNotificationSound();
+            const newArrivedCount = newMessages.filter(m => Number(m.id) > maxKnownId).length;
+            document.title = '(' + newArrivedCount + ') PR Agency — لوحة إدارة الرسائل';
+            showToast('🔔 وصلتك ' + newArrivedCount + ' رسالة جديدة الآن!');
+          }
+          maxKnownId = Math.max(maxKnownId, currentMaxId);
+        }
+
+        allMessages = newMessages;
         renderTable(allMessages);
       }
     } catch (e) {
       console.error('Failed to load messages:', e);
-      document.getElementById('tableBody').innerHTML = '<tr><td colspan="8" class="empty-state" style="color:#ef4444">حدث خطأ في تحميل الرسائل، حاول مجدداً.</td></tr>';
+      if (!isAutoRefresh) {
+        document.getElementById('tableBody').innerHTML = '<tr><td colspan="10" class="empty-state" style="color:#ef4444">حدث خطأ أثناء تحميل الرسائل، يرجى المحاولة مجدداً.</td></tr>';
+      }
     }
   }
 
+  function renderTable(list) {
+    const tbody = document.getElementById('tableBody');
+    const counter = document.getElementById('counterTag');
+    counter.innerText = 'إجمالي المعروض: ' + list.length + ' رسالة';
+
+    if (list.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="10" class="empty-state">لا توجد رسائل مطابقة لخيارات البحث أو الفلترة</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = list.map(m => {
+      const isStarred = Number(m.starred || 0) === 1;
+      const starIcon = isStarred ? '⭐' : '☆';
+      const starClass = isStarred ? 'starred' : 'unstarred';
+
+      const timeBadge = getRelativeBadge(m.created_at);
+      const formattedDate = formatDate(m.created_at);
+      const hasNotes = Boolean(m.notes && m.notes.trim().length > 0);
+
+      const status = m.status || 'new';
+      let statusLabel = '🟢 جديد';
+      let statusClass = 'status-new';
+      if (status === 'contacted') {
+        statusLabel = '🟡 تم التواصل';
+        statusClass = 'status-contacted';
+      } else if (status === 'closed') {
+        statusLabel = '⚪ مغلق';
+        statusClass = 'status-closed';
+      }
+
+      return [
+        '<tr>',
+        '  <td class="cell-star ' + starClass + '" data-action="toggle-star" data-id="' + m.id + '" title="' + (isStarred ? 'إزالة النجمة' : 'تمييز بنجمة') + '">' + starIcon + '</td>',
+        '  <td class="cell-id">#' + m.id + '</td>',
+        '  <td class="cell-date">' + timeBadge + ' ' + formattedDate + '</td>',
+        '  <td>',
+        '    <div class="cell-name-box">',
+        '      <span class="cell-name">' + escapeHtml(m.name || 'بدون اسم') + '</span>',
+        hasNotes ? ('      <span class="note-indicator" data-action="edit-note" data-id="' + m.id + '" title="ملاحظة: ' + escapeHtml(m.notes) + '">📝</span>') : '',
+        '    </div>',
+        '  </td>',
+        '  <td class="cell-phone"><a href="tel:' + escapeHtml(m.phone) + '" style="color:inherit;text-decoration:none">' + escapeHtml(m.phone) + '</a></td>',
+        '  <td>',
+        '    <div class="status-badge-wrap">',
+        '      <span class="status-badge ' + statusClass + '" data-action="open-status-menu" data-id="' + m.id + '">' + statusLabel + ' ▾</span>',
+        '      <div class="status-dropdown" id="statusMenu_' + m.id + '">',
+        '        <button type="button" class="status-opt" data-action="set-status" data-id="' + m.id + '" data-status="new">🟢 جديد</button>',
+        '        <button type="button" class="status-opt" data-action="set-status" data-id="' + m.id + '" data-status="contacted">🟡 تم التواصل</button>',
+        '        <button type="button" class="status-opt" data-action="set-status" data-id="' + m.id + '" data-status="closed">⚪ مغلق</button>',
+        '      </div>',
+        '    </div>',
+        '  </td>',
+        '  <td><span class="cell-badge">' + escapeHtml(m.business || 'غير محدد') + '</span></td>',
+        '  <td style="color:#fbbf24;font-weight:700">' + escapeHtml(m.budget || '—') + '</td>',
+        '  <td class="cell-message" title="' + escapeHtml(m.message || '') + '">' + escapeHtml(m.message || '—') + '</td>',
+        '  <td style="text-align:center">',
+        '    <div class="actions-cell">',
+        '      <!-- WhatsApp Action with Templates Dropdown -->',
+        '      <div style="position:relative;display:inline-block">',
+        '        <button type="button" class="act-btn act-wa-btn" data-action="open-wa-menu" data-id="' + m.id + '" title="رد سريع عبر واتساب">',
+        '          <span>💬</span> رد ▾',
+        '        </button>',
+        '        <div class="wa-dropdown" id="waMenu_' + m.id + '">',
+        '          <div class="wa-dropdown-header">قوالب الرد السريع عبر واتساب</div>',
+        '          <div class="wa-template-item" data-action="send-wa" data-id="' + m.id + '" data-tpl="1">',
+        '            <div class="wa-template-title">1. استلام الطلب والرد قريباً</div>',
+        '            <div class="wa-template-preview">أهلاً ' + escapeHtml(m.name || 'بك') + '، شكراً لتواصلك مع PR Agency. وصلتنا رسالتك وهنرد عليك في أقرب وقت.</div>',
+        '          </div>',
+        '          <div class="wa-template-item" data-action="send-wa" data-id="' + m.id + '" data-tpl="2">',
+        '            <div class="wa-template-title">2. طلب تفاصيل عن النشاط</div>',
+        '            <div class="wa-template-preview">أهلاً ' + escapeHtml(m.name || 'بك') + '، عايزين نعرف تفاصيل أكتر عن ' + escapeHtml(m.business || 'مشروعك') + '. تحب نكلمك امتى؟</div>',
+        '          </div>',
+        '          <div class="wa-template-item" data-action="send-wa" data-id="' + m.id + '" data-tpl="3">',
+        '            <div class="wa-template-title">3. مناقشة الميزانية والبدء</div>',
+        '            <div class="wa-template-preview">أهلاً ' + escapeHtml(m.name || 'بك') + '، جاهزين نبدأ. ممكن نتكلم عن الميزانية اللي ذكرتها؟</div>',
+        '          </div>',
+        '          <div class="wa-template-item" data-action="send-wa" data-id="' + m.id + '" data-tpl="custom" style="border-top:1px solid rgba(255,255,255,0.06);margin-top:2px">',
+        '            <div class="wa-template-title" style="color:#60a5fa">💬 فتح محادثة مخصصة فارغة</div>',
+        '          </div>',
+        '        </div>',
+        '      </div>',
+        '      <button type="button" class="act-btn act-note" data-action="edit-note" data-id="' + m.id + '" title="كتابة أو تعديل ملاحظة">📝 ملاحظة</button>',
+        '      <button type="button" class="act-btn act-btn-icon act-copy" data-action="copy-phone" data-phone="' + escapeHtml(m.phone) + '" title="نسخ الرقم">📋</button>',
+        '      <button type="button" class="act-btn act-btn-icon act-del" data-action="delete" data-id="' + m.id + '" data-name="' + escapeHtml(m.name || '') + '" title="حذف الرسالة">🗑️</button>',
+        '    </div>',
+        '  </td>',
+        '</tr>'
+      ].join('');
+    }).join('');
+  }
+
+  // Formatting and Helpers
   function getRelativeBadge(dateStr) {
     if (!dateStr) return '';
     try {
       const d = new Date(dateStr.replace(' ', 'T') + 'Z');
       const now = new Date();
       const diffHours = (now - d) / (1000 * 60 * 60);
-      if (diffHours <= 24) return '<span class="badge badge-today">اليوم</span>';
-      if (diffHours <= 168) return '<span class="badge badge-week">هذا الأسبوع</span>';
-      return '<span class="badge badge-old">سابق</span>';
+      if (diffHours <= 24) return '<span class="badge-time badge-today">اليوم</span>';
+      if (diffHours <= 168) return '<span class="badge-time badge-week">هذا الأسبوع</span>';
+      return '<span class="badge-time badge-old">سابق</span>';
     } catch (e) {
       return '';
     }
@@ -696,57 +1306,165 @@ export async function onRequestGet(context) {
     return p;
   }
 
-  function renderTable(list) {
-    const tbody = document.getElementById('tableBody');
-    const counter = document.getElementById('counterTag');
-    counter.innerText = 'إجمالي المعروض: ' + list.length + ' رسالة';
-
-    if (list.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="8" class="empty-state">لا توجد رسائل مسجلة حالياً</td></tr>';
-      return;
-    }
-
-    tbody.innerHTML = list.map(m => {
-      const waNumber = cleanPhoneForWa(m.phone);
-      const waLink = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent('أهلاً بك ' + m.name + '، تواصلنا معك بخصوص طلبك في PR Agency');
-      const badge = getRelativeBadge(m.created_at);
-      const formattedDate = formatDate(m.created_at);
-
-      return [
-        '<tr>',
-        '  <td class="cell-id">#' + m.id + '</td>',
-        '  <td class="cell-date">' + badge + ' ' + formattedDate + '</td>',
-        '  <td class="cell-name">' + escapeHtml(m.name || 'بدون اسم') + '</td>',
-        '  <td class="cell-phone"><a href="tel:' + escapeHtml(m.phone) + '" style="color:inherit;text-decoration:none">' + escapeHtml(m.phone) + '</a></td>',
-        '  <td><span class="cell-badge">' + escapeHtml(m.business || 'غير محدد') + '</span></td>',
-        '  <td style="color:#fbbf24;font-weight:700">' + escapeHtml(m.budget || '—') + '</td>',
-        '  <td class="cell-message" title="' + escapeHtml(m.message || '') + '">' + escapeHtml(m.message || '—') + '</td>',
-        '  <td style="text-align:center">',
-        '    <div class="actions-cell">',
-        '      <a href="' + waLink + '" target="_blank" rel="noopener" class="act-btn act-wa" title="محادثة واتساب">💬</a>',
-        '      <button type="button" class="act-btn act-copy" data-phone="' + escapeHtml(m.phone) + '" title="نسخ الرقم">📋</button>',
-        '      <button type="button" class="act-btn act-del" data-id="' + m.id + '" data-name="' + escapeHtml(m.name || '') + '" title="حذف الرسالة">🗑️</button>',
-        '    </div>',
-        '  </td>',
-        '</tr>'
-      ].join('');
-    }).join('');
-  }
-
   function escapeHtml(str) {
     if (!str) return '';
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
+  // Filter Actions
   let searchTimeout;
   function handleSearch() {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
-      const term = document.getElementById('searchInput').value.trim();
-      fetchMessages(term);
+      fetchMessages();
     }, 250);
   }
 
+  function applyFilters() {
+    fetchMessages();
+  }
+
+  function toggleStarredFilter() {
+    onlyStarred = !onlyStarred;
+    const btn = document.getElementById('starredToggleBtn');
+    if (onlyStarred) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+    fetchMessages();
+  }
+
+  function quickFilterStatus(st) {
+    document.getElementById('statusFilter').value = st;
+    applyFilters();
+  }
+
+  function quickFilterStarred() {
+    onlyStarred = true;
+    document.getElementById('starredToggleBtn').classList.add('active');
+    applyFilters();
+  }
+
+  function resetFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('statusFilter').value = '';
+    document.getElementById('sortFilter').value = 'date_desc';
+    onlyStarred = false;
+    document.getElementById('starredToggleBtn').classList.remove('active');
+    fetchMessages();
+  }
+
+  // PATCH Helper
+  async function updateMessage(id, updates) {
+    try {
+      const res = await fetch('/api/admin/messages/' + id, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updates)
+      });
+      const json = await res.json();
+      if (json.success) {
+        // Update local object
+        const target = allMessages.find(m => String(m.id) === String(id));
+        if (target) {
+          Object.assign(target, updates);
+        }
+        renderTable(allMessages);
+        fetchStats();
+        return true;
+      } else {
+        alert('فشل التحديث: ' + (json.error || ''));
+        return false;
+      }
+    } catch (e) {
+      alert('خطأ في الاتصال بالخادم أثناء التحديث');
+      return false;
+    }
+  }
+
+  // Status Change
+  async function handleSetStatus(id, newStatus) {
+    closeAllDropdowns();
+    const success = await updateMessage(id, { status: newStatus });
+    if (success) {
+      const labels = { new: 'جديد 🟢', contacted: 'تم التواصل 🟡', closed: 'مغلق ⚪' };
+      showToast('تم تغيير حالة الرسالة إلى ' + (labels[newStatus] || newStatus) + ' بنجاح ✅');
+    }
+  }
+
+  // Star Toggle
+  async function handleToggleStar(id) {
+    const target = allMessages.find(m => String(m.id) === String(id));
+    if (!target) return;
+    const current = Number(target.starred || 0);
+    const nextVal = current === 1 ? 0 : 1;
+    const success = await updateMessage(id, { starred: nextVal });
+    if (success) {
+      showToast(nextVal === 1 ? 'تمت إضافة الرسالة إلى المميزة بنجمة ⭐' : 'تمت إزالة النجمة ☆');
+    }
+  }
+
+  // Notes Modal Handling
+  function openNotesModal(id) {
+    activeNotesId = id;
+    const target = allMessages.find(m => String(m.id) === String(id));
+    if (!target) return;
+    document.getElementById('notesModalTitle').innerText = 'ملاحظات: ' + (target.name || 'بدون اسم');
+    document.getElementById('notesModalDesc').innerText = 'العميل: ' + (target.name || '—') + ' · الهاتف: ' + (target.phone || '—') + ' · النشاط: ' + (target.business || '—');
+    document.getElementById('notesTextarea').value = target.notes || '';
+    document.getElementById('notesModal').classList.add('open');
+    document.getElementById('notesTextarea').focus();
+  }
+
+  function closeNotesModal() {
+    document.getElementById('notesModal').classList.remove('open');
+    activeNotesId = null;
+  }
+
+  async function saveNotes() {
+    if (!activeNotesId) return;
+    const btn = document.getElementById('saveNotesBtn');
+    btn.disabled = true;
+    btn.innerText = 'جارٍ الحفظ...';
+
+    const text = document.getElementById('notesTextarea').value.trim();
+    const success = await updateMessage(activeNotesId, { notes: text });
+    btn.disabled = false;
+    btn.innerText = 'حفظ الملاحظة';
+
+    if (success) {
+      closeNotesModal();
+      showToast('تم حفظ الملاحظة بنجاح 📝');
+    }
+  }
+
+  // WhatsApp Reply Templates
+  function sendWhatsAppTemplate(id, tplKey) {
+    closeAllDropdowns();
+    const target = allMessages.find(m => String(m.id) === String(id));
+    if (!target) return;
+
+    const name = target.name || 'بك';
+    const business = target.business || 'مشروعك';
+    let text = '';
+
+    if (tplKey === '1') {
+      text = 'أهلاً ' + name + '، شكراً لتواصلك مع PR Agency. وصلتنا رسالتك وهنرد عليك في أقرب وقت.';
+    } else if (tplKey === '2') {
+      text = 'أهلاً ' + name + '، عايزين نعرف تفاصيل أكتر عن ' + business + '. تحب نكلمك امتى؟';
+    } else if (tplKey === '3') {
+      text = 'أهلاً ' + name + '، جاهزين نبدأ. ممكن نتكلم عن الميزانية اللي ذكرتها؟';
+    } else {
+      text = 'أهلاً بك ' + name + '، تواصلنا معك بخصوص طلبك في PR Agency';
+    }
+
+    const waPhone = cleanPhoneForWa(target.phone);
+    const waUrl = 'https://wa.me/' + waPhone + '?text=' + encodeURIComponent(text);
+    window.open(waUrl, '_blank', 'noopener');
+  }
+
+  // Copy Phone
   function copyPhone(phone) {
     navigator.clipboard.writeText(phone).then(() => {
       showToast('تم نسخ الرقم ' + phone + ' بنجاح! 📋');
@@ -755,6 +1473,7 @@ export async function onRequestGet(context) {
     });
   }
 
+  // Delete Modal Handling
   function confirmDelete(id, name) {
     deleteTargetId = id;
     document.getElementById('modalDesc').innerText = 'هل أنت متأكد من رغبتك في حذف رسالة العميل (' + name + ') نهائياً؟';
@@ -762,18 +1481,18 @@ export async function onRequestGet(context) {
     document.getElementById('confirmDeleteBtn').onclick = () => executeDelete(id);
   }
 
-  function closeModal() {
+  function closeDeleteModal() {
     document.getElementById('deleteModal').classList.remove('open');
     deleteTargetId = null;
   }
 
   async function executeDelete(id) {
     try {
-      const res = await fetch('/api/admin/messages?id=' + id, { method: 'DELETE' });
+      const res = await fetch('/api/admin/messages/' + id, { method: 'DELETE' });
       const json = await res.json();
       if (json.success) {
         showToast('تم حذف الرسالة بنجاح 🗑️');
-        closeModal();
+        closeDeleteModal();
         loadAll();
       } else {
         alert('حدث خطأ أثناء الحذف: ' + (json.error || ''));
@@ -782,6 +1501,86 @@ export async function onRequestGet(context) {
       alert('فشل الاتصال بالخادم لحذف الرسالة');
     }
   }
+
+  // Dropdown Management
+  function closeAllDropdowns() {
+    document.querySelectorAll('.status-dropdown.open').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('.wa-dropdown.open').forEach(el => el.classList.remove('open'));
+  }
+
+  document.addEventListener('click', (e) => {
+    // If click is outside status dropdown or wa dropdown, close them
+    if (!e.target.closest('.status-badge-wrap') && !e.target.closest('.wa-dropdown') && !e.target.closest('.act-wa-btn')) {
+      closeAllDropdowns();
+    }
+  });
+
+  // Event Delegation for Table Clicks
+  document.getElementById('tableBody').addEventListener('click', (e) => {
+    const starBtn = e.target.closest('[data-action="toggle-star"]');
+    if (starBtn) {
+      handleToggleStar(starBtn.getAttribute('data-id'));
+      return;
+    }
+
+    const openStatusBtn = e.target.closest('[data-action="open-status-menu"]');
+    if (openStatusBtn) {
+      e.stopPropagation();
+      const id = openStatusBtn.getAttribute('data-id');
+      const menu = document.getElementById('statusMenu_' + id);
+      const isOpen = menu.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) menu.classList.add('open');
+      return;
+    }
+
+    const setStatusBtn = e.target.closest('[data-action="set-status"]');
+    if (setStatusBtn) {
+      e.stopPropagation();
+      const id = setStatusBtn.getAttribute('data-id');
+      const st = setStatusBtn.getAttribute('data-status');
+      handleSetStatus(id, st);
+      return;
+    }
+
+    const openWaBtn = e.target.closest('[data-action="open-wa-menu"]');
+    if (openWaBtn) {
+      e.stopPropagation();
+      const id = openWaBtn.getAttribute('data-id');
+      const menu = document.getElementById('waMenu_' + id);
+      const isOpen = menu.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) menu.classList.add('open');
+      return;
+    }
+
+    const sendWaBtn = e.target.closest('[data-action="send-wa"]');
+    if (sendWaBtn) {
+      e.stopPropagation();
+      const id = sendWaBtn.getAttribute('data-id');
+      const tpl = sendWaBtn.getAttribute('data-tpl');
+      sendWhatsAppTemplate(id, tpl);
+      return;
+    }
+
+    const noteBtn = e.target.closest('[data-action="edit-note"]');
+    if (noteBtn) {
+      openNotesModal(noteBtn.getAttribute('data-id'));
+      return;
+    }
+
+    const copyBtn = e.target.closest('[data-action="copy-phone"]');
+    if (copyBtn) {
+      copyPhone(copyBtn.getAttribute('data-phone') || '');
+      return;
+    }
+
+    const delBtn = e.target.closest('[data-action="delete"]');
+    if (delBtn) {
+      confirmDelete(delBtn.getAttribute('data-id'), delBtn.getAttribute('data-name') || '');
+      return;
+    }
+  });
 
   function showToast(msg) {
     const t = document.getElementById('toast');
@@ -796,12 +1595,15 @@ export async function onRequestGet(context) {
       return;
     }
 
-    const headers = ['المعرف (ID)', 'تاريخ الإرسال', 'الاسم', 'رقم الهاتف', 'نوع النشاط', 'الميزانية', 'الرسالة'];
+    const headers = ['المعرف (ID)', 'تاريخ الإرسال', 'الاسم', 'رقم الهاتف', 'الحالة', 'مميزة بنجمة', 'ملاحظات فريق العمل', 'نوع النشاط', 'الميزانية', 'الرسالة'];
     const rows = allMessages.map(m => [
       m.id,
       m.created_at || '',
       '"' + (m.name || '').replace(/"/g, '""') + '"',
       '"' + (m.phone || '').replace(/"/g, '""') + '"',
+      '"' + (m.status || 'new').replace(/"/g, '""') + '"',
+      m.starred ? 'نعم' : 'لا',
+      '"' + (m.notes || '').replace(/"/g, '""') + '"',
       '"' + (m.business || '').replace(/"/g, '""') + '"',
       '"' + (m.budget || '').replace(/"/g, '""') + '"',
       '"' + (m.message || '').replace(/"/g, '""') + '"'
@@ -815,7 +1617,7 @@ export async function onRequestGet(context) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'PR_Agency_Contacts_' + new Date().toISOString().slice(0, 10) + '.csv';
+    a.download = 'PR_Agency_Messages_' + new Date().toISOString().slice(0, 10) + '.csv';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -824,23 +1626,22 @@ export async function onRequestGet(context) {
 
   function loadAll() {
     fetchStats();
-    fetchMessages(document.getElementById('searchInput').value.trim());
+    fetchMessages();
   }
 
-  document.getElementById('tableBody').addEventListener('click', (e) => {
-    const copyBtn = e.target.closest('.act-copy');
-    if (copyBtn) {
-      copyPhone(copyBtn.getAttribute('data-phone') || '');
-      return;
-    }
-    const delBtn = e.target.closest('.act-del');
-    if (delBtn) {
-      confirmDelete(delBtn.getAttribute('data-id'), delBtn.getAttribute('data-name') || '');
-      return;
-    }
+  // Focus Window resets notification badge in title
+  window.addEventListener('focus', () => {
+    document.title = 'PR Agency — لوحة إدارة الرسائل';
   });
 
-  // Initial load
+  // Auto-refresh every 30 seconds
+  setInterval(() => {
+    fetchStats();
+    fetchMessages(true);
+  }, 30000);
+
+  // Initial Load
+  initSoundUI();
   loadAll();
 </script>
 

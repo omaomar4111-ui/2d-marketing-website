@@ -24,7 +24,7 @@ function unauthorizedResponse() {
 }
 
 export async function onRequestGet(context) {
-  const { request, env } = context;
+  const { request, env, params } = context;
 
   if (!checkAuth(request, env)) {
     return unauthorizedResponse();
@@ -38,72 +38,26 @@ export async function onRequestGet(context) {
   }
 
   try {
-    const url = new URL(request.url);
-    const status = (url.searchParams.get('status') || '').trim().toLowerCase();
-    const starred = url.searchParams.get('starred');
-    const search = (url.searchParams.get('search') || '').trim();
-    const sort = (url.searchParams.get('sort') || 'date_desc').trim().toLowerCase();
-
-    let query = 'SELECT * FROM contacts';
-    const whereClauses = [];
-    const params = [];
-
-    // Filter by status
-    if (status && ['new', 'contacted', 'closed'].includes(status)) {
-      whereClauses.push("COALESCE(status, 'new') = ?");
-      params.push(status);
+    const id = params.id;
+    const row = await env.DB.prepare('SELECT * FROM contacts WHERE id = ?').bind(id).first();
+    if (!row) {
+      return new Response(JSON.stringify({ success: false, error: 'Message not found' }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
     }
-
-    // Filter by starred
-    if (starred !== null && starred !== '') {
-      const starVal = (starred === '1' || starred === 'true') ? 1 : 0;
-      whereClauses.push('COALESCE(starred, 0) = ?');
-      params.push(starVal);
-    }
-
-    // Search filter (name, phone, business, message, notes)
-    if (search) {
-      whereClauses.push('(name LIKE ? OR phone LIKE ? OR business LIKE ? OR message LIKE ? OR COALESCE(notes, "") LIKE ?)');
-      const term = `%${search}%`;
-      params.push(term, term, term, term, term);
-    }
-
-    if (whereClauses.length > 0) {
-      query += ' WHERE ' + whereClauses.join(' AND ');
-    }
-
-    // Sorting
-    if (sort === 'date_asc') {
-      query += ' ORDER BY created_at ASC, id ASC';
-    } else if (sort === 'name') {
-      query += ' ORDER BY name COLLATE NOCASE ASC, id DESC';
-    } else {
-      // Default: date_desc
-      query += ' ORDER BY created_at DESC, id DESC';
-    }
-
-    query += ' LIMIT 500';
-
-    const stmt = params.length > 0 ? env.DB.prepare(query).bind(...params) : env.DB.prepare(query);
-    const { results } = await stmt.all();
-
-    const sanitized = (results || []).map(r => ({
-      ...r,
-      status: r.status || 'new',
-      notes: r.notes || '',
-      starred: Number(r.starred || 0)
-    }));
 
     return new Response(JSON.stringify({
       success: true,
-      count: sanitized.length,
-      data: sanitized
+      data: {
+        ...row,
+        status: row.status || 'new',
+        notes: row.notes || '',
+        starred: Number(row.starred || 0)
+      }
     }), {
       status: 200,
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Cache-Control': 'no-store'
-      }
+      headers: { 'Content-Type': 'application/json; charset=utf-8' }
     });
   } catch (err) {
     return new Response(JSON.stringify({ success: false, error: err.message }), {
@@ -114,7 +68,7 @@ export async function onRequestGet(context) {
 }
 
 export async function onRequestPatch(context) {
-  const { request, env } = context;
+  const { request, env, params } = context;
 
   if (!checkAuth(request, env)) {
     return unauthorizedResponse();
@@ -128,18 +82,7 @@ export async function onRequestPatch(context) {
   }
 
   try {
-    const url = new URL(request.url);
-    let id = url.searchParams.get('id');
-
-    let body = {};
-    if (request.headers.get('content-type')?.includes('application/json')) {
-      body = await request.json().catch(() => ({}));
-    }
-
-    if (!id && body.id) {
-      id = body.id;
-    }
-
+    const id = params.id;
     if (!id) {
       return new Response(JSON.stringify({ success: false, error: 'Message ID is required' }), {
         status: 400,
@@ -147,8 +90,13 @@ export async function onRequestPatch(context) {
       });
     }
 
+    let body = {};
+    if (request.headers.get('content-type')?.includes('application/json')) {
+      body = await request.json().catch(() => ({}));
+    }
+
     const updates = [];
-    const params = [];
+    const sqlParams = [];
 
     if (body.status !== undefined) {
       const st = String(body.status).trim().toLowerCase();
@@ -159,19 +107,19 @@ export async function onRequestPatch(context) {
         });
       }
       updates.push('status = ?');
-      params.push(st);
+      sqlParams.push(st);
     }
 
     if (body.notes !== undefined) {
       const notes = String(body.notes || '').slice(0, 5000);
       updates.push('notes = ?');
-      params.push(notes);
+      sqlParams.push(notes);
     }
 
     if (body.starred !== undefined) {
       const starred = (body.starred === 1 || body.starred === true || body.starred === '1') ? 1 : 0;
       updates.push('starred = ?');
-      params.push(starred);
+      sqlParams.push(starred);
     }
 
     if (updates.length === 0) {
@@ -181,9 +129,9 @@ export async function onRequestPatch(context) {
       });
     }
 
-    params.push(id);
+    sqlParams.push(id);
     const sql = `UPDATE contacts SET ${updates.join(', ')} WHERE id = ?`;
-    await env.DB.prepare(sql).bind(...params).run();
+    await env.DB.prepare(sql).bind(...sqlParams).run();
 
     return new Response(JSON.stringify({
       success: true,
@@ -202,7 +150,7 @@ export async function onRequestPatch(context) {
 }
 
 export async function onRequestDelete(context) {
-  const { request, env } = context;
+  const { request, env, params } = context;
 
   if (!checkAuth(request, env)) {
     return unauthorizedResponse();
@@ -216,14 +164,7 @@ export async function onRequestDelete(context) {
   }
 
   try {
-    const url = new URL(request.url);
-    let id = url.searchParams.get('id');
-
-    if (!id && request.headers.get('content-type')?.includes('application/json')) {
-      const body = await request.json().catch(() => ({}));
-      id = body.id;
-    }
-
+    const id = params.id;
     if (!id) {
       return new Response(JSON.stringify({ success: false, error: 'Message ID is required' }), {
         status: 400,
