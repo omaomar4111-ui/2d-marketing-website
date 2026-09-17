@@ -1016,3 +1016,43 @@
 body {
   overflow-x: hidden;
 }
+
+/* ============================================
+   Contact Form — Status Messages
+   ============================================ */
+.register-status {
+  display: none;
+  margin-top: var(--sp-5, 20px);
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.register-status.success {
+  display: block;
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.register-status.error {
+  display: block;
+  background: rgba(192, 0, 0, 0.12);
+  color: #ff6b6b;
+  border: 1px solid rgba(192, 0, 0, 0.35);
+}
+
+.register-status.loading {
+  display: block;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.register-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
