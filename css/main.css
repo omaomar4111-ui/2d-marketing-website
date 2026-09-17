@@ -491,6 +491,18 @@ h3{font-size:var(--t-xl);font-weight:800}
   margin: 0;
 }
 
+.site-footer-bottom p a,
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.site-footer-bottom p a:hover,
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 /* ═══ Responsive ═══ */
 @media (max-width: 900px) {
   .site-footer-grid {

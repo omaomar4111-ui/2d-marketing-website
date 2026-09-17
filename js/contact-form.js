@@ -71,6 +71,19 @@
         if (response.ok && result.success) {
           setStatus('success', '✅ تم استلام رسالتك، هنرد عليك قريب إن شاء الله');
           form.reset();
+
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              'event_category': 'form',
+              'event_label': 'Contact Form',
+              'value': 1
+            });
+          }
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead', {
+              content_name: 'Contact Form Submit'
+            });
+          }
         } else {
           var errorMsg = result.errors
             ? result.errors.join(' | ')

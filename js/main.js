@@ -131,7 +131,25 @@ function initRipple(){
     });
   });
 }
-function init(){
+
+function initWhatsAppTracking() {
+  document.querySelectorAll('a[href*="wa.me"], .hdr-cta, [href*="whatsapp"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', {
+          'event_category': 'engagement',
+          'event_label': window.location.pathname
+        });
+      }
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+          content_name: 'WhatsApp Click'
+        });
+      }
+    });
+  });
+}
+function init(){
   initLoader();
   initProgressBar();
   initHeader();
