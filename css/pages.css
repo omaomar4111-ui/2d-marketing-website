@@ -1077,3 +1077,90 @@ body {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* ============================================
+   Circular CTA Button — Arabic RTL
+   ============================================ */
+.circle-cta-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--sp-10, 40px) 0;
+  padding: 0 var(--section-x, 20px);
+}
+
+.circle-cta {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--c-w100, #fff);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(192, 0, 0, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.circle-cta:hover {
+  border-color: var(--c-red, #c00000);
+  transform: scale(1.06);
+  box-shadow: 0 0 40px rgba(192, 0, 0, 0.25);
+}
+
+.circle-cta:hover::before {
+  opacity: 1;
+}
+
+.circle-cta-text {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.circle-cta-arrow {
+  font-size: 26px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.circle-cta:hover .circle-cta-text {
+  transform: translateY(-2px);
+}
+
+.circle-cta:hover .circle-cta-arrow {
+  transform: translate(-4px, -4px);
+}
+
+@media (max-width: 768px) {
+  .circle-cta {
+    width: 140px;
+    height: 140px;
+    font-size: 15px;
+  }
+  .circle-cta-arrow {
+    font-size: 22px;
+  }
+}
+
