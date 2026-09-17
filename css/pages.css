@@ -795,3 +795,53 @@
 [data-theme="light"] .register-info a:hover {
   color: var(--c-red-h);
 }
+
+/* ============================================
+   About Section — VR Style
+   ============================================ */
+.section-about-vr {
+  padding: var(--section-y) var(--section-x);
+  background: var(--c-black);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-about-vr-inner {
+  max-width: var(--narrow-w);
+  margin: 0 auto;
+}
+
+.section-about-vr-title {
+  font-size: var(--t-3xl);
+  font-weight: 800;
+  color: var(--c-w100);
+  margin-bottom: var(--sp-6);
+  line-height: 1.2;
+}
+
+.section-about-vr-lead {
+  font-size: var(--t-xl);
+  font-weight: 600;
+  color: var(--c-w80);
+  line-height: 1.6;
+  margin-bottom: var(--sp-5);
+}
+
+.section-about-vr-body {
+  font-size: var(--t-base);
+  color: var(--c-w60);
+  line-height: 1.8;
+  max-width: var(--narrow-w);
+  margin: 0 auto;
+}
+
+.section-about-vr .accent {
+  color: var(--c-red);
+  font-weight: 700;
+}
+
+/* تحسين الـ Marquee — منع horizontal scroll */
+body {
+  overflow-x: hidden;
+}
