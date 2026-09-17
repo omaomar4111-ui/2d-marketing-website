@@ -1,57 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- الصفحة الرئيسية -->
   <url>
-    <loc>https://2dmarketing.agency/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://pragency.pages.dev/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- من نحن -->
   <url>
-    <loc>https://2dmarketing.agency/services/</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://pragency.pages.dev/about.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- صفحة الخدمات الرئيسية -->
+  <url>
+    <loc>https://pragency.pages.dev/services/index.html</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
+
+  <!-- خدمات العيادات والمراكز الطبية -->
   <url>
-    <loc>https://2dmarketing.agency/services/clinics.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://2dmarketing.agency/services/gyms.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://2dmarketing.agency/services/real-estate.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://2dmarketing.agency/services/ecommerce.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://2dmarketing.agency/about.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://2dmarketing.agency/contact.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://2dmarketing.agency/blog/</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://pragency.pages.dev/services/clinics.html</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- خدمات المتاجر الإلكترونية -->
+  <url>
+    <loc>https://pragency.pages.dev/services/ecommerce.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- خدمات الجيم والأندية الرياضية -->
+  <url>
+    <loc>https://pragency.pages.dev/services/gyms.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- خدمات الشركات العقارية -->
+  <url>
+    <loc>https://pragency.pages.dev/services/real-estate.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- المدونة والمقالات -->
+  <url>
+    <loc>https://pragency.pages.dev/blog/index.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- تواصل معنا -->
+  <url>
+    <loc>https://pragency.pages.dev/contact.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- سياسة الخصوصية -->
+  <url>
+    <loc>https://pragency.pages.dev/privacy.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+  <!-- شروط الاستخدام -->
+  <url>
+    <loc>https://pragency.pages.dev/terms.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
   </url>
 </urlset>

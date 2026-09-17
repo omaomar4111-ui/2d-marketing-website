@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api/
 
-Sitemap: https://2dmarketing.agency/sitemap.xml
+Sitemap: https://pragency.pages.dev/sitemap.xml
