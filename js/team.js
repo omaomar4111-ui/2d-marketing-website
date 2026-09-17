@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════
-   2D MARKETING — Team Section (7 Roles · 4-Column Layout)
+   PR AGENCY — Team Section (7 Roles · 4-Column Layout)
    ══════════════════════════════════════════════════════════════ */
 (function() {
   'use strict';

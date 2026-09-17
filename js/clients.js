@@ -1,5 +1,5 @@
 /* ============================================================
-   2D MARKETING — CLIENTS LOGOS MODULE (19-20 UNIQUE CLIENTS)
+   PR AGENCY — CLIENTS LOGOS MODULE (21 UNIQUE CLIENTS)
    Two Marquee Rows (Opposite Directions) — NO GRID
    ============================================================ */
 var CLIENT_LOGOS = [

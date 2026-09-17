@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════
-   2D MARKETING — SHARED JS ENGINE
+   PR AGENCY — SHARED JS ENGINE
 ══════════════════════════════════════════════════════════════ */
 (function() {
 'use strict';
@@ -22,7 +22,7 @@ function validatePhone(p){var c=p.replace(/[\s\-+]/g,'');return /^(01[0125]\d{8}
 function normalizePhone(p){var c=p.replace(/[\s\-+]/g,'');return c.startsWith('201')?c:c.startsWith('01')?'2'+c:c;}
 
 function track(loc,action){
-  window.dataLayer.push({event:'2d_cta',cta_location:loc,cta_action:action,ts:Date.now()});
+  window.dataLayer.push({event:'pr_cta',cta_location:loc,cta_action:action,ts:Date.now()});
   if(typeof gtag==='function'&&TRACKING.GA4.enabled)gtag('event',action,{event_category:loc});
   if(typeof fbq==='function'&&TRACKING.META.enabled)fbq('trackCustom',action,{location:loc});
 }
