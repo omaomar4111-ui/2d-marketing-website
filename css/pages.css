@@ -348,6 +348,11 @@
   transform-origin: center;
 }
 
+.client-logo[title="NH Clinics"] img {
+  transform: scale(0.75);
+  transform-origin: center;
+}
+
 /* Light theme */
 [data-theme="light"] .section-clients { background: #fff5f5; }
 [data-theme="light"] .clients-row::before { background: linear-gradient(270deg, #fff5f5 0%, transparent 100%); }
