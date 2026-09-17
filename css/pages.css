@@ -344,11 +344,8 @@
 }
 
 .client-logo[title="BLILTNA"] img {
-  transform: scale(1.3);
-}
-
-.client-logo[title="BLILTNA"]:hover img {
-  transform: scale(1.38);
+  transform: scale(0.5);
+  transform-origin: center;
 }
 
 /* Light theme */

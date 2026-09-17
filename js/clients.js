@@ -21,7 +21,9 @@ var CLIENT_LOGOS = [
   { name: 'XGarage', nameEn: 'XGARAGE', sector: 'سيارات', file: 'client-17-xgarage.png' },
   { name: 'OVO', nameEn: 'OVO', sector: 'خدمات', file: 'client-18-ovo.png' },
   { name: 'SWAN', nameEn: 'SWAN', sector: 'طبي', file: 'client-19-swan.png' },
-  { name: 'Godzilla Fitness', nameEn: 'GODZILLA', sector: 'جيمات', file: 'client-20-godzilla.png' }
+  { name: 'Godzilla Fitness', nameEn: 'GODZILLA', sector: 'جيمات', file: 'client-20-godzilla.png' },
+  { name: 'NH Clinics', nameEn: 'NH CLINICS', sector: 'طبي', file: 'client-21-nh-clinics.png' },
+  { name: 'Snoopy', nameEn: 'SNOOPY', sector: 'ترفيه', file: 'client-22-snoopy.png' }
 ];
 
 function basePath() {
