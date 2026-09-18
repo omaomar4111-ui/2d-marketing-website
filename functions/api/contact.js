@@ -49,10 +49,18 @@ export async function onRequestPost(context) {
       );
     }
 
+    const url = new URL(request.url);
+    const utm_source   = String(data.utm_source   || url.searchParams.get('utm_source')   || '').trim().slice(0, 100);
+    const utm_medium   = String(data.utm_medium   || url.searchParams.get('utm_medium')   || '').trim().slice(0, 100);
+    const utm_campaign = String(data.utm_campaign || url.searchParams.get('utm_campaign') || '').trim().slice(0, 100);
+    const utm_content  = String(data.utm_content  || url.searchParams.get('utm_content')  || '').trim().slice(0, 100);
+    const lead_source  = String(data.lead_source  || url.searchParams.get('lead_source')  || 'website').trim().slice(0, 50);
+    const meta_lead_id = String(data.meta_lead_id || url.searchParams.get('meta_lead_id') || '').trim().slice(0, 100);
+
     const result = await env.DB.prepare(
-      `INSERT INTO contacts (name, phone, business, budget, message, ip, user_agent)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`
-    ).bind(name, phone, business, budget, message, ip, userAgent).run();
+      `INSERT INTO contacts (name, phone, business, budget, message, ip, user_agent, utm_source, utm_medium, utm_campaign, utm_content, lead_source, meta_lead_id)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    ).bind(name, phone, business, budget, message, ip, userAgent, utm_source, utm_medium, utm_campaign, utm_content, lead_source, meta_lead_id).run();
 
     // -------------------------------------------------------------
     // Send email notification via Resend (Isolated try/catch)
@@ -144,6 +152,16 @@ export async function onRequestPost(context) {
             <td class="label" style="vertical-align:top;">نص الرسالة:</td>
             <td class="val" style="line-height:1.6; white-space:pre-wrap;">${escapeHtml(message) || '—'}</td>
           </tr>
+          ${utm_campaign ? `
+          <tr>
+            <td class="label">الحملة الإعلانية:</td>
+            <td class="val">${escapeHtml(utm_campaign)} (${escapeHtml(utm_source || 'direct')})</td>
+          </tr>` : ''}
+          ${lead_source && lead_source !== 'website' ? `
+          <tr>
+            <td class="label">المصدر:</td>
+            <td class="val">${escapeHtml(lead_source)}</td>
+          </tr>` : ''}
         </table>
 
         <div class="btn-wrap">

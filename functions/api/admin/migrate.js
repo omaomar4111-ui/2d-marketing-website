@@ -39,7 +39,15 @@ export async function onRequest(context) {
     "ALTER TABLE contacts ADD COLUMN notes TEXT DEFAULT ''",
     "ALTER TABLE contacts ADD COLUMN starred INTEGER DEFAULT 0",
     "CREATE INDEX IF NOT EXISTS idx_contacts_status ON contacts(status)",
-    "CREATE INDEX IF NOT EXISTS idx_contacts_starred ON contacts(starred)"
+    "CREATE INDEX IF NOT EXISTS idx_contacts_starred ON contacts(starred)",
+    "ALTER TABLE contacts ADD COLUMN utm_source TEXT DEFAULT ''",
+    "ALTER TABLE contacts ADD COLUMN utm_medium TEXT DEFAULT ''",
+    "ALTER TABLE contacts ADD COLUMN utm_campaign TEXT DEFAULT ''",
+    "ALTER TABLE contacts ADD COLUMN utm_content TEXT DEFAULT ''",
+    "ALTER TABLE contacts ADD COLUMN lead_source TEXT DEFAULT 'website'",
+    "ALTER TABLE contacts ADD COLUMN meta_lead_id TEXT DEFAULT ''",
+    "CREATE INDEX IF NOT EXISTS idx_contacts_utm_campaign ON contacts(utm_campaign)",
+    "CREATE INDEX IF NOT EXISTS idx_contacts_lead_source ON contacts(lead_source)"
   ];
 
   for (const q of queries) {

@@ -43,6 +43,8 @@ export async function onRequestGet(context) {
     const starred = url.searchParams.get('starred');
     const search = (url.searchParams.get('search') || '').trim();
     const sort = (url.searchParams.get('sort') || 'date_desc').trim().toLowerCase();
+    const lead_source = (url.searchParams.get('lead_source') || '').trim();
+    const utm_campaign = (url.searchParams.get('utm_campaign') || '').trim();
 
     let query = 'SELECT * FROM contacts';
     const whereClauses = [];
@@ -61,11 +63,23 @@ export async function onRequestGet(context) {
       params.push(starVal);
     }
 
-    // Search filter (name, phone, business, message, notes)
+    // Filter by lead_source (website / meta_lead_ads)
+    if (lead_source) {
+      whereClauses.push("COALESCE(lead_source, 'website') = ?");
+      params.push(lead_source);
+    }
+
+    // Filter by utm_campaign
+    if (utm_campaign) {
+      whereClauses.push("utm_campaign = ?");
+      params.push(utm_campaign);
+    }
+
+    // Search filter (name, phone, business, message, notes, campaign)
     if (search) {
-      whereClauses.push('(name LIKE ? OR phone LIKE ? OR business LIKE ? OR message LIKE ? OR COALESCE(notes, "") LIKE ?)');
+      whereClauses.push('(name LIKE ? OR phone LIKE ? OR business LIKE ? OR message LIKE ? OR COALESCE(notes, "") LIKE ? OR COALESCE(utm_campaign, "") LIKE ?)');
       const term = `%${search}%`;
-      params.push(term, term, term, term, term);
+      params.push(term, term, term, term, term, term);
     }
 
     if (whereClauses.length > 0) {
@@ -91,7 +105,13 @@ export async function onRequestGet(context) {
       ...r,
       status: r.status || 'new',
       notes: r.notes || '',
-      starred: Number(r.starred || 0)
+      starred: Number(r.starred || 0),
+      lead_source: r.lead_source || 'website',
+      utm_campaign: r.utm_campaign || '',
+      utm_source: r.utm_source || '',
+      utm_medium: r.utm_medium || '',
+      utm_content: r.utm_content || '',
+      meta_lead_id: r.meta_lead_id || ''
     }));
 
     return new Response(JSON.stringify({

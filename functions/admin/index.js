@@ -501,6 +501,9 @@ export async function onRequestGet(context) {
     .badge-week  { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
     .badge-old   { background: rgba(107, 114, 128, 0.18); color: #9ca3af; border: 1px solid rgba(107, 114, 128, 0.35); }
 
+    .badge-source-meta { background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.35); }
+    .badge-source-web  { background: rgba(16, 185, 129, 0.14); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
     .cell-name-box {
       display: flex;
       align-items: center;
@@ -963,6 +966,14 @@ export async function onRequestGet(context) {
       <span>⭐ مميزة بنجمة:</span>
       <span class="summary-pill-count" id="countStatusStarred">0</span>
     </div>
+    <div class="summary-pill" style="background:rgba(59,130,246,0.12);color:#60a5fa;border-color:rgba(59,130,246,0.3)" onclick="quickFilterSource('meta_lead_ads')" title="تصفية حسب: Meta Lead Ads">
+      <span>📱 Meta Ads:</span>
+      <span class="summary-pill-count" id="countSourceMeta">0</span>
+    </div>
+    <div class="summary-pill" style="background:rgba(16,185,129,0.12);color:#34d399;border-color:rgba(16,185,129,0.3)" onclick="quickFilterSource('website')" title="تصفية حسب: الموقع">
+      <span>🌐 الموقع:</span>
+      <span class="summary-pill-count" id="countSourceWebsite">0</span>
+    </div>
   </div>
 
   <!-- Filter Bar -->
@@ -979,6 +990,16 @@ export async function onRequestGet(context) {
       <option value="contacted">🟡 تم التواصل</option>
       <option value="closed">⚪ مغلق</option>
     </select>
+
+    <!-- Source Dropdown -->
+    <select id="sourceFilter" class="filter-select" onchange="applyFilters()">
+      <option value="">كل المصادر</option>
+      <option value="website">🌐 الموقع</option>
+      <option value="meta_lead_ads">📱 Meta Ads</option>
+    </select>
+
+    <!-- Campaign Filter Input -->
+    <input type="text" id="campaignFilter" class="filter-select" placeholder="تصفية بالحملة..." style="width:130px" oninput="handleSearch()"/>
 
     <!-- Starred Filter Toggle -->
     <button type="button" id="starredToggleBtn" class="star-toggle-btn" onclick="toggleStarredFilter()">
@@ -1011,6 +1032,8 @@ export async function onRequestGet(context) {
             <th>التاريخ والوقت</th>
             <th>الاسم</th>
             <th>رقم الموبايل</th>
+            <th>المصدر</th>
+            <th>الحملة</th>
             <th>الحالة</th>
             <th>نوع النشاط</th>
             <th>الميزانية</th>
@@ -1019,7 +1042,7 @@ export async function onRequestGet(context) {
           </tr>
         </thead>
         <tbody id="tableBody">
-          <tr><td colspan="10" class="empty-state">جارٍ الاتصال بقاعدة البيانات...</td></tr>
+          <tr><td colspan="12" class="empty-state">جارٍ الاتصال بقاعدة البيانات...</td></tr>
         </tbody>
       </table>
     </div>
@@ -1132,6 +1155,13 @@ export async function onRequestGet(context) {
           document.getElementById('countStatusClosed').innerText = json.stats.by_status.closed || 0;
         }
         document.getElementById('countStatusStarred').innerText = json.stats.starred_count || 0;
+
+        if (json.stats.by_source) {
+          const webEl = document.getElementById('countSourceWebsite');
+          const metaEl = document.getElementById('countSourceMeta');
+          if (webEl) webEl.innerText = json.stats.by_source.website || 0;
+          if (metaEl) metaEl.innerText = json.stats.by_source.meta_lead_ads || 0;
+        }
       }
     } catch (e) {
       console.error('Failed to load stats:', e);
@@ -1142,11 +1172,15 @@ export async function onRequestGet(context) {
     try {
       const search = document.getElementById('searchInput').value.trim();
       const status = document.getElementById('statusFilter').value;
+      const source = document.getElementById('sourceFilter').value;
+      const campaign = document.getElementById('campaignFilter').value.trim();
       const sort = document.getElementById('sortFilter').value;
 
       const params = new URLSearchParams();
       if (search) params.set('search', search);
       if (status) params.set('status', status);
+      if (source) params.set('lead_source', source);
+      if (campaign) params.set('utm_campaign', campaign);
       if (onlyStarred) params.set('starred', '1');
       if (sort) params.set('sort', sort);
 
@@ -1176,7 +1210,7 @@ export async function onRequestGet(context) {
     } catch (e) {
       console.error('Failed to load messages:', e);
       if (!isAutoRefresh) {
-        document.getElementById('tableBody').innerHTML = '<tr><td colspan="10" class="empty-state" style="color:#ef4444">حدث خطأ أثناء تحميل الرسائل، يرجى المحاولة مجدداً.</td></tr>';
+        document.getElementById('tableBody').innerHTML = '<tr><td colspan="12" class="empty-state" style="color:#ef4444">حدث خطأ أثناء تحميل الرسائل، يرجى المحاولة مجدداً.</td></tr>';
       }
     }
   }
@@ -1187,7 +1221,7 @@ export async function onRequestGet(context) {
     counter.innerText = 'إجمالي المعروض: ' + list.length + ' رسالة';
 
     if (list.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="10" class="empty-state">لا توجد رسائل مطابقة لخيارات البحث أو الفلترة</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="12" class="empty-state">لا توجد رسائل مطابقة لخيارات البحث أو الفلترة</td></tr>';
       return;
     }
 
@@ -1199,6 +1233,15 @@ export async function onRequestGet(context) {
       const timeBadge = getRelativeBadge(m.created_at);
       const formattedDate = formatDate(m.created_at);
       const hasNotes = Boolean(m.notes && m.notes.trim().length > 0);
+
+      const isMeta = (m.lead_source === 'meta_lead_ads');
+      const sourceBadge = isMeta
+        ? '<span class="cell-badge badge-source-meta">📱 Meta Ads</span>'
+        : '<span class="cell-badge badge-source-web">🌐 الموقع</span>';
+
+      const campaignBadge = m.utm_campaign
+        ? '<span class="cell-badge" style="background:rgba(234,179,8,0.15);color:#fbbf24;border-color:rgba(234,179,8,0.3)" title="Source: ' + escapeHtml(m.utm_source || 'direct') + '">' + escapeHtml(m.utm_campaign) + '</span>'
+        : '<span style="color:#71717a">—</span>';
 
       const status = m.status || 'new';
       let statusLabel = '🟢 جديد';
@@ -1223,6 +1266,8 @@ export async function onRequestGet(context) {
         '    </div>',
         '  </td>',
         '  <td class="cell-phone"><a href="tel:' + escapeHtml(m.phone) + '" style="color:inherit;text-decoration:none">' + escapeHtml(m.phone) + '</a></td>',
+        '  <td>' + sourceBadge + '</td>',
+        '  <td>' + campaignBadge + '</td>',
         '  <td>',
         '    <div class="status-badge-wrap">',
         '      <span class="status-badge ' + statusClass + '" data-action="open-status-menu" data-id="' + m.id + '">' + statusLabel + ' ▾</span>',
@@ -1349,10 +1394,20 @@ export async function onRequestGet(context) {
   function resetFilters() {
     document.getElementById('searchInput').value = '';
     document.getElementById('statusFilter').value = '';
+    const srcEl = document.getElementById('sourceFilter');
+    if (srcEl) srcEl.value = '';
+    const campEl = document.getElementById('campaignFilter');
+    if (campEl) campEl.value = '';
     document.getElementById('sortFilter').value = 'date_desc';
     onlyStarred = false;
     document.getElementById('starredToggleBtn').classList.remove('active');
     fetchMessages();
+  }
+
+  function quickFilterSource(src) {
+    const srcEl = document.getElementById('sourceFilter');
+    if (srcEl) srcEl.value = src;
+    applyFilters();
   }
 
   // PATCH Helper
@@ -1595,12 +1650,14 @@ export async function onRequestGet(context) {
       return;
     }
 
-    const headers = ['المعرف (ID)', 'تاريخ الإرسال', 'الاسم', 'رقم الهاتف', 'الحالة', 'مميزة بنجمة', 'ملاحظات فريق العمل', 'نوع النشاط', 'الميزانية', 'الرسالة'];
+    const headers = ['المعرف (ID)', 'تاريخ الإرسال', 'الاسم', 'رقم الهاتف', 'المصدر', 'الحملة الإعلانية', 'الحالة', 'مميزة بنجمة', 'ملاحظات فريق العمل', 'نوع النشاط', 'الميزانية', 'الرسالة'];
     const rows = allMessages.map(m => [
       m.id,
       m.created_at || '',
       '"' + (m.name || '').replace(/"/g, '""') + '"',
       '"' + (m.phone || '').replace(/"/g, '""') + '"',
+      '"' + (m.lead_source === 'meta_lead_ads' ? 'Meta Ads' : 'الموقع').replace(/"/g, '""') + '"',
+      '"' + (m.utm_campaign || '').replace(/"/g, '""') + '"',
       '"' + (m.status || 'new').replace(/"/g, '""') + '"',
       m.starred ? 'نعم' : 'لا',
       '"' + (m.notes || '').replace(/"/g, '""') + '"',

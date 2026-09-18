@@ -82,6 +82,45 @@ export async function onRequestGet(context) {
       });
     }
 
+    // 3. Breakdown by lead_source
+    const by_source = { website: 0, meta_lead_ads: 0 };
+    try {
+      const sourceResults = await env.DB.prepare(`
+        SELECT COALESCE(NULLIF(lead_source, ''), 'website') AS source, COUNT(*) AS count
+        FROM contacts
+        GROUP BY COALESCE(NULLIF(lead_source, ''), 'website');
+      `).all();
+      if (sourceResults?.results) {
+        for (const s of sourceResults.results) {
+          const k = s.source === 'meta_lead_ads' ? 'meta_lead_ads' : 'website';
+          by_source[k] = (by_source[k] || 0) + Number(s.count || 0);
+        }
+      }
+    } catch (e) {
+      by_source.website = Number(row?.total || 0);
+    }
+
+    // 4. Breakdown by utm_campaign
+    let by_campaign = [];
+    try {
+      const campaignResults = await env.DB.prepare(`
+        SELECT utm_campaign AS name, COUNT(*) AS count
+        FROM contacts
+        WHERE utm_campaign IS NOT NULL AND utm_campaign != ''
+        GROUP BY utm_campaign
+        ORDER BY count DESC
+        LIMIT 20;
+      `).all();
+      if (campaignResults?.results) {
+        by_campaign = campaignResults.results.map(c => ({
+          name: c.name,
+          count: Number(c.count || 0)
+        }));
+      }
+    } catch (e) {
+      by_campaign = [];
+    }
+
     return new Response(JSON.stringify({
       success: true,
       stats: {
@@ -95,6 +134,8 @@ export async function onRequestGet(context) {
           closed: Number(row?.status_closed || 0)
         },
         starred_count: Number(row?.starred_count || 0),
+        by_source,
+        by_campaign,
         last_7_days
       }
     }), {
