@@ -103,27 +103,27 @@ export async function onRequestPost(context) {
 <head>
   <meta charset="UTF-8">
   <style>
-    body { margin: 0; padding: 0; background-color: #040000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #ffffff; }
-    .wrapper { max-width: 600px; margin: 0 auto; background-color: #0d0606; border: 1px solid #2a0b0b; border-radius: 12px; overflow: hidden; }
-    .header { background: linear-gradient(135deg, #180000 0%, #040000 100%); padding: 30px 24px; text-align: center; border-bottom: 2px solid #c00000; }
+    body { margin: 0; padding: 0; background-color: #0A0014; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #ffffff; }
+    .wrapper { max-width: 600px; margin: 0 auto; background-color: #14001F; border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 12px; overflow: hidden; }
+    .header { background: linear-gradient(135deg, #1A0827 0%, #0A0014 100%); padding: 30px 24px; text-align: center; border-bottom: 2px solid #8B5CF6; }
     .brand { font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; margin: 0; }
-    .badge { display: inline-block; background: rgba(192, 0, 0, 0.15); color: #ff4d4d; border: 1px solid #c00000; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 10px; }
+    .badge { display: inline-block; background: rgba(139, 92, 246, 0.15); color: #C4B5FD; border: 1px solid #8B5CF6; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 10px; }
     .content { padding: 28px 24px; }
     .intro { font-size: 16px; color: #d1d5db; margin-bottom: 24px; line-height: 1.6; }
-    .table-box { width: 100%; border-collapse: collapse; margin-bottom: 28px; background: #070202; border-radius: 8px; border: 1px solid #220808; overflow: hidden; }
-    .table-box td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid #1a0606; text-align: right; }
+    .table-box { width: 100%; border-collapse: collapse; margin-bottom: 28px; background: #100018; border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.20); overflow: hidden; }
+    .table-box td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid rgba(139, 92, 246, 0.12); text-align: right; }
     .table-box tr:last-child td { border-bottom: none; }
     .label { color: #9ca3af; font-weight: 600; width: 32%; }
     .val { color: #ffffff; font-weight: 500; }
     .val-highlight { color: #fbbf24; font-weight: 700; }
     .btn-wrap { text-align: center; margin: 30px 0 10px 0; }
-    .btn { display: inline-block; background-color: #c00000; color: #ffffff !important; text-decoration: none; padding: 14px 28px; font-size: 16px; font-weight: 700; border-radius: 8px; box-shadow: 0 4px 14px rgba(192, 0, 0, 0.4); }
+    .btn { display: inline-block; background: linear-gradient(135deg, #7C3AED, #8B5CF6); color: #ffffff !important; text-decoration: none; padding: 14px 28px; font-size: 16px; font-weight: 700; border-radius: 8px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4); }
     .meta { font-size: 13px; color: #6b7280; text-align: center; margin-top: 20px; }
-    .footer { background: #040000; padding: 20px; text-align: center; font-size: 12px; color: #52525b; border-top: 1px solid #1f0808; }
+    .footer { background: #0A0014; padding: 20px; text-align: center; font-size: 12px; color: #52525b; border-top: 1px solid rgba(139, 92, 246, 0.15); }
   </style>
 </head>
 <body dir="rtl">
-  <div style="padding: 20px 10px; background-color: #040000;">
+  <div style="padding: 20px 10px; background-color: #0A0014;">
     <div class="wrapper">
       <div class="header">
         <h1 class="brand">PR Agency</h1>

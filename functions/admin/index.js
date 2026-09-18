@@ -38,13 +38,13 @@ export async function onRequestGet(context) {
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #040000;
-      --card-bg: #0a0000;
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-hover: rgba(255, 255, 255, 0.03);
-      --red: #c00000;
-      --red-glow: rgba(192, 0, 0, 0.35);
-      --red-hover: #e00000;
+      --bg: #0A0014;
+      --card-bg: #14001F;
+      --card-border: rgba(139, 92, 246, 0.15);
+      --card-hover: rgba(139, 92, 246, 0.05);
+      --red: #8B5CF6;
+      --red-glow: rgba(139, 92, 246, 0.35);
+      --red-hover: #A855F7;
       --text: #ffffff;
       --text-muted: rgba(255, 255, 255, 0.65);
       --text-sub: rgba(255, 255, 255, 0.4);

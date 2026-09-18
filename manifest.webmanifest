@@ -4,8 +4,8 @@
   "description": "تسويق بيبيع",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#040000",
-  "theme_color": "#c00000",
+  "background_color": "#0A0014",
+  "theme_color": "#0A0014",
   "lang": "ar",
   "dir": "rtl",
   "icons": [
