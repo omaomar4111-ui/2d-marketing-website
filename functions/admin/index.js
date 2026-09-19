@@ -872,6 +872,184 @@ export async function onRequestGet(context) {
       font-size: 15px;
     }
 
+
+    /* ═══ CMS TABS ═══ */
+    .cms-tabs-nav {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+      overflow-x: auto;
+      padding-bottom: 0;
+    }
+    .cms-tab-btn {
+      padding: 10px 18px;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid transparent;
+      border-bottom: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      margin-bottom: -1px;
+    }
+    .cms-tab-btn:hover {
+      background: rgba(139,92,246,0.08);
+      color: #fff;
+    }
+    .cms-tab-btn.active {
+      background: var(--card-bg);
+      color: var(--red);
+      border-color: var(--card-border);
+      border-bottom-color: var(--card-bg);
+    }
+
+    .cms-tab-panel { display: none; }
+    .cms-tab-panel.active { display: block; }
+
+    /* CMS Form Styles */
+    .cms-section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .cms-section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .cms-field {
+      margin-bottom: 14px;
+    }
+    .cms-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .cms-input, .cms-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #fff;
+      font-family: var(--font);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .cms-input:focus, .cms-textarea:focus {
+      border-color: var(--red);
+    }
+    .cms-textarea { min-height: 80px; resize: vertical; }
+
+    .cms-save-btn {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 22px;
+      font-family: var(--font);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px var(--red-glow);
+    }
+    .cms-save-btn:hover { background: var(--red-hover); transform: translateY(-1px); }
+
+    /* CMS Table */
+    .cms-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .cms-table thead th {
+      background: rgba(255,255,255,0.03);
+      color: var(--text-muted);
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--card-border);
+      text-align: right;
+    }
+    .cms-table tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: middle;
+      color: #e5e5e5;
+    }
+    .cms-table tbody tr:hover { background: var(--card-hover); }
+
+    /* Color preview */
+    .color-preview {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+
+    /* Layout drag handles */
+    .layout-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+    }
+    .layout-row:hover { background: var(--card-hover); }
+    .layout-row-label { flex: 1; font-weight: 700; color: #fff; }
+    .layout-vis-toggle {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      color: #e5e5e5;
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .layout-vis-toggle.visible { background: rgba(139,92,246,0.15); color: var(--red); border-color: rgba(139,92,246,0.4); }
+
+    /* Modal input */
+    .modal-input {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #fff;
+      font-family: var(--font);
+      font-size: 14px;
+      outline: none;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+    .modal-input:focus { border-color: var(--red); }
+    .modal-field-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
     @media (max-width: 860px) {
       body { padding: 14px; }
       .brand-title { font-size: 18px; }
@@ -884,6 +1062,7 @@ export async function onRequestGet(context) {
   </style>
 </head>
 <body>
+
 
 <div class="container">
   <!-- Topbar -->
@@ -910,6 +1089,21 @@ export async function onRequestGet(context) {
       </button>
     </div>
   </header>
+
+  <!-- ═══ CMS Tab Navigation ═══ -->
+  <nav class="cms-tabs-nav">
+    <button class="cms-tab-btn active" onclick="switchTab('messages')">📨 الرسائل</button>
+    <button class="cms-tab-btn" onclick="switchTab('content')">📝 المحتوى</button>
+    <button class="cms-tab-btn" onclick="switchTab('clients')">👥 العملاء</button>
+    <button class="cms-tab-btn" onclick="switchTab('team')">👤 الفريق</button>
+    <button class="cms-tab-btn" onclick="switchTab('theme')">🎨 الثيم</button>
+    <button class="cms-tab-btn" onclick="switchTab('layout')">📐 الترتيب</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- TAB: MESSAGES (existing content)   -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cms-tab-panel active" id="panel-messages">
 
   <!-- Stats Grid -->
   <section class="stats-grid">
@@ -1045,6 +1239,169 @@ export async function onRequestGet(context) {
           <tr><td colspan="12" class="empty-state">جارٍ الاتصال بقاعدة البيانات...</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  </div><!-- end #panel-messages -->
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- TAB: CONTENT                        -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cms-tab-panel" id="panel-content">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <h2 style="font-size:18px;font-weight:800;color:#fff">📝 محتوى الموقع</h2>
+      <button class="cms-save-btn" onclick="saveAllContent()">💾 حفظ كل التغييرات</button>
+    </div>
+
+    <div class="cms-section-card">
+      <div class="cms-section-title">Hero — الصفحة الرئيسية</div>
+      <div class="cms-field"><label class="cms-label">العنوان الرئيسي</label><input class="cms-input" id="c-hero-title" placeholder="YOUR BRAND'S CREATIVE PARTNER"/></div>
+      <div class="cms-field"><label class="cms-label">العنوان الفرعي</label><input class="cms-input" id="c-hero-subtitle" placeholder="وكالة تسويق رقمي متكاملة..."/></div>
+      <div class="cms-field"><label class="cms-label">نص الزر</label><input class="cms-input" id="c-hero-cta" placeholder="ابدأ معنا الآن"/></div>
+    </div>
+
+    <div class="cms-section-card">
+      <div class="cms-section-title">About — من نحن</div>
+      <div class="cms-field"><label class="cms-label">العنوان</label><input class="cms-input" id="c-about-title" placeholder="من نحن"/></div>
+      <div class="cms-field"><label class="cms-label">الوصف</label><textarea class="cms-textarea" id="c-about-description" placeholder="وكالة تسويق رقمي..."></textarea></div>
+    </div>
+
+    <div class="cms-section-card">
+      <div class="cms-section-title">Services — الخدمات</div>
+      <div class="cms-field"><label class="cms-label">عنوان القسم</label><input class="cms-input" id="c-services-title" placeholder="خدماتنا"/></div>
+      <div class="cms-field"><label class="cms-label">وصف القسم</label><textarea class="cms-textarea" id="c-services-description" placeholder="نقدم خدمات..."></textarea></div>
+    </div>
+
+    <div class="cms-section-card">
+      <div class="cms-section-title">Contact — تواصل معنا</div>
+      <div class="cms-field"><label class="cms-label">العنوان</label><input class="cms-input" id="c-contact-title" placeholder="تواصل معنا"/></div>
+      <div class="cms-field"><label class="cms-label">البريد الإلكتروني</label><input class="cms-input" id="c-contact-email" placeholder="info@example.com"/></div>
+      <div class="cms-field"><label class="cms-label">رقم الواتساب</label><input class="cms-input" id="c-contact-whatsapp" placeholder="+201234567890"/></div>
+    </div>
+  </div><!-- end #panel-content -->
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- TAB: CLIENTS                        -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cms-tab-panel" id="panel-clients">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <h2 style="font-size:18px;font-weight:800;color:#fff">👥 إدارة العملاء</h2>
+      <button class="cms-save-btn" onclick="openClientModal()">➕ إضافة عميل</button>
+    </div>
+    <div class="cms-section-card">
+      <div style="overflow-x:auto">
+        <table class="cms-table">
+          <thead><tr>
+            <th>#</th><th>الاسم</th><th>اللوجو</th><th>الموقع</th><th>الترتيب</th><th>الحالة</th><th>إجراءات</th>
+          </tr></thead>
+          <tbody id="clientsTableBody"><tr><td colspan="7" class="empty-state">جارٍ التحميل...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- end #panel-clients -->
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- TAB: TEAM                           -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cms-tab-panel" id="panel-team">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <h2 style="font-size:18px;font-weight:800;color:#fff">👤 إدارة الفريق</h2>
+      <button class="cms-save-btn" onclick="openTeamModal()">➕ إضافة عضو</button>
+    </div>
+    <div class="cms-section-card">
+      <div style="overflow-x:auto">
+        <table class="cms-table">
+          <thead><tr>
+            <th>#</th><th>الاسم</th><th>المنصب</th><th>الصورة</th><th>لينكدإن</th><th>الترتيب</th><th>الحالة</th><th>إجراءات</th>
+          </tr></thead>
+          <tbody id="teamTableBody"><tr><td colspan="8" class="empty-state">جارٍ التحميل...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- end #panel-team -->
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- TAB: THEME                          -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cms-tab-panel" id="panel-theme">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <h2 style="font-size:18px;font-weight:800;color:#fff">🎨 إعدادات الثيم</h2>
+      <button class="cms-save-btn" onclick="saveTheme()">💾 حفظ الثيم</button>
+    </div>
+    <div class="cms-section-card">
+      <div class="cms-section-title">الألوان</div>
+      <div id="themeFields">
+        <p style="color:var(--text-muted)">جارٍ تحميل إعدادات الثيم...</p>
+      </div>
+    </div>
+    <div class="cms-section-card">
+      <div class="cms-section-title">معاينة مباشرة</div>
+      <div id="themePreview" style="padding:20px;border-radius:10px;background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(10,6,18,0.95));text-align:center">
+        <p style="color:#fff;font-weight:800;font-size:18px">YOUR BRAND'S CREATIVE PARTNER</p>
+        <button style="margin-top:12px;padding:10px 24px;border-radius:8px;border:none;font-weight:800;cursor:pointer;font-size:14px" id="previewBtn">ابدأ معنا الآن</button>
+      </div>
+    </div>
+  </div><!-- end #panel-theme -->
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- TAB: LAYOUT                         -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cms-tab-panel" id="panel-layout">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <h2 style="font-size:18px;font-weight:800;color:#fff">📐 ترتيب الأقسام</h2>
+      <button class="cms-save-btn" onclick="saveLayout()">💾 حفظ الترتيب</button>
+    </div>
+    <div class="cms-section-card">
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">استخدم السهمين لتغيير ترتيب الأقسام، أو أخفِ قسمًا مؤقتًا.</p>
+      <div id="layoutRows">
+        <p style="color:var(--text-muted)">جارٍ تحميل الترتيب...</p>
+      </div>
+    </div>
+  </div><!-- end #panel-layout -->
+
+</div><!-- end .container -->
+
+
+<!-- Client Add/Edit Modal -->
+<div class="modal-overlay" id="clientModal">
+  <div class="modal-card" style="max-width:520px">
+    <h3 class="modal-title"><span>👥</span><span id="clientModalTitle">إضافة عميل جديد</span></h3>
+    <input type="hidden" id="clientModalId"/>
+    <label class="modal-field-label">اسم العميل *</label>
+    <input type="text" class="modal-input" id="clientName" placeholder="مثال: شركة ABC"/>
+    <label class="modal-field-label">رابط اللوجو (URL) *</label>
+    <input type="text" class="modal-input" id="clientLogoUrl" placeholder="https://example.com/logo.webp"/>
+    <label class="modal-field-label">رابط الموقع</label>
+    <input type="text" class="modal-input" id="clientWebsite" placeholder="https://example.com"/>
+    <label class="modal-field-label">الترتيب</label>
+    <input type="number" class="modal-input" id="clientOrder" value="0" placeholder="0"/>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeClientModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="saveClient()">💾 حفظ</button>
+    </div>
+  </div>
+</div>
+
+<!-- Team Add/Edit Modal -->
+<div class="modal-overlay" id="teamModal">
+  <div class="modal-card" style="max-width:520px">
+    <h3 class="modal-title"><span>👤</span><span id="teamModalTitle">إضافة عضو فريق</span></h3>
+    <input type="hidden" id="teamModalId"/>
+    <label class="modal-field-label">الاسم *</label>
+    <input type="text" class="modal-input" id="teamName" placeholder="مثال: أحمد محمد"/>
+    <label class="modal-field-label">المنصب *</label>
+    <input type="text" class="modal-input" id="teamRole" placeholder="مثال: مدير التسويق"/>
+    <label class="modal-field-label">نبذة مختصرة</label>
+    <textarea class="modal-textarea" id="teamBio" placeholder="نبذة..."></textarea>
+    <label class="modal-field-label">رابط الصورة</label>
+    <input type="text" class="modal-input" id="teamPhoto" placeholder="https://example.com/photo.jpg"/>
+    <label class="modal-field-label">رابط لينكدإن</label>
+    <input type="text" class="modal-input" id="teamLinkedin" placeholder="https://linkedin.com/in/..."/>
+    <label class="modal-field-label">الترتيب</label>
+    <input type="number" class="modal-input" id="teamOrder" value="0"/>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeTeamModal()">إلغاء</button>
+      <button class="btn btn-primary" onclick="saveTeamMember()">💾 حفظ</button>
     </div>
   </div>
 </div>
@@ -1700,7 +2057,378 @@ export async function onRequestGet(context) {
   // Initial Load
   initSoundUI();
   loadAll();
+
+  // ═══════════════════════════════════════════════
+  // CMS TAB SWITCHING
+  // ═══════════════════════════════════════════════
+  const CMS_TABS = ['messages','content','clients','team','theme','layout'];
+  function switchTab(name) {
+    CMS_TABS.forEach(t => {
+      document.getElementById('panel-' + t).classList.toggle('active', t === name);
+    });
+    document.querySelectorAll('.cms-tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', CMS_TABS[i] === name);
+    });
+    // lazy load on first open
+    if (name === 'content') fetchCmsContent();
+    if (name === 'clients') fetchCmsClients();
+    if (name === 'team') fetchCmsTeam();
+    if (name === 'theme') fetchCmsTheme();
+    if (name === 'layout') fetchCmsLayout();
+  }
+
+  // ═══════════════════════════════════════════════
+  // AUTH HEADER
+  // ═══════════════════════════════════════════════
+  function cmsAuth() {
+    return { 'Authorization': 'Basic ' + btoa(':pr2026'), 'Content-Type': 'application/json' };
+  }
+
+  // ═══════════════════════════════════════════════
+  // CONTENT TAB
+  // ═══════════════════════════════════════════════
+  let _contentLoaded = false;
+  async function fetchCmsContent() {
+    if (_contentLoaded) return;
+    try {
+      const res = await fetch('/api/admin/content', { headers: cmsAuth() });
+      const json = await res.json();
+      if (!json.success) return;
+      const d = json.data;
+      const set = (id, sec, key) => {
+        const el = document.getElementById(id);
+        if (el && d[sec] && d[sec][key]) el.value = d[sec][key];
+      };
+      set('c-hero-title', 'hero', 'title');
+      set('c-hero-subtitle', 'hero', 'subtitle');
+      set('c-hero-cta', 'hero', 'cta');
+      set('c-about-title', 'about', 'title');
+      set('c-about-description', 'about', 'description');
+      set('c-services-title', 'services', 'title');
+      set('c-services-description', 'services', 'description');
+      set('c-contact-title', 'contact', 'title');
+      set('c-contact-email', 'contact', 'email');
+      set('c-contact-whatsapp', 'contact', 'whatsapp');
+      _contentLoaded = true;
+    } catch(e) { showToast('خطأ في تحميل المحتوى'); }
+  }
+
+  async function saveAllContent() {
+    const fields = [
+      ['c-hero-title','hero','title'],['c-hero-subtitle','hero','subtitle'],['c-hero-cta','hero','cta'],
+      ['c-about-title','about','title'],['c-about-description','about','description'],
+      ['c-services-title','services','title'],['c-services-description','services','description'],
+      ['c-contact-title','contact','title'],['c-contact-email','contact','email'],['c-contact-whatsapp','contact','whatsapp']
+    ];
+    try {
+      for (const [id, section, key] of fields) {
+        const el = document.getElementById(id);
+        if (!el || !el.value.trim()) continue;
+        await fetch('/api/admin/content', {
+          method: 'PUT',
+          headers: cmsAuth(),
+          body: JSON.stringify({ section, key, value: el.value.trim() })
+        });
+      }
+      showToast('✅ تم حفظ المحتوى بنجاح!');
+    } catch(e) { showToast('❌ خطأ: ' + e.message); }
+  }
+
+  // ═══════════════════════════════════════════════
+  // CLIENTS TAB
+  // ═══════════════════════════════════════════════
+  let cmsClients = [];
+  let _clientsLoaded = false;
+  async function fetchCmsClients() {
+    try {
+      const res = await fetch('/api/admin/clients', { headers: cmsAuth() });
+      const json = await res.json();
+      if (!json.success) return;
+      cmsClients = json.data || [];
+      renderClientsTable();
+      _clientsLoaded = true;
+    } catch(e) { showToast('خطأ في تحميل العملاء'); }
+  }
+
+  function renderClientsTable() {
+    const tb = document.getElementById('clientsTableBody');
+    if (!cmsClients.length) {
+      tb.innerHTML = '<tr><td colspan="7" class="empty-state">لا يوجد عملاء — أضف أول عميل!</td></tr>';
+      return;
+    }
+    tb.innerHTML = cmsClients.map(c => \`
+      <tr>
+        <td style="color:var(--text-sub);font-family:monospace">\${c.id}</td>
+        <td style="font-weight:700;color:#fff">\${c.name}</td>
+        <td><img src="\${c.logo_url}" alt="\${c.name}" style="height:32px;max-width:80px;object-fit:contain;border-radius:4px" onerror="this.style.display='none'"/></td>
+        <td><a href="\${c.website_url||'#'}" target="_blank" style="color:#60a5fa;font-size:12px">\${c.website_url||'—'}</a></td>
+        <td>\${c.order_index}</td>
+        <td><span style="padding:3px 9px;border-radius:99px;font-size:12px;font-weight:700;\${c.is_active?'background:rgba(16,185,129,0.15);color:#34d399':'background:rgba(107,114,128,0.15);color:#9ca3af'}">\${c.is_active?'نشط':'مخفي'}</span></td>
+        <td>
+          <div style="display:flex;gap:6px">
+            <button class="act-btn act-note" onclick="editClient(\${c.id})">✏️</button>
+            <button class="act-btn act-del" onclick="deleteClient(\${c.id})">🗑️</button>
+          </div>
+        </td>
+      </tr>\`).join('');
+  }
+
+  function openClientModal(id) {
+    document.getElementById('clientModalId').value = '';
+    document.getElementById('clientModalTitle').textContent = 'إضافة عميل جديد';
+    document.getElementById('clientName').value = '';
+    document.getElementById('clientLogoUrl').value = '';
+    document.getElementById('clientWebsite').value = '';
+    document.getElementById('clientOrder').value = 0;
+    document.getElementById('clientModal').classList.add('open');
+  }
+
+  function editClient(id) {
+    const c = cmsClients.find(x => x.id === id);
+    if (!c) return;
+    document.getElementById('clientModalId').value = id;
+    document.getElementById('clientModalTitle').textContent = 'تعديل بيانات العميل';
+    document.getElementById('clientName').value = c.name || '';
+    document.getElementById('clientLogoUrl').value = c.logo_url || '';
+    document.getElementById('clientWebsite').value = c.website_url || '';
+    document.getElementById('clientOrder').value = c.order_index || 0;
+    document.getElementById('clientModal').classList.add('open');
+  }
+
+  function closeClientModal() { document.getElementById('clientModal').classList.remove('open'); }
+
+  async function saveClient() {
+    const id = document.getElementById('clientModalId').value;
+    const body = {
+      name: document.getElementById('clientName').value.trim(),
+      logo_url: document.getElementById('clientLogoUrl').value.trim(),
+      website_url: document.getElementById('clientWebsite').value.trim(),
+      order_index: parseInt(document.getElementById('clientOrder').value) || 0
+    };
+    if (!body.name || !body.logo_url) { showToast('⚠️ الاسم والرابط مطلوبان'); return; }
+    try {
+      const url = id ? '/api/admin/clients?id=' + id : '/api/admin/clients';
+      const method = id ? 'PUT' : 'POST';
+      const res = await fetch(url, { method, headers: cmsAuth(), body: JSON.stringify(body) });
+      const json = await res.json();
+      if (json.success) { closeClientModal(); _clientsLoaded = false; fetchCmsClients(); showToast('✅ تم الحفظ!'); }
+      else showToast('❌ ' + json.error);
+    } catch(e) { showToast('❌ ' + e.message); }
+  }
+
+  async function deleteClient(id) {
+    if (!confirm('هل تريد حذف هذا العميل نهائياً؟')) return;
+    try {
+      await fetch('/api/admin/clients?id=' + id, { method: 'DELETE', headers: cmsAuth() });
+      _clientsLoaded = false; fetchCmsClients(); showToast('🗑️ تم الحذف');
+    } catch(e) { showToast('❌ ' + e.message); }
+  }
+
+  // ═══════════════════════════════════════════════
+  // TEAM TAB
+  // ═══════════════════════════════════════════════
+  let cmsTeam = [];
+  async function fetchCmsTeam() {
+    try {
+      const res = await fetch('/api/admin/team', { headers: cmsAuth() });
+      const json = await res.json();
+      if (!json.success) return;
+      cmsTeam = json.data || [];
+      renderTeamTable();
+    } catch(e) { showToast('خطأ في تحميل الفريق'); }
+  }
+
+  function renderTeamTable() {
+    const tb = document.getElementById('teamTableBody');
+    if (!cmsTeam.length) {
+      tb.innerHTML = '<tr><td colspan="8" class="empty-state">لا يوجد أعضاء — أضف أول عضو!</td></tr>';
+      return;
+    }
+    tb.innerHTML = cmsTeam.map(m => \`
+      <tr>
+        <td style="color:var(--text-sub);font-family:monospace">\${m.id}</td>
+        <td style="font-weight:700;color:#fff">\${m.name}</td>
+        <td style="color:var(--text-muted)">\${m.role}</td>
+        <td>\${m.photo_url?'<img src="'+m.photo_url+'" style="width:36px;height:36px;border-radius:50%;object-fit:cover" onerror="this.style.display=\'none\'"/>':'—'}</td>
+        <td>\${m.linkedin_url?'<a href="'+m.linkedin_url+'" target="_blank" style="color:#60a5fa;font-size:12px">🔗</a>':'—'}</td>
+        <td>\${m.order_index}</td>
+        <td><span style="padding:3px 9px;border-radius:99px;font-size:12px;font-weight:700;\${m.is_active?'background:rgba(16,185,129,0.15);color:#34d399':'background:rgba(107,114,128,0.15);color:#9ca3af'}">\${m.is_active?'نشط':'مخفي'}</span></td>
+        <td>
+          <div style="display:flex;gap:6px">
+            <button class="act-btn act-note" onclick="editTeamMember(\${m.id})">✏️</button>
+            <button class="act-btn act-del" onclick="deleteTeamMember(\${m.id})">🗑️</button>
+          </div>
+        </td>
+      </tr>\`).join('');
+  }
+
+  function openTeamModal() {
+    document.getElementById('teamModalId').value = '';
+    document.getElementById('teamModalTitle').textContent = 'إضافة عضو فريق';
+    ['teamName','teamRole','teamBio','teamPhoto','teamLinkedin'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('teamOrder').value = 0;
+    document.getElementById('teamModal').classList.add('open');
+  }
+
+  function editTeamMember(id) {
+    const m = cmsTeam.find(x => x.id === id);
+    if (!m) return;
+    document.getElementById('teamModalId').value = id;
+    document.getElementById('teamModalTitle').textContent = 'تعديل بيانات العضو';
+    document.getElementById('teamName').value = m.name || '';
+    document.getElementById('teamRole').value = m.role || '';
+    document.getElementById('teamBio').value = m.bio || '';
+    document.getElementById('teamPhoto').value = m.photo_url || '';
+    document.getElementById('teamLinkedin').value = m.linkedin_url || '';
+    document.getElementById('teamOrder').value = m.order_index || 0;
+    document.getElementById('teamModal').classList.add('open');
+  }
+
+  function closeTeamModal() { document.getElementById('teamModal').classList.remove('open'); }
+
+  async function saveTeamMember() {
+    const id = document.getElementById('teamModalId').value;
+    const body = {
+      name: document.getElementById('teamName').value.trim(),
+      role: document.getElementById('teamRole').value.trim(),
+      bio: document.getElementById('teamBio').value.trim(),
+      photo_url: document.getElementById('teamPhoto').value.trim(),
+      linkedin_url: document.getElementById('teamLinkedin').value.trim(),
+      order_index: parseInt(document.getElementById('teamOrder').value) || 0
+    };
+    if (!body.name || !body.role) { showToast('⚠️ الاسم والمنصب مطلوبان'); return; }
+    try {
+      const url = id ? '/api/admin/team?id=' + id : '/api/admin/team';
+      const method = id ? 'PUT' : 'POST';
+      const res = await fetch(url, { method, headers: cmsAuth(), body: JSON.stringify(body) });
+      const json = await res.json();
+      if (json.success) { closeTeamModal(); fetchCmsTeam(); showToast('✅ تم الحفظ!'); }
+      else showToast('❌ ' + json.error);
+    } catch(e) { showToast('❌ ' + e.message); }
+  }
+
+  async function deleteTeamMember(id) {
+    if (!confirm('هل تريد حذف هذا العضو نهائياً؟')) return;
+    try {
+      await fetch('/api/admin/team?id=' + id, { method: 'DELETE', headers: cmsAuth() });
+      fetchCmsTeam(); showToast('🗑️ تم الحذف');
+    } catch(e) { showToast('❌ ' + e.message); }
+  }
+
+  // ═══════════════════════════════════════════════
+  // THEME TAB
+  // ═══════════════════════════════════════════════
+  let cmsThemeData = [];
+  async function fetchCmsTheme() {
+    try {
+      const res = await fetch('/api/admin/theme', { headers: cmsAuth() });
+      const json = await res.json();
+      if (!json.success) return;
+      cmsThemeData = json.data || [];
+      renderThemeFields();
+    } catch(e) { showToast('خطأ في تحميل الثيم'); }
+  }
+
+  function renderThemeFields() {
+    const container = document.getElementById('themeFields');
+    if (!cmsThemeData.length) { container.innerHTML = '<p style="color:var(--text-muted)">لا توجد بيانات ثيم في D1 — تأكد من تشغيل SQL.</p>'; return; }
+    container.innerHTML = cmsThemeData.map(item => \`
+      <div class="cms-field" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <label class="cms-label" style="min-width:160px;margin:0">\${item.label || item.key}</label>
+        <input type="color" value="\${item.value||'#8B5CF6'}" id="theme-\${item.key}" onchange="updateThemePreview('\${item.key}',this.value)" style="width:48px;height:36px;border:none;border-radius:6px;cursor:pointer;background:transparent"/>
+        <input type="text" class="cms-input" value="\${item.value||''}" id="theme-txt-\${item.key}" oninput="syncColorPicker('\${item.key}',this.value)" style="max-width:140px"/>
+        <span class="color-preview" id="theme-prev-\${item.key}" style="background:\${item.value||'#8B5CF6'}"></span>
+      </div>\`).join('');
+  }
+
+  function syncColorPicker(key, val) {
+    const picker = document.getElementById('theme-' + key);
+    const prev = document.getElementById('theme-prev-' + key);
+    if (picker && val.match(/^#[0-9a-fA-F]{6}$/)) { picker.value = val; }
+    if (prev) prev.style.background = val;
+    updateThemePreview(key, val);
+  }
+
+  function updateThemePreview(key, val) {
+    const txt = document.getElementById('theme-txt-' + key);
+    const prev = document.getElementById('theme-prev-' + key);
+    if (txt) txt.value = val;
+    if (prev) prev.style.background = val;
+    // live preview button color
+    if (key === 'primary_color') {
+      const btn = document.getElementById('previewBtn');
+      if (btn) btn.style.background = val;
+    }
+  }
+
+  async function saveTheme() {
+    try {
+      for (const item of cmsThemeData) {
+        const txtEl = document.getElementById('theme-txt-' + item.key);
+        if (!txtEl) continue;
+        await fetch('/api/admin/theme', {
+          method: 'PUT', headers: cmsAuth(),
+          body: JSON.stringify({ key: item.key, value: txtEl.value.trim() })
+        });
+      }
+      showToast('✅ تم حفظ الثيم!');
+    } catch(e) { showToast('❌ ' + e.message); }
+  }
+
+  // ═══════════════════════════════════════════════
+  // LAYOUT TAB
+  // ═══════════════════════════════════════════════
+  let cmsLayout = [];
+  async function fetchCmsLayout() {
+    try {
+      const res = await fetch('/api/admin/layout', { headers: cmsAuth() });
+      const json = await res.json();
+      if (!json.success) return;
+      cmsLayout = json.data || [];
+      renderLayoutRows();
+    } catch(e) { showToast('خطأ في تحميل الترتيب'); }
+  }
+
+  function renderLayoutRows() {
+    const container = document.getElementById('layoutRows');
+    if (!cmsLayout.length) { container.innerHTML = '<p style="color:var(--text-muted)">لا توجد بيانات layout — تأكد من تشغيل SQL.</p>'; return; }
+    container.innerHTML = cmsLayout.map((s, i) => \`
+      <div class="layout-row">
+        <span style="color:var(--text-sub);font-weight:800;min-width:24px">\${s.order_index}</span>
+        <span class="layout-row-label">\${s.label}</span>
+        <button onclick="moveLayout(\${i},-1)" \${i===0?'disabled':''} style="padding:4px 10px;border-radius:6px;border:1px solid var(--card-border);background:rgba(255,255,255,0.04);color:#fff;cursor:pointer">▲</button>
+        <button onclick="moveLayout(\${i},1)" \${i===cmsLayout.length-1?'disabled':''} style="padding:4px 10px;border-radius:6px;border:1px solid var(--card-border);background:rgba(255,255,255,0.04);color:#fff;cursor:pointer">▼</button>
+        <button class="layout-vis-toggle \${s.is_visible?'visible':''}" onclick="toggleLayoutVis(\${i})">\${s.is_visible?'👁️ ظاهر':'🙈 مخفي'}</button>
+      </div>\`).join('');
+  }
+
+  function moveLayout(idx, dir) {
+    const newIdx = idx + dir;
+    if (newIdx < 0 || newIdx >= cmsLayout.length) return;
+    [cmsLayout[idx], cmsLayout[newIdx]] = [cmsLayout[newIdx], cmsLayout[idx]];
+    cmsLayout.forEach((s,i) => s.order_index = i + 1);
+    renderLayoutRows();
+  }
+
+  function toggleLayoutVis(idx) {
+    cmsLayout[idx].is_visible = cmsLayout[idx].is_visible ? 0 : 1;
+    renderLayoutRows();
+  }
+
+  async function saveLayout() {
+    try {
+      for (const s of cmsLayout) {
+        await fetch('/api/admin/layout', {
+          method: 'PUT', headers: cmsAuth(),
+          body: JSON.stringify({ section_id: s.section_id, order_index: s.order_index, is_visible: s.is_visible })
+        });
+      }
+      showToast('✅ تم حفظ الترتيب!');
+    } catch(e) { showToast('❌ ' + e.message); }
+  }
+
 </script>
+
 
 </body>
 </html>`;

@@ -1,9 +1,17 @@
 /* ══════════════════════════════════════════════════════════════
    HERO — مطابق VR Agency
 ══════════════════════════════════════════════════════════════ */
-.hero-vr {
+.hero-vr,
+#hero {
   position: relative;
-  background: var(--c-black);
+  background: 
+    radial-gradient(
+      ellipse 50% 60% at 30% 50%,
+      rgba(139, 92, 246, 0.20) 0%,
+      rgba(109, 40, 217, 0.08) 40%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, #0A0612 0%, #150A24 50%, #0A0612 100%);
   min-height: 100vh;
   padding: clamp(100px, 14vh, 150px) var(--section-x) 0;
   display: flex;
@@ -40,6 +48,8 @@
 
 /* ═══ النص ═══ */
 .hero-vr-text {
+  position: relative;
+  z-index: 5;
   max-width: 100%;
   text-align: right;
 }
@@ -108,36 +118,85 @@
   transform: translateX(-4px);
 }
 
-/* ═══ اللوجو الضخم ═══ */
 .hero-vr-logo-wrap {
   position: relative;
+  width: 100%;
+  max-width: 900px;
+  min-height: 620px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  justify-content: flex-start;
+  isolation: isolate;
+  padding-left: 20px;
+  direction: ltr;
 }
 
-.hero-vr-logo-img {
+/* ═══ التمثال ═══ */
+.hero-statue-layer {
+  position: absolute;
+  top: 70%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-statue-layer img {
   width: 100%;
-  max-width: 480px;
   height: auto;
-  object-fit: contain;
   display: block;
-  filter: drop-shadow(0 20px 50px rgba(124, 58, 237, 0.35));
-  animation: heroLogoFloat 7s ease-in-out infinite;
-  will-change: transform;
+  mix-blend-mode: screen;
 }
 
-@keyframes heroLogoFloat {
-  0%, 100% { 
-    transform: translateY(0);
-  }
-  50% { 
-    transform: translateY(-12px);
-  }
+/* PR Logo على الصدر */
+.hero-brand-lockup {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  margin-left: 90px;
+  margin-top: -80px;           /* ← نقلل من 20px لـ -80px (يرتفع) */
+  /* أو استخدم transform */
+  transform: translateY(-40px);
 }
 
+.hero-logo-layer {
+  flex-shrink: 0;
+  width: 420px;                 /* ← أكبر */
+  max-width: 420px;
+}
+
+.hero-logo-layer img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: 
+    drop-shadow(0 0 20px rgba(168, 85, 247, 0.4))
+    drop-shadow(0 0 40px rgba(139, 92, 246, 0.2));
+}
+
+.hero-tagline-layer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Cairo', sans-serif;
+  font-size: clamp(11px, 1.1vw, 14px);
+  font-weight: 500;
+  letter-spacing: 5px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  padding-left: 24px;
+  border-left: 2px solid rgba(168, 85, 247, 0.5);
+  text-shadow: none;
+  white-space: nowrap;
+}
+
+/* ═══ Responsive ═══ */
 @media (max-width: 1024px) {
   .hero-vr {
     padding: 100px var(--sp-5) 0;
@@ -154,18 +213,49 @@
     order: 2; 
   }
   .hero-vr-sub { margin-left: auto; margin-right: auto; }
-  .hero-vr-logo-wrap { 
-    order: 1; 
+  .hero-vr-logo-wrap {
+    order: 1;
     margin: 0 auto;
+    max-width: 600px;
+    min-height: 480px;
+    padding-left: 0;
+    justify-content: center;
   }
-  .hero-vr-logo-img { max-width: 300px; }
+  .hero-statue-layer {
+    left: 50%;
+    width: 130%;
+    max-width: 800px;
+  }
+  .hero-brand-lockup {
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 0;
+    margin-top: 60px;
+  }
+  .hero-logo-layer { width: 280px; max-width: 280px; }
+  .hero-tagline-layer {
+    padding-left: 0;
+    border-left: none;
+    text-align: center;
+    font-size: 12px;
+  }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .hero-vr { padding: 80px var(--sp-4) 0; }
   .hero-vr-title { font-size: 30px; }
   .hero-vr-title-small { font-size: 18px; }
-  .hero-vr-logo-img { max-width: 220px; }
+  .hero-vr-logo-wrap {
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+  }
+  .hero-statue-layer {
+    width: 120%;
+    max-width: 500px;
+  }
+  .hero-logo-layer { width: 220px; max-width: 220px; }
+  .hero-tagline-layer { font-size: 10px; letter-spacing: 3px; }
 }
 
 

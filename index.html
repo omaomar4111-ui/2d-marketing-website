@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl" class="no-js">
 <head>
 <meta charset="UTF-8"/>
@@ -67,7 +67,7 @@ window.dataLayer = window.dataLayer || [];
 <link rel="preconnect" href="https://connect.facebook.net"/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="css/main.css?v=18"/>
-<link rel="stylesheet" href="css/pages.css?v=27"/>
+<link rel="stylesheet" href="css/pages.css?v=41"/>
 
 
 <!-- Favicons -->
@@ -240,12 +240,36 @@ src="https://www.facebook.com/tr?id=1510619060791532&ev=PageView&noscript=1"
       </a>
     </div>
     
-    <!-- عمود اللوجو الضخم -->
+    <!-- عمود اللوجو + التمثال + Tagline -->
     <div class="hero-vr-logo-wrap">
-      <img src="assets/logos/pr-agency.webp" 
-           alt="PR Agency" 
-           class="hero-vr-logo-img" 
-           onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color:#7C3AED;font-size:120px;font-weight:900;font-family:Arial;\'>PR</div>';" />
+      
+      <!-- التمثال في الخلف -->
+      <div class="hero-statue-layer" aria-hidden="true">
+        <img 
+          src="assets/images/hero-statue.webp" 
+          alt=""
+          loading="eager"
+          width="1400" 
+          height="1400"
+        />
+      </div>
+      
+      <!-- PR Logo + Tagline (صف أفقي) -->
+      <div class="hero-brand-lockup">
+        <div class="hero-logo-layer">
+          <img 
+            src="assets/logos/pr-agency.webp" 
+            alt="PR Agency" 
+            width="400" 
+            height="400"
+          />
+        </div>
+        <div class="hero-tagline-layer">
+          <span>YOUR BRAND'S</span>
+          <span>CREATIVE PARTNER</span>
+        </div>
+      </div>
+      
     </div>
     
   </div>
@@ -891,5 +915,6 @@ src="https://www.facebook.com/tr?id=1510619060791532&ev=PageView&noscript=1"
 <script src="js/reveal.js?v=9" defer></script>
 <script src="js/contact-form.js?v=3" defer></script>
 
+  <script src="js/cms-loader.js?v=1" defer></script>
 </body>
 </html>
