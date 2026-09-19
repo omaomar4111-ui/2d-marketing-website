@@ -66,8 +66,8 @@ window.dataLayer = window.dataLayer || [];
 <link rel="preconnect" href="https://www.google-analytics.com"/>
 <link rel="preconnect" href="https://connect.facebook.net"/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/main.css?v=17"/>
-<link rel="stylesheet" href="css/pages.css?v=26"/>
+<link rel="stylesheet" href="css/main.css?v=18"/>
+<link rel="stylesheet" href="css/pages.css?v=27"/>
 
 
 <!-- Favicons -->
@@ -216,9 +216,6 @@ src="https://www.facebook.com/tr?id=1510619060791532&ev=PageView&noscript=1"
 ═══════════════════════════════════════════════════════ -->
 <section id="hero" class="hero-vr">
   
-  <!-- إضاءة الجنب (Side Glow) -->
-  <div class="hero-side-glow-left" aria-hidden="true"></div>
-  
   <!-- نص + لوجو جنب بعض -->
   <div class="hero-vr-inner">
     
@@ -226,7 +223,7 @@ src="https://www.facebook.com/tr?id=1510619060791532&ev=PageView&noscript=1"
     <div class="hero-vr-text">
       <h1 class="hero-vr-title">
         نحرّك براندك<br/>
-        <span class="hero-vr-title-accent accent">للأمام</span><br/>
+        <span class="hero-vr-title-accent">للأمام</span><br/>
         <span class="hero-vr-title-small">بسرعة وذكاء استراتيجي.</span>
       </h1>
       
@@ -243,35 +240,12 @@ src="https://www.facebook.com/tr?id=1510619060791532&ev=PageView&noscript=1"
       </a>
     </div>
     
-    <!-- عمود اللوجو + التمثال + Tagline -->
-    <div class="hero-logo-block">
-      <!-- Statue Background -->
-      <div class="hero-statue-bg" aria-hidden="true">
-        <img 
-          src="assets/images/hero-statue.webp" 
-          alt=""
-          loading="eager"
-          width="2000" 
-          height="2000"
-        />
-      </div>
-      
-      <!-- PR Logo (متراكب فوق التمثال) -->
-      <div class="hero-logo-focus">
-        <img 
-          src="assets/logos/pr-agency.webp" 
-          alt="PR Agency" 
-          width="400" 
-          height="400"
-          onerror="this.style.display='none';"
-        />
-      </div>
-      
-      <!-- Tagline (جنب اللوجو - Right-aligned) -->
-      <div class="hero-tagline">
-        <span>YOUR BRAND'S</span>
-        <span>CREATIVE PARTNER</span>
-      </div>
+    <!-- عمود اللوجو الضخم -->
+    <div class="hero-vr-logo-wrap">
+      <img src="assets/logos/pr-agency.webp" 
+           alt="PR Agency" 
+           class="hero-vr-logo-img" 
+           onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color:#7C3AED;font-size:120px;font-weight:900;font-family:Arial;\'>PR</div>';" />
     </div>
     
   </div>
